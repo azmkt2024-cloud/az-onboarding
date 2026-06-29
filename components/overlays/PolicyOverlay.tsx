@@ -1,43 +1,11 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { lossInsurers, lifeInsurers, mutualInsurers, type InsurerRow } from '@/lib/data/insurers';
 import { relatedOrgs } from '@/lib/data/relatedOrgs';
 import Icon from '@/components/Icon';
 
 type Props = { open: boolean; onClose: () => void };
-
-// 보험금청구서 인덱스(Supabase Storage claim-forms/_index.json)
-type ClaimEntry = {
-  insurer: string;
-  label?: string;
-  hosted?: boolean;
-  fileName: string;
-  publicUrl: string;
-  updatedAt: string;
-};
-
-// 보험사명 → 청구서 항목 배열 맵을 1회 로드 (보험사당 복수 문서 가능)
-function useClaimForms(): Map<string, ClaimEntry[]> {
-  const [map, setMap] = useState<Map<string, ClaimEntry[]>>(new Map());
-  useEffect(() => {
-    const base = process.env.NEXT_PUBLIC_SUPABASE_URL;
-    if (!base) return;
-    fetch(`${base}/storage/v1/object/public/claim-forms/_index.json`, { cache: 'no-store' })
-      .then((r) => (r.ok ? r.json() : Promise.reject()))
-      .then((d: { forms?: ClaimEntry[] }) => {
-        if (!d?.forms?.length) return;
-        const m = new Map<string, ClaimEntry[]>();
-        for (const f of d.forms) {
-          if (!m.has(f.insurer)) m.set(f.insurer, []);
-          m.get(f.insurer)!.push(f);
-        }
-        setMap(m);
-      })
-      .catch(() => {});
-  }, []);
-  return map;
-}
 
 function scrollToId(id: string) {
   document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -66,11 +34,9 @@ function PolicyCell({ value }: { value: InsurerRow['policyUrl'] }) {
 function InsurerTable({
   rows,
   faxLabel = '보험금 청구팩스',
-  claims,
 }: {
   rows: InsurerRow[];
   faxLabel?: string;
-  claims: Map<string, ClaimEntry[]>;
 }) {
   return (
     <div className="table-wrap">
@@ -84,7 +50,6 @@ function InsurerTable({
             <th>{faxLabel}</th>
             <th>약관확인</th>
             <th>청구양식</th>
-            <th>보험금청구서</th>
           </tr>
         </thead>
         <tbody>
@@ -121,26 +86,6 @@ function InsurerTable({
                   {r.claimLabel ?? '청구양식'}
                 </a>
               </td>
-              <td>
-                {claims.get(r.name)?.length ? (
-                  <span className="pol-claim-wrap">
-                    {claims.get(r.name)!.map((d) => (
-                      <a
-                        key={d.label ?? d.publicUrl}
-                        className="pol-claim-pdf"
-                        href={d.hosted === false ? d.publicUrl : d.publicUrl.split('?')[0]}
-                        target="_blank"
-                        rel="noopener"
-                        title={d.fileName}
-                      >
-                        {d.label ?? 'PDF 보기'}
-                      </a>
-                    ))}
-                  </span>
-                ) : (
-                  <span className="pol-claim-none">—</span>
-                )}
-              </td>
             </tr>
           ))}
         </tbody>
@@ -152,7 +97,6 @@ function InsurerTable({
 /** 보험사 전산 / 약관 / 청구양식 전체화면 오버레이 (리디자인) */
 export default function PolicyOverlay({ open, onClose }: Props) {
   const [q, setQ] = useState('');
-  const claims = useClaimForms();
   const norm = (s: string) => s.replace(/\s/g, '').toLowerCase();
   const filter = (rows: InsurerRow[]) =>
     q.trim() ? rows.filter((r) => norm(r.name).includes(norm(q))) : rows;
@@ -218,7 +162,7 @@ export default function PolicyOverlay({ open, onClose }: Props) {
                 <h2>손해보험</h2>
                 <span className="pol-sec-count">{loss.length}개사</span>
               </div>
-              <InsurerTable rows={loss} claims={claims} />
+              <InsurerTable rows={loss} />
             </section>
           )}
 
@@ -230,7 +174,7 @@ export default function PolicyOverlay({ open, onClose }: Props) {
                 <h2>생명보험</h2>
                 <span className="pol-sec-count">{life.length}개사</span>
               </div>
-              <InsurerTable rows={life} faxLabel="청구팩스" claims={claims} />
+              <InsurerTable rows={life} faxLabel="청구팩스" />
             </section>
           )}
 
@@ -242,7 +186,7 @@ export default function PolicyOverlay({ open, onClose }: Props) {
                 <h2>공제회사</h2>
                 <span className="pol-sec-count">{mutual.length}개사</span>
               </div>
-              <InsurerTable rows={mutual} faxLabel="청구팩스" claims={claims} />
+              <InsurerTable rows={mutual} faxLabel="청구팩스" />
             </section>
           )}
 
