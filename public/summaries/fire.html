@@ -1,0 +1,2015 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>손해보험설계사 핵심 요약집</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --p: #3182f6; --p-lt: #e8f1fd; --p-dk: #1b64da;
+    --green: #0dab5c; --grn-lt: #e6f7ef;
+    --red: #ef4444; --red-lt: #fef2f2;
+    --g50: #f8fafc; --g100: #f1f5f9; --g200: #e2e8f0;
+    --g300: #cbd5e1; --g400: #94a3b8; --g500: #64748b;
+    --g600: #475569; --g700: #334155; --g800: #1e293b; --g900: #0f172a;
+    --white: #ffffff; --r: 12px; --rsm: 8px; --rxs: 6px;
+  }
+  body { font-family: 'Pretendard', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--g50); color: var(--g800); font-size: 15px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+  /* ─── COVER ─── */
+  #cover { min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:2rem 1.5rem; background: linear-gradient(160deg,#fff 0%,#eef5fe 55%,#e8f1fd 100%); text-align:center; }
+  .cover-logo { display:flex; align-items:center; gap:8px; margin-bottom:2.5rem; }
+  .cover-logo-icon { width:36px; height:36px; background:var(--p); border-radius:10px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:18px; font-weight:800; }
+  .cover-logo-text { font-size:16px; font-weight:700; color:var(--g700); }
+  .cover-badge { display:inline-flex; align-items:center; gap:6px; background:var(--p-lt); color:var(--p); border-radius:100px; padding:5px 14px; font-size:13px; font-weight:600; margin-bottom:1.25rem; }
+  .cover-title { font-size:clamp(2rem,5vw,3.25rem); font-weight:800; color:var(--g900); letter-spacing:-1px; line-height:1.15; margin-bottom:.75rem; }
+  .cover-title em { color:var(--p); font-style:normal; }
+  .cover-subtitle { font-size:16px; color:var(--g500); margin-bottom:2.5rem; }
+  .cover-stats { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-bottom:2.5rem; }
+  .cover-stat { background:var(--white); border:1px solid var(--g200); border-radius:var(--r); padding:16px 24px; box-shadow:0 1px 3px rgba(0,0,0,.1); min-width:100px; }
+  .cover-stat-num { display:block; font-size:28px; font-weight:800; color:var(--p); letter-spacing:-.5px; }
+  .cover-stat-label { font-size:13px; color:var(--g400); font-weight:500; }
+  .cover-btn { background:var(--p); color:#fff; border:none; border-radius:100px; padding:15px 44px; font-size:16px; font-weight:700; cursor:pointer; font-family:inherit; transition:all .18s; box-shadow:0 4px 14px rgba(49,130,246,.35); }
+  .cover-btn:hover { background:var(--p-dk); transform:translateY(-1px); box-shadow:0 6px 20px rgba(49,130,246,.4); }
+  .cover-cheers { margin-top:1.5rem; font-size:14px; color:var(--g400); }
+
+  /* ─── APP SHELL ─── */
+  #app { display:none; min-height:100vh; }
+  .topbar { position:sticky; top:0; z-index:100; background:rgba(255,255,255,.95); backdrop-filter:blur(12px); border-bottom:1px solid var(--g200); padding:0 20px; height:56px; display:flex; align-items:center; gap:12px; }
+  .tb-logo { display:flex; align-items:center; gap:7px; flex-shrink:0; }
+  .tb-logo-icon { width:28px; height:28px; background:var(--p); border-radius:8px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:13px; font-weight:800; }
+  .tb-logo-text { font-size:14px; font-weight:700; color:var(--g700); }
+  .tb-divider { width:1px; height:18px; background:var(--g200); flex-shrink:0; }
+  .tb-prog-wrap { flex:1; display:flex; align-items:center; gap:10px; min-width:0; }
+  .tb-page-info { font-size:13px; color:var(--g400); font-weight:500; white-space:nowrap; }
+  .prog-bg { flex:1; height:4px; background:var(--g200); border-radius:2px; overflow:hidden; }
+  .prog-fill { height:100%; background:var(--p); border-radius:2px; transition:width .4s ease; }
+  .tb-pct { font-size:13px; color:var(--p); font-weight:700; white-space:nowrap; }
+  .tb-back { background:var(--g100); border:none; color:var(--g600); border-radius:var(--rxs); padding:6px 12px; font-size:13px; font-weight:600; cursor:pointer; font-family:inherit; transition:all .15s; flex-shrink:0; }
+  .tb-back:hover { background:var(--g200); }
+
+  /* ─── PAGE ─── */
+  .page-wrap { max-width:860px; margin:0 auto; padding:28px 20px 60px; }
+  .page-header { margin-bottom:20px; }
+  .part-chip { display:inline-flex; align-items:center; border-radius:100px; padding:4px 12px; font-size:12px; font-weight:700; margin-bottom:10px; }
+  .page-title-main { font-size:clamp(1.25rem,3vw,1.6rem); font-weight:800; color:var(--g900); letter-spacing:-.5px; margin-bottom:4px; line-height:1.25; }
+  .page-qcount { font-size:13px; color:var(--g400); font-weight:500; }
+
+  /* ─── CARDS ─── */
+  .section { background:var(--white); border:1px solid var(--g200); border-radius:var(--r); padding:20px; margin-bottom:12px; box-shadow:0 1px 2px rgba(0,0,0,.06); }
+  .section-title { font-size:14px; font-weight:700; color:var(--g800); margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+  .section-title::before { content:''; width:3px; height:14px; background:var(--p); border-radius:2px; flex-shrink:0; }
+  .content-text { font-size:14px; line-height:1.85; color:var(--g600); }
+  .hl        { color:#1d4ed8; font-weight:700; }
+  .hl-yellow { color:#b45309; font-weight:700; }
+  .hl-green  { color:#166534; font-weight:700; }
+  .hl-blue   { color:var(--p-dk); font-weight:700; }
+  .hl-red    { color:var(--red); font-weight:700; }
+  .hl-purple { color:#7c3aed; font-weight:700; }
+
+  /* ─── TABLE ─── */
+  .content-table { width:100%; border-collapse:collapse; font-size:13px; margin:10px 0; border-radius:var(--rsm); overflow:hidden; border:1px solid var(--g200); }
+  .content-table th { background:var(--g50); color:var(--g700); font-weight:700; padding:9px 12px; text-align:left; border-bottom:1px solid var(--g200); font-size:12.5px; }
+  .content-table td { padding:8px 12px; border-bottom:1px solid var(--g100); color:var(--g600); vertical-align:top; font-size:13px; }
+  .content-table tr:last-child td { border-bottom:none; }
+  .content-table tr:hover td { background:var(--g50); }
+
+  /* ─── LIST ─── */
+  .content-list { list-style:none; padding:0; margin:6px 0; }
+  .content-list li { padding:4px 0 4px 18px; position:relative; font-size:14px; color:var(--g600); line-height:1.75; }
+  .content-list li::before { content:'•'; position:absolute; left:4px; color:var(--p); font-weight:700; font-size:12px; top:6px; }
+  .content-list.num { counter-reset:lc; }
+  .content-list.num li::before { content:counter(lc)'.'; counter-increment:lc; font-weight:700; color:var(--g400); font-size:12px; top:4px; }
+
+  /* ─── CALLOUT BOXES ─── */
+  .wrong-box { background:var(--red-lt); border:1px solid #fecaca; border-radius:var(--rxs); padding:10px 14px; margin:8px 0; font-size:13px; color:#991b1b; line-height:1.7; }
+  .wrong-box::before { content:'✗ 오답유형  '; font-weight:700; color:var(--red); }
+  .tip-box { background:var(--grn-lt); border:1px solid #a7f3d0; border-radius:var(--rxs); padding:10px 14px; margin:8px 0; font-size:13px; color:#065f46; line-height:1.7; }
+  .tip-box::before { content:'💡 Plus Tip!  '; font-weight:700; color:var(--green); }
+  .exam-box { background:#fffbeb; border:1px solid #fde68a; border-radius:var(--rxs); padding:10px 14px; margin:8px 0; font-size:13px; color:#78350f; line-height:1.7; }
+  .exam-box::before { content:'📝 출제유형  '; font-weight:700; color:#d97706; }
+  .memo-box { background:#eff6ff; border:1px solid #bfdbfe; border-radius:var(--rxs); padding:10px 14px; margin:8px 0; font-size:13px; color:#1e40af; line-height:1.7; }
+
+  /* ─── GRID / MINI-CARD ─── */
+  .grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:8px 0; }
+  @media(max-width:560px){
+    .grid-2 { grid-template-columns:1fr; }
+    .section { overflow-x:auto; -webkit-overflow-scrolling:touch; }
+    .content-table { min-width:480px; font-size:12px; }
+    .content-table th, .content-table td { padding:7px 9px; word-break:keep-all; }
+  }
+  .mini-card { background:var(--g50); border:1px solid var(--g200); border-radius:var(--rsm); padding:12px 14px; }
+  .mini-card-title { font-size:13px; font-weight:700; color:var(--g700); margin-bottom:6px; }
+  .mini-card-body { font-size:13px; color:var(--g600); line-height:1.7; }
+
+  /* ─── HIGHLIGHT SECTION ─── */
+  .highlight-section { background:linear-gradient(135deg,var(--p-lt),#f0f7ff); border:1px solid #bfdbfe; border-radius:var(--r); padding:18px 20px; margin-bottom:12px; }
+
+  /* ─── BOTTOM NAV ─── */
+  .page-nav { display:flex; justify-content:space-between; align-items:center; margin-top:24px; padding-top:20px; border-top:1px solid var(--g200); gap:12px; }
+  .nav-btn { background:var(--white); border:1px solid var(--g200); color:var(--g700); border-radius:var(--rsm); padding:10px 22px; font-size:14px; font-weight:600; cursor:pointer; font-family:inherit; transition:all .15s; box-shadow:0 1px 2px rgba(0,0,0,.06); }
+  .nav-btn:hover { background:var(--g50); border-color:var(--g300); }
+  .nav-btn:disabled { opacity:.35; cursor:not-allowed; box-shadow:none; }
+  .nav-btn.primary { background:var(--p); border-color:var(--p); color:#fff; box-shadow:0 2px 8px rgba(49,130,246,.25); }
+  .nav-btn.primary:hover { background:var(--p-dk); border-color:var(--p-dk); }
+  .page-indicator { font-size:13px; color:var(--g400); font-weight:500; }
+
+  /* ─── TOC ─── */
+  .toc-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(190px,1fr)); gap:8px; margin:12px 0; }
+  .toc-item { background:var(--g50); border:1px solid var(--g200); border-radius:var(--rsm); padding:10px 14px; cursor:pointer; transition:all .15s; }
+  .toc-item:hover { background:var(--p-lt); border-color:#93c5fd; }
+  .toc-num { font-size:11px; color:var(--g400); font-weight:600; margin-bottom:3px; }
+  .toc-name { font-size:13px; color:var(--g700); line-height:1.4; font-weight:500; }
+
+  /* ─── UTILS ─── */
+  .divider { height:1px; background:var(--g200); margin:12px 0; }
+  .mb { margin-bottom:10px; } .mt { margin-top:10px; }
+  p.indent { padding-left:1em; } p.indent2 { padding-left:2em; }
+  .badge { display:inline-block; padding:2px 8px; border-radius:100px; font-size:11.5px; font-weight:700; margin-right:3px; }
+  .badge-orange { background:#fff7ed; color:#ea580c; }
+  .badge-blue   { background:var(--p-lt); color:var(--p); }
+  .badge-green  { background:var(--grn-lt); color:#15803d; }
+  .badge-red    { background:var(--red-lt); color:var(--red); }
+  .badge-purple { background:#f5f3ff; color:#7c3aed; }
+  .badge-teal   { background:#f0fdfa; color:#0d9488; }
+  sub-note { display:block; font-size:12.5px; color:var(--g400); padding-left:1em; margin-top:2px; }
+  .scroll-top { position:fixed; bottom:24px; right:24px; background:var(--p); color:#fff; border:none; border-radius:50%; width:42px; height:42px; font-size:18px; cursor:pointer; opacity:0; transition:opacity .25s; z-index:200; box-shadow:0 4px 6px rgba(0,0,0,.07); }
+  .scroll-top.visible { opacity:1; }
+
+</style>
+</head>
+<body>
+
+<!-- ═══ COVER ═══ -->
+<div id="cover">
+  <div class="cover-logo">
+    <div class="cover-logo-icon">L</div>
+    <span class="cover-logo-text">LIFE MD × 한화손해보험</span>
+  </div>
+  <div class="cover-badge"><span>📋</span> 손해보험설계사 자격증 시험 준비</div>
+  <h1 class="cover-title">손해보험설계사<br><em>핵심 요약집</em></h1>
+  <p class="cover-subtitle">합격률 100%를 향한 가장 빠른 지름길</p>
+  <div class="cover-stats">
+    <div class="cover-stat"><span class="cover-stat-num">38</span><span class="cover-stat-label">총 페이지</span></div>
+    <div class="cover-stat"><span class="cover-stat-num">4</span><span class="cover-stat-label">파트</span></div>
+    <div class="cover-stat"><span class="cover-stat-num">16</span><span class="cover-stat-label">챕터</span></div>
+    <div class="cover-stat"><span class="cover-stat-num">40</span><span class="cover-stat-label">총 문항</span></div>
+  </div>
+  <button class="cover-btn" onclick="startApp()">학습 시작하기 →</button>
+  <p class="cover-cheers">✨ 넌 분명 해낼 수 있어. 포기하지 말고 끝까지 가자!</p>
+</div>
+
+<!-- ═══ APP ═══ -->
+<div id="app">
+  <nav class="topbar">
+    <div class="tb-logo">
+      <div class="tb-logo-icon">L</div>
+      <span class="tb-logo-text">손해보험 요약집</span>
+    </div>
+    <div class="tb-divider"></div>
+    <div class="tb-prog-wrap">
+      <span class="tb-page-info" id="nav-page-info">1 / 38</span>
+      <div class="prog-bg"><div class="prog-fill" id="progress-fill" style="width:2.6%"></div></div>
+      <span class="tb-pct" id="nav-percent">2.6%</span>
+    </div>
+    <button class="tb-back" onclick="goBack()">← 처음으로</button>
+  </nav>
+  <div class="page-wrap" id="page-container"></div>
+  <button class="scroll-top" id="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+</div>
+
+<script>
+
+// ══════════════════════════════════════════
+//  PAGE DATA  (38 pages)
+// ══════════════════════════════════════════
+
+const pages = [
+
+// ─────────────── PAGE 1 ─────────────────
+{ title: 'Part 1 — 보험이론·윤리', part: 'Part 1', partColor: '#ea580c', partBg: '#fff7ed', qCount: '01. 모집종사자의 이해 및 윤리규범 (4문항)',
+  html: `
+<div class="section">
+  <div class="section-title">1. 보험의 모집</div>
+  <div class="content-text mb">
+    <span class="hl">모집</span>이란? 보험회사를 위하여 계약 체결을 <span class="hl-yellow">중개</span> 또는 <span class="hl">대리</span>하는 것<br>
+    &nbsp;&nbsp;• 중개하는 자: <span class="hl-blue">설계사, 중개사</span><br>
+    &nbsp;&nbsp;• 대리하는 자: <span class="hl">대리점</span><br>
+    &nbsp;&nbsp;• 보험모집을 할 수 있는 자: 보험설계사, 보험대리점, 보험중개사, 보험회사 임직원
+  </div>
+  <table class="content-table">
+    <tr><th>구분</th><th>계약체결권</th><th>고지의무수령권</th><th>보험료수령권</th><th>등록기관</th></tr>
+    <tr><td>설계사</td><td style="color:#f87171">✗</td><td style="color:#f87171">✗</td><td style="color:#f87171">✗</td><td>금융위원회(손보협회 위탁)</td></tr>
+    <tr><td>대리점</td><td style="color:#4ade80">✓</td><td style="color:#4ade80">✓</td><td style="color:#4ade80">✓</td><td>금융위원회(손보협회 위탁)</td></tr>
+    <tr><td>중개사</td><td style="color:#f87171">✗</td><td style="color:#f87171">✗</td><td style="color:#f87171">✗</td><td>금융위원회(금융감독원 위탁)</td></tr>
+  </table>
+  <div class="wrong-box">설계사는 계약을 대리하는 자이다. (✗) — 중개하는 자!</div>
+  <div class="tip-box">단, 보험회사 임원 중 대표이사·사외이사·감사·감사위원은 보험모집 불가</div>
+</div>
+
+<div class="section">
+  <div class="section-title">2. 보험설계사</div>
+  <div class="content-text mb">
+    <span class="hl-yellow">가. 등록요건</span>: 연수과정 이수 후 시험합격 <span class="hl">1년 이내</span> or 보험관계업무에 <span class="hl">1년 이상</span> 종사자<br>
+    &nbsp;&nbsp;1) <span class="hl-green">전속설계사</span>: 손보사, 생보사 중 1개 회사만 영위하는 설계사<br>
+    &nbsp;&nbsp;2) <span class="hl-green">교차설계사</span>: 손보사 1개 + 생보사 1개 함께 (1사 전속 예외 제도)
+  </div>
+  <div class="content-text mb">
+    <span class="hl-yellow">나. 설계사 등록제한</span> → <span class="hl-green">신용불량자는 등록제한 해당자가 아님!</span><br>
+    &nbsp;&nbsp;• 피성년후견인, 피한정후견인, 파산자로 복권되지 아니한 자<br>
+    &nbsp;&nbsp;• 등록 취소 또는 벌금 이상의 형을 선고받고 집행종료 후 <span class="hl">2년 미경과자</span><br>
+    &nbsp;&nbsp;• 벌금 이상, 등록 취소 <span class="hl">2년</span> 경과 / 보험료 유용 <span class="hl">3년</span>이 지나야 등록 가능
+  </div>
+  <div class="content-text">
+    <span class="hl-yellow">다. 보험설계사 등록과 말소</span><br>
+    &nbsp;&nbsp;• 등록은 보험회사를 통해서만 가능 / 말소는 보험회사를 통하거나 직접 말소신청 가능<br>
+    &nbsp;&nbsp;• <span class="hl">직접 말소시 필요서류</span>: 해촉증명서 원본, 내용증명우편(발송 후 10일 경과) 원본, 신분증
+  </div>
+  <div class="exam-box">직접 말소 시 필요서류가 아닌 것은? → 설계사 등록증 원본</div>
+  <div class="wrong-box">교차설계사의 경우 전속보험사에서 말소되면 나머지는 자동 말소된다. (✗)<br>보험회사와 위촉계약이 종료되는 즉시 타 보험사로 이직할 수 있다. (✗)<br>등록 취소 후 25개월 경과자 → 등록가능</div>
+</div>
+` },
+
+// ─────────────── PAGE 3 ─────────────────
+{ title: '보험대리점 / 재무설계 / 모집 프로세스', part: 'Part 1', partColor: '#ea580c', partBg: '#fff7ed', qCount: '01. 모집종사자의 이해 및 윤리규범 (계속)',
+  html: `
+<div class="section">
+  <div class="section-title">3. 보험대리점 (여러 보험회사와 계약체결 가능, 회사 수 제한 없음)</div>
+  <div class="content-text mb">
+    <span class="hl-yellow">가. 분류</span>: 영위업종별(전업/겸업) / 유형별(전속 1개사, 비전속 2개 이상) / 운영주체별(개인/법인) / 영위종목별(생명/손해/제3보험)<br>
+    &nbsp;&nbsp;• 개인대리점 = 직접업무폐지 가능 (<span class="hl">先 업무폐지, 後 계약해지</span>)<br>
+    &nbsp;&nbsp;• 법인대리점 = <span class="hl-blue">상법</span>상 회사형태 운영 (보험업법상 ✗)<br>
+    &nbsp;&nbsp;• 법인대리점의 감사는 모집인 겸임 불가
+  </div>
+  <div class="content-text mb">
+    <span class="hl-yellow">나. 등록요건</span><br>
+    &nbsp;&nbsp;• 개인보험대리점: 연수과정 이수 후 등록신청 <span class="hl">2년 이내</span> or 보험관계업무 <span class="hl">2년 이상</span> 종사자<br>
+    &nbsp;&nbsp;• 법인보험대리점: 개인 손해보험대리점 등록요건 해당자 <span class="hl">1명 이상</span> 두고 있는 법인
+  </div>
+  <div class="content-text mb">
+    <span class="hl-yellow">다. 등록제한</span>: 설계사·중개사로 등록된 자, 자동차 판매업자 (단, 중고차·수입차 판매업자 가능), 화물·여객자동차 운송사업자, 재단·사단법인, 자기대리점(자기실적 50/100↑)
+  </div>
+  <div class="content-text">
+    <span class="hl-yellow">라. 영업보증금</span>: 영업보증금을 예탁하지 아니하고는 영업 개시 불가 → <span class="hl">보험회사에 예탁</span><br>
+    &nbsp;&nbsp;• 규모: <span class="hl">1억원</span>(법인보험대리점: <span class="hl">3억원</span>) 한도<br>
+    &nbsp;&nbsp;• <span class="hl-green">금융기관보험대리점은 영업보증금 예탁의무 면제</span>
+  </div>
+  <div class="wrong-box">직접 업무폐지 시 계약해지 후에 업무폐지를 신청한다. (✗)</div>
+</div>
+
+<div class="section">
+  <div class="section-title">4. 재무설계 단계 (순서 기억 ③⑤번 괄호 채우기)</div>
+  <div class="content-text">
+    ① 고객목표확인 → ② 정보수집 → <span class="hl">③ (재무상태 진단)</span> → ④ 계획 작성 → <span class="hl">⑤ (실행)</span> → ⑥ 재평가 및 수정
+  </div>
+  <div class="wrong-box">초기에 수립된 계획을 끝까지 추진한다. (✗) | 먼저 정보를 수집한 후 우선순위를 파악한다. (✗)</div>
+</div>
+
+<div class="section">
+  <div class="section-title">5. 보험모집 프로세스 (순서 기억 및 단계별 특징)</div>
+  <div class="content-text mb">
+    ① 가망고객 발굴 → ② 접근 → ③ 정보수집 → ④ 가입권유 → ⑤ 계약체결 → ⑥ 소개확보 및 증권전달
+  </div>
+  <ul class="content-list">
+    <li><span class="hl-blue">접근</span>: 고객과의 첫 만남</li>
+    <li><span class="hl-blue">정보수집</span>: 일반정보, 재정정보, 고객니즈 수집</li>
+    <li><span class="hl-blue">가입권유</span>: 최적의 위험보장설계 제시</li>
+    <li><span class="hl-blue">계약체결</span>: 영업의 최종 목표이자 새로운 서비스의 시작</li>
+    <li><span class="hl-blue">증권전달</span>: 보험가입에 대한 최종 확인 및 완전판매 실현</li>
+  </ul>
+  <div class="exam-box">5대 필요자금이 아닌 것은? → 장례비<br><span class="hl-green">5대 필요자금 암기: 생활비·양육비(교육,결혼)·주택구입비·노후자금·긴급예비자금 → "생양주노긴"</span></div>
+  <div class="wrong-box">판매프로세스의 각 단계는 반드시 순차적으로 진행되어야 한다. (✗)</div>
+</div>
+` },
+
+// ─────────────── PAGE 4 ─────────────────
+{ title: '우수인증설계사 / 손해보험 기초이론', part: 'Part 1', partColor: '#ea580c', partBg: '#fff7ed', qCount: '01~02. 윤리규범 + 기초이론 (2문항)',
+  html: `
+<div class="section">
+  <div class="section-title">6. 우수인증 설계사 제도</div>
+  <ul class="content-list">
+    <li><span class="hl-yellow">선발대상</span>: 보험설계사 및 전속 개인대리점만 가능 (사용인 ✗, 비전속 ✗, <span class="hl-red">법인 ✗</span>)</li>
+    <li><span class="hl-yellow">근속기간</span>: 동일회사에 <span class="hl">3년 이상</span> 재직자</li>
+    <li>보험계약 유지율 및 소득·실적: 매 선발연도에 업계와 협의하여 기준 마련</li>
+    <li>불완전 판매 및 모집질서 위반 <span class="hl">無</span></li>
+    <li><span class="hl-green">손해보험협회</span>에서 인증, 유효기간은 <span class="hl">1년</span> (2년 ✗) → 매년 5~6월경 확정선발</li>
+    <li>별도의 수당 없음, 보험연수원 무상교육, 인증도용시 <span class="hl">2년간</span> 신청 금지</li>
+  </ul>
+</div>
+
+<div class="section">
+  <div class="section-title">1. 위험과 관련된 개념 (3가지)</div>
+  <div class="content-text mb">
+    <span class="hl-yellow">위험의 정의</span>: 우연한 사고발생의 불확실성 또는 가능성<br>
+    &nbsp;&nbsp;⇒ <span class="hl">다수</span>의 동질적 위험 (소수 ✗, 서로다른 ✗)<br>
+    &nbsp;&nbsp;⇒ <span class="hl">우연적</span> 사고 위험 (필연적 ✗)<br>
+    &nbsp;&nbsp;⇒ <span class="hl">명확하고 측정 가능한</span> 위험
+  </div>
+  <div class="grid-2">
+    <div class="mini-card">
+      <div class="mini-card-title">가. 위태 (손해 가능성 증가)</div>
+      <div class="mini-card-body">
+        <span class="hl-green">물리적 위태</span>: 자연적 성질 (도로위 빙판, 기름걸레)<br>
+        <span class="hl-yellow">도덕적 위태</span>: 고의적 행위 (고의방화, 사기)<br>
+        <span class="hl-blue">정신적 위태</span>: 부주의·무관심 (졸음운전)
+      </div>
+    </div>
+    <div class="mini-card">
+      <div class="mini-card-title">나~다. 사고와 손해</div>
+      <div class="mini-card-body">
+        <span class="hl">사고</span>: 손해의 직접적인 원인 (★원인=사고)<br>
+        예: 폭풍우→선박 침몰 → <span class="hl-green">폭풍우=사고</span><br>
+        <span class="hl">손해</span>: 경제적·재산적 가치의 상실 또는 감소
+      </div>
+    </div>
+  </div>
+  <div class="tip-box">위태한 사고는 손해를 일으켜~</div>
+</div>
+
+<div class="section">
+  <div class="section-title">2. 위험의 분류</div>
+  <div class="content-text mb">
+    <span class="hl-yellow">객관적 위험</span>: <span class="hl">대수의 법칙</span>에 근거 — 보험사업자·기업 위험관리자에게 유용<br>
+    <span class="hl-yellow">주관적 위험</span>: 개인의 직감, <span class="hl">통계측정 불가</span><br>
+    <span class="hl-green">순수위험</span>: 이익 가능성 없고 <span class="hl">손해만 발생</span>, 보험화 가능성 높음<br>
+    &nbsp;&nbsp;• 우발적 발생, 대수의 법칙 적용 (예: 상해, 사망, 화재, 교통사고)<br>
+    &nbsp;&nbsp;• 개별주체 손해 시 사회 전체도 동일한 손해<br>
+    <span class="hl-red">투기위험</span>: 손해와 이익 모두 상존 (주식투자, 도박) — <span class="hl">보험 불가능</span>
+  </div>
+  <div class="wrong-box">순수위험은 모두 보험화가 가능하다. (✗) → 위험측정 가능하고 보험사 담보력 있는 경우만 가능</div>
+</div>
+` },
+
+// ─────────────── PAGE 5 ─────────────────
+{ title: '보험 기본원칙 / 분류', part: 'Part 1', partColor: '#ea580c', partBg: '#fff7ed', qCount: '02. 손해보험 기초이론 (계속)',
+  html: `
+<div class="section">
+  <div class="section-title">3. 보험의 기본 원칙</div>
+  <table class="content-table">
+    <tr><th>원칙</th><th>내용</th></tr>
+    <tr><td><span class="hl">대수의 법칙</span></td><td>동일한 사실을 오랜 기간 대량 관찰 → 위험률을 통계적 추출(과학적 보험)</td></tr>
+    <tr><td><span class="hl-yellow">수지상등의 원칙</span></td><td>순보험료 총액 = 전체보험금 총액 합치 (<strong style="color:#ff6b6b">수입=지출</strong>, 보험회사 관점)</td></tr>
+    <tr><td><span class="hl-green">이득금지의 원칙</span></td><td>손해보험 고유의 원칙 (인보험에는 無) → 초과보험·중복보험·보험자대위와 관련</td></tr>
+    <tr><td><span class="hl-blue">실손보상의 원칙</span></td><td>실제 손해액만큼 보상 (예: 실손의료보험)</td></tr>
+    <tr><td>비례보상의 원칙</td><td>비례적 책임주의, 안분의 원칙</td></tr>
+    <tr><td>급부·반대급부의 원칙</td><td>"Lexis의 법칙" — 보험료는 보험금 지급에 과부족 없어야 함 (개개인 관점)</td></tr>
+  </table>
+</div>
+
+<div class="section">
+  <div class="section-title">4. 보험의 분류</div>
+  <div class="content-text mb">
+    <span class="hl-yellow">가. 운영형태에 따른 분류</span><br>
+    &nbsp;&nbsp;<span class="hl">의무보험</span>: 자동차보험(대인배상Ⅰ+대물배상) + <span class="hl-green">특, 가, 체, 유, 원, (지), 다</span><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;→ <span class="hl-blue">특수건물화재·가스사고배상·체육시설업자배상·유도선업자배상·원자력·다중이용업소화재배상</span>
+  </div>
+  <div class="tip-box">체육시간에 가스폭발해도 유도선수는 놀라지 않는다 → 체·가·유 의무보험!</div>
+  <div class="content-text mb">
+    <span class="hl-yellow">나. 보험기간에 따른 분류</span><br>
+    &nbsp;&nbsp;<span class="hl">기간보험</span>: 언제부터 언제까지 (자동차보험 등)<br>
+    &nbsp;&nbsp;<span class="hl">구간보험</span>: 어디서 어디까지 → <span class="hl-green">구·운·적</span> (운송보험·적하보험)<br>
+    &nbsp;&nbsp;<span class="hl">혼합보험</span>: 기간+구간 → <span class="hl-green">여행·조·건</span> (여행자·조립·건설공사)
+  </div>
+  <div class="content-text">
+    <span class="hl-yellow">다. 위험분담 관계에 따른 분류</span><br>
+    &nbsp;&nbsp;<span class="hl">원보험</span>: 보험회사가 계약 직접 인수<br>
+    &nbsp;&nbsp;<span class="hl">재보험</span>: 거대위험 분산 (공장화재·항공·선박)<br>
+    &nbsp;&nbsp;• 이익에 관한 보험 = <span class="hl-blue">기업휴지보험</span>(공장 가동 못한 간접손해)<br>
+    &nbsp;&nbsp;• 보험업법상: 손해보험 / 생명보험 / <span class="hl">제3보험(상해·질병·간병)</span><br>
+    &nbsp;&nbsp;• 상법상: 손해보험 / 인보험(생명보험·상해보험)
+  </div>
+</div>
+` },
+
+// ─────────────── PAGE 6 ─────────────────
+{ title: '보험범죄 및 교통사고 예방', part: 'Part 1', partColor: '#ea580c', partBg: '#fff7ed', qCount: '03. 보험범죄 및 교통사고 예방 (2문항)',
+  html: `
+<div class="section">
+  <div class="section-title">1. 보험사기 행위</div>
+  <div class="content-text mb">
+    <span class="hl-yellow">정의</span>: 보험사고의 발생·원인·내용에 관하여 보험자를 기망하여 보험금을 청구하는 행위<br>
+    &nbsp;&nbsp;• <span class="hl-blue">연성사기</span>: 사고는 났으나 과잉청구<br>
+    &nbsp;&nbsp;• <span class="hl-red">경성사기</span>: 의도적·고의적인 조작
+  </div>
+  <div class="content-text">
+    <span class="hl-yellow">처벌 (보험사기방지특별법)</span>: <span class="hl">10년 이하의 징역, 5천만원 이하 벌금</span><br>
+    &nbsp;&nbsp;• 상습범: 그 죄에 정한 형의 <span class="hl">2분의 1까지 가중</span><br>
+    &nbsp;&nbsp;• <span class="hl-green">미수범은 처벌 대상</span><br>
+    &nbsp;&nbsp;• 이득액이 <span class="hl">5억원 이상</span>일 때: 특별경제가중처벌법에 의해 가중처벌
+  </div>
+  <div class="wrong-box">사기범은 5년 이하 징역 또는 2천만원 이하 벌금형, 미수범은 처벌하지 않는다. (✗)</div>
+</div>
+
+<div class="section">
+  <div class="section-title">2. 나이롱환자 근절 — 자동차손해배상보장법 (병원)</div>
+  <ul class="content-list">
+    <li>교통사고 환자 외출·외박 시 <span class="hl">의료기관</span> 허락 필요 (<span class="hl-red">보험회사 허락 ✗</span>)</li>
+    <li>보험회사의 외출·외박기록 열람청구권 인정 (<span class="hl-green">환자 동의 없이 가능</span>)</li>
+    <li>의료인이 외출·외박 허가·확인 못할 경우 의료기관 종사자가 대신 서명 또는 날인</li>
+    <li>위반시 <span class="hl">과태료 300만원</span> / 외출·외박 기록은 <span class="hl">3년간 보존</span></li>
+  </ul>
+  <div class="wrong-box">외출/외박기록은 환자 동의 없이는 보험회사에서 열람할 수 없다. (✗)</div>
+</div>
+
+<div class="section">
+  <div class="section-title">3. 자동차관리법 (정비공장)</div>
+  <ul class="content-list">
+    <li>정비의뢰자의 동의 없는 정비업체의 임의수리 금지</li>
+    <li>정비 전: <span class="hl">정비견적서</span>, 정비 후: <span class="hl">정비내역서</span> 교부 의무화</li>
+    <li>위반시 <span class="hl">과태료 100만원</span></li>
+  </ul>
+  <div class="wrong-box">정비업체는 정비가 끝난 후 정비의뢰자가 요구한 경우에만 정비내역서를 교부하면 된다. (✗)</div>
+</div>
+` },
+
+// ─────────────── PAGE 7 ─────────────────
+{ title: '음주운전 처벌 기준', part: 'Part 1', partColor: '#ea580c', partBg: '#fff7ed', qCount: '03. 보험범죄 및 교통사고 예방 (계속)',
+  html: `
+<div class="section">
+  <div class="section-title">4. 음주운전시 운전자에게 주어지는 처벌</div>
+  <div class="content-text mb"><span class="hl-yellow">1) 음주운전 위험운전치사상죄 (특정범죄가중처벌법)</span></div>
+  <table class="content-table">
+    <tr><th>구분</th><th>처벌</th></tr>
+    <tr><td>음주운전 사망사고 시</td><td><span class="hl">무기 또는 3년 이상의 징역</span></td></tr>
+    <tr><td>음주운전 상해사고 시</td><td>1년 ~ 15년 이하의 징역 / 1천만원 ~ 3천만원 이하 벌금</td></tr>
+  </table>
+  <div class="content-text mt mb"><span class="hl-yellow">2) 음주운전 처벌 벌칙 (도로교통법 제148조의2)</span></div>
+  <table class="content-table">
+    <tr><th>구분</th><th>처벌기준</th></tr>
+    <tr><td>1회 위반 0.2% 이상</td><td><span class="hl">2년 이상 5년 이하 징역 / 1천만원 이상 2천만원 이하 벌금</span></td></tr>
+    <tr><td>1회 위반 0.08~0.2% 미만</td><td>1년 이상 2년 이하 징역 / 5백만원 이상 1천만원 이하 벌금</td></tr>
+    <tr><td>1회 위반 0.03~0.08% 미만</td><td>1년 이하 징역 / 5백만원 이하 벌금</td></tr>
+    <tr><td>2회 위반</td><td>2년 이상 5년 이하 징역 / 1천만원 이상 2천만원 이하 벌금</td></tr>
+    <tr><td>측정거부</td><td><span class="hl-red">1년 이상 5년 이하 징역 / 5백만원 이상 2천만원 이하 벌금</span></td></tr>
+  </table>
+  <div class="content-text mt mb"><span class="hl-yellow">3) 음주운전관련 면허 행정처벌</span></div>
+  <table class="content-table">
+    <tr><th>구분</th><th>처벌기준</th></tr>
+    <tr><td>0.03% ~ 0.08% 미만</td><td>벌점 100점(면허정지 100일), 사고 시 면허취소(2년간 재취득 불가), 사망케 한 경우 면허취소(5년간 재취득 불가)</td></tr>
+    <tr><td>0.08% 이상 또는 음주측정 불응시</td><td><span class="hl">면허취소 / 1년간 면허취득 불가</span></td></tr>
+    <tr><td>음주운전 2회 이상</td><td>면허취소 / <span class="hl">2년간 면허취득 불가</span></td></tr>
+    <tr><td>2회 이상 교통사고 야기</td><td>면허취소 / <span class="hl">3년간 면허취득 불가</span></td></tr>
+    <tr><td>음주운전 사상 후 도주</td><td>면허취소 / <span class="hl">5년간 면허취득 불가</span></td></tr>
+  </table>
+  <div class="wrong-box">혈중알코올농도 0.03% 이상 0.08% 미만인 경우 대인사고 발생하더라도 면허취소는 되지 않는다. (✗)<br>혈중알코올농도 0.08% 이상이더라도 사고가 발생하지 않는다면 면허취소는 되지 않는다. (✗)</div>
+  <div class="exam-box">음주측정을 불응한 경우 사고발생 여부를 불문하고 면허취소 된다.</div>
+</div>
+` },
+
+// ─────────────── PAGE 8 ─────────────────
+{ title: '주요 면허취소 / 교통사고 예방 법령', part: 'Part 1', partColor: '#ea580c', partBg: '#fff7ed', qCount: '03. 보험범죄 및 교통사고 예방 (계속)',
+  html: `
+<div class="section">
+  <div class="section-title">5. 주요 운전면허 취소 위반사항</div>
+  <ul class="content-list">
+    <li><span class="hl">뺑소니</span>: 교통사고로 사람을 죽게 하거나 다치게 하고 구호조치를 취하지 아니한 때</li>
+    <li><span class="hl">음주</span>: 혈중알코올농도 <span class="hl-red">0.03% 이상</span>에서 운전하다가 사람을 죽게 하거나 다치게 한 때<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;혈중알코올농도 <span class="hl-red">0.08% 이상</span>에서 운전한 때</li>
+    <li><span class="hl">음주측정 불응</span>: 음주를 인정할 만한 이유가 있음에도 경찰공무원의 측정요구에 불응한 때</li>
+    <li><span class="hl">면허증 대여</span>: 운전면허증을 다른 사람에게 빌려주어 운전하게 하거나 다른 사람의 면허증을 빌려서 사용한 경우</li>
+    <li><span class="hl">난폭운전</span>: 법 제46조의3 위반</li>
+  </ul>
+</div>
+
+<div class="section">
+  <div class="section-title">6. 교통사고 법규위반별 벌점 및 범칙금 (승용차 기준)</div>
+  <div class="content-text mb"><span class="hl-green">인적피해 교통사고(1명당)</span>: 사망 <span class="hl">90점</span> / 중상 <span class="hl">15점</span> / 경상 <span class="hl">5점</span> / 부상신고 <span class="hl">2점</span></div>
+  <table class="content-table">
+    <tr><th>위반행위</th><th>범칙금(일반/보호구역)</th><th>과태료(일반/보호구역)</th><th>벌점(일반/보호구역)</th></tr>
+    <tr><td>속도위반</td><td>3~12만원 / 6~15만원</td><td>4~13만원 / 7~16만원</td><td>0~60점 / 15~120점</td></tr>
+    <tr><td>신호·지시위반</td><td><span class="hl">6만원 / 12만원</span></td><td>7만원 / 13만원</td><td>15점 / 30점</td></tr>
+    <tr><td>보행자보호의무 불이행(횡단보도)</td><td>6만원 / 12만원</td><td>—</td><td>10점 / 20점</td></tr>
+    <tr><td>주·정차위반</td><td>4만원 / 8만원</td><td>4만원(2시간이상 5만원) / 8만원(9만원)</td><td>—</td></tr>
+  </table>
+  <div class="exam-box">어린이/노인/장애인 보호구역 내 보행자보호의무 불이행시 벌점? → 20점</div>
+  <div class="wrong-box">일반도로에서 20km/h 이하 속도위반시 15점의 벌점이 부과된다. (✗)</div>
+</div>
+
+<div class="section">
+  <div class="section-title">7. 교통사고 예방을 위해 강화된 법령</div>
+  <ul class="content-list">
+    <li><span class="hl-blue">교통사고처리특례법</span>: 치사에 이르지 않은 치상죄 등에 한해 특례를 둠. 예외: 도주·중앙선 침범·<span class="hl">제한속도 20km/h 초과</span> 등</li>
+    <li><span class="hl-blue">도로교통법</span>: 난폭운전 → <span class="hl">1년 이하 징역 또는 500만원 이하 벌금</span>. 일반도로 뒷자석 안전띠 의무화, 자전거 음주운전 단속 처벌 신설</li>
+    <li><span class="hl-blue">특정범죄가중처벌법</span>: 음주운전으로 타인을 사상케 한 경우 위험운전치사상죄 → 상해: 1년이상 15년이하 징역, 사망: 무기 또는 3년이상 징역</li>
+  </ul>
+</div>
+` },
+
+// ─────────────── PAGE 9 ─────────────────
+{ title: 'Part 2 — 보험법규 | 손해보험 법규와 약관', part: 'Part 2', partColor: '#2563eb', partBg: '#eff6ff', qCount: '01. 손해보험 법규와 약관 (4문항)',
+  html: `
+<div class="section">
+  <div class="section-title">1. 보험계약 관계자</div>
+  <div class="content-text mb">
+    <span class="hl-yellow">가. 보험회사(보험자) 주요의무</span><br>
+    &nbsp;&nbsp;① 보험약관의 교부 및 설명의무 ⇨ 위반시 계약이 성립한 날로부터 <span class="hl">3개월 내 취소</span> 가능<br>
+    &nbsp;&nbsp;② 보험증권 교부의무<br>
+    &nbsp;&nbsp;③ 청약의 낙부통지의무 및 승낙 전 담보<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="hl-green">승낙의제</span>: 통지하지 않고 <span class="hl">30일 경과</span> 시 승낙한 것으로 간주<br>
+    &nbsp;&nbsp;④ 보험금 지급의무
+  </div>
+  <div class="content-text mb">
+    <span class="hl-yellow">나. 보험계약자</span>: 계약의 당사자 / 보험료 납입의무 / 만기환급금 수령자<br>
+    &nbsp;&nbsp;• 보험수익자를 지정·변경할 권리 보유 (<span class="hl">피보험자 동의</span> 필요)<br>
+    &nbsp;&nbsp;• <span class="hl">고지의무 당사자</span>: 계약자, 피보험자, 이들의 대리인 (보험수익자 ✗)<br>
+    &nbsp;&nbsp;• <span class="hl-green">고지의무수령권자</span>: 보험회사 / 대리점 / 보험의(醫)
+  </div>
+  <div class="content-text">
+    <span class="hl-yellow">다. 피보험자</span>: 보험금 청구권을 가진 자 (손해보험)<br>
+    <span class="hl-yellow">라. 보험수익자</span>: 사망보험금 수령자 (<span class="hl-red">인보험에만 있음</span>)
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">2. 피보험이익의 요건</div>
+  <div class="content-text mb">
+    <span class="hl">적법성 / 경제성 / 확정성</span> (영구성 ✗)<br>
+    &nbsp;&nbsp;• 손해보험만의 개념 — 상법에서는 '<span class="hl-blue">보험계약의 목적</span>'이라고도 함<br>
+    &nbsp;&nbsp;• 현존하는 이익 + <span class="hl-green">장래의 이익</span>도 피보험이익 가능<br>
+    &nbsp;&nbsp;• 보상최고한도는 <span class="hl">보험가액</span> 기준 (보험가입금액 ✗)<br>
+    &nbsp;&nbsp;• 초과·중복보험을 판정하는 기준, 보험의 도박화 방지
+  </div>
+  <div class="wrong-box">피보험이익은 현존하는 이익에 한하며 장래의 이익은 될 수 없다. (✗)<br>확정성이란 금전으로 산정할 수 있는 객관적 가치가 있어야 함을 말한다. (✗) → 경제성</div>
+  <div class="memo-box">보험의 목적 = 보험에 부쳐지는 대상(건물이나 신체) | 보험계약의 목적 = 피보험이익(손해보험만)</div>
+</div>
+
+<div class="section">
+  <div class="section-title">3. (영업)보험료의 구성</div>
+  <div class="content-text mb">
+    <span class="hl">영업보험료 = 순보험료 + 부가보험료</span> (★순·두·부)<br>
+    &nbsp;&nbsp;1) 순보험료 = <span class="hl-red">위험보험료</span>(보험금 재원) + <span class="hl-blue">저축보험료</span>(만기금·해지금 재원)<br>
+    &nbsp;&nbsp;2) 부가보험료 = <span class="hl-yellow">신계약비</span>(초년도만, 설계사 수당) + <span class="hl-yellow">유지비</span>(인건비·점포유지비) + <span class="hl-yellow">수금비</span>(계속보험료 수금)
+  </div>
+  <div class="wrong-box">점포유지비는 신계약비에 포함된다. (✗) → 유지비!</div>
+</div>
+` },
+
+// ─────────────── PAGE 10 ─────────────────
+{ title: '보험사고 요건 / 보험가입금액과 가액 / 보험기간', part: 'Part 2', partColor: '#2563eb', partBg: '#eff6ff', qCount: '01. 손해보험 법규와 약관 (계속)',
+  html: `
+<div class="section">
+  <div class="section-title">4. 보험료 계산 3요소 및 손익 3요소</div>
+  <table class="content-table">
+    <tr><th>보험료 요소</th><th>해당 보험료</th><th>실제와의 차이</th></tr>
+    <tr><td>예정위험률(이재율)</td><td>위험보험료</td><td>위험률차손익(이재차손익)</td></tr>
+    <tr><td>예정이율</td><td>저축보험료</td><td>이차손익 (이 = 利, 이자)</td></tr>
+    <tr><td>예정사업비율</td><td>부가보험료</td><td>비차손익</td></tr>
+  </table>
+  <div class="exam-box">보험료 계산의 3요소가 아닌 것은? → 예정유지율, 예정해약율</div>
+</div>
+
+<div class="section">
+  <div class="section-title">5. 보험사고의 요건</div>
+  <div class="content-text">
+    <span class="hl">불확실성(우연한 사고), 발생가능성, 한정성, 적법성</span> (경제성 ✗)
+  </div>
+  <div class="wrong-box">발생가능한 사고는 보험사고로 적합하지 않다. (✗) | 보험은 자산을 안전하게 증식시키는 경제제도 (✗)</div>
+</div>
+
+<div class="section">
+  <div class="section-title">6. 보험가입금액과 보험가액</div>
+  <div class="grid-2">
+    <div class="mini-card">
+      <div class="mini-card-title">보험가입금액</div>
+      <div class="mini-card-body">보험계약상 <span class="hl">최고한도액</span><br>보험료 산정의 기준</div>
+    </div>
+    <div class="mini-card">
+      <div class="mini-card-title">보험가액</div>
+      <div class="mini-card-body">법률상 <span class="hl">최고한도액</span><br>인보험은 無 / 손해액 산정의 기초</div>
+    </div>
+  </div>
+  <table class="content-table mt">
+    <tr><th>구분</th><th>관계</th><th>보상방식</th></tr>
+    <tr><td>전부보험</td><td>가액 = 가입금액</td><td>손해액 전액</td></tr>
+    <tr><td>일부보험</td><td>가액 > 가입금액</td><td><span class="hl">비례보상</span></td></tr>
+    <tr><td>초과보험</td><td>가액 < 가입금액</td><td>가액한도 실손보상</td></tr>
+    <tr><td>중복보험</td><td>가액 < 가입금액의 합</td><td>가액한도 실손보상</td></tr>
+    <tr><td>공동보험</td><td>여러 보험회사 공동인수</td><td>인수비율에 따라 보상</td></tr>
+  </table>
+  <div class="wrong-box">일부보험 가입 시 가입금액에 대한 가액 비율로 비례보상한다. (✗) → 보험가액에 대한 보험가입금액의 비율로!</div>
+</div>
+
+<div class="section">
+  <div class="section-title">7. 보험기간·보험계약기간·보험료기간</div>
+  <div class="content-text">
+    <span class="hl-green">보험기간(위험기간·책임기간)</span>: 책임개시일 ~ 종료일 → 책임개시 요건 = <span class="hl">최초보험료 납입</span><br>
+    <span class="hl-blue">보험계약기간</span>: 계약성립일 ~ 소멸일 → 계약성립 요건 = <span class="hl">보험회사의 승낙</span>(15일 이내)<br>
+    &nbsp;&nbsp;• 보험기간이 일찍 시작 = <span class="hl-yellow">소급보험</span> / 보험계약기간이 일찍 시작 = <span class="hl-yellow">예정보험</span><br>
+    <span class="hl">보험료기간</span>: 통상 <span class="hl">1년</span> 원칙
+  </div>
+  <div class="wrong-box">보험계약기간은 통상 1년이다. (✗) | 보험계약기간과 보험기간은 항상 일치하여야 한다. (✗)</div>
+</div>
+` },
+
+// ─────────────── PAGE 11 ─────────────────
+{ title: '보험계약 성립·해지·무효·부활·청약철회', part: 'Part 2', partColor: '#2563eb', partBg: '#eff6ff', qCount: '01. 손해보험 법규와 약관 (계속)',
+  html: `
+<div class="section">
+  <div class="section-title">보험계약의 법적 성질</div>
+  <div class="content-text">
+    ① 불요식·낙성계약 ② 유상·쌍무계약 ③ 사행계약 ④ 상행위 ⑤ 계속계약 ⑥ <span class="hl">부합계약</span>(정형화된 보험약관 제시, 계약자가 포괄적 승인)
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">9. 보험의 성립 요건</div>
+  <div class="content-text">
+    보험계약은 <span class="hl">보험계약자의 청약</span>과 <span class="hl">보험회사의 승낙</span>으로 성립<br>
+    ⇨ 최초 보험료 납입이나 보험증권의 교부 등은 요건이 아님<br>
+    &nbsp;&nbsp;• 회사는 <span class="hl">30일 이내 낙부통지</span> (30일 지나면 승낙간주 = 계약 성립)
+  </div>
+  <div class="wrong-box">보험계약의 성립요건은 최초보험료 납부 여부이다. (✗)</div>
+</div>
+
+<div class="section">
+  <div class="section-title">10~11. 계약 해지·무효 사유</div>
+  <div class="grid-2">
+    <div class="mini-card">
+      <div class="mini-card-title" style="color:#f87171">해지 사유 (고객 잘못)</div>
+      <div class="mini-card-body">① 중대한 고지의무 위반<br>② 위험 변경·증가 관련 통지의무 위반<br>③ 사고조사 거부·회피</div>
+    </div>
+    <div class="mini-card">
+      <div class="mini-card-title" style="color:#fb923c">무효 사유</div>
+      <div class="mini-card-body">① 15세미만·심신상실자·심신박약자의 사망담보<br>② 피보험자 서면동의 없는 경우(단체계약 생략가능)<br>③ 계약자·피보험자·대리인의 사기로 인한 초과·중복보험<br>④ 이미 발생한 사고<br>⑤ 암보험 대기기간(90일) 내 암진단</div>
+    </div>
+  </div>
+  <div class="wrong-box">사기로 인한 초과보험 시 초과된 부분만 무효이다. (✗) → 전부무효!</div>
+</div>
+
+<div class="section">
+  <div class="section-title">12~13. 부활 / 청약철회 / 계약취소</div>
+  <div class="content-text mb">
+    <span class="hl-yellow">부활</span>: 장기보험 = <span class="hl">3년 이내</span>, 자동차보험 = <span class="hl">30일 이내</span><br>
+    &nbsp;&nbsp;• 부활 요건: 연체보험료 + 연체이자 + 고지의무<br>
+    &nbsp;&nbsp;• 부활 후 책임개시: <span class="hl">약관에서 정한 시점부터</span>
+  </div>
+  <div class="content-text mb">
+    <span class="hl-yellow">청약철회</span>: 보험증권을 받은 날로부터 <span class="hl">15일 이내</span> 철회 (청약한 날로부터 30일 초과 불가)<br>
+    &nbsp;&nbsp;• 통신판매 전용상품은 <span class="hl">30일 이내</span> 철회<br>
+    &nbsp;&nbsp;• 보험료 환급: 철회 접수 후 지체없이 (장기손해보험은 <span class="hl">3일 이내</span>)
+  </div>
+  <div class="content-text">
+    <span class="hl-yellow">계약취소</span>: 3대 기본지키기 <span class="hl">[자/청/약]</span> 미이행 시 → <span class="hl">3개월 이내</span> 취소 가능<br>
+    &nbsp;&nbsp;• <span class="hl-green">[자/청/약]</span> = <span class="hl">자필서명</span>, <span class="hl">청약서부본 전달</span>, <span class="hl">약관교부 및 설명</span>
+  </div>
+  <div class="wrong-box">3대기본 지키기란 자필서명, 증권전달, 약관교부 및 설명이다. (✗) → 청약서부본 전달!</div>
+</div>
+` },
+
+// ─────────────── PAGE 12 ─────────────────
+{ title: '보험약관 / 대위 / 보험사업 허가', part: 'Part 2', partColor: '#2563eb', partBg: '#eff6ff', qCount: '01. 손해보험 법규와 약관 (계속)',
+  html: `
+<div class="section">
+  <div class="section-title">14~15. 보험약관·타인을 위한 보험</div>
+  <div class="content-text mb">
+    <span class="hl-yellow">약관 종류</span>: 보통약관(일반적·보편적) + 특별약관(보완·변경·특정위험 추가)<br>
+    <span class="hl-yellow">약관해석 원칙</span>: 특별약관 우선 / 수기(필체)우선 / <span class="hl">작성자(보험사) 불이익의 원칙</span><br>
+    <span class="hl-yellow">약관 변경</span>: <span class="hl">(금융위원회)에 신고</span> / 원칙적으로 소급효 없음 (계약자 이익보호 필요 시 소급 가능)
+  </div>
+  <div class="content-text">
+    <span class="hl-yellow">타인을 위한 보험계약</span> (계약자 ≠ 피보험자)<br>
+    &nbsp;&nbsp;• 타인의 위임여부는 묻지 않음 (자필서명 받기 때문)<br>
+    &nbsp;&nbsp;• 계약자는 피보험자의 동의가 있거나 <span class="hl">보험증권을 소지</span>해야 해지 가능
+  </div>
+  <div class="wrong-box">타인을 위한 계약은 보험증권을 소지하지 않아도 해지 가능하다. (✗)</div>
+</div>
+
+<div class="section">
+  <div class="section-title">17. 보험자대위 → 이득금지의 원칙에 따라 도입</div>
+  <div class="grid-2">
+    <div class="mini-card">
+      <div class="mini-card-title">잔존물 대위</div>
+      <div class="mini-card-body">보험 목적물에 대한 대위<br><span class="hl">전부멸실 + 보험금 전액지급</span> 시 성립<br>권리이전 시기 = <span class="hl">보험금 전액지급시점</span> (사고 발생시점 ✗)</div>
+    </div>
+    <div class="mini-card">
+      <div class="mini-card-title">청구권 대위</div>
+      <div class="mini-card-body">제3자에 대한 대위<br><span class="hl">보험금액의 일부 지급해도</span> 성립<br>지급금액 한도 내에서 대위 가능<br>불법행위 + <span class="hl">채무불이행 포함</span></div>
+    </div>
+  </div>
+  <div class="wrong-box">제3자에 대한 보험자 대위를 잔존물 대위라 한다. (✗)</div>
+</div>
+
+<div class="section">
+  <div class="section-title">18~19. 보험사업 허가 / 자본금과 기금</div>
+  <div class="content-text mb">
+    <span class="hl-yellow">허가</span>: 보험종목별로 금융위원회에 허가<br>
+    &nbsp;&nbsp;• 법인형태: 주식회사, 상호회사, 외국보험사에 한함 (유한회사 ✗)<br>
+    &nbsp;&nbsp;• 허가신청서류: ① 정관 ② 3년간 사업계획서 ③ <span class="hl">기초서류</span><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;→ 기초서류 = <span class="hl-green">사방보보</span>(사업방법서 / 보험약관 / 보험료 및 책임준비금 산출방법서)
+  </div>
+  <div class="content-text">
+    <span class="hl-yellow">보험종목별 자본금</span>: <span class="hl">보증보험·재보험 300억</span> / 자동차보험 200억 / 해상보험 150억 / 화재·책임·상질간 <span class="hl">100억</span> / 기술보험 50억<br>
+    &nbsp;&nbsp;• 국내 보험회사: <span class="hl">300억 이상</span> 자본금 또는 기금 납입
+  </div>
+  <div class="exam-box">자본금 100억으로 영위가 안 되는 종목은? → 해상보험(150억 필요)</div>
+  <div class="tip-box">기초가 튼튼하면 사·방이 보험, 보험이다! (사업방법서·보험약관·보험료·책임준비금)</div>
+</div>
+` },
+
+// ─────────────── PAGE 13 ─────────────────
+{ title: '통신판매전문보험 / 제3자보호 / 주요기관', part: 'Part 2', partColor: '#2563eb', partBg: '#eff6ff', qCount: '01. 손해보험 법규와 약관 (계속)',
+  html: `
+<div class="section">
+  <div class="section-title">20. 통신판매전문보험회사</div>
+  <ul class="content-list">
+    <li>총 계약건수 및 수입보험료의 <span class="hl">100분의 90 이상</span>을 통신수단 이용하여 모집하는 회사</li>
+    <li>자본금 또는 기금의 <span class="hl">3분의 2</span>에 상당하는 금액 이상을 납입</li>
+    <li>통신판매상품의 청약철회는 <span class="hl">30일 이내</span></li>
+  </ul>
+  <div class="wrong-box">100분의 80 이상 (✗)</div>
+</div>
+
+<div class="section">
+  <div class="section-title">21. 손해보험계약의 제3자 보호제도</div>
+  <div class="content-text mb">
+    <span class="hl-yellow">적용 범위</span>: 가입이 강제되는 개인보험계약 (단, 자동차 임의보험 포함)<br>
+    &nbsp;&nbsp;⇨ <span class="hl-red">퇴직보험 외의 법인계약은 제외</span>
+  </div>
+  <ul class="content-list">
+    <li><span class="hl-yellow">지급불능 보고</span>: <span class="hl">손해보험협회장</span>에게 보고 (금융감독원장 ✗)</li>
+    <li><span class="hl-yellow">기금 출연</span>: 지급불능 보고시 별도로 정한 금액을 손보협회에 출연</li>
+    <li><span class="hl-yellow">보험금 지급</span>: 보험회사가 지급하는 금액에서 예금자보호제도의 <span class="hl">5천만원을 차감</span>한 금액 지급</li>
+    <li>단, 자동차 임의계약: <span class="hl">1인당 1억원 한도 내 지급불능액의 80%</span> 지급</li>
+  </ul>
+  <div class="wrong-box">예금자보호제도에서 보호되는 5천만원과 보험금을 합한 금액을 지급한다. (✗)<br>손보사는 매년 일정액을 출연하여야 한다. (✗)</div>
+</div>
+
+<div class="section">
+  <div class="section-title">22. 보험관련 주요기관</div>
+  <table class="content-table">
+    <tr><th>기관</th><th>주요 역할</th></tr>
+    <tr><td><span class="hl-green">보험개발원</span></td><td>순보험 요율의 산출·검증 및 제공</td></tr>
+    <tr><td><span class="hl-blue">금융감독원</span></td><td>금융기관에 대한 검사·감독업무 수행<br>⇨ <span class="hl">금융분쟁조정위원회: 금융감독원 내 설치</span></td></tr>
+    <tr><td><span class="hl-yellow">금융위원회</span></td><td>국무총리 소속, 금융정책·외국환업무 감독, 인·허가, 감독규정 제개정, 산업·기업 구조조정</td></tr>
+  </table>
+  <div class="wrong-box">순보험요율의 산출·검증 및 제공은 보험연수원의 업무이다. (✗)<br>금융분쟁조정위원회는 금융위원회에 설치되어 있다. (✗)</div>
+</div>
+` },
+
+// ─────────────── PAGE 14 ─────────────────
+{ title: '모집질서 관련 법규 및 민원사례', part: 'Part 2', partColor: '#2563eb', partBg: '#eff6ff', qCount: '02. 모집질서 관련 법규 및 민원사례 (4문항)',
+  html: `
+<div class="section">
+  <div class="section-title">1~3. 모집자 실명제 / 상품설명제 / 보험료 영수제도</div>
+  <ul class="content-list">
+    <li><span class="hl-yellow">모집자 실명제</span>: 설계사의 <span class="hl">소속, 성명, 연락처</span> 기재 (주민번호·주소 ✗)</li>
+    <li><span class="hl-yellow">상품설명제</span>: 상품설명서를 2부 작성 → 1부: 모집종사자 서명 후 <span class="hl">계약자에게 교부</span> / 1부: 계약자 서명받아 <span class="hl">회사가 보관</span> (설계사 보관 ✗)</li>
+    <li><span class="hl-yellow">보험료 영수제도</span>: 보험료는 <span class="hl">보험기간 시작되기 전</span>에 납입<br>
+    &nbsp;&nbsp;• 정부·지자체 체결 시 증권발행 후 1개월 유예<br>
+    &nbsp;&nbsp;• 어음: 1개월 내 결제, <span class="hl">1개월 경과시 자동부도</span> 처리</li>
+  </ul>
+</div>
+
+<div class="section">
+  <div class="section-title">4. 단계별 설명의무</div>
+  <table class="content-table">
+    <tr><th>단계</th><th>설명사항</th></tr>
+    <tr><td>계약 체결 권유단계</td><td>주계약·특약별 보험료, <span class="hl">청약철회</span>에 관한 사항, 보험금 지급제한 조건, 고지의무 위반의 효과, 해약환급금</td></tr>
+    <tr><td>계약 체결 단계</td><td>모집 종사자의 성명·연락처·소속, 보험계약 승낙절차, 승낙거절 시 거절 사유</td></tr>
+    <tr><td>보험금 청구 단계</td><td>담당 부서·연락처·보험금 청구에 필요한 서류, 심사절차, 예상심사기간·예상지급일</td></tr>
+    <tr><td>보험금 지급 요청</td><td>지급절차·지급내역, 지연 사유 및 예상 지급일, 감액지급·미지급 사유 설명</td></tr>
+  </table>
+  <div class="wrong-box">모집종사자의 보험계약 체결대리권 존재여부는 보험계약 체결 권유단계에서 설명하여야 한다. (✗) → 보험계약 체결 단계!</div>
+</div>
+
+<div class="section">
+  <div class="section-title">5~6. 실손의료보험 판매시 준수사항 (순서 기억)</div>
+  <div class="content-text mb">
+    ① 가입설계서 작성 → ② <span class="hl">의료비 조회동의서 징구</span> → ③ <span class="hl">중복가입 조회</span> → ④ 비례보상 설명 → ⑤ 청약서 작성
+  </div>
+  <div class="section-title">가입설계서 생략 가능한 계약</div>
+  <div class="content-text">① 단체보험계약 ② 보증보험계약 ③ 기업성 손해보험 ④ <span class="hl">3개월 미만 단기계약</span> ⑤ 전계약과 동일하게 갱신되는 계약 ⑥ 계속계약</div>
+  <div class="section-title mt">상품설명서 생략 가능한 계약 (아닌 것은? ⇨ 3개월 미만 계약)</div>
+  <div class="content-text">① 전문보험계약자가 체결하는 계약 ② 갱신계약 ③ 계속계약</div>
+</div>
+` },
+
+// ─────────────── PAGE 15 ─────────────────
+{ title: '특별이익제공 금지 / 장애인 보험가입 차별금지', part: 'Part 2', partColor: '#2563eb', partBg: '#eff6ff', qCount: '02. 모집질서 관련 법규 및 민원사례 (계속)',
+  html: `
+<div class="section">
+  <div class="section-title">9. 특별이익제공 금지행위 [보험업법]</div>
+  <div class="content-text mb">
+    <span class="hl-red">금지사항</span>: 기초서류에 근거하지 아니한 보험료 할인, 보험료 대납, 이자상당액 대납, 청구권행사의 포기<br>
+    &nbsp;&nbsp;• <span class="hl-green">예외</span>: 최초 1년 보험료의 <span class="hl">100분의 10과 3만원 중 적은 금액</span>은 위반 아님
+  </div>
+  <table class="content-table">
+    <tr><th>위반 유형</th><th>처벌</th></tr>
+    <tr><td>특별이익제공 위반</td><td><span class="hl">3년 이하 징역 또는 3천만원 이하 벌금</span></td></tr>
+    <tr><td>무자격 모집자</td><td><span class="hl">1년 이하 징역 또는 1천만원 이하 벌금</span> (과태료 ✗)</td></tr>
+    <tr><td>경유처리금지·자필미실시·실명제위반 등</td><td><span class="hl">1천만원 이하 과태료</span></td></tr>
+  </table>
+  <div class="exam-box">인터넷 가입시 유모차(50만원) 약속 → 특별이익제공약속 금지위반<br>월납 2만원 실손보험 후 상품권(2만원) 지급 → 위반사항 없음 (3만원·10% 기준)</div>
+</div>
+
+<div class="section">
+  <div class="section-title">10. 손해보험 공정경쟁질서유지에 관한 상호협정 [자율규제]</div>
+  <div class="content-text mb">
+    위반시 <span class="hl-yellow">제재금</span> 부과 (보험업법 과태료와 다름)<br>
+    &nbsp;&nbsp;• 보험회사가 특별이익 제공: <span class="hl">2백만원~5천만원</span> / 보험설계사가 제공: <span class="hl">1백만원~3천만원</span><br>
+    &nbsp;&nbsp;• 경유처리, 허위사실 유포, 무자격 모집행위, <span class="hl-red">승환계약</span> → 위반시 건당 <span class="hl">1백만원</span> 제재금
+  </div>
+  <div class="memo-box">경유처리: A설계사가 체결한 계약을 B대리점이 체결한 것으로 처리 | 무자격모집행위: 화장품 외판원이 계약 체결 후 수당 수취</div>
+</div>
+
+<div class="section">
+  <div class="section-title">11. 장애인 보험가입 차별금지</div>
+  <ul class="content-list">
+    <li><span class="hl-yellow">시정권고</span>: <span class="hl">국가인권위원회</span> / <span class="hl-red">시정명령</span>: <span class="hl">법무부장관</span></li>
+    <li>위반시: <span class="hl">3년 이하의 징역 또는 3천만원 이하 벌금</span></li>
+    <li>장애인 및 장기기증자 보험차별 신고센터 운영: <span class="hl-green">(손해보험협회)</span></li>
+    <li>청약거절 등 차별시 신고 가능자: 본인, 대리인 (보험사 직원 ✗)</li>
+  </ul>
+  <div class="wrong-box">장애인 보험가입 차별시 시정권고는 법무부장관이 한다. (✗) → 국가인권위원회<br>장애인 보험가입 차별시 신고센터는 금융감독원이다. (✗) → 손해보험협회</div>
+</div>
+` },
+
+// ─────────────── PAGE 16 ─────────────────
+{ title: 'Part 3 — 손해보험 | 화재보험의 이해', part: 'Part 3', partColor: '#16a34a', partBg: '#f0fdf4', qCount: '01. 화재보험의 이해 (2문항)',
+  html: `
+<div class="section">
+  <div class="section-title">1. 화재보험의 물건구분</div>
+  <table class="content-table">
+    <tr><th>구분</th><th>해당 물건</th></tr>
+    <tr><td><span class="hl-green">주택물건</span></td><td>단독주택·다세대·빌라·아파트 등 순수주택, 교습소·치료소(피아노·꽃꽂이·침질·뜸질·접골·조산원)</td></tr>
+    <tr><td><span class="hl-blue">일반물건</span></td><td>병용주택, 상가, 콘도미니엄, <span class="hl">오피스텔</span>, 기숙사, 창고업자 건물</td></tr>
+    <tr><td><span class="hl-yellow">공장물건</span></td><td>발전소, 변전소, 광업소, <span class="hl-red">"공장 내 기숙사"</span></td></tr>
+  </table>
+  <div class="tip-box">폭발·파열 손해: 주택물건에만 기본담보 (일반물건·공장물건은 보상 ✗)</div>
+</div>
+
+<div class="section">
+  <div class="section-title">2. 보상하는 손해</div>
+  <div class="content-text mb">
+    <span class="hl-yellow">재산손해</span>: 화재(벼락)에 따른 <span class="hl">직접손해 / 소방손해 / 피난손해</span><br>
+    &nbsp;&nbsp;• 직접손해: 불에 타고 그을려 생긴 손해, 벼락으로 인한 충격손해<br>
+    &nbsp;&nbsp;• 소방손해: 화재진압과정에서 생긴 손해(침수손·파괴손)<br>
+    &nbsp;&nbsp;• 피난손해: 피난지에서 <span class="hl">5일 동안</span> 생긴 직접손해, 소방손해
+  </div>
+  <div class="content-text">
+    <span class="hl-yellow">비용손해</span>: ① 잔존물제거비용 ② 잔존물보전비용 ③ 손해방지비용 ④ 대위권보전비용 ⑤ 기타협력비용<br>
+    &nbsp;&nbsp;• <span class="hl-red">잔존물제거비용</span>: 보험가입금액 한도 내 재산손해액의 <span class="hl">10%</span> 한도<br>
+    &nbsp;&nbsp;• 나머지 ②~⑤: 보험가입금액을 초과하더라도 보상
+  </div>
+  <div class="exam-box">재산손해가 아닌 것은? → 잔존물 제거비용 (비용손해임)<br>비용손해에 해당하지 않는 것은? → 임시생활비용</div>
+</div>
+
+<div class="section">
+  <div class="section-title">3. 보상하지 않는 손해</div>
+  <ul class="content-list">
+    <li>계약자·피보험자·대리인의 <span class="hl">고의, 중과실</span> (※상해보험은 중과실 보상)</li>
+    <li>화재·폭발·파열·피난 중 생긴 <span class="hl-red">도난·분실손해</span></li>
+    <li>수도관·수관 등의 <span class="hl">파열손해</span> (추위로 동파)</li>
+    <li>전기기기의 <span class="hl">전기적 사고</span>로 생긴 손해 (단, 확대된 손해는 보상, 전기위험담보특약 가입 시 보상)</li>
+  </ul>
+  <div class="exam-box">벼락으로 인하여 냉장고가 파손 → 보상 ○ | 화재시 가재도구를 앞길에 놓았으나 밤중에 도난 → 보상 ✗<br>갑작스러운 추위로 수도관 파열 → 보상 ✗ | 채무자가 방화 → 보상 ○</div>
+  <div class="wrong-box">화재보험은 화재에 따른 직접손해, 소방손해, 파손손해 및 도난손해를 보상한다. (✗)</div>
+</div>
+` },
+
+// ─────────────── PAGE 17 ─────────────────
+{ title: '화재보험 — 코보험·자동담보·명기물건·통지의무·특별약관', part: 'Part 3', partColor: '#16a34a', partBg: '#f0fdf4', qCount: '01. 화재보험의 이해 (계속)',
+  html: `
+<div class="section">
+  <div class="section-title">4~5. 계속계약 할인 / 장기계약 일시납 할인</div>
+  <div class="content-text mb">
+    <span class="hl-yellow">계속계약 보험료 할인</span>: 보험기간 1년, 동일 보험회사 & 동일 구내위험 가입 → <span class="hl">연 보험요율의 95% 적용 (5% 할인)</span>
+  </div>
+  <div class="content-text">
+    <span class="hl-yellow">장기계약 일시납 할인</span>: 1년 초과 3년 이하 & 일시납에 한함<br>
+    &nbsp;&nbsp;• 2년 장기계약 = 연요율 × <span class="hl">175%</span> / 3년 장기계약 = 연요율 × <span class="hl">250%</span>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">6. 80% Co-Insurance 적용 (주택물건·일반물건)</div>
+  <div class="content-text">
+    보험가입금액이 보험가액의 <span class="hl">80% 이상</span>인 경우 → 보험가입금액 한도 내에서 손해액 전액 지급<br>
+    &nbsp;&nbsp;<span class="hl-red">공장물건은 해당되지 않음</span>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">7. 자동담보 물건 vs 명기 물건</div>
+  <div class="grid-2">
+    <div class="mini-card">
+      <div class="mini-card-title">자동담보 물건 (보험가입증서 기재 불필요)</div>
+      <div class="mini-card-body">
+        건물의 <span class="hl-green">부속물</span>: 칸막이·대문·담·곳간<br>
+        건물의 <span class="hl-blue">부착물</span>: 간판·네온사인·안테나·선전탑<br>
+        피보험자와 같은 세대의 소유물(가재도구)
+      </div>
+    </div>
+    <div class="mini-card">
+      <div class="mini-card-title">명기 물건 (반드시 증서에 기재해야 보상)</div>
+      <div class="mini-card-body">
+        통화·유가증권·인지·우표<br>귀금속<br>원고·도안·소프트웨어<br>옥외에 쌓아둔 동산
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">8~10. 고지의무·통지의무·손해방지경감의무</div>
+  <div class="content-text mb">
+    <span class="hl-yellow">고지의무</span>: 건물 소재지·구조·용도, 건물 내 영위직종 / 고지 시기: <span class="hl">계약 성립 전까지</span> 위반 시 해지사유<br>
+    <span class="hl-yellow">통지의무</span>: 보험목적 양도·이전 / 건물 <span class="hl">30일 이상</span> 비워두거나 휴업 / 계속하여 <span class="hl">15일 이상</span> 수선 위반 시 해지사유<br>
+    <span class="hl-yellow">손해방지의무</span>: 위반 시 방지·경감할 수 있었을 금액을 손해액에서 빼고 보험금 지급 (무효 ✗, 해지 ✗)
+  </div>
+  <div class="wrong-box">손해방지의무를 게을리 한 경우 무효이다. (✗) | 손해방지의무를 게을리 한 경우 해지한다. (✗)</div>
+</div>
+
+<div class="section">
+  <div class="section-title">12. 화재보험의 특별약관 — 신배책(신체손해배상책임담보특약)</div>
+  <div class="content-text mb">
+    <span class="hl-yellow">아래 특수건물은 신배책 특약이 자동담보</span><br>
+    &nbsp;&nbsp;• 일반건물 <span class="hl">11층 이상</span>, 아파트 <span class="hl">16층 이상</span><br>
+    &nbsp;&nbsp;• 연면적 <span class="hl">1,000㎡ 이상</span>인 국유건물<br>
+    &nbsp;&nbsp;• 바닥면적 합계 <span class="hl">2,000㎡ 이상</span>인 학원·음식점·유흥주점<br>
+    &nbsp;&nbsp;• 바닥면적 합계 <span class="hl">3,000㎡ 이상</span>인 병원·숙박업·방송국·농수산물시장·학교·공장
+  </div>
+  <div class="content-text">
+    1인당 보상한도 (사망/부상/후유장해): <span class="hl">1억5천만원 / 3천만원 / 1억5천만원</span>
+  </div>
+</div>
+` },
+
+// ─────────────── PAGE 18 ─────────────────
+{ title: '다중이용업소·재난배상·풍수해보험', part: 'Part 3', partColor: '#16a34a', partBg: '#f0fdf4', qCount: '01. 화재보험의 이해 (계속)',
+  html: `
+<div class="section">
+  <div class="section-title">13. 다중이용업소 화재배상책임보험</div>
+  <ul class="content-list">
+    <li>주요 가입대상: <span class="hl">23개</span> 다중이용업소 업주</li>
+    <li><span class="hl-red">특수건물에 입점한 다중이용업소는 보험가입 대상에서 제외</span></li>
+    <li>1인당 보상한도 (사망/부상/후유장해): <span class="hl">1.5억 / 3천 / 1.5억</span></li>
+    <li>재산피해: <span class="hl">1사고당 10억원</span></li>
+  </ul>
+</div>
+
+<div class="section">
+  <div class="section-title">14. 재난배상책임보험</div>
+  <ul class="content-list">
+    <li><span class="hl">19개 업종</span>을 대상으로 가입을 의무화한 보험</li>
+    <li>1인당 보상한도 (사망/부상/후유장해): <span class="hl">1.5억 / 3천 / 1.5억</span></li>
+    <li>재산피해: <span class="hl">1사고당 10억원</span> 한도</li>
+  </ul>
+  <div class="wrong-box">인명피해 발생시 사망 1인당 1억원 한도, 재산피해 발생시 1사고당 10억원 한도 내에서 보상한다. (✗) → 1.5억</div>
+</div>
+
+<div class="section">
+  <div class="section-title">15. 풍수해보험</div>
+  <ul class="content-list">
+    <li>정부 및 지자체가 보험료의 <span class="hl">50% 이상</span>을 지원하는 <span class="hl-yellow">정책성 보험</span></li>
+    <li>총 보험료의 <span class="hl">52.4~92%</span>를 정부 및 지자체가 지원</li>
+    <li><span class="hl-yellow">대상재해</span>: 태풍·홍수·호우·강풍·풍랑·해일·대설·<span class="hl">지진(지진해일 포함)</span></li>
+    <li><span class="hl-yellow">대상시설</span>: 주택(동산 포함)·온실(비닐하우스 포함)·상가·공장(소상공인)</li>
+  </ul>
+</div>
+
+<div class="section">
+  <div class="section-title">풍수재 위험담보 특별약관 보상 범위</div>
+  <div class="content-text">
+    <span class="hl-green">보상</span>: 태풍, 회오리바람, 폭풍우, 해일<br>
+    <span class="hl-red">보상 ✗</span>: 폭설, 우박
+  </div>
+  <div class="wrong-box">태풍·폭풍·홍수 등 이와 유사한 풍수재로 인한 손해는 특별약관을 추가하지 않아도 보통약관에서 보상한다. (✗)</div>
+</div>
+` },
+
+// ─────────────── PAGE 19 ─────────────────
+{ title: '배상책임보험의 이해', part: 'Part 3', partColor: '#16a34a', partBg: '#f0fdf4', qCount: '02. 배상책임보험의 이해 (1문항)',
+  html: `
+<div class="section">
+  <div class="section-title">1. 손해사고기준 vs 배상청구기준</div>
+  <div class="grid-2">
+    <div class="mini-card">
+      <div class="mini-card-title">손해사고기준 (대부분)</div>
+      <div class="mini-card-body">보험기간 중 발생한 보험사고에 대해서는 보험기간 종료 후에도 청구 시 보상</div>
+    </div>
+    <div class="mini-card">
+      <div class="mini-card-title" style="color:#f87171">배상청구기준 (임원배상·전문인배상 2개뿐)</div>
+      <div class="mini-card-body">보험기간 중 사고 발생 <span class="hl">AND</span> 보험기간 중 보험금 청구된 경우만 보상</div>
+    </div>
+  </div>
+  <div class="tip-box">배상청구 = 임전무퇴! (임원배상·전문인배상) / 전문인배상: 의사·변호사·회계사·건축사("사"자 돌림)</div>
+  <div class="exam-box">손해사고기준 배상책임보험이 아닌 것은? → 임원배상 책임보험</div>
+</div>
+
+<div class="section">
+  <div class="section-title">2~3. 임의·의무 배상책임보험의 종류</div>
+  <div class="content-text mb">
+    <span class="hl-yellow">임의배상책임보험</span>: 시설소유관리자배상·생산물배상·임원배상책임보험 등
+  </div>
+  <div class="content-text mb">
+    <span class="hl-yellow">의무(강제)배상책임보험</span>: 가스사고·유·도선사업자·체육시설업자·학원시설소유자·다중이용업소화재배상·개인정보보호배상책임Ⅱ·승강기사고배상책임보험
+  </div>
+  <div class="content-text mb">
+    <span class="hl-green">가스사고배상책임보험</span><br>
+    &nbsp;&nbsp;• 의무가입대상: 가스제조업자·판매업자·가스사용자·가스용기제조업자<br>
+    &nbsp;&nbsp;• <span class="hl-red">가스용기운송업자는 의무가입 대상 아님</span>
+  </div>
+  <div class="content-text mb">
+    <span class="hl-green">체육시설업자 배상책임보험</span><br>
+    &nbsp;&nbsp;• 등록체육시설업: 의무가입 (골프장·스키장·수영장·승마장)<br>
+    &nbsp;&nbsp;• 신고체육시설업: 의무가입 아님 (<span class="hl-red">골프연습장·체육도장·체련단련장·당구장</span>)
+  </div>
+  <div class="exam-box">가스사고배상책임보험의 의무가입 대상이 아닌 사람은? → 가스용기운송업자<br>체육시설업의 의무가입대상이 아닌 것은? → 골프연습장</div>
+</div>
+
+<div class="section">
+  <div class="section-title">4. 영업배상책임보험의 특약형태로 운영되는 상품</div>
+  <div class="content-text">
+    시설소유관리자배상 / 도급업자배상 / 경비업자배상 / 주차장배상 / 차량정비업자배상
+  </div>
+  <div class="exam-box">영업배상책임보험의 특약형태 운영상품이 아닌 것은? → 생산물배상책임(단독상품임)</div>
+</div>
+` },
+
+// ─────────────── PAGE 20 ─────────────────
+{ title: '특종보험의 이해', part: 'Part 3', partColor: '#16a34a', partBg: '#f0fdf4', qCount: '03. 특종보험의 이해 (2문항)',
+  html: `
+<div class="section">
+  <div class="section-title">1. 도난보험</div>
+  <div class="content-text mb">
+    <span class="hl-green">보상하는 손해</span>: 보험증권에 기재된 보관장소 내에 보관되어 있는 동안에 불법침입자·절도·강도에 의한 파손·훼손·오손
+  </div>
+  <div class="content-text">
+    <span class="hl-red">보상하지 않는 손해</span>: 보관장소를 <span class="hl">72시간 이상</span> 비워둔 동안, 도난손해 발생 후 <span class="hl">30일 이내</span> 발견 못한 손해, 보험목적이 보관장소를 벗어난 동안
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">2. 레저종합보험</div>
+  <div class="content-text mb">
+    <span class="hl-green">기간보험</span>: <span class="hl">골프보험, 수렵보험</span><br>
+    <span class="hl-blue">구간보험</span>: <span class="hl">낚시보험, 스키보험</span> (거주지 출발 ~ 거주지 도착시 종료)
+  </div>
+  <div class="content-text">
+    보상하는 손해: 상해사고(사망/후유장해), 용품손해, 배상책임손해<br>
+    <span class="hl-red">용품분실에 대한 손해는 보상하지 않음</span>
+  </div>
+  <div class="tip-box">구간보험 = 구·낚·스 (구간보험·낚시·스키) | 기간보험 = 골·수</div>
+</div>
+
+<div class="section">
+  <div class="section-title">3. 유아교육기관종합보험</div>
+  <div class="content-text mb">
+    재산손해(건물) + 신체상해손해(유아원생) + 배상책임손해 보상하는 보험<br>
+    &nbsp;&nbsp;① 피보험자는 <span class="hl">유아원생만 해당</span> (교사·원장은 별도의 특약)<br>
+    &nbsp;&nbsp;② 유아 상해사고 시 의료비: 보험금 지급되어도 잔여기간 보험가입금액 감액 ✗<br>
+    &nbsp;&nbsp;③ <span class="hl">교육기간 생활 중</span> 사고보상 - 통상적 경로의 등·하교 중 사고보상
+  </div>
+  <div class="wrong-box">유아원생의 가정생활 중 사고를 보상한다. (✗)</div>
+</div>
+
+<div class="section">
+  <div class="section-title">4. 동산종합보험</div>
+  <div class="content-text mb">
+    기본계약 보상손해: <span class="hl">화재 + 도난 + 파손 + 폭발 + 잡위험</span><br>
+    <span class="hl-green">잡위험에 포함</span>: 우(雨)·담수유·강설·수해·연기손해·건물의 붕괴·누손<br>
+    <span class="hl-red">잡위험에 제외</span>: 화재·도난·파손·폭발·파열·<span class="hl">차량의 충돌·접촉</span>
+  </div>
+  <div class="content-text">
+    가입대상 제외: 수용장소가 특정된 상품·자동차·선박·동물/식물<br>
+    단, <span class="hl-green">공장 내 설치된 리스물건은 동산종합보험에 가입 가능</span>
+  </div>
+  <div class="exam-box">다음 중 동산종합보험의 잡위험에 해당하지 않는 것은? → ④ 도난</div>
+</div>
+` },
+
+// ─────────────── PAGE 21 ─────────────────
+{ title: '여행보험 / 장기손해보험 특별계정', part: 'Part 3', partColor: '#16a34a', partBg: '#f0fdf4', qCount: '03~04. 특종보험·장기손해보험',
+  html: `
+<div class="section">
+  <div class="section-title">5. 여행보험</div>
+  <div class="content-text mb">
+    <span class="hl-yellow">보통약관상 보장</span>: <span class="hl">상해사망보험금(정액), 후유장해보험금(정액)</span><br>
+    <span class="hl-yellow">특별약관상 보장</span><br>
+    &nbsp;&nbsp;• 정액보상: 질병사망보험금, 후유장해보험금<br>
+    &nbsp;&nbsp;• 실손보상: 실손의료비보험금, 배상책임손해, 휴대품손해 (분실손해 ✗)
+  </div>
+  <div class="content-text mb">
+    <span class="hl-green">해외여행 실손의료보험</span><br>
+    &nbsp;&nbsp;• 상해/질병 입원 의료비: <span class="hl">5,000만원</span> 한도로 보상<br>
+    &nbsp;&nbsp;• 상해/질병 통원 의료비: 방문 <span class="hl">180회</span> 한도, 처방전 <span class="hl">180건</span> 한도
+  </div>
+  <div class="content-text">
+    <span class="hl-green">특별비용</span>: 사고현지 왕복교통비(2명분의 항공료), 숙박비(구원자 2명분, 14일 한도), <span class="hl">구조수색비</span>, 이송비용
+  </div>
+  <div class="exam-box">여행자보험의 보통약관 = 상해사망, 상해후유장해</div>
+</div>
+
+<div class="section">
+  <div class="section-title">6. 컨틴전시 보험</div>
+  <div class="content-text">
+    <span class="hl-blue">스포츠시상보험, 날씨보험, 행사취소 보상보험</span>
+  </div>
+  <div class="exam-box">컨틴전시 보험이 아닌 것은? → 복권보험</div>
+</div>
+
+<div class="section">
+  <div class="section-title">1. 장기손해보험 — 특별계정에 의한 운용</div>
+  <div class="content-text mb">
+    장기손해보험의 <span class="hl">저축보험료</span>는 특별계정에서 운용 (위험보험료·부가보험료는 미포함)<br>
+    <span class="hl-yellow">특별계정 운용상품</span>: ① 장기손해보험(저축보험료) ② 개인연금보험 ③ 퇴직연금보험<br>
+    나머지는 <span class="hl-blue">일반계정</span>으로 운용: 자동차보험, 화재보험 등 대부분
+  </div>
+  <div class="exam-box">특별계정 운영상품이 아닌 것은? → 자동차보험<br>만기환급금은 특별계정으로 운용하여야 한다</div>
+</div>
+` },
+
+// ─────────────── PAGE 22 ─────────────────
+{ title: '장기손해보험 특징 / 보험금 지급', part: 'Part 3', partColor: '#16a34a', partBg: '#f0fdf4', qCount: '04. 장기손해보험의 이해 (4문항)',
+  html: `
+<div class="section">
+  <div class="section-title">2. 장기손해보험의 특징</div>
+  <ul class="content-list">
+    <li>보험기간 통상 <span class="hl">1년 이내</span> = 일반손해보험(단기보험) / <span class="hl">3년 이상</span> = 장기손해보험</li>
+    <li>계약 후 <span class="hl">10년 이상</span> 유지 시 보험차익에 대해 비과세 혜택</li>
+    <li><span class="hl-green">자동복원제도</span>: 1회 사고로 보험가입금액의 <span class="hl">80% 미만</span> 사고 (80% 이하 ✗)</li>
+    <li><span class="hl-blue">선납할인</span>: <span class="hl">3개월 이상</span> 선납 시 (예정이율)로 할인 → <span class="hl-yellow">선납=예!(정이율)</span></li>
+    <li><span class="hl-yellow">납입최고(유예)기간</span>: 납입일 속하는 달의 <span class="hl">다음 달 말일</span>까지<br>
+    &nbsp;&nbsp;• 미납 시 납입최고기간 종료 다음 날 실효(미납해지)<br>
+    &nbsp;&nbsp;• 납입최고기간 중 사고는 보상함<br>
+    &nbsp;&nbsp;• 실효 시 미납해지일로부터 <span class="hl">3년 이내</span> 부활 가능</li>
+    <li>보험계약대출(약관대출): <span class="hl">해약환급금 범위 내</span> 가능</li>
+    <li><span class="hl-red">책임준비금</span>: 약관 非보장 사고로 사망 시 지급 (법정적립금)</li>
+  </ul>
+  <div class="wrong-box">한번의 사고로 보험가액의 80% 미만 시 자동복원된다. (✗) → 보험가액 ✗, 보험가입금액 ○</div>
+</div>
+
+<div class="section">
+  <div class="section-title">3. 청구권 소멸시효</div>
+  <div class="grid-2">
+    <div class="mini-card">
+      <div class="mini-card-title">계약자·피보험자·보험수익자 청구권</div>
+      <div class="mini-card-body">보험금청구권, 보험료·적립금 반환청구권<br>소멸시효: <span class="hl">3년</span></div>
+    </div>
+    <div class="mini-card">
+      <div class="mini-card-title">보험회사의 청구권</div>
+      <div class="mini-card-body">보험료청구권<br>소멸시효: <span class="hl">2년</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">4. 보험금 지급 기간</div>
+  <table class="content-table">
+    <tr><th>종류</th><th>지급 기간</th></tr>
+    <tr><td>만기환급금·해약환급금·중도환급금·철회/취소환급금</td><td><span class="hl">3영업일 이내</span></td></tr>
+    <tr><td>신체손해 보험금</td><td><span class="hl">3영업일 이내</span></td></tr>
+    <tr><td>배상책임 보험금</td><td><span class="hl">7일 이내</span></td></tr>
+    <tr><td>재산손해 보험금</td><td><span class="hl">7일 이내</span></td></tr>
+  </table>
+  <div class="content-text mt">
+    <span class="hl-yellow">가지급보험금</span>: 회사가 추정하는 보험금의 <span class="hl">50%</span> 상당액을 먼저 지급
+  </div>
+  <div class="wrong-box">신체손해보험금은 청구서류 접수일로부터 5영업일 이내에 지급한다. (✗) → 3영업일<br>배상책임보험금은 20영업일 이내에 지급한다. (✗) → 7일</div>
+</div>
+` },
+
+// ─────────────── PAGE 23 ─────────────────
+{ title: '연금저축보험의 이해', part: 'Part 3', partColor: '#16a34a', partBg: '#f0fdf4', qCount: '05. 연금저축보험의 이해 (2문항)',
+  html: `
+<div class="section">
+  <div class="section-title">1~2. 연금저축 도입 근거 / 세제적격요건</div>
+  <div class="content-text mb">
+    <span class="hl-yellow">도입 근거 법률</span>: <span class="hl">소득세법시행령</span> (조세특례제한법 ✗)
+  </div>
+  <div class="content-text">
+    <span class="hl-yellow">세제적격요건</span><br>
+    &nbsp;&nbsp;• 가입대상: <span class="hl-green">연령제한 없음</span><br>
+    &nbsp;&nbsp;• 연간 <span class="hl">1,800만원</span> 한도<br>
+    &nbsp;&nbsp;• <span class="hl">5년 이상</span> 납입<br>
+    &nbsp;&nbsp;• <span class="hl">55세 이후</span> 인출<br>
+    &nbsp;&nbsp;• 가입일로부터 <span class="hl">5년 이후</span> 인출, 연금수령한도 이내 인출
+  </div>
+  <div class="wrong-box">연금저축보험의 법률근거는 조세특례제한법이다. (✗)</div>
+</div>
+
+<div class="section">
+  <div class="section-title">3. 세액공제 → 소득공제 한도</div>
+  <table class="content-table">
+    <tr><th>소득 기준</th><th>세액공제한도</th><th>공제율</th></tr>
+    <tr><td>종합소득 4천만원 이하</td><td><span class="hl">400만원</span></td><td><span class="hl">16.5%</span></td></tr>
+    <tr><td>종합소득 1억원 이하</td><td><span class="hl">400만원</span></td><td><span class="hl">13.2%</span></td></tr>
+    <tr><td>종합소득 1억원 초과</td><td><span class="hl">300만원</span></td><td><span class="hl">13.2%</span></td></tr>
+  </table>
+  <div class="exam-box">연금저축 연간 납입보험료가 100만원일 경우 세액공제 금액은? → 12만원 (100만 × 12% ※지방소득세 포함 시)</div>
+</div>
+
+<div class="section">
+  <div class="section-title">4. 연금관련 세율</div>
+  <table class="content-table">
+    <tr><th>구분</th><th>세율</th></tr>
+    <tr><td>연금소득세 (70세 이전)</td><td><span class="hl">5%</span></td></tr>
+    <tr><td>연금소득세 (80세 이전)</td><td><span class="hl">4%</span></td></tr>
+    <tr><td>연금소득세 (80세 이후)</td><td><span class="hl">3%</span></td></tr>
+    <tr><td>중도해지 기타소득세</td><td><span class="hl-red">15%</span> (중학교 때 15등!)</td></tr>
+    <tr><td>부득이한 사유로 연금 이외 수령</td><td>기타소득세 3~5%</td></tr>
+  </table>
+  <div class="content-text mt">
+    <span class="hl-yellow">연간 연금수령액이 1,200만원 초과</span>하는 경우 = <span class="hl-red">종합과세</span><br>
+    <span class="hl-yellow">부득이한 사유</span>: 사망·해외이주·부양가족 3개월 이상 요양·파산·금융회사 영업정지
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">5. 계약이체 → 받는 회사 승인 필요</div>
+  <ul class="content-list">
+    <li>계약이체 시: <span class="hl-green">해지로 보지 않기 때문에 해지가산세 부과 안 함</span></li>
+    <li>계약이체 제한: 연금저축 계좌↔퇴직연금계좌 상호간 / 대출 상환 전 보험계약 / 납입면제 적용 계약</li>
+  </ul>
+  <div class="wrong-box">계약이체 시 해지가산세를 납부한 후 계약을 이체할 수 있다. (✗)</div>
+</div>
+` },
+
+// ─────────────── PAGE 24 ─────────────────
+{ title: '퇴직연금보험의 이해', part: 'Part 3', partColor: '#16a34a', partBg: '#f0fdf4', qCount: '06. 퇴직연금보험의 이해 (1문항)',
+  html: `
+<div class="section">
+  <div class="section-title">1~2. 퇴직연금제도 도입 취지 / 근거법규</div>
+  <ul class="content-list">
+    <li>근로자의 노후생활 소득재원 확보, 퇴직일시금의 생활자금화 방지, 퇴직금 수급권 보호강화</li>
+    <li>근거법규: <span class="hl">근로자퇴직급여보장법</span>, 퇴직연금감독규정</li>
+    <li>가입대상: 근로자를 사용하는 <span class="hl">모든 사업장</span></li>
+  </ul>
+</div>
+
+<div class="section">
+  <div class="section-title">3. 퇴직연금제도의 종류</div>
+  <table class="content-table">
+    <tr><th>종류</th><th>특징</th></tr>
+    <tr><td><span class="hl-blue">확정급여형(DB)</span></td><td>퇴직 시 수령할 퇴직급여가 사전 확정 (사용자 부담금 변동)</td></tr>
+    <tr><td><span class="hl-green">확정기여형(DC)</span></td><td>사용자가 연간임금의 <span class="hl">1/12 이상</span>을 납부, 근로자가 적립금의 운용방법 결정</td></tr>
+    <tr><td><span class="hl-yellow">개인형퇴직연금(IRP)</span></td><td>퇴직금을 개인형퇴직연금제도를 통해 <span class="hl">계속해서 적립·운용</span></td></tr>
+  </table>
+</div>
+
+<div class="section">
+  <div class="section-title">4. 퇴직연금 주요 내용</div>
+  <ul class="content-list">
+    <li><span class="hl-yellow">퇴직연금사업자 등록대상</span>: 보험회사·은행·농수축협·증권회사·신용협동조합중앙회·새마을금고연합회 (<span class="hl-red">저축은행·우체국 ✗</span>)</li>
+    <li>연금규약 작성: 사용자는 근로자대표 동의 얻어 작성 → <span class="hl">고용노동부장관에 신고</span></li>
+    <li>근로자 교육: 퇴직연금제도 설정 사용자는 <span class="hl">매년 1회 이상</span> 가입자 대상 교육 실시</li>
+    <li>부담금 납입: 확정급여형(2021년 이후: <span class="hl">100% 이상 사외적립</span>) / 확정기여형(<span class="hl">100% 사외적립</span>)</li>
+    <li>근로자 퇴직연금납입액 세액공제: <span class="hl">연간 700만원</span> 한도</li>
+  </ul>
+</div>
+
+<div class="section">
+  <div class="section-title">5. 퇴직연금 중도인출</div>
+  <div class="content-text mb">
+    중도인출 가능: <span class="hl-green">확정기여형(DC)</span> ⇨ <span class="hl-red">확정급여형은 불가능</span>
+  </div>
+  <div class="content-text mb">
+    <span class="hl-yellow">중도인출 사유</span><br>
+    &nbsp;&nbsp;• 무주택자가 본인 명의 주택 구입 / 무주택자의 전세금·보증금 부담<br>
+    &nbsp;&nbsp;• <span class="hl">6개월 이상</span> 요양<br>
+    &nbsp;&nbsp;• 역산 5년 이내 파산선고·개인회생절차 개시 결정
+  </div>
+  <div class="content-text">
+    <span class="hl-yellow">인출순서</span>: 과세제외금액 → 이연 퇴직소득 → 그 밖에 퇴직연금계좌에 있는 금액
+  </div>
+  <div class="wrong-box">확정기여형은 가입자의 배우자 또는 부양가족이 질병 또는 부상으로 2개월 이상 요양을 하는 경우 중도인출이 가능하다. (✗) → 본인이 6개월 이상!</div>
+</div>
+` },
+
+// ─────────────── PAGE 25 ─────────────────
+{ title: '자동차보험의 이해 (1)', part: 'Part 3', partColor: '#16a34a', partBg: '#f0fdf4', qCount: '07. 자동차보험의 이해 (5문항)',
+  html: `
+<div class="section">
+  <div class="section-title">1. 자동차보험의 특성</div>
+  <ul class="content-list">
+    <li>개인의 생활 안정, 기업의 경영 안전 도모 / 피보험자를 경제적 파탄에서 구제</li>
+    <li>사고예방, 산업자금조성 기여 / 형사처벌 경감 / 피해자 보호</li>
+    <li><span class="hl">피해자 직접 청구권</span> ⇨ 피해자가 보험회사에 직접 손해배상 청구</li>
+  </ul>
+</div>
+
+<div class="section">
+  <div class="section-title">2. 자동차사고에 대한 책임</div>
+  <table class="content-table">
+    <tr><th>구분</th><th>민법</th><th>자배법</th></tr>
+    <tr><td>배상책임의 주체</td><td>운전자, 사용자</td><td><span class="hl-green">운행자</span></td></tr>
+    <tr><td>책임형태</td><td>과실책임주의</td><td><span class="hl">조건부 무과실책임주의</span></td></tr>
+    <tr><td>입증 책임</td><td>피해자</td><td><span class="hl-red">가해자</span></td></tr>
+    <tr><td>손해배상 보장</td><td>없음</td><td><span class="hl-green">피해자 직접청구권</span></td></tr>
+  </table>
+  <div class="tip-box">조건부 무과실책임주의 3면책요건: ① 주의를 게을리하지 않았고 ② 제3자에게 고의·과실이 있으며 ③ 자동차 구조상 결함 또는 기능장해가 없었다는 것을 증명</div>
+  <div class="wrong-box">자배법은 조건부 과실책임주의를 적용한다. (✗) → 조건부 무과실책임주의<br>자배법에서 배상책임의 주체는 운전자이다. (✗) → 운행자<br>자배법에서 입증책임은 피해자에게 있다. (✗) → 가해자</div>
+</div>
+
+<div class="section">
+  <div class="section-title">형사상 책임 — 12대 중과실 사고</div>
+  <div class="content-text mb">
+    <span class="hl-red">형사처벌 대상</span>: 사망사고, 사고 후 도주(뺑소니), <span class="hl">12대 중과실 사고</span>
+  </div>
+  <div class="grid-2">
+    <div class="mini-card">
+      <div class="mini-card-title">12대 중과실 (1~6)</div>
+      <div class="mini-card-body">신호위반 / 중앙선침범 / 규정속도 위반(<span class="hl">20km 초과</span>) / 추월 위반 / 건널목 위반 / 횡단보도 사고</div>
+    </div>
+    <div class="mini-card">
+      <div class="mini-card-title">12대 중과실 (7~12)</div>
+      <div class="mini-card-body">주취운전(<span class="hl">0.03% 이상</span>) / 무면허 / 개문발차 / 인도침범 / <span class="hl">스쿨존 사고</span> / 화물낙하방지 미조치</div>
+    </div>
+  </div>
+  <div class="wrong-box">제한속도 10km 초과 사고는 12대 중과실 사고에 해당한다. (✗) → 20km 초과!</div>
+</div>
+` },
+
+// ─────────────── PAGE 26 ─────────────────
+{ title: '자동차보험 의무보험 / 담보종목', part: 'Part 3', partColor: '#16a34a', partBg: '#f0fdf4', qCount: '07. 자동차보험의 이해 (계속)',
+  html: `
+<div class="section">
+  <div class="section-title">4. 자동차보험의 담보종목</div>
+  <table class="content-table">
+    <tr><th>담보</th><th>내용</th><th>비고</th></tr>
+    <tr><td><span class="hl-red">대인배상Ⅰ</span></td><td>책임보험(의무보험), 1인당 유한<br>사망/부상/후유장해 = <span class="hl">1억5천/3천/1억5천</span></td><td>의무</td></tr>
+    <tr><td>대인배상Ⅱ</td><td>대인Ⅰ 초과 손해보상 (사업용: 1억 이상 의무)</td><td>임의</td></tr>
+    <tr><td><span class="hl-blue">대물배상</span></td><td><span class="hl">2천만원 이상</span> (의무보험) / 대차료·시세하락손해 有</td><td>의무</td></tr>
+    <tr><td>자기신체손해(자손)</td><td>기명피보험자의 부모·배우자·자녀 / <span class="hl-green">과실상계 無</span></td><td>임의</td></tr>
+    <tr><td>자기차량손해(자차)</td><td>대차료(렌트비) 無, 시세하락손해 無</td><td>임의</td></tr>
+    <tr><td>무보험차 상해</td><td>보험증권 기재 가입금액 한도 + 다른 자동차 운전담보 특약 자동가입</td><td>임의</td></tr>
+  </table>
+</div>
+
+<div class="section">
+  <div class="section-title">5. 의무보험 (자동차손해배상보장법 적용)</div>
+  <div class="content-text mb">
+    가입대상: 자동차 및 <span class="hl">9종 건설기계</span>, 이륜차<br>
+    &nbsp;&nbsp;• 비사업용: 대인Ⅰ + <span class="hl">대물(2천만원 이상)</span><br>
+    &nbsp;&nbsp;• 사업용: 대인Ⅰ + <span class="hl">대인Ⅱ(1억원 이상)</span> + 대물(2천만원 이상)
+  </div>
+  <div class="content-text mb">
+    <span class="hl-red">가입의무가 없는 자동차</span>: 국제연합(UN)군대·미국군대(USA) 자동차, 피견인 자동차, 도로가 아닌 장소에 한하여 운행하는 자동차
+  </div>
+  <div class="content-text mb">
+    <span class="hl-yellow">계약해지 가능</span>: <span class="hl-green">양도·말소등록(폐차)·중복계약</span> (양·말·중복!)
+  </div>
+  <div class="content-text">
+    <span class="hl-yellow">정부보장사업</span>: 국토교통부 주관 / 12개 손해보험사에 청구<br>
+    &nbsp;&nbsp;• 대상 사고: <span class="hl">뺑소니, 무보험차, 도난차</span> (뺑소니만 해당 ✗)<br>
+    &nbsp;&nbsp;• <span class="hl-red">대인Ⅰ만 보장</span> (물적사고 보상 ✗)<br>
+    &nbsp;&nbsp;• 보장사업 청구기간: <span class="hl">3년</span> (5년 ✗)<br>
+    &nbsp;&nbsp;• 청구 구비서류: <span class="hl">교통사고 사실확인원(경찰서 발급)</span>, 진단서 및 치료비 영수증
+  </div>
+  <div class="wrong-box">비사업용 자동차는 대인배상Ⅰ에만 가입하면 된다. (✗) → 대물도 의무!<br>자량양도 시 임의보험은 15일 한도로 승계된다. (✗) → 의무보험!</div>
+</div>
+` },
+
+// ─────────────── PAGE 27 ─────────────────
+{ title: '자동차보험 임의보험 / 피보험자 범위', part: 'Part 3', partColor: '#16a34a', partBg: '#f0fdf4', qCount: '07. 자동차보험의 이해 (계속)',
+  html: `
+<div class="section">
+  <div class="section-title">6. 종합보험(임의보험) 특징 — 교통사고처리특례법 적용</div>
+  <ul class="content-list">
+    <li>자동복원제도 있음: 대인·대물·자손·무보험차 상해·자차(분손)<br>
+    &nbsp;&nbsp;단, <span class="hl-red">자차(전손)는 사고발생 시점에서 종료</span> (자동복원 ✗)</li>
+    <li>무보험자동차에 의한 상해: 보험증권에 기재된 보험가입금액 한도로 보상<br>
+    &nbsp;&nbsp;대인Ⅰ·Ⅱ·대물·자손까지 가입된 경우 가입 가능 (<span class="hl-red">자차 ✗</span>)</li>
+    <li><span class="hl-yellow">다른 자동차 운전담보 특약</span>: 다른 자동차 운전 중 생긴 대인Ⅱ·대물·자손 보상 (자차 ✗)<br>
+    &nbsp;&nbsp;• 다른 자동차 범위 → 운전 가능한 <span class="hl">동일 차종</span></li>
+  </ul>
+</div>
+
+<div class="section">
+  <div class="section-title">7. 임의보험 가입대상</div>
+  <table class="content-table">
+    <tr><th>구분</th><th>가입대상</th></tr>
+    <tr><td>개인용자동차보험</td><td><span class="hl">10인승 이하</span>의 개인소유 자가용승용차</td></tr>
+    <tr><td>업무용자동차보험</td><td>10인승 이하의 개인소유 자가용승용차가 아닌 <span class="hl">비사업용 자동차</span> (모든 버스·화물차)</td></tr>
+    <tr><td>영업용자동차보험</td><td>모든 사업용 자동차 (개인택시·개인용달 포함)</td></tr>
+  </table>
+</div>
+
+<div class="section">
+  <div class="section-title">8. 피보험자의 범위</div>
+  <ul class="content-list">
+    <li><span class="hl-green">기명피보험자</span>: 보험증권의 기명피보험자란에 기재 → <span class="hl">차량등록증 원부상의 소유자(차주)</span></li>
+    <li><span class="hl-blue">친족피보험자</span>: 기명피보험자와 같이 살거나 살림을 같이하는 친족</li>
+    <li><span class="hl-yellow">승낙피보험자</span>: 기명피보험자의 승낙으로 사용·관리 중인 자<br>
+    &nbsp;&nbsp;• 제외(대인Ⅱ·대물): 차량정비업자·주차장업자·급유업자·세차업자·판매업자·탁송업자</li>
+    <li><span class="hl-purple">사용피보험자</span>: 기명피보험자의 사용자에 준하는 지위 (업무에 사용하고 있는 때에 한함)</li>
+    <li>운전피보험자: 다른 피보험자를 위해 자동차를 운전 중인 자</li>
+  </ul>
+  <div class="wrong-box">승낙피보험자는 기명피보험자 또는 허락피보험자의 승낙을 얻어 피보험자동차를 사용 또는 관리 중인 자이다. (✗) → 기명피보험자의 승낙!</div>
+</div>
+` },
+
+// ─────────────── PAGE 28 ─────────────────
+{ title: '자동차의 구분 / 보험료 산정', part: 'Part 3', partColor: '#16a34a', partBg: '#f0fdf4', qCount: '07. 자동차보험의 이해 (계속)',
+  html: `
+<div class="section">
+  <div class="section-title">10. 자동차의 구분</div>
+  <table class="content-table">
+    <tr><th>종류</th><th>구분 기준</th><th>세부</th></tr>
+    <tr><td>승합자동차(버스)</td><td>승차정원</td><td>1종(26인↑) / 2종(25인↓) / 3종(16인↓) / 경승합(10인↓)</td></tr>
+    <tr><td>승용자동차</td><td>배기량</td><td>소형A(1,000cc↓) / 소형B(1,600cc↓) / 중형(1,600~2,000cc↓) / 대형(2,000cc↑) / 다인승(10인↓)</td></tr>
+    <tr><td>화물자동차</td><td>적재정량</td><td>1종(5톤↑) / 2종(2.5~5톤) / 3종(2.5톤↓) / 4종(1톤↓)</td></tr>
+  </table>
+  <div class="content-text mt">
+    &nbsp;&nbsp;• 분뇨차·살수차·청소차(똥·물·청소) = <span class="hl">화물차</span><br>
+    &nbsp;&nbsp;• <span class="hl-red">덤프트럭 = 9종 건설기계에 해당</span><br>
+    &nbsp;&nbsp;• <span class="hl-green">의무가입건설기계</span>: 덤프트럭·콘크리트 믹서트럭·아스팔트살포기·타이어식 굴삭기·기중기<br>
+    &nbsp;&nbsp;• <span class="hl-blue">농기계</span>: 동력경운기·농용트랙터·<span class="hl-red">콤바인</span> (화물차 ✗)
+  </div>
+  <div class="wrong-box">콤바인은 화물자동차에 속한다. (✗) → 농기계</div>
+</div>
+
+<div class="section">
+  <div class="section-title">11. 자동차보험 보험료의 산정</div>
+  <div class="content-text mb">
+    납입보험료 = 기본보험료 × 특약요율 × <span class="hl">가입자특성요율</span> × 특별요율 × 우량할인 × 불량할증 × 사고건수별 특성요율
+  </div>
+  <table class="content-table">
+    <tr><th>요율 요소</th><th>내용</th></tr>
+    <tr><td>기본보험료</td><td>적용보험료 산정의 기본이 되는 보험료</td></tr>
+    <tr><td><span class="hl-green">가입자특성요율</span></td><td>보험가입 경력요율 ± 법규위반 경력요율</td></tr>
+    <tr><td>특약요율</td><td>특별약관을 첨부하는 계약에 적용하는 요율</td></tr>
+    <tr><td>특별요율</td><td>자동차의 구조·용도·적재물에 따른 특별위험 적용</td></tr>
+    <tr><td>우량할인·불량할증 요율</td><td>사고발생 실적·손해에 따라 할인·할증</td></tr>
+    <tr><td>사고건수별 특성요율</td><td>직전 <span class="hl">3년간</span> 사고유무 및 사고건수에 따라 적용</td></tr>
+  </table>
+</div>
+` },
+
+// ─────────────── PAGE 29 ─────────────────
+{ title: '자동차보험료 적용요소 / 특약요율', part: 'Part 3', partColor: '#16a34a', partBg: '#f0fdf4', qCount: '07. 자동차보험의 이해 (계속)',
+  html: `
+<div class="section">
+  <div class="section-title">12. 자동차보험료의 적용요소</div>
+  <div class="content-text mb">
+    <span class="hl-yellow">가. 가입자특성요율</span>: 보험가입경력요율 ± 교통법규위반경력요율<br>
+    기타 보험가입경력 인정 3가지: ① 관공서·법인체 운전전문직 근무기간 ② 외국에서 보험가입경력 ③ 군대에서 운전병 근무기간
+  </div>
+  <div class="content-text mb">
+    <span class="hl-yellow">나. 사고유무에 따른 우량할인·불량할증요율</span><br>
+    &nbsp;&nbsp;• 단체할인·할증: 기준(영업용 <span class="hl">10대 이상</span>, 업무용 <span class="hl">50대 이상</span>) / 평가대상기간(<span class="hl">역년 기준 3년</span>)<br>
+    &nbsp;&nbsp;• 개별할인·할증: 전전계약 보험기간 만료일 3개월 전부터 전계약 보험기간 만료일 3개월 전까지
+  </div>
+  <div class="content-text mb">
+    전계약과 갱신계약 동일조건<br>
+    &nbsp;&nbsp;• 개인용: <span class="hl">피보험자</span> (개피! / 관차!) / 업무용(관용): <span class="hl">피보험자동차</span><br>
+    &nbsp;&nbsp;• 업무용(자가용)·영업용: 피보험자 및 피보험자동차
+  </div>
+  <div class="content-text mb">
+    <span class="hl-yellow">사고내용별 점수</span><br>
+    &nbsp;&nbsp;• 사망(4점), 부상1급(4점), 2~7급(3점), 8~12급(2점), 13~14급(1점)<br>
+    &nbsp;&nbsp;• 자기신체사고: <span class="hl">1점</span> (대인처럼 부상등급에 따라 차등 ✗)<br>
+    &nbsp;&nbsp;• 물적사고(대물+자차): 할증기준 초과 = <span class="hl">1점</span>, 할증기준 이하 = <span class="hl">0.5점</span><br>
+    &nbsp;&nbsp;• 가해자불명 자차사고: 중복 발생되어도 <span class="hl">1점</span> (중복시 합산 ✗)
+  </div>
+  <div class="exam-box">사고점수 1점: 부상 13~14급 / 물적사고 기준초과<br>할증기준 200만원 설정 후 대물 120만, 자차 80만이면? → 합산 200만원 = 기준과 동일 → 0.5점</div>
+</div>
+
+<div class="section">
+  <div class="section-title">특약요율 주요 항목</div>
+  <ul class="content-list">
+    <li><span class="hl-yellow">특약요율</span>: 대인Ⅰ에는 적용하지 않음 (단, <span class="hl-green">관용차특약(50%)은 대인Ⅰ에도 적용</span>)</li>
+    <li>보험료 분할납입 특약: 납입최고기간 <span class="hl">30일</span>, 부활기간 <span class="hl">30일</span></li>
+    <li>가족운전한정 특약: 기명피보험자 및 부모·배우자·<span class="hl">자녀</span> (형제 ✗)</li>
+    <li>운전자연령한정 특약: 사고당시 <span class="hl">만 연령</span> 기준 (만 21/23/26/30/35/43세)</li>
+    <li><span class="hl-yellow">특별요율</span>: 대인Ⅰ에는 적용하지 않음 (단, 관용차특약(50%)은 대인Ⅰ에도 적용)</li>
+  </ul>
+</div>
+` },
+
+// ─────────────── PAGE 30 ─────────────────
+{ title: '자동차보험 보험금 지급기준', part: 'Part 3', partColor: '#16a34a', partBg: '#f0fdf4', qCount: '07. 자동차보험의 이해 (계속)',
+  html: `
+<div class="section">
+  <div class="section-title">13. 보험금 지급기준</div>
+  <div class="content-text mb">
+    <span class="hl-yellow">가. 사망보험금</span><br>
+    &nbsp;&nbsp;① 장례비: <span class="hl">500만원</span><br>
+    &nbsp;&nbsp;② 위자료: 65세 미만 = <span class="hl">8,000만원</span> / 65세 이상 = <span class="hl">5,000만원</span><br>
+    &nbsp;&nbsp;③ 상실수익액: 생활비 <span class="hl">1/3 공제</span>, 취업가능연한(65세)
+  </div>
+  <div class="content-text mb">
+    <span class="hl-yellow">나. 부상보험금</span><br>
+    &nbsp;&nbsp;① 구조수색비 ② 치료관계비 ③ 위자료 ④ <span class="hl">휴업손해 (1일 수입 감소액의 85%)</span> ⑤ 간병비 ⑥ 기타<br>
+    &nbsp;&nbsp;• 간병비: 상해구분상 <span class="hl">1~5급</span>에 해당하는 자, 일용근로자 임금 기준으로 지급
+  </div>
+  <div class="content-text mb">
+    <span class="hl-yellow">라. 대물배상</span><br>
+    &nbsp;&nbsp;① 소지품 손해: 1인당 <span class="hl">200만원</span> 한도 실손보상 (분실·도난 제외)<br>
+    &nbsp;&nbsp;② 수리비+열처리도장료 합계: <span class="hl">120%</span> 한도 (내용연수 지난 차량 등: 130% 한도)<br>
+    &nbsp;&nbsp;③ 자동차 시세하락손해: 출고 <span class="hl">5년 이하</span> 차량이 차량가액 20% 초과 시<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1년 이하 = <span class="hl">수리비의 20%</span> / 1년 초과~2년 이하 = <span class="hl">15%</span> / 2년 초과~5년 이하 = <span class="hl">10%</span><br>
+    &nbsp;&nbsp;④ 대차료(렌트비): 비사업용 (수리 가능 시 30일, 불가 시 10일 한도)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• <span class="hl-green">대차하지 않는 경우 대여차 요금의 30% 보상</span> (보상 안 한다 ✗)
+  </div>
+  <div class="exam-box">출고 후 1년 6개월 경과된 2천만원 차량이 수리비 800만원 발생한 경우 시세하락손해는?<br>→ 800만원 × 15% = 120만원</div>
+</div>
+` },
+
+// ─────────────── PAGE 31 ─────────────────
+{ title: '자동차보험 과실상계 / 음주·무면허 / 가지급보험금', part: 'Part 3', partColor: '#16a34a', partBg: '#f0fdf4', qCount: '07. 자동차보험의 이해 (계속)',
+  html: `
+<div class="section">
+  <div class="section-title">마. 자손(자기신체 손해)</div>
+  <div class="content-text">
+    <span class="hl-green">과실상계 적용하지 않음</span> (상해보험 성격)<br>
+    • 면책: 고의, 계속적·반복적 사용·대여, 시험용·연습용 사용 중 손해, 전쟁·혁명·폭동
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">14. 과실상계·손익상계·동승자감액·기왕증</div>
+  <div class="content-text mb">
+    <span class="hl-yellow">과실상계 적용 담보</span>: 대인Ⅰ·Ⅱ, 대물배상, 무보험차상해 → 피해자 과실 비율만큼 공제<br>
+    <span class="hl-red">과실상계 미적용 담보</span>: <span class="hl">자기신체손해, 자동차상해</span>
+  </div>
+  <div class="content-text mb">
+    과실상계 특례: 사망보험금이 과실상계 후 <span class="hl">2,000만원 미달 시 2,000만원</span> 보상
+  </div>
+  <div class="content-text">
+    <span class="hl-yellow">동승자감액</span>: 「승용차 함께 타기」 실시차량 운행 중 사고의 경우 감액하지 않음<br>
+    <span class="hl-yellow">기왕증</span>: 사고 전 증상은 보상하지 않음 / 사고로 인해 추가된 부분은 보상
+  </div>
+  <div class="wrong-box">대물배상에는 피해자의 과실정도에 따른 과실상계제도가 없다. (✗)<br>무보험자동차에 의한 사고에서는 과실상계가 적용되지 않는다. (✗)</div>
+</div>
+
+<div class="section">
+  <div class="section-title">15. 음주·무면허사고 자기부담금</div>
+  <table class="content-table">
+    <tr><th>사유</th><th>대인Ⅰ·Ⅱ</th><th>대물</th></tr>
+    <tr><td>음주운전</td><td><span class="hl">300만원</span></td><td><span class="hl">100만원</span></td></tr>
+    <tr><td>무면허운전</td><td><span class="hl">300만원</span></td><td><span class="hl">100만원</span></td></tr>
+  </table>
+</div>
+
+<div class="section">
+  <div class="section-title">16. 가지급보험금 및 가불금</div>
+  <div class="content-text mb">
+    <span class="hl-yellow">가지급보험금</span>: 지급할 금액 한도 내에서 <span class="hl">50% 지급</span><br>
+    &nbsp;&nbsp;• 보험회사의 지급의무가 없음이 명백한 경우 지급하지 않을 수 있음
+  </div>
+  <div class="content-text">
+    <span class="hl-yellow">가불금</span><br>
+    &nbsp;&nbsp;• 치료비: 대인Ⅰ·Ⅱ 보상한도 내 <span class="hl">진료수가 전액</span> 보상<br>
+    &nbsp;&nbsp;• 치료비 외: 책임보험금 범위 내 <span class="hl">손해액의 50%</span> 지급<br>
+    &nbsp;&nbsp;• 가불금 미지급 시 보험회사에 <span class="hl">과태료(2천만원 이내)</span>
+  </div>
+  <div class="wrong-box">보험사의 책임이 없음이 명백한 경우에도 가불금을 지급해야 한다. (✗)</div>
+</div>
+` },
+
+// ─────────────── PAGE 32 ─────────────────
+{ title: 'Part 4 — 제3보험 | 개요 및 특징', part: 'Part 4', partColor: '#7c3aed', partBg: '#f5f3ff', qCount: '01. 제3보험의 개요 및 특징 (5문항)',
+  html: `
+<div class="section">
+  <div class="section-title">1. 제3보험 개요</div>
+  <div class="content-text mb">
+    <span class="hl-yellow">제3보험(Gray Zone)</span>: <span class="hl">상해보험, 질병보험, 간병보험</span><br>
+    <span class="hl-yellow">근거법</span>: <span class="hl">보험업법</span> (同시행령·보험업 감독규정) — 상법 ✗, 의료법 ✗<br>
+    <span class="hl-green">손보사, 생보사 모두 운영 가능 (겸영 종목)</span>
+  </div>
+  <div class="content-text">
+    <span class="hl-yellow">겸영 가능</span>: 생명보험의 재보험, <span class="hl">제3보험의 재보험</span>, 대통령령에서 정한 제3보험의 부가종목(상해·질병·간병)<br>
+    <span class="hl-red">겸영 불가</span>: 손해보험의 재보험, 보증보험의 재보험
+  </div>
+  <div class="wrong-box">제3보험의 재보험은 겸영이 불가능하다. (✗) → 제3보험의 재보험은 겸영 가능!</div>
+</div>
+
+<div class="section">
+  <div class="section-title">2. 제3보험 특징</div>
+  <div class="content-text mb">
+    1) 보상방법: <span class="hl">실손보상, 정액보상 모두 가능</span><br>
+    2) <span class="hl-yellow">가입제한 (상법 제732조)</span>: 15세미만자·심신상실자·심신박약자의 사망담보 계약 = 무효<br>
+    &nbsp;&nbsp;&nbsp;단, 심신박약자가 계약체결하거나, 단체보험의 피보험자가 될 경우 가능<br>
+    3) 제3보험은 <span class="hl">보장성에 한하여</span> 개발 가능<br>
+    &nbsp;&nbsp;&nbsp;단, <span class="hl-green">손보사 상해보험(15년 이하)</span>은 저축성보험으로 개발 가능
+  </div>
+  <div class="content-text mb">
+    &nbsp;&nbsp;• 보장성: 만기환급금 ≤ 기납입보험료 / 저축성: 만기환급금 > 기납입보험료<br>
+    4) 보상하지 않은 사고로 피보험자가 사망 ⇨ <span class="hl">책임준비금 지급</span><br>
+    5) 질병사망은 <span class="hl-red">특별약관으로만 운영</span> 가능 (보통약관 기본계약 ✗)
+  </div>
+  <div class="content-text">
+    <span class="hl-yellow">손보사 질병사망(특약) 영위조건 3가지</span><br>
+    &nbsp;&nbsp;① 보험만기: <span class="hl">80세 이하</span><br>
+    &nbsp;&nbsp;② 가입금액: <span class="hl">개인당 2억 한도</span><br>
+    &nbsp;&nbsp;③ 보장성보험의 요건을 충족
+  </div>
+  <div class="wrong-box">기본계약에서 상해사망 및 질병사망 담보가 가능하다. (✗) → 질병사망은 특약만!</div>
+  <div class="exam-box">제3보험과 관련 없는 것은? → 제3자에 대한 배상책임, 연금보험, 화재손해 등</div>
+</div>
+` },
+
+// ─────────────── PAGE 33 ─────────────────
+{ title: '상해보험의 이해 (1)', part: 'Part 4', partColor: '#7c3aed', partBg: '#f5f3ff', qCount: '02. 상해보험의 이해 (8문항)',
+  html: `
+<div class="section">
+  <div class="section-title">1. 상해보험의 특징</div>
+  <div class="content-text mb">
+    <span class="hl-yellow">상해사고의 요건</span>: <span class="hl">급격성 / 우연성 / 외래성</span> (필연성 ✗, 내재성 ✗)
+  </div>
+  <ul class="content-list">
+    <li>보험가입금액만 있고 <span class="hl-red">보험가액은 없음</span> (신체의 가격 매길 수 없기 때문)</li>
+    <li>사망보험금은 <span class="hl">정액 지급</span> (보험가입금액) — 상실수익액 지급 ✗</li>
+    <li>원칙적으로 <span class="hl-red">보험자대위 없음</span> (단, 다른 약정이 있는 경우 피보험자 권리를 해치지 않는 범위 내에서 행사 가능)</li>
+    <li>타인의 사망을 보험사고의 대상으로 할 경우 피보험자의 동의 필요 (<span class="hl-green">단체보험은 생략 가능</span>)</li>
+    <li>보험수익자 지정·변경 권리: <span class="hl">계약자에게</span> 있음 (피보험자 동의 필요)</li>
+    <li><span class="hl-green">중과실 담보</span>: 다른 보험과 달리 중과실을 담보 (<span class="hl">고의만 면책</span>)</li>
+  </ul>
+  <div class="wrong-box">보험수익자를 지정·변경할 권리는 피보험자에게 있다. (✗)</div>
+</div>
+
+<div class="section">
+  <div class="section-title">2. 보험료의 산출</div>
+  <div class="content-text">
+    직업·직무를 감안하여 <span class="hl">3등급</span>으로 구분 (연령과 관계없음)<br>
+    보험료 크기: <span class="hl-green">1급(사무직)</span> &lt; <span class="hl-yellow">2급(항공기정비공)</span> &lt; <span class="hl-red">3급(영업용운전자)</span>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">3. 보상하지 않는 손해 (면책사항)</div>
+  <ul class="content-list">
+    <li>피보험자/보험수익자/계약자가 <span class="hl">고의</span>로 피보험자를 해친 경우</li>
+    <li>임신·출산·산후기, 전쟁·내란 (단, <span class="hl-green">천재지변·지진으로 인한 상해는 보상</span>)</li>
+    <li>직업·직무 및 동호회 활동으로 생긴: <span class="hl-red">전문등반·스카이다이빙·스쿠버다이빙·행글라이딩</span></li>
+    <li>모터보트·자동차(오토바이)에 의한 경기·시범·흥행·시운전 (단, <span class="hl-green">공용도로상 시운전은 보장</span>)</li>
+    <li>선박승무원·어부·사공 등 선박 탑승을 직무로 하는 사람</li>
+    <li>치과진료·한방치료에서 발생한 <span class="hl">비급여 의료비</span>, 건강검진, 영양제·비타민제, 산재보험에서 보상받는 의료비</li>
+  </ul>
+</div>
+` },
+
+// ─────────────── PAGE 34 ─────────────────
+{ title: '상해보험 — 실손의료보험 / 입원·통원', part: 'Part 4', partColor: '#7c3aed', partBg: '#f5f3ff', qCount: '02. 상해보험의 이해 (계속)',
+  html: `
+<div class="section">
+  <div class="section-title">4. 기본계약 보험금 — 후유장해보험금</div>
+  <div class="content-text">
+    보험기간 중 진단확정된 상해로 장해분류표에서 정한 각 장해지급률에 해당하는 장해상태가 되었을 때<br>
+    &nbsp;&nbsp;• <span class="hl-yellow">한시적 후유장해</span>: <span class="hl">5년 이상</span> 지속 시 해당 장해지급률의 <span class="hl">20%</span>를 보험가입금액에 곱한 금액 지급 (<span class="hl-green">오이 먹을래? → 5년·20%</span>)<br>
+    &nbsp;&nbsp;• 후유장해는 사고일로부터 <span class="hl">180일째</span> 의사의 진단으로 결정<br>
+    &nbsp;&nbsp;• 동일 신체부위에 2가지 이상 장해 발생 시 <span class="hl">그 중 높은 장해율</span> 적용
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">5. 실손의료보험 — 기본형 + 3개의 특약</div>
+  <div class="content-text mb">
+    <span class="hl-yellow">기본형</span>: 입원(<span class="hl">5천만원</span> 한도) / 통원(회당 <span class="hl">30만원</span>, 연간 <span class="hl">180회</span> 한도)
+  </div>
+  <table class="content-table">
+    <tr><th>특약</th><th>내용</th><th>한도</th></tr>
+    <tr><td>특약 ①</td><td>비급여 도수치료·체외충격파·증식치료</td><td><span class="hl">연간 350만원, 50회</span></td></tr>
+    <tr><td>특약 ②</td><td>비급여 주사료</td><td><span class="hl">연간 250만원, 50회</span></td></tr>
+    <tr><td>특약 ③</td><td>비급여 자기공명영상진단(MRI/MRA)</td><td><span class="hl">연간 300만원, 횟수 무제한</span></td></tr>
+  </table>
+</div>
+
+<div class="section">
+  <div class="section-title">6. 상해입원의료비</div>
+  <ul class="content-list">
+    <li>가입한도: 하나의 상해당 최고 <span class="hl">5,000만원</span> 한도</li>
+    <li>국민건강보험법 미적용 시 본인부담 금액의 <span class="hl">40% 보상</span></li>
+    <li>초과 시 <span class="hl">90일</span> 지나면 새로운 입원으로 간주 (275일 이내 종료 시 365일 경과 후 새로운 입원)</li>
+    <li>입원치료 중 보험기간 만료 시 종료일로부터 <span class="hl">180일</span>까지 보상</li>
+    <li>상급병실료 차액: 차액의 50% 공제 (<span class="hl">1일 10만원</span> 한도 보상)</li>
+  </ul>
+  <div class="wrong-box">상해입원의료비는 최고 180일까지 보상한다. (✗) → 보험기간 + 최대 180일 연장</div>
+</div>
+
+<div class="section">
+  <div class="section-title">7. 상해통원의료비</div>
+  <div class="content-text mb">
+    1년 단위로 외래 연간 <span class="hl">180회</span> 한도 (이틀에 한 번 꼴! 90회 ✗)
+  </div>
+  <div class="content-text">
+    공제금액: 의원 <span class="hl">1만원</span> / 병원 <span class="hl">1만5천원</span> / 전문요양기관 <span class="hl">2만원</span> (또는 보장대상의료비의 20% 중 큰 금액)<br>
+    처방조제비: 8천원과 보상대상 의료비의 20% 중 큰 금액<br>
+    통원치료 중 보험기간 만료 시 종료일로부터 <span class="hl">180일</span>까지 보상
+  </div>
+</div>
+` },
+
+// ─────────────── PAGE 35 ─────────────────
+{ title: '단체·교통상해보험 / 단체실손 연계제도', part: 'Part 4', partColor: '#7c3aed', partBg: '#f5f3ff', qCount: '02. 상해보험의 이해 (계속)',
+  html: `
+<div class="section">
+  <div class="section-title">8. 단체실손의료보험과 개인실손의료보험간 연계제도</div>
+  <div class="content-text mb">
+    <span class="hl-yellow">개인실손의료보험 중지/재개</span><br>
+    &nbsp;&nbsp;• 중지: 가입 후 <span class="hl">1년 이상 유지한 계약</span><br>
+    &nbsp;&nbsp;• 재개: 종료 후 <span class="hl">1개월 이내</span> 신청 → 무심사 재개<br>
+    &nbsp;&nbsp;• 재개불가: 특약으로 가입한 개인실손 중지 후 주계약 해지한 경우
+  </div>
+  <div class="content-text">
+    <span class="hl-yellow">단체실손의 개인실손 전환</span><br>
+    &nbsp;&nbsp;• 전환대상: 전환신청 직전 <span class="hl">5년간 가입자</span> 중 개인실손 가입 가능한 자 (<span class="hl">65세 이하</span>)<br>
+    &nbsp;&nbsp;• 무심사 전환: 직전 5년간 보험금 <span class="hl">200만원 이하</span> 수령 & 10대 중대질환 치료이력 없는 경우
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">10. 교통상해보험</div>
+  <div class="grid-2">
+    <div class="mini-card">
+      <div class="mini-card-title">자동차 (약관상)</div>
+      <div class="mini-card-body">자동차, 이륜자동차(<span class="hl">50cc 이상</span>), 9종 건설기계(덤프트럭 등)</div>
+    </div>
+    <div class="mini-card">
+      <div class="mini-card-title">기타 교통수단</div>
+      <div class="mini-card-body">기차·항공기·선박·<span class="hl">엘리베이터·에스컬레이터</span>·스쿠터·일반건설기계·농업기계</div>
+    </div>
+  </div>
+  <div class="content-text mt mb">
+    <span class="hl-red">보상 ✗</span>: 하역작업 중·정비 중·청소 중·작업기계로 사용 중<br>
+    <span class="hl-green">보상 ○</span>: 운행 중·탑승 중·승하차 하던 중·승강장 내 대기 중
+  </div>
+  <div class="content-text mb">
+    <span class="hl-yellow">휴일 교통상해</span>: 토요일·일요일·법정공휴일·근로자의 날<br>
+    &nbsp;&nbsp;• 대중교통수단 제외: <span class="hl-red">전세버스, 렌터카</span> (<span class="hl-green">항공기=대중교통</span>)
+  </div>
+  <div class="content-text">
+    <span class="hl-yellow">뺑소니·무보험차 상해보험</span>: <span class="hl-red">이륜자동차 운행 중 사고는 제외</span>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">11. 단체상해보험</div>
+  <div class="content-text">
+    • <span class="hl-green">1종(급여단체)</span>: 관공서, 기업체 (근로자, 공무원)<br>
+    • <span class="hl-blue">2종(법정단체)</span>: 비영리법인 (리 → "2종"으로 연결)<br>
+    • <span class="hl-yellow">3종(규약단체)</span>: 위험의 동질성이 확보, 일괄관리 가능
+  </div>
+  <div class="tip-box">일반보험은 정기예금이율 / 장기보험은 약관대출이율 → 일정 / 장약!</div>
+  <div class="wrong-box">비영리법인과 동업자단체는 3종단체이다. (✗) → 비영리법인은 2종! | 단체상해보험은 피보험자의 서면동의를 반드시 받아야 한다. (✗)</div>
+</div>
+` },
+
+// ─────────────── PAGE 36 ─────────────────
+{ title: '질병보험의 이해', part: 'Part 4', partColor: '#7c3aed', partBg: '#f5f3ff', qCount: '03. 질병보험의 이해 (3문항)',
+  html: `
+<div class="section">
+  <div class="section-title">1. 질병보험의 특징 — 외래성이 인정되지 않음</div>
+  <div class="content-text mb">
+    <span class="hl-yellow">한국표준질병 사인분류</span>: <span class="hl">제7차 개정</span>, 통계청에서 고시 (2016.1.1부터 시행)<br>
+    <span class="hl-yellow">보험나이 계산</span>: 계약일 현재 만연령 기준<br>
+    &nbsp;&nbsp;• 6개월 미만은 버리고, <span class="hl">6개월 이상은 1년으로</span> 계산 (30세 10개월 = 31세)
+  </div>
+  <div class="content-text">
+    <span class="hl-yellow">대기기간(90일) 설정</span>: 암담보 특약 — 설정이유 = <span class="hl">역선택 방지</span><br>
+    &nbsp;&nbsp;• 대기기간 중 암진단 확정 시 <span class="hl-red">무효</span><br>
+    &nbsp;&nbsp;• 단, 상피내암·경계성종양·기타피부암은 <span class="hl-green">대기기간 설정 없음</span><br>
+    &nbsp;&nbsp;• <span class="hl-red">15세 미만자는 암보험에서 대기기간 설정 못 함</span> (2006년부터 시행)
+  </div>
+  <div class="exam-box">생년월일이 1971.6.1이고, 계약일이 2011.10.1인 경우 가입연령은?<br>→ 40세 (40세 4개월 → 6개월 미만인 4개월은 버림)<br>16세 고등학생은 대기기간을 설정할 수 있다. (O)</div>
+</div>
+
+<div class="section">
+  <div class="section-title">2. 보상하지 않는 주요 손해</div>
+  <ul class="content-list">
+    <li>피보험자/보험수익자/계약자가 고의로 피보험자를 해친 경우</li>
+    <li>치과치료·한방치료에서 발생한 <span class="hl">비급여 의료비</span></li>
+    <li>국민건강보험법·의료급여법에 의해 사후에 환급이 가능한 의료비</li>
+    <li><span class="hl-red">건강검진, 예방접종, 인공유산</span></li>
+    <li>단순피로·권태·주근깨·다모·무모·백모증·딸기코 등</li>
+    <li>산재보험에서 보상받은 의료비 / <span class="hl-red">인간면역결핍바이러스(HIV) 감염으로 인한 치료비</span></li>
+  </ul>
+  <div class="tip-box">보상하는 손해: 청약일 이전 진단된 질병이라도 청약일 이후 <span class="hl">5년을 경과</span>하는 동안 동일질병으로 추가진단 및 치료 사실이 없는 경우 5년 경과 이후에는 보상 가능 (3년 ✗)</div>
+</div>
+
+<div class="section">
+  <div class="section-title">3. 정액보상 주요 내용</div>
+  <ul class="content-list">
+    <li><span class="hl-yellow">질병사망보험금</span>: 질병 80% 이상 후유장해 시 사망보험금 지급</li>
+    <li><span class="hl-yellow">한시적 장해</span>: 5년 이상 지속 시 해당 장해지급률의 <span class="hl">20%</span>를 장해지급률로 함</li>
+    <li><span class="hl-yellow">입원급여금</span>: 보험기간 중 2회 이상 입원 시 계속입원으로 보아 입원일수 합산<br>
+    &nbsp;&nbsp;(단, 퇴원 후 <span class="hl">180일</span>이 경과하여 개시한 입원은 새로운 입원으로 간주)</li>
+    <li><span class="hl-yellow">수술급여금</span>: 두 종류 이상의 질병수술을 받은 경우 <span class="hl">하나의 질병수술보험금만</span> 지급</li>
+  </ul>
+</div>
+` },
+
+// ─────────────── PAGE 37 ─────────────────
+{ title: '질병입원·통원의료비 / 노후·유병력자 실손 / CI·어린이·치아보험', part: 'Part 4', partColor: '#7c3aed', partBg: '#f5f3ff', qCount: '03. 질병보험의 이해 (계속)',
+  html: `
+<div class="section">
+  <div class="section-title">4. 질병입원의료비</div>
+  <ul class="content-list">
+    <li>가입한도: 하나의 질병당 최고 <span class="hl">5,000만원</span> 한도</li>
+    <li>국민건강보험법 미적용 시 본인부담 금액의 <span class="hl">40% 보상</span></li>
+    <li>초과 시 <span class="hl">90일</span> 지나면 새로운 입원으로 간주 (275일 이내 종료 시 365일 경과 후 새로운 입원)</li>
+    <li>입원치료 중 보험기간 만료 시 종료일로부터 <span class="hl">180일</span>까지 보상</li>
+    <li><span class="hl-green">병원의 직원복리후생제도로 의료비 감면 시 감면 전 의료비 기준으로 지급</span></li>
+  </ul>
+</div>
+
+<div class="section">
+  <div class="section-title">5. 질병통원의료비</div>
+  <div class="content-text mb">
+    1년 단위로 외래 연간 <span class="hl">180회</span> 한도 / 처방조제비(선택형): 건당 <span class="hl">8천원</span>, 최고 30만원 한도<br>
+    하나의 질병으로 하루 2회 이상 통원치료 시 <span class="hl">"1회 외래, 1건 처방"</span>으로 간주
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">6. 노후 실손의료보험 / 7. 유병력자 실손의료보험</div>
+  <table class="content-table">
+    <tr><th>구분</th><th>노후 실손</th><th>유병력자 실손</th></tr>
+    <tr><td>가입대상</td><td>65세 이상도 가능</td><td>유병력자도 가입 수월</td></tr>
+    <tr><td>자기부담률</td><td>급여 20%, 비급여 30%</td><td><span class="hl">급여 30%, 비급여 30%</span></td></tr>
+    <tr><td>보장한도</td><td>입원 연간 1억원, 통원 100만원</td><td>입원 5천만원, 통원 20만원</td></tr>
+    <tr><td>변경주기</td><td>보험료 1년갱신 / 상품구조 3년 후 재가입</td><td>보험료 1년갱신 / 상품구조 3년 후 재가입</td></tr>
+  </table>
+  <div class="tip-box">일반 실손의료보험은 15년 후 재가입, 노후·유병력자 실손은 3년 후 재가입</div>
+</div>
+
+<div class="section">
+  <div class="section-title">8~10. 치명적 질병보험(CI) / 어린이보험 / 치아보험</div>
+  <ul class="content-list">
+    <li><span class="hl-yellow">CI보험</span>: 중대한 암·뇌졸중·심근경색 등으로 인한 고액 치료비·간병비·생활비 지급<br>
+    &nbsp;&nbsp;• 잔여수명 <span class="hl">6개월 이하</span> 시 사망보험금의 <span class="hl">50% 선지급</span><br>
+    &nbsp;&nbsp;• CI보험금 지급 사유 발생 시 차회부터 <span class="hl">보험료 납입 면제</span></li>
+    <li><span class="hl-yellow">어린이보험</span>: 가입연령 <span class="hl">0세~15세</span> / 태아가입 특별약관 → 태아보험</li>
+    <li><span class="hl-yellow">치아보험</span>: 가입연령 0~75세(보험회사별 상이) / 갱신형은 갱신 시 보험료 조정, 면책기간·감액기간 운영</li>
+  </ul>
+</div>
+` },
+
+// ─────────────── PAGE 38 ─────────────────
+{ title: '간병보험의 이해', part: 'Part 4', partColor: '#7c3aed', partBg: '#f5f3ff', qCount: '04. 간병보험의 이해 (1문항)',
+  html: `
+<div class="section">
+  <div class="section-title">1. 장기간병보험</div>
+  <div class="content-text mb">
+    <span class="hl-yellow">간병보험의 정의</span>: <span class="hl">활동불능 또는 인식불능 등 타인의 간병을 필요로 하는 상태</span> (=장기요양보험)
+  </div>
+  <div class="content-text mb">
+    <span class="hl-yellow">장기요양급여금 지급</span>: 보험기간 중에 노인장기요양보험 수급대상으로 인정되어 국민건강보험공단 등급판정위원회에 의해 <span class="hl">1~4등급</span>의 장기요양등급을 판정 받은 경우 (일시지급형·매월지급형 등)
+  </div>
+  <div class="content-text mb">
+    <span class="hl-yellow">치매간병비 지급</span>: <span class="hl">「중증치매상태」</span> 진단 확정되고 보험기간이 끝난 이후라도 일정기간 지속 시 치매간병비 지급<br>
+    &nbsp;&nbsp;※ 「중증치매상태」: 약관에서 정한 치매로 진단 확정되고, 이로 인하여 「인지기능의 장애」가 발생한 상태
+  </div>
+  <div class="content-text">
+    <span class="hl-yellow">보상하지 않는 손해</span><br>
+    &nbsp;&nbsp;① 피보험자가 고의로 자신을 해친 경우<br>
+    &nbsp;&nbsp;② 보험수익자가 고의로 피보험자를 해친 경우<br>
+    &nbsp;&nbsp;③ 계약자가 고의로 피보험자를 해친 경우<br>
+    &nbsp;&nbsp;④ 피보험자의 임신·출산·산후기<br>
+    &nbsp;&nbsp;⑤ 전쟁·혁명·<span class="hl-red">알코올중독·습관성 약품 복용</span>·신체보조장구에 입은 손해
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">2. 보험금 대리청구인 제도</div>
+  <div class="content-text mb">
+    <span class="hl-yellow">정의</span>: 가입자를 대신하여 대리청구인을 미리 지정하는 제도<br>
+    &nbsp;&nbsp;• 필요한 이유: 본인 스스로 보험금 청구가 어려운 상황 발생<br>
+    &nbsp;&nbsp;• 적용: <span class="hl">'보험계약자 = 피보험자 = 보험수익자'</span>의 경우 해당
+  </div>
+  <ul class="content-list">
+    <li>대리청구인이 가입자를 대신하여 보험금을 청구</li>
+    <li><span class="hl-green">보험회사에 연락하여 대리청구인 지정을 신청</span>할 수 있음</li>
+  </ul>
+</div>
+
+<div class="highlight-section" style="text-align:center; padding: 2rem;">
+  <div style="font-size: 1.5rem; font-weight: 900; color: #1e293b; margin-bottom: 0.75rem">🎉 수고했어요! 38페이지 완주!</div>
+  <div style="color: #64748b; font-size: 0.95rem; line-height: 1.8;">
+    4파트 16챕터, 총 40문항 범위를 모두 돌았습니다.<br>
+    한 번 더 읽을 때마다 합격에 가까워지고 있어요.<br>
+    <span style="color:#2563eb; font-weight:700">당신은 반드시 합격할 수 있습니다. 파이팅! ✨</span>
+  </div>
+</div>
+` },
+
+];
+
+// ══════════════════════════════════════════
+//  TOC DATA
+// ══════════════════════════════════════════
+const tocData = [
+  {p:1,n:'목차'},
+  {p:2,n:'모집종사자의 이해 및 윤리규범'},
+  {p:3,n:'보험대리점 / 모집 프로세스'},
+  {p:4,n:'우수인증설계사 / 기초이론'},
+  {p:5,n:'보험 기본원칙 / 분류'},
+  {p:6,n:'보험범죄 및 교통사고 예방'},
+  {p:7,n:'음주운전 처벌 기준'},
+  {p:8,n:'주요 면허취소 / 교통법령'},
+  {p:9,n:'보험계약 관계자 / 피보험이익'},
+  {p:10,n:'보험사고요건 / 가입금액·가액'},
+  {p:11,n:'계약 성립·해지·무효·부활'},
+  {p:12,n:'보험약관 / 대위 / 허가'},
+  {p:13,n:'통신판매 / 제3자보호 / 주요기관'},
+  {p:14,n:'모집질서 법규 및 민원사례'},
+  {p:15,n:'특별이익금지 / 장애인보험'},
+  {p:16,n:'화재보험의 이해'},
+  {p:17,n:'화재보험 — 코보험·특약'},
+  {p:18,n:'다중이용업소·재난·풍수해'},
+  {p:19,n:'배상책임보험의 이해'},
+  {p:20,n:'특종보험의 이해'},
+  {p:21,n:'여행보험 / 장기손해보험 특별계정'},
+  {p:22,n:'장기손해보험 특징 / 보험금 지급'},
+  {p:23,n:'연금저축보험의 이해'},
+  {p:24,n:'퇴직연금보험의 이해'},
+  {p:25,n:'자동차보험 (1)'},
+  {p:26,n:'자동차보험 의무보험·담보종목'},
+  {p:27,n:'자동차보험 임의보험·피보험자'},
+  {p:28,n:'자동차 구분 / 보험료 산정'},
+  {p:29,n:'자동차보험료 적용요소'},
+  {p:30,n:'자동차보험 보험금 지급기준'},
+  {p:31,n:'과실상계 / 음주·무면허 / 가불금'},
+  {p:32,n:'제3보험 개요 및 특징'},
+  {p:33,n:'상해보험의 이해 (1)'},
+  {p:34,n:'상해보험 — 실손의료보험'},
+  {p:35,n:'단체·교통상해 / 단체실손 연계'},
+  {p:36,n:'질병보험의 이해'},
+  {p:37,n:'질병입원·통원 / CI·어린이·치아'},
+  {p:38,n:'간병보험의 이해'},
+];
+
+// ══════════════════════════════════════════
+//  STATE
+// ══════════════════════════════════════════
+let currentPage = 0;
+
+function startApp() {
+  document.getElementById('cover').style.display = 'none';
+  document.getElementById('app').style.display = 'flex';
+  renderPage(0);
+}
+
+function goBack() {
+  document.getElementById('app').style.display = 'none';
+  document.getElementById('cover').style.display = 'flex';
+}
+
+function renderPage(idx) {
+  currentPage = idx;
+  const page = pages[idx];
+  const total = pages.length;
+  const pct = Math.round(((idx + 1) / total) * 100 * 10) / 10;
+
+  document.getElementById('nav-page-info').textContent = (idx + 1) + ' / ' + total;
+  document.getElementById('progress-fill').style.width = pct + '%';
+  document.getElementById('nav-percent').textContent = pct + '%';
+
+  const container = document.getElementById('page-container');
+  container.innerHTML = `
+    <div class="page-header">
+      <span class="part-chip" style="background:${page.partBg};color:${page.partColor}">${page.part}</span>
+      <h1 class="page-title-main">${page.title}</h1>
+      ${page.qCount ? `<p class="page-qcount">📋 ${page.qCount}</p>` : ''}
+    </div>
+    ${page.html}
+    <div class="page-nav">
+      <button class="nav-btn" onclick="goToPage(${idx - 1})" ${idx === 0 ? 'disabled' : ''}>← 이전</button>
+      <span class="page-indicator">${idx + 1} / ${total}</span>
+      <button class="nav-btn primary" onclick="goToPage(${idx + 1})" ${idx === total - 1 ? 'disabled' : ''}>다음 →</button>
+    </div>
+  `;
+
+  // Build TOC if page 0
+  if (idx === 0) {
+    const toc = document.getElementById('toc');
+    if (toc) {
+      toc.innerHTML = tocData.map(t => `
+        <div class="toc-item" onclick="goToPage(${t.p - 1})">
+          <div class="toc-num">PAGE ${t.p}</div>
+          <div class="toc-name">${t.n}</div>
+        </div>
+      `).join('');
+    }
+  }
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function goToPage(idx) {
+  if (idx < 0 || idx >= pages.length) return;
+  renderPage(idx);
+}
+
+// scroll to top button
+window.addEventListener('scroll', () => {
+  const btn = document.getElementById('scroll-top');
+  if (window.scrollY > 300) btn.classList.add('visible');
+  else btn.classList.remove('visible');
+});
+
+// keyboard navigation
+document.addEventListener('keydown', (e) => {
+  if (document.getElementById('app').style.display === 'none') return;
+  if (e.key === 'ArrowRight' || e.key === 'ArrowDown') goToPage(currentPage + 1);
+  if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') goToPage(currentPage - 1);
+});
+
+</script>
+</body>
+</html>

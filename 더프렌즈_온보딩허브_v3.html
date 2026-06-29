@@ -1,0 +1,2145 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>에즈금융서비스 온보딩 허브</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  /* =========================================================
+     에즈금융서비스 디자인 시스템 v3
+     친근·모던 (Toss·KakaoPay 톤) · 브랜드 블루 #0365db 기반 독자 재정의
+     ※ HTML 구조/클래스/JS 훅은 그대로, 스타일만 교체
+     ========================================================= */
+
+  :root {
+    /* ── 브랜드 블루 스케일 ── */
+    --brand-900: #013a8f;
+    --brand-700: #0254b8;
+    --brand:     #0365db;
+    --brand-500: #2f86f0;
+    --brand-300: #8fc0f8;
+    --brand-soft: #e9f2ff;   /* 연한 블루 칩 배경 */
+    --brand-tint: #f4f9ff;   /* 더 연한 면 배경 */
+    --brand-grad: linear-gradient(135deg, #0254b8 0%, #0365db 55%, #2f86f0 100%);
+
+    /* ── 카테고리 강조색 (부드럽게 조화) ── */
+    --c-loss: #e8603f;  --c-loss-soft: #fdeee9;
+    --c-life: #0365db;  --c-life-soft: #e9f2ff;
+    --c-var:  #7c5cf0;  --c-var-soft:  #f0ecfd;
+    --c-mint: #12b886;  --c-mint-soft: #e7f8f1;
+
+    /* ── 뉴트럴 (Toss 톤, 살짝 부드럽게) ── */
+    --bg:          #f5f7fa;
+    --surface:     #ffffff;
+    --line:        #edf0f3;
+    --line-strong: #e3e7ec;
+    --t-strong:    #181f29;
+    --t:           #3f4b5b;
+    --t-soft:      #6b7684;
+    --t-muted:     #98a2af;
+
+    /* ── 라운드 ── */
+    --r-xs: 10px;
+    --r-sm: 14px;
+    --r:    18px;
+    --r-lg: 24px;
+    --pill: 999px;
+
+    /* ── 그림자 (블루 틴트) ── */
+    --sh-xs: 0 1px 2px rgba(24,31,41,.05);
+    --sh-sm: 0 4px 16px rgba(24,31,41,.06);
+    --sh:    0 10px 30px rgba(3,101,219,.10);
+    --sh-lg: 0 22px 54px rgba(3,101,219,.16);
+
+    /* ── 전환 ── */
+    --ease: cubic-bezier(.22,.61,.36,1);
+
+    /* ── 레거시 변수 매핑(혹시 남은 참조 호환) ── */
+    --blue: var(--brand);
+    --blue-dark: var(--brand-700);
+    --blue-light: var(--brand-soft);
+    --gray-50: #f6f8fb;
+    --gray-100: #f1f4f7;
+    --gray-200: #e8ebef;
+    --gray-300: #d7dce1;
+    --gray-500: var(--t-muted);
+    --gray-600: var(--t-soft);
+    --gray-700: var(--t);
+    --gray-900: var(--t-strong);
+    --white: #ffffff;
+    --radius: var(--r);
+    --radius-sm: var(--r-sm);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--t-strong);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: -0.2px;
+  }
+
+  /* ===================== NAV ===================== */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(255,255,255,0.72);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner {
+    max-width: 1120px; margin: 0 auto;
+    padding: 0 24px; height: 64px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-logo {
+    font-size: 18px; font-weight: 800; color: var(--brand);
+    letter-spacing: -0.6px; text-decoration: none;
+  }
+  .nav-logo span { color: var(--t-strong); }
+  .nav-links { display: flex; gap: 2px; list-style: none; }
+  .nav-links a {
+    text-decoration: none; color: var(--t-soft);
+    font-size: 14.5px; font-weight: 600;
+    padding: 8px 14px; border-radius: var(--pill); transition: all 0.18s var(--ease);
+  }
+  .nav-links a:hover { background: var(--brand-soft); color: var(--brand); }
+  .hamburger {
+    display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px;
+    border-radius: 12px; transition: background 0.15s;
+  }
+  .hamburger:hover { background: var(--brand-soft); }
+  .hamburger span {
+    display: block; width: 20px; height: 2px;
+    background: var(--t); border-radius: 2px; transition: all 0.3s var(--ease);
+  }
+  .mobile-menu {
+    display: none; flex-direction: column; background: white;
+    border-top: 1px solid var(--line); padding: 10px 20px 18px; gap: 2px;
+  }
+  .mobile-menu a {
+    text-decoration: none; color: var(--t);
+    font-size: 15px; font-weight: 600;
+    padding: 14px 12px; border-radius: 12px; transition: background 0.15s;
+  }
+  .mobile-menu a:hover { background: var(--brand-soft); color: var(--brand); }
+  .mobile-menu.open { display: flex; }
+
+  /* ===================== HERO ===================== */
+  .hero {
+    max-width: 1120px; margin: 0 auto; padding: 84px 24px 56px;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 7px;
+    background: var(--brand-soft); color: var(--brand);
+    font-size: 13px; font-weight: 700;
+    padding: 7px 14px; border-radius: var(--pill); margin-bottom: 26px;
+    border: 1px solid rgba(3,101,219,0.08);
+  }
+  .hero-badge::before {
+    content: ''; width: 6px; height: 6px;
+    background: var(--brand); border-radius: 50%; animation: pulse 2s infinite;
+  }
+  @keyframes pulse { 0%,100%{opacity:1; transform:scale(1)} 50%{opacity:0.35; transform:scale(0.8)} }
+  .hero h1 {
+    font-size: clamp(30px, 5vw, 52px); font-weight: 800;
+    line-height: 1.22; letter-spacing: -1.8px;
+    color: var(--t-strong);
+  }
+  .hero h1 em {
+    font-style: normal;
+    background: linear-gradient(120deg, var(--brand-700), var(--brand-500));
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent; color: var(--brand);
+  }
+
+  /* ===================== SECTION ===================== */
+  .section { max-width: 1120px; margin: 0 auto; padding: 0 24px 72px; }
+  .section-header { margin-bottom: 22px; }
+  .section-title { font-size: 23px; font-weight: 800; letter-spacing: -0.7px; color: var(--t-strong); }
+  .section-desc { font-size: 14px; color: var(--t-muted); margin-top: 7px; line-height: 1.6; font-weight: 500; }
+
+  /* ===================== GRID CARDS ===================== */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(248px, 1fr));
+    gap: 16px;
+  }
+  .card {
+    background: var(--surface); border-radius: var(--r-lg); padding: 26px;
+    border: 1px solid var(--line); text-decoration: none; color: inherit;
+    display: flex; flex-direction: column; gap: 11px;
+    transition: transform 0.28s var(--ease), box-shadow 0.28s var(--ease), border-color 0.28s var(--ease);
+    cursor: pointer; position: relative; overflow: hidden;
+    box-shadow: var(--sh-xs);
+  }
+  .card::after {
+    content: ''; position: absolute; inset: 0;
+    border-radius: var(--r-lg); border: 1.5px solid var(--brand);
+    opacity: 0; transition: opacity 0.28s var(--ease); pointer-events: none;
+  }
+  .card:hover { transform: translateY(-5px); box-shadow: var(--sh-lg); border-color: transparent; }
+  .card:hover::after { opacity: 0.55; }
+  .card-icon {
+    font-size: 26px; width: 56px; height: 56px;
+    background: var(--brand-tint); border-radius: 16px;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    box-shadow: inset 0 0 0 1px rgba(3,101,219,0.06);
+  }
+  .card-title { font-size: 16px; font-weight: 800; letter-spacing: -0.4px; color: var(--t-strong); }
+  .card-desc { font-size: 13px; color: var(--t-soft); line-height: 1.55; flex: 1; font-weight: 500; }
+  .card-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 2px; }
+  .card-tag {
+    font-size: 11.5px; font-weight: 700; color: var(--brand);
+    background: var(--brand-soft); padding: 4px 10px; border-radius: var(--pill);
+  }
+  .card-arrow { font-size: 14px; color: var(--brand); font-weight: 700; display: flex; align-items: center; gap: 4px; margin-top: 6px; }
+  .card:hover .card-arrow { gap: 8px; transition: gap 0.2s var(--ease); }
+
+  /* ===================== GUIDE LIST ===================== */
+  .guide-list { display: flex; flex-direction: column; gap: 12px; }
+  .guide-card {
+    background: var(--surface); border-radius: var(--r);
+    border: 1px solid var(--line); padding: 18px 22px;
+    text-decoration: none; color: inherit;
+    display: flex; align-items: center; gap: 18px; transition: all 0.22s var(--ease);
+    cursor: pointer; box-shadow: var(--sh-xs);
+  }
+  .guide-card:hover {
+    border-color: transparent; background: var(--brand-tint);
+    box-shadow: var(--sh); transform: translateX(6px);
+  }
+  .guide-num {
+    font-size: 22px; width: 50px; height: 50px;
+    background: var(--brand-soft); border-radius: 15px;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .guide-text { flex: 1; }
+  .guide-title { font-size: 15px; font-weight: 700; margin-bottom: 3px; color: var(--t-strong); }
+  .guide-sub { font-size: 12.5px; color: var(--t-muted); line-height: 1.5; font-weight: 500; }
+  .guide-badge {
+    font-size: 11.5px; font-weight: 700; color: var(--brand);
+    background: var(--brand-soft); padding: 5px 11px; border-radius: var(--pill); white-space: nowrap;
+  }
+
+  /* ===================== 전체화면 페이지 오버레이 ===================== */
+  .page-overlay {
+    display: none; position: fixed; inset: 0; z-index: 300;
+    background: var(--bg);
+    flex-direction: column;
+    overflow-y: auto;
+  }
+  .page-overlay.open { display: flex; }
+
+  .page-header {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(255,255,255,0.78);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid var(--line);
+    padding: 0 24px; height: 64px;
+    display: flex; align-items: center; justify-content: space-between;
+    max-width: 100%;
+  }
+  .page-header-title {
+    font-size: 16px; font-weight: 800; color: var(--t-strong);
+    display: flex; align-items: center; gap: 10px; letter-spacing: -0.4px;
+  }
+  .page-header-title span { font-size: 20px; }
+  .page-back {
+    display: flex; align-items: center; gap: 6px;
+    font-size: 14px; font-weight: 700; color: var(--brand);
+    background: var(--brand-soft); border: none; border-radius: var(--pill);
+    padding: 9px 16px; cursor: pointer; transition: all 0.18s var(--ease);
+  }
+  .page-back:hover { background: var(--brand); color: white; box-shadow: var(--sh); }
+
+  .page-body {
+    max-width: 1120px; margin: 0 auto; padding: 44px 24px 72px; width: 100%;
+  }
+  .page-body .section-title { margin-bottom: 8px; }
+  .page-body .section-desc { margin-bottom: 26px; }
+
+  /* ── 요점정리 카드 그리드 ── */
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(328px, 1fr));
+    gap: 16px;
+  }
+  .summary-card {
+    background: var(--surface); border-radius: var(--r-lg);
+    border: 1px solid var(--line); overflow: hidden; box-shadow: var(--sh-xs);
+  }
+  .summary-card-head {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 20px 22px; border-bottom: 1px solid var(--line);
+  }
+  .summary-card-head-left { display: flex; align-items: center; gap: 13px; }
+  .summary-icon {
+    font-size: 22px; width: 48px; height: 48px;
+    background: var(--brand-soft); border-radius: 14px;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .summary-card-title { font-size: 15px; font-weight: 800; margin-bottom: 2px; color: var(--t-strong); }
+  .summary-card-meta { font-size: 12px; color: var(--t-muted); font-weight: 500; }
+  .summary-link {
+    font-size: 12px; font-weight: 700; color: var(--brand);
+    text-decoration: none; padding: 7px 12px;
+    background: var(--brand-soft); border-radius: var(--pill); white-space: nowrap;
+    transition: all 0.18s var(--ease);
+  }
+  .summary-link:hover { background: var(--brand); color: white; }
+  .accordion { padding: 14px 16px; display: flex; flex-direction: column; gap: 8px; }
+  .acc-item { border: 1px solid var(--line); border-radius: var(--r-sm); overflow: hidden; transition: border-color 0.18s, background 0.18s; }
+  .acc-item.open { border-color: rgba(3,101,219,0.25); background: var(--brand-tint); }
+  .acc-trigger {
+    width: 100%; border: 0; background: transparent;
+    display: flex; justify-content: space-between; align-items: center;
+    text-align: left; padding: 15px 16px; font-size: 13.5px; font-weight: 700;
+    cursor: pointer; color: var(--t-strong); transition: background 0.15s;
+    font-family: inherit;
+  }
+  .acc-trigger:hover { background: var(--brand-tint); }
+  .acc-trigger .chevron {
+    color: var(--brand); font-size: 18px; transition: transform 0.25s var(--ease); flex-shrink: 0;
+    width: 22px; height: 22px; display: inline-flex; align-items: center; justify-content: center;
+    background: var(--brand-soft); border-radius: 50%; line-height: 1;
+  }
+  .acc-item.open .acc-trigger .chevron { transform: rotate(45deg); }
+  .acc-body {
+    display: none; padding: 2px 16px 16px;
+    font-size: 13px; color: var(--t); line-height: 1.75;
+  }
+  .acc-item.open .acc-body { display: block; }
+  .acc-body table { width: 100%; border-collapse: separate; border-spacing: 0; margin-top: 10px; font-size: 12px; border: 1px solid var(--line-strong); border-radius: 12px; overflow: hidden; }
+  .acc-body th, .acc-body td { padding: 9px 11px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  .acc-body tr:last-child th, .acc-body tr:last-child td { border-bottom: none; }
+  .acc-body th { background: var(--brand-tint); text-align: left; font-weight: 700; color: var(--brand-900); }
+  .acc-body ul { margin: 10px 0 0; padding-left: 18px; }
+  .acc-body li { margin-bottom: 6px; }
+
+  /* ===================== 모달 ===================== */
+  .modal-overlay {
+    display: none; position: fixed; inset: 0; z-index: 200;
+    background: rgba(17,24,33,0.42); backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    align-items: center; justify-content: center;
+  }
+  .modal-overlay.open { display: flex; animation: modalFade 0.2s var(--ease); }
+  @keyframes modalFade { from { opacity: 0 } to { opacity: 1 } }
+  .modal-box {
+    background: white; border-radius: var(--r-lg); padding: 36px 32px;
+    max-width: 580px; width: 90%; box-shadow: var(--sh-lg);
+    position: relative; max-height: 86vh; overflow-y: auto;
+    animation: modalPop 0.28s var(--ease);
+  }
+  @keyframes modalPop { from { opacity: 0; transform: translateY(16px) scale(0.98) } to { opacity: 1; transform: none } }
+  .modal-close {
+    position: absolute; top: 18px; right: 18px;
+    width: 34px; height: 34px; border-radius: 50%;
+    font-size: 18px; cursor: pointer; color: var(--t-soft);
+    background: var(--bg); border: none; line-height: 1;
+    display: flex; align-items: center; justify-content: center; transition: all 0.15s;
+  }
+  .modal-close:hover { background: var(--c-loss-soft); color: var(--c-loss); }
+  .modal-box h3 {
+    font-size: 19px; font-weight: 800; margin-bottom: 7px; letter-spacing: -0.6px; color: var(--t-strong);
+  }
+  .modal-box .modal-sub {
+    font-size: 13px; color: var(--t-muted); margin-bottom: 24px; line-height: 1.6; font-weight: 500;
+  }
+
+  /* ── 보장분석 동의 리스트 ── */
+  .insurer-list { display: flex; flex-direction: column; gap: 12px; }
+  .insurer-item {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 18px; border-radius: var(--r-sm);
+    border: 1px solid var(--line); transition: all 0.18s var(--ease); background: var(--surface);
+  }
+  .insurer-item:hover { border-color: transparent; background: var(--brand-tint); box-shadow: var(--sh-sm); }
+  .insurer-item-left { display: flex; align-items: center; gap: 13px; }
+  .insurer-item-icon {
+    font-size: 20px; width: 44px; height: 44px;
+    background: var(--brand-soft); border-radius: 13px;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .insurer-item-name { font-size: 14.5px; font-weight: 800; color: var(--t-strong); }
+  .insurer-item-desc { font-size: 12px; color: var(--t-muted); margin-top: 2px; font-weight: 500; }
+  .insurer-item-btn {
+    font-size: 12.5px; font-weight: 700; color: var(--brand);
+    background: var(--brand-soft); padding: 9px 16px;
+    border-radius: var(--pill); text-decoration: none; white-space: nowrap;
+    transition: all 0.18s var(--ease);
+  }
+  .insurer-item-btn:hover { background: var(--brand); color: white; box-shadow: var(--sh); }
+
+  /* ── FAQ 모달 리스트 ── */
+  .faq-modal-list { display: flex; flex-direction: column; gap: 10px; }
+  .faq-modal-item {
+    border: 1px solid var(--line); border-radius: var(--r-sm); overflow: hidden; transition: border-color 0.18s, background 0.18s;
+  }
+  .faq-modal-item.open { border-color: rgba(3,101,219,0.22); background: var(--brand-tint); }
+  .faq-modal-trigger {
+    width: 100%; background: none; border: none; font-family: inherit;
+    display: flex; align-items: flex-start; gap: 12px;
+    padding: 16px 18px; cursor: pointer; text-align: left; transition: background 0.15s;
+  }
+  .faq-modal-trigger:hover { background: var(--brand-tint); }
+  .faq-modal-cat {
+    font-size: 11px; font-weight: 700; color: var(--brand);
+    background: var(--brand-soft); padding: 4px 9px; border-radius: var(--pill);
+    white-space: nowrap; flex-shrink: 0; margin-top: 1px;
+  }
+  .faq-modal-q { font-size: 13.5px; font-weight: 700; color: var(--t-strong); flex: 1; line-height: 1.5; }
+  .faq-modal-chevron {
+    color: var(--brand); font-size: 16px; transition: transform 0.25s var(--ease); flex-shrink: 0; margin-top: 1px;
+    width: 22px; height: 22px; display: inline-flex; align-items: center; justify-content: center;
+    background: var(--brand-soft); border-radius: 50%; line-height: 1;
+  }
+  .faq-modal-item.open .faq-modal-chevron { transform: rotate(45deg); }
+  .faq-modal-body {
+    display: none; padding: 0 18px 16px 50px;
+    font-size: 13px; color: var(--t); line-height: 1.75; font-weight: 500;
+  }
+  .faq-modal-item.open .faq-modal-body { display: block; }
+
+  /* ===================== DIVIDER ===================== */
+  .divider { max-width: 1120px; margin: 0 auto 52px; padding: 0 24px; }
+  .divider hr { border: none; border-top: 1px solid var(--line-strong); }
+
+  /* ===================== FOOTER ===================== */
+  footer {
+    background: var(--surface); border-top: 1px solid var(--line);
+    padding: 36px 24px; text-align: center;
+  }
+  .footer-inner { max-width: 1120px; margin: 0 auto; }
+  footer p { font-size: 13px; color: var(--t-muted); line-height: 1.85; font-weight: 500; }
+
+  /* ===================== 반응형 ===================== */
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .hero { padding: 52px 20px 40px; }
+    .section { padding: 0 20px 52px; }
+    .card-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+    .card { padding: 20px; }
+    .summary-grid { grid-template-columns: 1fr; }
+    .modal-box { padding: 28px 20px; }
+    .guide-card:hover { transform: none; }
+  }
+  @media (max-width: 480px) {
+    .card-grid { grid-template-columns: 1fr; }
+    .card-icon { width: 50px; height: 50px; }
+  }
+
+  /* ===================== FADE IN ===================== */
+  .fade-up {
+    opacity: 0; transform: translateY(22px);
+    animation: fadeUp 0.55s var(--ease) forwards;
+  }
+  @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+  .fade-up:nth-child(1) { animation-delay: 0.05s; }
+  .fade-up:nth-child(2) { animation-delay: 0.11s; }
+  .fade-up:nth-child(3) { animation-delay: 0.17s; }
+  .fade-up:nth-child(4) { animation-delay: 0.23s; }
+  .fade-up:nth-child(5) { animation-delay: 0.29s; }
+  .fade-up:nth-child(6) { animation-delay: 0.35s; }
+
+  /* ===================== 보험사 전산 페이지 ===================== */
+  .policy-page-body { margin: 0; padding: 0; font-family: 'Pretendard', sans-serif; line-height: 1.6; color: var(--t-strong); }
+  .policy-page-body .container { max-width: 1200px; margin: 0 auto; padding: 40px 24px 64px; }
+
+  .policy-page-body h1 {
+    font-size: 26px; font-weight: 800; color: var(--t-strong); margin: 0 0 6px; letter-spacing: -0.6px;
+  }
+  .policy-page-body > .page-body > .container > h1 { display: none; }
+
+  .policy-page-body .section {
+    background: var(--surface); border-radius: var(--r-lg); padding: 28px 28px 24px;
+    margin-bottom: 22px; border: 1px solid var(--line);
+    box-shadow: var(--sh-sm);
+  }
+  .policy-page-body .section h2 {
+    margin: 0 0 4px; font-size: 18px; font-weight: 800; color: var(--t-strong);
+    letter-spacing: -0.4px; display: flex; align-items: center; gap: 10px;
+  }
+  .policy-page-body .section h2::before {
+    content: ''; width: 5px; height: 20px; background: var(--brand-grad); border-radius: 3px; display: inline-block;
+  }
+  .policy-page-body .section p.desc { margin: 4px 0 16px; color: var(--t-muted); font-size: 13px; padding-left: 15px; font-weight: 500; }
+
+  .policy-page-body .table-wrap { overflow-x: auto; border-radius: var(--r-sm); border: 1px solid var(--line); }
+  .policy-page-body table { width: 100%; border-collapse: separate; border-spacing: 0; min-width: 900px; background: var(--surface); }
+  .policy-page-body th {
+    background: var(--brand-tint); color: var(--brand-900); font-weight: 700; font-size: 12px;
+    padding: 12px 14px; text-align: center; white-space: nowrap;
+    border-bottom: 1px solid var(--line-strong); position: sticky; top: 0;
+  }
+  .policy-page-body td {
+    border-bottom: 1px solid var(--line); padding: 11px 14px;
+    text-align: center; vertical-align: middle; font-size: 13px; color: var(--t);
+  }
+  .policy-page-body tr:last-child td { border-bottom: none; }
+  .policy-page-body tr:hover td { background: var(--brand-tint); }
+  .policy-page-body td:first-child, .policy-page-body th:first-child {
+    text-align: left; min-width: 140px; font-weight: 600;
+  }
+  .policy-page-body td:first-child a {
+    font-weight: 700; color: var(--brand); white-space: nowrap;
+    padding: 3px 0; display: inline-block;
+  }
+  .policy-page-body td:first-child a:hover { text-decoration: underline; }
+  .policy-page-body td a {
+    color: var(--brand); text-decoration: none; font-size: 12px; font-weight: 700;
+    background: var(--brand-soft); padding: 5px 11px; border-radius: var(--pill); white-space: nowrap;
+    display: inline-block; transition: all 0.15s var(--ease);
+  }
+  .policy-page-body td a:hover { background: var(--brand); color: white; }
+  .policy-page-body td:first-child a { background: none; padding: 0; font-size: 13px; border-radius: 0; }
+  .policy-page-body td:first-child a:hover { background: none; color: var(--brand-700); text-decoration: underline; }
+
+  .policy-page-body .note {
+    margin-top: 16px; padding: 13px 16px;
+    background: var(--brand-soft); border: 1px solid rgba(3,101,219,0.12); border-radius: var(--r-sm);
+    font-size: 13px; color: var(--brand-900); display: flex; align-items: center; gap: 8px; font-weight: 500;
+  }
+  .policy-page-body .note::before { content: '💡'; flex-shrink: 0; }
+  .policy-page-body .note a { background: none; padding: 0; color: var(--brand); font-weight: 700; border-radius: 0; }
+  .policy-page-body .note a:hover { background: none; color: var(--brand-700); text-decoration: underline; }
+  .policy-page-body .source {
+    margin-top: 24px; font-size: 12px; color: var(--t-muted); text-align: center;
+    padding: 15px; background: var(--surface); border-radius: var(--r-sm); border: 1px solid var(--line); font-weight: 500;
+  }
+  .policy-page-body .source a { background: none; padding: 0; color: var(--brand); font-size: 12px; }
+
+  @media (max-width: 768px) {
+    .policy-page-body .section { padding: 18px 16px; }
+    .policy-page-body .section h2 { font-size: 16px; }
+  }
+
+  /* ===================== 자격시험 안내 페이지 ===================== */
+  .exam-page-body { font-family: 'Pretendard', sans-serif; color: var(--t-strong); }
+  .exam-page-body .ep-container { max-width: 1120px; margin: 0 auto; padding: 40px 24px 64px; }
+
+  /* 히어로 */
+  .ep-hero {
+    position: relative; overflow: hidden;
+    background: var(--brand-grad);
+    border-radius: var(--r-lg); padding: 44px 38px; color: white; margin-bottom: 38px;
+    display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; flex-wrap: wrap;
+    box-shadow: var(--sh-lg);
+  }
+  .ep-hero::after {
+    content: ''; position: absolute; right: -60px; top: -60px;
+    width: 220px; height: 220px; border-radius: 50%;
+    background: rgba(255,255,255,0.10); pointer-events: none;
+  }
+  .ep-hero h2 { font-size: 27px; font-weight: 800; margin-bottom: 8px; letter-spacing: -0.7px; position: relative; }
+  .ep-hero p { font-size: 14px; opacity: 0.9; line-height: 1.6; position: relative; }
+  .ep-stats { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 4px; position: relative; }
+  .ep-stat { text-align: center; background: rgba(255,255,255,0.16); border: 1px solid rgba(255,255,255,0.14); border-radius: 16px; padding: 14px 20px; backdrop-filter: blur(6px); }
+  .ep-stat-num { display: block; font-size: 22px; font-weight: 800; }
+  .ep-stat-label { display: block; font-size: 12px; opacity: 0.85; margin-top: 3px; }
+
+  /* 빠른 이동 */
+  .ep-quick { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 34px; }
+  .ep-quick-btn {
+    padding: 9px 16px; border-radius: var(--pill); border: 1px solid transparent;
+    font-size: 13px; font-weight: 700; cursor: pointer; background: var(--surface);
+    color: var(--t-soft); transition: all 0.18s var(--ease); text-decoration: none; box-shadow: var(--sh-xs);
+  }
+  .ep-quick-btn:hover { color: var(--brand); background: var(--brand-soft); }
+  .ep-quick-btn.active { background: var(--brand); color: white; border-color: var(--brand); box-shadow: var(--sh); }
+
+  /* 시험 카드 */
+  .ep-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(328px, 1fr)); gap: 18px; margin-bottom: 34px; }
+  .ep-card { background: var(--surface); border-radius: var(--r-lg); border: 1px solid var(--line); overflow: hidden; box-shadow: var(--sh-sm); transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease); }
+  .ep-card:hover { transform: translateY(-3px); box-shadow: var(--sh); }
+  .ep-card-header { padding: 24px 24px 18px; border-bottom: 1px solid var(--line); }
+  .ep-card-badge { display: inline-flex; gap: 6px; margin-bottom: 12px; }
+  .ep-type-badge {
+    font-size: 11px; font-weight: 800; padding: 5px 11px; border-radius: var(--pill);
+    color: white; letter-spacing: -0.2px;
+  }
+  .ep-type-badge.loss { background: var(--c-loss); }
+  .ep-type-badge.life { background: var(--c-life); }
+  .ep-type-badge.var { background: var(--c-var); }
+  .ep-org { font-size: 11px; color: var(--t-muted); padding: 5px 9px; background: var(--bg); border-radius: var(--pill); font-weight: 600; }
+  .ep-card-name { font-size: 19px; font-weight: 800; margin-bottom: 12px; letter-spacing: -0.5px; }
+  .ep-meta-row { display: flex; gap: 6px; flex-wrap: wrap; }
+  .ep-meta { font-size: 12px; color: var(--t); background: var(--bg); padding: 5px 11px; border-radius: var(--pill); font-weight: 600; }
+  .ep-meta.pass { background: var(--c-mint-soft); color: #0c8a64; font-weight: 700; }
+  .ep-card-body { padding: 20px; }
+
+  /* 과목 테이블 */
+  .ep-table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 13px; }
+  .ep-table th { background: transparent; color: var(--t-muted); font-weight: 700; padding: 8px 12px; text-align: left; border-bottom: 1.5px solid var(--line-strong); font-size: 12px; }
+  .ep-table td { padding: 11px 12px; border-bottom: 1px solid var(--line); vertical-align: middle; color: var(--t); }
+  .ep-table tr:last-child td { border-bottom: none; font-weight: 800; background: var(--brand-tint); color: var(--t-strong); }
+  .ep-table tr:last-child td:first-child { border-bottom-left-radius: 12px; }
+  .ep-table tr:last-child td:last-child { border-bottom-right-radius: 12px; }
+  .ep-ratio-bar { display: inline-flex; align-items: center; gap: 8px; }
+  .ep-ratio-track { width: 64px; height: 7px; background: var(--line-strong); border-radius: var(--pill); overflow: hidden; }
+  .ep-ratio-fill { height: 100%; border-radius: var(--pill); background: var(--brand); }
+  .ep-ratio-fill.loss { background: var(--c-loss); }
+  .ep-ratio-fill.life { background: var(--c-life); }
+  .ep-ratio-fill.var { background: var(--c-var); }
+
+  /* 팁 박스 */
+  .ep-tip { background: var(--brand-tint); border: 1px solid rgba(3,101,219,0.12); border-radius: var(--r-sm); padding: 16px 18px; margin-top: 16px; }
+  .ep-tip-title { font-size: 13px; font-weight: 800; color: var(--brand-700); margin-bottom: 8px; }
+  .ep-tip ul { padding-left: 18px; }
+  .ep-tip li { font-size: 12px; color: var(--t); line-height: 1.75; }
+  .ep-tip li strong { color: var(--t-strong); }
+
+  /* 제3보험 */
+  .ep-extra { background: var(--surface); border-radius: var(--r-lg); border: 1px solid var(--line); padding: 26px; margin-bottom: 34px; box-shadow: var(--sh-sm); }
+  .ep-extra-title { font-size: 16px; font-weight: 800; margin-bottom: 6px; }
+  .ep-extra-desc { font-size: 13px; color: var(--t-muted); margin-bottom: 18px; font-weight: 500; }
+  .ep-extra-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
+  .ep-extra-item { padding: 16px 18px; border-radius: var(--r-sm); border: 1px solid var(--line); background: var(--bg); }
+  .ep-extra-item.highlight { background: var(--brand-soft); border-color: rgba(3,101,219,0.14); }
+  .ep-extra-item strong { font-size: 13px; font-weight: 800; display: block; margin-bottom: 5px; }
+  .ep-extra-item p { font-size: 12px; color: var(--t); line-height: 1.6; margin: 0; }
+
+  /* 응시 절차 스텝 */
+  .ep-process { margin-bottom: 34px; }
+  .ep-process-title { font-size: 19px; font-weight: 800; margin-bottom: 18px; letter-spacing: -0.5px; }
+  .ep-steps { display: flex; gap: 0; overflow-x: auto; padding-bottom: 8px; }
+  .ep-step { display: flex; flex-direction: column; align-items: center; min-width: 132px; position: relative; }
+  .ep-step:not(:last-child)::after {
+    content: ''; position: absolute; right: -4px; top: 28px;
+    width: 8px; height: 8px; border-top: 2px solid var(--line-strong); border-right: 2px solid var(--line-strong);
+    transform: rotate(45deg); z-index: 1;
+  }
+  .ep-step-num { font-size: 11px; font-weight: 800; color: var(--brand); margin-bottom: 8px; letter-spacing: 0.3px; }
+  .ep-step-icon { width: 52px; height: 52px; background: var(--brand-soft); border-radius: 17px; display: flex; align-items: center; justify-content: center; font-size: 21px; margin-bottom: 10px; transition: transform 0.2s var(--ease); }
+  .ep-step:hover .ep-step-icon { transform: translateY(-3px); }
+  .ep-step-title { font-size: 13px; font-weight: 700; text-align: center; margin-bottom: 4px; }
+  .ep-step-desc { font-size: 11px; color: var(--t-muted); text-align: center; line-height: 1.5; font-weight: 500; }
+  .ep-step:last-child .ep-step-icon { background: var(--brand-grad); box-shadow: var(--sh); }
+
+  /* 시험 일정 */
+  .ep-schedule { margin-bottom: 34px; }
+  .ep-schedule-title { font-size: 19px; font-weight: 800; margin-bottom: 18px; letter-spacing: -0.5px; }
+  .ep-stype-tabs { display: flex; gap: 8px; margin-bottom: 18px; flex-wrap: wrap; background: var(--surface); padding: 6px; border-radius: var(--pill); border: 1px solid var(--line); width: fit-content; box-shadow: var(--sh-xs); }
+  .ep-stype-tab {
+    padding: 9px 20px; border-radius: var(--pill); border: none;
+    font-size: 13px; font-weight: 700; cursor: pointer; background: transparent;
+    color: var(--t-soft); font-family: inherit; transition: all 0.18s var(--ease);
+  }
+  .ep-stype-tab:hover { color: var(--brand); }
+  .ep-stype-tab.active { background: var(--brand); color: white; box-shadow: var(--sh); }
+  .ep-schedule-table-wrap { overflow-x: auto; border-radius: var(--r-sm); border: 1px solid var(--line); background: var(--surface); }
+  .ep-schedule-table { width: 100%; border-collapse: separate; border-spacing: 0; min-width: 600px; }
+  .ep-schedule-table th { background: var(--brand-tint); color: var(--brand-900); font-size: 13px; font-weight: 700; padding: 12px 14px; text-align: left; border-bottom: 1px solid var(--line-strong); }
+  .ep-schedule-table td { padding: 12px 14px; font-size: 13px; border-bottom: 1px solid var(--line); color: var(--t); }
+  .ep-schedule-table tr:last-child td { border-bottom: none; }
+  .ep-schedule-table tbody tr:hover td { background: var(--brand-tint); }
+  .ep-date-badge { background: var(--brand-soft); color: var(--brand); font-weight: 700; padding: 4px 11px; border-radius: var(--pill); font-size: 12px; white-space: nowrap; }
+  .ep-table-note { font-size: 12px; color: var(--t-muted); margin-top: 12px; font-weight: 500; }
+  .ep-schedule-panel { display: none; }
+  .ep-schedule-panel.active { display: block; }
+
+  /* 시험 팁 (변액 IBT/CBT 등) */
+  .ep-cbt-tip { background: var(--brand-grad); color: white; border-radius: var(--r); padding: 20px 24px; display: flex; gap: 16px; align-items: center; margin-bottom: 34px; box-shadow: var(--sh); }
+  .ep-cbt-tip-icon { font-size: 30px; flex-shrink: 0; }
+  .ep-cbt-tip p { font-size: 14px; line-height: 1.6; opacity: 0.95; }
+  .ep-cbt-tip strong { opacity: 1; color: white; }
+
+  @media (max-width: 768px) {
+    .ep-hero { padding: 30px 22px; }
+    .ep-hero h2 { font-size: 21px; }
+    .ep-stats { gap: 10px; }
+    .ep-stat { padding: 10px 14px; flex: 1; min-width: 70px; }
+    .ep-cards { grid-template-columns: 1fr; }
+    .ep-steps { gap: 4px; }
+    .ep-step { min-width: 104px; }
+  }
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="#">에즈금융서비스<span> 온보딩 허브</span></a>
+    <ul class="nav-links">
+      <li><a href="#exam">자격시험</a></li>
+      <li><a href="#summary">요점정리</a></li>
+      <li><a href="#tools">보험사 전산</a></li>
+      <li><a href="#faq">보상 Q&amp;A</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#exam">자격시험</a>
+    <a href="#summary">요점정리</a>
+    <a href="#tools">보험사 전산</a>
+    <a href="#faq">보상 Q&amp;A</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">에즈금융서비스 신입사원 전용</div>
+  <h1>첫걸음부터 프로가 되는<br><em>에즈금융서비스</em> 온보딩 허브</h1>
+</section>
+
+<!-- 자격시험 -->
+<section class="section" id="exam">
+  <div class="section-header">
+    <div class="section-title">자격시험 · 기출 · 모의고사</div>
+    <div class="section-desc">보험설계사 자격시험 학습 자료 모음</div>
+  </div>
+  <div class="card-grid">
+    <div class="card fade-up" onclick="openExamPage()" style="cursor:pointer;">
+      <div class="card-icon">📋</div>
+      <div class="card-title">설계사 자격시험 정보</div>
+      <div class="card-desc">시험일정, 과목, 합격기준, 응시절차 완벽 안내</div>
+      <div class="card-tags"><span class="card-tag">시험일정</span><span class="card-tag">합격기준</span><span class="card-tag">응시절차</span></div>
+      <div class="card-arrow">자세히 보기 →</div>
+    </div>
+    <a class="card fade-up" href="https://insurecbt.com/?p=kichul" target="_blank" rel="noopener">
+      <div class="card-icon">📝</div>
+      <div class="card-title">기출문제</div>
+      <div class="card-desc">손해·생명·변액보험 과년도 기출문제 풀이, 오답노트 제공</div>
+      <div class="card-tags"><span class="card-tag">손해보험</span><span class="card-tag">생명보험</span><span class="card-tag">변액보험</span></div>
+      <div class="card-arrow">바로가기 →</div>
+    </a>
+    <a class="card fade-up" href="https://insurecbt.com/?p=mock" target="_blank" rel="noopener">
+      <div class="card-icon">🎯</div>
+      <div class="card-title">실전 모의고사</div>
+      <div class="card-desc">실제 시험과 동일한 환경에서 실전 감각 훈련</div>
+      <div class="card-tags"><span class="card-tag">실전연습</span><span class="card-tag">시간관리</span><span class="card-tag">오답노트</span></div>
+      <div class="card-arrow">바로가기 →</div>
+    </a>
+  </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<!-- 요점정리 -->
+<section class="section" id="summary">
+  <div class="section-header">
+    <div class="section-title">과목별 요점정리</div>
+    <div class="section-desc">시험 빈출 핵심만 압축한 과목별 가이드 · 클릭하면 전체 내용 확인 가능</div>
+  </div>
+
+  <div class="guide-list">
+    <div class="guide-card fade-up" onclick="openSummaryPage('fire')">
+      <div class="guide-num">🔥</div>
+      <div class="guide-text">
+        <div class="guide-title">손해보험 요점정리</div>
+        <div class="guide-sub">비례보상, 장기손해보험, 자동차보험, 보험업법·계약법 핵심 압축</div>
+      </div>
+      <div class="guide-badge">손해보험</div>
+    </div>
+    <div class="guide-card fade-up" onclick="openSummaryPage('life')">
+      <div class="guide-num">💡</div>
+      <div class="guide-text">
+        <div class="guide-title">생명보험 요점정리</div>
+        <div class="guide-sub">보험의 기초 개념, 상품 분류, 청약/철회, 보험금 지급 절차 정리</div>
+      </div>
+      <div class="guide-badge">생명보험</div>
+    </div>
+    <div class="guide-card fade-up" onclick="openSummaryPage('variable')">
+      <div class="guide-num">📊</div>
+      <div class="guide-text">
+        <div class="guide-title">변액보험 요점정리</div>
+        <div class="guide-sub">변액보험 구조, 특별계정, 최저보증, 설명의무, 세제 혜택 핵심</div>
+      </div>
+      <div class="guide-badge">변액보험</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 요점정리 신규 페이지 오버레이 ===== -->
+<!-- 손해보험 -->
+<div class="page-overlay" id="summaryPage-fire">
+  <div class="page-header">
+    <div class="page-header-title"><span>🔥</span> 손해보험 요점정리</div>
+    <button class="page-back" onclick="closeSummaryPage('fire')">← 돌아가기</button>
+  </div>
+  <div class="page-body">
+    <div class="section-title">손해보험 요점정리</div>
+    <div class="section-desc" style="margin-bottom:24px">비례보상 · 자동차보험 · 보험업법 핵심 압축</div>
+    <div class="summary-grid">
+      <div class="summary-card">
+        <div class="summary-card-head">
+          <div class="summary-card-head-left">
+            <div class="summary-icon">🔥</div>
+            <div>
+              <div class="summary-card-title">손해보험 기초 · 비례보상</div>
+              <div class="summary-card-meta">비례보상 공식 및 물건 구분</div>
+            </div>
+          </div>
+          <a class="summary-link" href="https://insurecbt.com/guides/%EC%86%90%ED%95%B4%EB%B3%B4%ED%97%98_%EC%9A%94%EC%A0%90%EC%A0%95%EB%A6%AC.html" target="_blank">원문 →</a>
+        </div>
+        <div class="accordion">
+          <div class="acc-item open">
+            <button class="acc-trigger" type="button"><span>비례보상 기초 공식</span><span class="chevron">+</span></button>
+            <div class="acc-body">
+              <p><strong>비례보상 공식</strong> — 주택·일반물건은 80% 기준, 공장물건은 100% 기준</p>
+              <table><tr><th>구분</th><th>핵심 포인트</th></tr>
+                <tr><td>일반물건</td><td>보험금 = 가입금액 ÷ (보험가액×80%) × 손해액</td></tr>
+                <tr><td>공장물건</td><td>보험금 = 가입금액 ÷ 보험가액 × 손해액</td></tr>
+              </table>
+              <ul><li>낙뢰는 담보, 지진·분화는 기본 불담보 (특약 필요)</li><li>중복보험=비례보상, 초과보험=초과분 무효</li></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-card-head">
+          <div class="summary-card-head-left">
+            <div class="summary-icon">📄</div>
+            <div>
+              <div class="summary-card-title">장기손해보험</div>
+              <div class="summary-card-meta">갱신형 · 비갱신형 · 부활</div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion">
+          <div class="acc-item open">
+            <button class="acc-trigger" type="button"><span>장기손해보험 핵심</span><span class="chevron">+</span></button>
+            <div class="acc-body">
+              <table><tr><th>항목</th><th>핵심</th></tr>
+                <tr><td>갱신형</td><td>초기 보험료 낮지만 갱신 시 인상 가능</td></tr>
+                <tr><td>비갱신형</td><td>초기 보험료 높지만 만기까지 고정</td></tr>
+                <tr><td>부활</td><td>실효 후 2년 이내, 건강고지 재심사 필요</td></tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-card-head">
+          <div class="summary-card-head-left">
+            <div class="summary-icon">🚗</div>
+            <div>
+              <div class="summary-card-title">자동차보험</div>
+              <div class="summary-card-meta">의무보험 · 임의보험 구분</div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion">
+          <div class="acc-item open">
+            <button class="acc-trigger" type="button"><span>자동차보험 구분</span><span class="chevron">+</span></button>
+            <div class="acc-body">
+              <table><tr><th>구분</th><th>내용</th></tr>
+                <tr><td>의무보험</td><td>대인배상Ⅰ, 대물배상</td></tr>
+                <tr><td>임의보험</td><td>대인배상Ⅱ, 자차, 자손 등</td></tr>
+                <tr><td>무보험차상해</td><td>상대방 무보험/뺑소니 시 내 보험으로 보상</td></tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-card-head">
+          <div class="summary-card-head-left">
+            <div class="summary-icon">⚖️</div>
+            <div>
+              <div class="summary-card-title">보험업법 · 계약법</div>
+              <div class="summary-card-meta">청약철회 · 소멸시효 · 대위권</div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion">
+          <div class="acc-item open">
+            <button class="acc-trigger" type="button"><span>법규 핵심 요약</span><span class="chevron">+</span></button>
+            <div class="acc-body">
+              <ul>
+                <li>청약철회 기간: <strong>15일 이내</strong></li>
+                <li>보험금 청구권 소멸시효: 3년 / 보험료 청구권: 2년</li>
+                <li>손해보험 대위권 — 피보험자 가족 대상 행사 제한</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 생명보험 -->
+<div class="page-overlay" id="summaryPage-life">
+  <div class="page-header">
+    <div class="page-header-title"><span>💡</span> 생명보험 요점정리</div>
+    <button class="page-back" onclick="closeSummaryPage('life')">← 돌아가기</button>
+  </div>
+  <div class="page-body">
+    <div class="section-title">생명보험 요점정리</div>
+    <div class="section-desc" style="margin-bottom:24px">기초 개념 · 상품 분류 · 계약 관리</div>
+    <div class="summary-grid">
+      <div class="summary-card">
+        <div class="summary-card-head">
+          <div class="summary-card-head-left">
+            <div class="summary-icon">📐</div>
+            <div>
+              <div class="summary-card-title">보험의 기초 이해</div>
+              <div class="summary-card-meta">대수의 법칙 · 수지상등 · 이득금지</div>
+            </div>
+          </div>
+          <a class="summary-link" href="https://insurecbt.com/guides/%EC%83%9D%EB%AA%85%EB%B3%B4%ED%97%98_%EC%9A%94%EC%A0%90%EC%A0%95%EB%A6%AC.html" target="_blank">원문 →</a>
+        </div>
+        <div class="accordion">
+          <div class="acc-item open">
+            <button class="acc-trigger" type="button"><span>보험 3대 원칙</span><span class="chevron">+</span></button>
+            <div class="acc-body">
+              <table><tr><th>원칙</th><th>핵심</th></tr>
+                <tr><td>대수의 법칙</td><td>표본이 커질수록 이론치에 수렴</td></tr>
+                <tr><td>수지상등의 원칙</td><td>수입보험료와 지출보험금의 균형</td></tr>
+                <tr><td>이득금지의 원칙</td><td>손해보험 중심 개념</td></tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-card-head">
+          <div class="summary-card-head-left">
+            <div class="summary-icon">🏦</div>
+            <div>
+              <div class="summary-card-title">주요 생명보험 상품</div>
+              <div class="summary-card-meta">종신 · 정기 · 연금보험</div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion">
+          <div class="acc-item open">
+            <button class="acc-trigger" type="button"><span>상품별 핵심 특징</span><span class="chevron">+</span></button>
+            <div class="acc-body">
+              <table><tr><th>상품</th><th>핵심 특징</th></tr>
+                <tr><td>종신보험</td><td>언제 사망해도 약정 보험금 지급</td></tr>
+                <tr><td>정기보험</td><td>정해진 기간 내 사망 시 지급, 상대적으로 저렴</td></tr>
+                <tr><td>연금보험</td><td>노후 소득 보장, 확정연금/종신연금 구분</td></tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-card-head">
+          <div class="summary-card-head-left">
+            <div class="summary-icon">📋</div>
+            <div>
+              <div class="summary-card-title">보험계약 관리</div>
+              <div class="summary-card-meta">고지의무 · 부활 · 약관대출</div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion">
+          <div class="acc-item open">
+            <button class="acc-trigger" type="button"><span>계약 관리 핵심</span><span class="chevron">+</span></button>
+            <div class="acc-body">
+              <ul>
+                <li>고지의무 위반 해지: 체결일로부터 3년, 안 날로부터 1개월</li>
+                <li>청약철회: 15일 이내 / 품질보증 해지: 3개월 이내</li>
+                <li>실효 후 3년 이내 부활 가능</li>
+                <li>약관대출은 해지환급금 범위 내에서 가능</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-card-head">
+          <div class="summary-card-head-left">
+            <div class="summary-icon">⚖️</div>
+            <div>
+              <div class="summary-card-title">보험금 지급 · 법규</div>
+              <div class="summary-card-meta">소멸시효 · 지급기한 · 동의</div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion">
+          <div class="acc-item open">
+            <button class="acc-trigger" type="button"><span>법규 핵심 요약</span><span class="chevron">+</span></button>
+            <div class="acc-body">
+              <ul>
+                <li>보험금 청구권 소멸시효: 3년</li>
+                <li>보험금 지급 기한: 통상 접수 후 3영업일 기준</li>
+                <li>타인 생명보험 계약: 피보험자 서면 동의 필수</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 변액보험 -->
+<div class="page-overlay" id="summaryPage-variable">
+  <div class="page-header">
+    <div class="page-header-title"><span>📊</span> 변액보험 요점정리</div>
+    <button class="page-back" onclick="closeSummaryPage('variable')">← 돌아가기</button>
+  </div>
+  <div class="page-body">
+    <div class="section-title">변액보험 요점정리</div>
+    <div class="section-desc" style="margin-bottom:24px">특별계정 · 최저보증 · 설명의무</div>
+    <div class="summary-grid">
+      <div class="summary-card">
+        <div class="summary-card-head">
+          <div class="summary-card-head-left">
+            <div class="summary-icon">📊</div>
+            <div>
+              <div class="summary-card-title">변액보험 기초 개념</div>
+              <div class="summary-card-meta">일반보험 vs 변액보험 비교</div>
+            </div>
+          </div>
+          <a class="summary-link" href="https://insurecbt.com/guides/%EB%B3%80%EC%95%A1%EB%B3%B4%ED%97%98_%EC%9A%94%EC%A0%90%EC%A0%95%EB%A6%AC.html" target="_blank">원문 →</a>
+        </div>
+        <div class="accordion">
+          <div class="acc-item open">
+            <button class="acc-trigger" type="button"><span>일반 vs 변액 차이</span><span class="chevron">+</span></button>
+            <div class="acc-body">
+              <table><tr><th>구분</th><th>일반 보험</th><th>변액보험</th></tr>
+                <tr><td>보험금</td><td>확정</td><td>운용실적 연동</td></tr>
+                <tr><td>투자위험</td><td>보험회사 부담</td><td>계약자 부담</td></tr>
+                <tr><td>예금자보호</td><td>적용 가능</td><td>적용 제외</td></tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-card-head">
+          <div class="summary-card-head-left">
+            <div class="summary-icon">📈</div>
+            <div>
+              <div class="summary-card-title">상품 종류 비교</div>
+              <div class="summary-card-meta">변액종신 · 변액연금 · 변액유니버셜</div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion">
+          <div class="acc-item open">
+            <button class="acc-trigger" type="button"><span>상품별 목적과 특징</span><span class="chevron">+</span></button>
+            <div class="acc-body">
+              <table><tr><th>상품</th><th>목적</th><th>특징</th></tr>
+                <tr><td>변액종신</td><td>사망보장</td><td>GMDB 최저사망보험금 보증</td></tr>
+                <tr><td>변액연금</td><td>노후연금</td><td>GMAB 연금개시 시 최저보증</td></tr>
+                <tr><td>변액유니버셜</td><td>보장+투자</td><td>유연납입, 중도인출, 추가납입</td></tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-card-head">
+          <div class="summary-card-head-left">
+            <div class="summary-icon">📜</div>
+            <div>
+              <div class="summary-card-title">판매 규정 · 설명의무</div>
+              <div class="summary-card-meta">판매자격 · 적합성 · 세제혜택</div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion">
+          <div class="acc-item open">
+            <button class="acc-trigger" type="button"><span>판매 규정 핵심</span><span class="chevron">+</span></button>
+            <div class="acc-body">
+              <ul>
+                <li>변액보험 판매자격시험 + 사전교육 + 갱신교육 필수</li>
+                <li>투자위험 계약자 부담, 원금 손실 가능성 반드시 설명</li>
+                <li>적합성 원칙: 고객 투자성향 확인 필수</li>
+                <li>세제 혜택: 10년 이상 유지 시 비과세</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"><hr></div>
+
+<!-- 보험사 전산 & 도구 + 보상 Q&A 카드 -->
+<section class="section" id="tools">
+  <div class="section-header">
+    <div class="section-title">보험사 전산 · 약관 · 보상청구</div>
+    <div class="section-desc">전 보험사 포탈 &amp; 약관 &amp; 보상청구 링크, 주요보험사 보장분석 동의방법 모음</div>
+  </div>
+  <div class="card-grid">
+    <div class="card fade-up" onclick="openPolicyPage()" style="cursor:pointer;">
+      <div class="card-icon">🏢</div>
+      <div class="card-title">보험사 전산 바로가기</div>
+      <div class="card-desc">손해, 생명보험사 영업포탈 바로가기, 고객센터, 청구팩스, 약관 링크 연결 한눈에 정리</div>
+      <div class="card-tags"><span class="card-tag">영업포탈</span><span class="card-tag">약관</span><span class="card-tag">청구팩스</span></div>
+      <div class="card-arrow">바로가기 →</div>
+    </div>
+    <div class="card fade-up" onclick="document.getElementById('insurerModal').classList.add('open')" style="cursor:pointer;">
+      <div class="card-icon">🛡️</div>
+      <div class="card-title">보험사 보장분석 동의</div>
+      <div class="card-desc">한화손보, KB손보, DB손보 보장분석 동의방법과 연결</div>
+      <div class="card-tags"><span class="card-tag">한화손보</span><span class="card-tag">KB손보</span><span class="card-tag">DB손보</span></div>
+      <div class="card-arrow">바로가기 →</div>
+    </div>
+    <div class="card fade-up" id="faq" onclick="document.getElementById('faqModal').classList.add('open')" style="cursor:pointer;">
+      <div class="card-icon">💬</div>
+      <div class="card-title">보상 Q&amp;A</div>
+      <div class="card-desc">지급기준, 언더라이팅, 배상책임 자주 묻는 실무 질문 모음</div>
+      <div class="card-tags"><span class="card-tag">지급기준</span><span class="card-tag">언더라이팅</span><span class="card-tag">배상책임</span></div>
+      <div class="card-arrow">바로가기 →</div>
+    </div>
+  </div>
+</section>
+
+<!-- 보험사 보장분석 모달 -->
+<div class="modal-overlay" id="insurerModal" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="document.getElementById('insurerModal').classList.remove('open')">✕</button>
+    <h3>🛡️ 보험사 보장분석 동의</h3>
+    <p class="modal-sub">한화손보, KB손보, DB손보 보장분석 동의방법 및 연결 링크</p>
+    <div class="insurer-list">
+      <div class="insurer-item">
+        <div class="insurer-item-left">
+          <div class="insurer-item-icon">🔶</div>
+          <div>
+            <div class="insurer-item-name">한화손해보험</div>
+            <div class="insurer-item-desc">핏보장 보장분석 동의 시스템</div>
+          </div>
+        </div>
+        <a class="insurer-item-btn" href="https://az.bojang114.com/uiFitbojang/index.html?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjb25zdWx0YW50aWQiOiIyNDA2MDA5OCIsImNvbnN1bHRhbnRfbmFtZSI6IuyxhOydgOyjvCIsImNvbXB5X2NkIjoiQTIyNSIsImNvbXB5X25hbWUiOiLsl5DspojquIjsnLXshJzruYTsiqQiLCJleHAiOjE3ODA2NDcyMzIsImNvbnN1bHRhbnRfaWQiOiIyNDA2MDA5OCIsIm5hbWUiOiLssYTsnYDso7wiLCJjbGllbnRfaWQiOiJBMjI1IiwibWRuIjoiQTIyNSIsInJvbGUiOiIiLCJjbGllbnRfaXAiOiI2MS4xMDUuMzkuMTM1In0.T4cbStJbye-AWdwURrj0aMGKc06oMEqDpHcT7Lb146o" target="_blank" rel="noopener">연결 →</a>
+      </div>
+      <div class="insurer-item">
+        <div class="insurer-item-left">
+          <div class="insurer-item-icon">🟡</div>
+          <div>
+            <div class="insurer-item-name">KB손해보험</div>
+            <div class="insurer-item-desc">KB손보 보장분석 동의 시스템</div>
+          </div>
+        </div>
+        <a class="insurer-item-btn" href="https://az.bojang114.com/uiFitbojang/index.html?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjb25zdWx0YW50aWQiOiIyNDA2MDA5OCIsImNvbnN1bHRhbnRfbmFtZSI6IuyxhOydgOyjvCIsImNvbXB5X2NkIjoiQTIyNSIsImNvbXB5X25hbWUiOiLsl5DspojquIjsnLXshJzruYTsiqQiLCJleHAiOjE3ODA2NDcyNjYsImNvbnN1bHRhbnRfaWQiOiIyNDA2MDA5OCIsIm5hbWUiOiLssYTsnYDso7wiLCJjbGllbnRfaWQiOiJBMjI1IiwibWRuIjoiQTIyNSIsInJvbGUiOiIiLCJjbGllbnRfaXAiOiI2MS4xMDUuMzkuMTM1In0.PZWPt6V-IZ55ezaReP-yJjgH9VRr5K3Nhjykzw-lw9M" target="_blank" rel="noopener">연결 →</a>
+      </div>
+      <div class="insurer-item">
+        <div class="insurer-item-left">
+          <div class="insurer-item-icon">🔵</div>
+          <div>
+            <div class="insurer-item-name">DB손해보험</div>
+            <div class="insurer-item-desc">DB손보 보장분석 동의 시스템</div>
+          </div>
+        </div>
+        <a class="insurer-item-btn" href="https://az.bojang114.com/uiFitbojang/index.html?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjb25zdWx0YW50aWQiOiIyNDA2MDA5OCIsImNvbnN1bHRhbnRfbmFtZSI6IuyxhOydgOyjvCIsImNvbXB5X2NkIjoiQTIyNSIsImNvbXB5X25hbWUiOiLsl5DspojquIjsnLXshJzruYTsiqQiLCJleHAiOjE3ODA2NDcyODAsImNvbnN1bHRhbnRfaWQiOiIyNDA2MDA5OCIsIm5hbWUiOiLssYTsnYDso7wiLCJjbGllbnRfaWQiOiJBMjI1IiwibWRuIjoiQTIyNSIsInJvbGUiOiIiLCJjbGllbnRfaXAiOiI2MS4xMDUuMzkuMTM1In0.2bl3xZWVqj5U91-m5YSBIwfiT6XOCqo3twSz3hisns0" target="_blank" rel="noopener">연결 →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 보상 Q&A 모달 -->
+<div class="modal-overlay" id="faqModal" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="document.getElementById('faqModal').classList.remove('open')">✕</button>
+    <h3>💬 보상 Q&amp;A</h3>
+    <p class="modal-sub">지급기준, 언더라이팅, 배상책임 자주 묻는 실무 질문 모음</p>
+    <div class="faq-modal-list">
+      <div class="faq-modal-item">
+        <button class="faq-modal-trigger" onclick="toggleFaqItem(this)">
+          <span class="faq-modal-cat">지급기준</span>
+          <span class="faq-modal-q">전기간 부담보 조건 가입 후 5년 경과 시 해당 부위 보상 가능?</span>
+          <span class="faq-modal-chevron">+</span>
+        </button>
+        <div class="faq-modal-body">특정 신체부위·질병보장제한부 특별약관 기준으로 확인해야 하며, 계약청약일로부터 5년 이내 여부가 핵심 포인트입니다.</div>
+      </div>
+      <div class="faq-modal-item">
+        <button class="faq-modal-trigger" onclick="toggleFaqItem(this)">
+          <span class="faq-modal-cat">지급기준</span>
+          <span class="faq-modal-q">실효 중에 발생한 보험사고의 경우 보상이 가능한가요?</span>
+          <span class="faq-modal-chevron">+</span>
+        </button>
+        <div class="faq-modal-body">실효 유형에 따라 달라지며, 특별부활에 해당하는 경우 콜센터를 통한 보험료 입금 후 보상이 가능한 케이스가 있습니다.</div>
+      </div>
+      <div class="faq-modal-item">
+        <button class="faq-modal-trigger" onclick="toggleFaqItem(this)">
+          <span class="faq-modal-cat">지급기준</span>
+          <span class="faq-modal-q">보험금 청구권의 소멸시효는 어떻게 되나요?</span>
+          <span class="faq-modal-chevron">+</span>
+        </button>
+        <div class="faq-modal-body">실손의료비는 치료 시작일, 수술비는 실제 수술일, 진단비는 진단 확정일을 기산점으로 봅니다.</div>
+      </div>
+      <div class="faq-modal-item">
+        <button class="faq-modal-trigger" onclick="toggleFaqItem(this)">
+          <span class="faq-modal-cat">언더라이팅</span>
+          <span class="faq-modal-q">유병자 상품 청약 시 추가 검사 필요 소견 범위는 어디까지인가요?</span>
+          <span class="faq-modal-chevron">+</span>
+        </button>
+        <div class="faq-modal-body">단층검사 등에서 특이 소견으로 다른 종류의 검사를 추가 시행했다면 고지 대상이 될 수 있습니다.</div>
+      </div>
+      <div class="faq-modal-item">
+        <button class="faq-modal-trigger" onclick="toggleFaqItem(this)">
+          <span class="faq-modal-cat">언더라이팅</span>
+          <span class="faq-modal-q">최근 1년 이내 추가 검사(재검사) 문항에서 추가 검사 범위는?</span>
+          <span class="faq-modal-chevron">+</span>
+        </button>
+        <div class="faq-modal-body">응급실 방문 후 검사 결과와 후속 검사 여부 등 실제 진료 흐름을 기준으로 고지대상 여부를 판단합니다.</div>
+      </div>
+      <div class="faq-modal-item">
+        <button class="faq-modal-trigger" onclick="toggleFaqItem(this)">
+          <span class="faq-modal-cat">배상책임</span>
+          <span class="faq-modal-q">시설소유자배상책임에서 보상 가능한 사례는 무엇인가요?</span>
+          <span class="faq-modal-chevron">+</span>
+        </button>
+        <div class="faq-modal-body">골프장 코디 업무 중 고객 부상 등 제3자 손해배상 사례를 중심으로 설명합니다.</div>
+      </div>
+      <div class="faq-modal-item">
+        <button class="faq-modal-trigger" onclick="toggleFaqItem(this)">
+          <span class="faq-modal-cat">배상책임</span>
+          <span class="faq-modal-q">누수사고 발생 시 보상 가능한 범위는 어디까지인가요?</span>
+          <span class="faq-modal-chevron">+</span>
+        </button>
+        <div class="faq-modal-body">누수탐지비용, 우리 집 바닥 철거 비용, 아랫집 손해 등 담보별로 보상 범위가 달라집니다.</div>
+      </div>
+      <div class="faq-modal-item">
+        <button class="faq-modal-trigger" onclick="toggleFaqItem(this)">
+          <span class="faq-modal-cat">배상책임</span>
+          <span class="faq-modal-q">중복 계약이 있을 경우 자기부담금과 보상은 어떻게 계산되나요?</span>
+          <span class="faq-modal-chevron">+</span>
+        </button>
+        <div class="faq-modal-body">의무보험과 임의보험 조합 여부에 따라 손해액 산정과 보상 순서를 달리 보는 구조입니다.</div>
+      </div>
+      <div class="faq-modal-item">
+        <button class="faq-modal-trigger" onclick="toggleFaqItem(this)">
+          <span class="faq-modal-cat">배상책임</span>
+          <span class="faq-modal-q">일상배상책임보험에서 보상 가능한 사례는 무엇인가요?</span>
+          <span class="faq-modal-chevron">+</span>
+        </button>
+        <div class="faq-modal-body">누수 사고 등 일상생활 중 타인에게 손해를 끼친 사례를 중심으로 보상 가능성을 안내합니다.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 자격시험 정보 페이지 오버레이 -->
+<div class="page-overlay" id="examPage">
+  <div class="page-header">
+    <div class="page-header-title"><span>📋</span> 보험설계사 자격시험 안내</div>
+    <button class="page-back" onclick="closeExamPage()">← 돌아가기</button>
+  </div>
+  <div class="page-body exam-page-body">
+    <div class="ep-container">
+
+      <!-- 빠른 이동 -->
+      <div class="ep-quick">
+        <span class="ep-quick-btn active" onclick="epScrollTo('ep-exam-info')">📋 필수 자격증</span>
+        <span class="ep-quick-btn" onclick="epScrollTo('ep-process-section')">🔄 응시 절차</span>
+        <span class="ep-quick-btn" onclick="epScrollTo('ep-schedule-section')">📅 시험 일정</span>
+        <span class="ep-quick-btn" onclick="epScrollTo('ep-trend-section')">📈 출제 경향</span>
+      </div>
+
+      <!-- 필수 자격증 -->
+      <div id="ep-exam-info" style="margin-bottom:14px">
+        <div class="ep-process-title">📋 필수 자격증</div>
+        <div class="ep-extra-desc" style="margin-bottom:0">에즈금융서비스는 손해보험·생명보험을 모두 취급하는 보험대리점입니다. 보험사 등록을 위해 갖춰야 할 자격증을 확인하세요.</div>
+      </div>
+      <div class="ep-cards">
+
+        <!-- 손해보험 -->
+        <div class="ep-card">
+          <div class="ep-card-header">
+            <div class="ep-card-badge">
+              <span class="ep-type-badge loss">손해보험</span>
+              <span class="ep-org">한국손해보험협회 주관</span>
+            </div>
+            <div class="ep-card-name">손해보험설계사 자격증</div>
+            <div class="ep-meta-row">
+              <span class="ep-meta">📄 총 50문항</span>
+              <span class="ep-meta">⏱ 시험시간 50분</span>
+              <span class="ep-meta pass">✅ 합격 60점 이상</span>
+            </div>
+          </div>
+          <div class="ep-card-body">
+            <table class="ep-table">
+              <thead><tr><th>과목</th><th>출제 문항</th></tr></thead>
+              <tbody>
+                <tr><td>손해보험</td><td><strong>17문항</strong></td></tr>
+                <tr><td>공통</td><td><strong>16문항</strong></td></tr>
+                <tr><td>제3보험</td><td><strong>17문항</strong></td></tr>
+                <tr><td><strong>합계</strong></td><td><strong>50문항</strong></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- 생명보험 -->
+        <div class="ep-card">
+          <div class="ep-card-header">
+            <div class="ep-card-badge">
+              <span class="ep-type-badge life">생명보험</span>
+              <span class="ep-org">한국생명보험협회 주관</span>
+            </div>
+            <div class="ep-card-name">생명보험설계사 자격증</div>
+            <div class="ep-meta-row">
+              <span class="ep-meta">📄 총 40문항</span>
+              <span class="ep-meta">⏱ 시험시간 50분</span>
+              <span class="ep-meta pass">✅ 합격 60점 이상</span>
+            </div>
+          </div>
+          <div class="ep-card-body">
+            <table class="ep-table">
+              <thead><tr><th>과목</th><th>출제 문항</th></tr></thead>
+              <tbody>
+                <tr><td>공통(보험이론·법규)</td><td><strong>20문항</strong></td></tr>
+                <tr><td>생명보험</td><td><strong>10문항</strong></td></tr>
+                <tr><td>제3보험</td><td><strong>10문항</strong></td></tr>
+                <tr><td><strong>합계</strong></td><td><strong>40문항</strong></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- 변액보험 -->
+        <div class="ep-card">
+          <div class="ep-card-header">
+            <div class="ep-card-badge">
+              <span class="ep-type-badge var">변액보험</span>
+              <span class="ep-org">생명보험협회 주관 (별도 자격)</span>
+            </div>
+            <div class="ep-card-name">변액보험판매관리사 자격증</div>
+            <div class="ep-meta-row">
+              <span class="ep-meta">📄 총 40문항</span>
+              <span class="ep-meta">⏱ 시험시간 60분</span>
+              <span class="ep-meta pass">✅ 합격 70점 이상</span>
+              <span class="ep-meta">🖥 IBT(CBT)</span>
+            </div>
+          </div>
+          <div class="ep-card-body">
+            <table class="ep-table">
+              <thead><tr><th>과목</th><th>출제비중</th></tr></thead>
+              <tbody>
+                <tr><td>금융시장·금융상품(펀드)</td><td><strong>약 35~40%</strong></td></tr>
+                <tr><td>변액보험 제도·상품</td><td><strong>약 40%</strong></td></tr>
+                <tr><td>생명보험·공시/보호제도</td><td><strong>약 15~20%</strong></td></tr>
+                <tr><td><strong>합계</strong></td><td><strong>40문항</strong></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 제3보험 등록 요건 -->
+      <div class="ep-extra" style="margin-bottom:34px">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px">
+          <span style="background:#ebf3fe;color:#0365db;font-size:12px;font-weight:700;padding:4px 10px;border-radius:100px">필수 안내</span>
+          <div class="ep-extra-title" style="margin:0">제3보험은 손보·생보 시험과 함께 응시</div>
+        </div>
+        <div class="ep-extra-desc">보험사 등록을 위해서는 <strong>(손해보험 또는 생명보험) + 제3보험</strong> 합격이 모두 필요합니다.</div>
+        <div class="ep-extra-grid">
+          <div class="ep-extra-item">
+            <strong>🛡 손해보험 응시</strong>
+            <p>손해보험 + 제3보험을 함께 신청·응시합니다.</p>
+          </div>
+          <div class="ep-extra-item">
+            <strong>💙 생명보험 응시</strong>
+            <p>생명보험 + 제3보험을 함께 신청·응시합니다.</p>
+          </div>
+          <div class="ep-extra-item highlight">
+            <strong>⭐ 등록 요건</strong>
+            <p>(손보 또는 생보) + 제3보험을 모두 합격해야 보험사 등록이 가능합니다. 손보만 합격하고 제3보험에 떨어지면 등록되지 않습니다.</p>
+          </div>
+          <div class="ep-extra-item">
+            <strong>🔁 제3보험만 떨어진 경우</strong>
+            <p>다음에 생명보험 시험을 볼 때 제3보험을 함께 응시하면 됩니다. (반대로 생보 먼저 볼 때도 동일)</p>
+          </div>
+          <div class="ep-extra-item">
+            <strong>✅ 제3보험만 합격한 경우</strong>
+            <p>제3보험은 이미 합격 상태이므로, 생보(또는 손보) 시험만 응시하면 등록 요건이 완성됩니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 응시 절차 -->
+      <div id="ep-process-section" class="ep-process">
+        <div class="ep-process-title">🔄 접수부터 등록까지 5단계</div>
+        <div class="ep-steps">
+          <div class="ep-step"><div class="ep-step-num">STEP 01</div><div class="ep-step-icon">📝</div><div class="ep-step-title">시험 접수</div><div class="ep-step-desc">에즈금융서비스에서<br>보험사로 신청</div></div>
+          <div class="ep-step"><div class="ep-step-num">STEP 02</div><div class="ep-step-icon">💳</div><div class="ep-step-title">수수료 납부</div><div class="ep-step-desc">2만원<br>에즈금융서비스 지원</div></div>
+          <div class="ep-step"><div class="ep-step-num">STEP 03</div><div class="ep-step-icon">🖥️</div><div class="ep-step-title">시험 응시</div><div class="ep-step-desc">지정 시험장<br>신분증 지참</div></div>
+          <div class="ep-step"><div class="ep-step-num">STEP 04</div><div class="ep-step-icon">🏆</div><div class="ep-step-title">합격 확인</div><div class="ep-step-desc">생보 당일 20시·손보 익일 06시<br>변액은 수일 후 확인</div></div>
+          <div class="ep-step"><div class="ep-step-num">STEP 05</div><div class="ep-step-icon">🪪</div><div class="ep-step-title">설계사 등록</div><div class="ep-step-desc">에즈금융서비스에<br>등록</div></div>
+        </div>
+      </div>
+
+      <!-- 시험 일정 -->
+      <div id="ep-schedule-section" class="ep-schedule">
+        <div class="ep-schedule-title">📅 2026년 2분기 자격시험 일정</div>
+        <div class="ep-stype-tabs">
+          <button class="ep-stype-tab active" onclick="epSwitchTab(this,'ep-loss-panel')">손해보험설계사</button>
+          <button class="ep-stype-tab" onclick="epSwitchTab(this,'ep-life-panel')">생명보험설계사</button>
+          <button class="ep-stype-tab" onclick="epSwitchTab(this,'ep-variable-panel')">변액보험 IBT</button>
+        </div>
+
+        <div class="ep-schedule-panel active" id="ep-loss-panel">
+          <div style="display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap">
+            <button class="ep-quick-btn active" onclick="epSwitchMonth(this,'ep-loss-april')" style="font-size:12px;padding:6px 14px">4월</button>
+            <button class="ep-quick-btn" onclick="epSwitchMonth(this,'ep-loss-may')" style="font-size:12px;padding:6px 14px">5월</button>
+            <button class="ep-quick-btn" onclick="epSwitchMonth(this,'ep-loss-june')" style="font-size:12px;padding:6px 14px">6월</button>
+          </div>
+          <div class="ep-schedule-panel active" id="ep-loss-april">
+            <div class="ep-schedule-table-wrap">
+              <table class="ep-schedule-table">
+                <thead><tr><th>차수</th><th>시험일</th><th>지역</th><th>보험사</th></tr></thead>
+                <tbody>
+                  <tr><td>1차</td><td><span class="ep-date-badge">4/7(화)</span></td><td>서울·대전·광주·부산·인천·대구</td><td>전 보험사</td></tr>
+                  <tr><td>2차</td><td><span class="ep-date-badge">4/8(수)</span></td><td>서울·대전·광주·전주</td><td>전 보험사</td></tr>
+                  <tr><td>3차</td><td><span class="ep-date-badge">4/9(목)</span></td><td>서울·대전·광주·부산·강릉</td><td>전 보험사</td></tr>
+                  <tr><td>4차</td><td><span class="ep-date-badge">4/13(월)</span></td><td>서울·수원·대전·광주·대구·부산</td><td>전 보험사(메리츠·삼성·DB 제외)</td></tr>
+                  <tr><td>5차</td><td><span class="ep-date-badge">4/14(화)</span></td><td>서울·대전·광주·부산</td><td>삼성</td></tr>
+                  <tr><td>6차</td><td><span class="ep-date-badge">4/15(수)</span></td><td>서울·대전·광주·부산</td><td>전 보험사(메리츠·삼성·DB 제외)</td></tr>
+                  <tr><td>7차</td><td><span class="ep-date-badge">4/16(목)</span></td><td>서울·대전·광주·부산</td><td>DB</td></tr>
+                  <tr><td>8차</td><td><span class="ep-date-badge">4/17(금)</span></td><td>서울·대전·광주·부산</td><td>전 보험사(메리츠·삼성·DB 제외)</td></tr>
+                  <tr><td>9차</td><td><span class="ep-date-badge">4/20(월)</span></td><td>서울·대전·부산</td><td>메리츠</td></tr>
+                  <tr><td>10차</td><td><span class="ep-date-badge">4/21(화)</span></td><td>서울·수원·대전·광주·부산</td><td>전 보험사(메리츠·삼성·DB 제외)</td></tr>
+                  <tr><td>11차</td><td><span class="ep-date-badge">4/22(수)</span></td><td>서울·대전·광주·대구·부산</td><td>전 보험사(메리츠·삼성·DB 제외)</td></tr>
+                  <tr><td>12차</td><td><span class="ep-date-badge">4/23(목)</span></td><td>서울·일산·대전·광주·부산·포항</td><td>전 보험사(메리츠·삼성·DB 제외)</td></tr>
+                  <tr><td>13차</td><td><span class="ep-date-badge">4/24(금)</span></td><td>서울·대구·부산</td><td>DB</td></tr>
+                  <tr><td>14차</td><td><span class="ep-date-badge">4/27(월)</span></td><td>서울·수원·대전·광주·대구·부산·제주</td><td>현대 및 전 보험사(제주)</td></tr>
+                  <tr><td>15차</td><td><span class="ep-date-badge">4/28(화)</span></td><td>서울·대구·부산</td><td>삼성</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="ep-schedule-panel" id="ep-loss-may">
+            <div class="ep-schedule-table-wrap">
+              <table class="ep-schedule-table">
+                <thead><tr><th>차수</th><th>시험일</th><th>지역</th><th>보험사</th></tr></thead>
+                <tbody>
+                  <tr><td>1차</td><td><span class="ep-date-badge">5/6(수)</span></td><td>서울·대전·광주·부산·인천·대구</td><td>전 보험사</td></tr>
+                  <tr><td>2차</td><td><span class="ep-date-badge">5/7(목)</span></td><td>서울·대전·광주·전주</td><td>전 보험사</td></tr>
+                  <tr><td>3차</td><td><span class="ep-date-badge">5/8(금)</span></td><td>서울·대전·광주·부산·강릉</td><td>GA</td></tr>
+                  <tr><td>4차</td><td><span class="ep-date-badge">5/12(화)</span></td><td>서울·수원·대전·광주·대구·부산</td><td>전 보험사(메리츠·삼성·DB 제외)</td></tr>
+                  <tr><td>5차</td><td><span class="ep-date-badge">5/13(수)</span></td><td>서울·대전·광주·부산</td><td>삼성</td></tr>
+                  <tr><td>6차</td><td><span class="ep-date-badge">5/14(목)</span></td><td>서울·대전·광주·부산</td><td>전 보험사(메리츠·삼성·DB 제외)</td></tr>
+                  <tr><td>7차</td><td><span class="ep-date-badge">5/15(금)</span></td><td>서울·대전·광주·부산</td><td>DB</td></tr>
+                  <tr><td>8차</td><td><span class="ep-date-badge">5/18(월)</span></td><td>서울·대전·광주·부산</td><td>전 보험사(메리츠·삼성·DB 제외)</td></tr>
+                  <tr><td>9차</td><td><span class="ep-date-badge">5/19(화)</span></td><td>서울·대전·부산</td><td>메리츠</td></tr>
+                  <tr><td>10차</td><td><span class="ep-date-badge">5/20(수)</span></td><td>서울·수원·대전·광주·부산</td><td>전 보험사(메리츠·삼성·DB 제외)</td></tr>
+                  <tr><td>11차</td><td><span class="ep-date-badge">5/21(목)</span></td><td>서울·대전·광주·대구·부산</td><td>전 보험사(메리츠·삼성·DB 제외)</td></tr>
+                  <tr><td>12차</td><td><span class="ep-date-badge">5/22(금)</span></td><td>서울·일산·대전·광주·부산·포항</td><td>전 보험사(메리츠·삼성·DB 제외)</td></tr>
+                  <tr><td>13차</td><td><span class="ep-date-badge">5/26(화)</span></td><td>서울·대구·부산</td><td>DB</td></tr>
+                  <tr><td>14차</td><td><span class="ep-date-badge">5/27(수)</span></td><td>서울·수원·대전·광주·부산·제주</td><td>현대 및 전 보험사(제주)</td></tr>
+                  <tr><td>15차</td><td><span class="ep-date-badge">5/28(목)</span></td><td>서울·대구·부산</td><td>삼성</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="ep-schedule-panel" id="ep-loss-june">
+            <div class="ep-schedule-table-wrap">
+              <table class="ep-schedule-table">
+                <thead><tr><th>차수</th><th>시험일</th><th>지역</th><th>보험사</th></tr></thead>
+                <tbody>
+                  <tr><td>1차</td><td><span class="ep-date-badge">6/4(목)</span></td><td>서울·대전·광주·부산·인천·대구</td><td>전 보험사</td></tr>
+                  <tr><td>2차</td><td><span class="ep-date-badge">6/5(금)</span></td><td>서울·대전·광주·전주</td><td>전 보험사</td></tr>
+                  <tr><td>3차</td><td><span class="ep-date-badge">6/8(월)</span></td><td>서울·대전·부산·강릉</td><td>GA</td></tr>
+                  <tr><td>4차</td><td><span class="ep-date-badge">6/10(수)</span></td><td>서울·수원·대전·광주·대구·부산</td><td>전 보험사(메리츠·삼성·DB 제외)</td></tr>
+                  <tr><td>5차</td><td><span class="ep-date-badge">6/11(목)</span></td><td>서울·대전·광주·부산</td><td>전 보험사(메리츠·삼성·DB 제외)</td></tr>
+                  <tr><td>6차</td><td><span class="ep-date-badge">6/12(금)</span></td><td>서울·대전·광주·부산</td><td>전 보험사(메리츠·삼성·DB 제외)</td></tr>
+                  <tr><td>7차</td><td><span class="ep-date-badge">6/15(월)</span></td><td>서울·대전·광주·부산</td><td>DB</td></tr>
+                  <tr><td>8차</td><td><span class="ep-date-badge">6/17(수)</span></td><td>서울·대전·광주·부산</td><td>전 보험사(메리츠·삼성·DB 제외)</td></tr>
+                  <tr><td>9차</td><td><span class="ep-date-badge">6/18(목)</span></td><td>서울·대전·부산</td><td>메리츠</td></tr>
+                  <tr><td>10차</td><td><span class="ep-date-badge">6/19(금)</span></td><td>서울·수원·대전·광주·부산</td><td>전 보험사(메리츠·삼성·DB 제외)</td></tr>
+                  <tr><td>11차</td><td><span class="ep-date-badge">6/23(화)</span></td><td>서울·대전·광주·대구·부산</td><td>전 보험사(메리츠·삼성·DB 제외)</td></tr>
+                  <tr><td>12차</td><td><span class="ep-date-badge">6/24(수)</span></td><td>서울·일산·대전·광주·부산·포항</td><td>전 보험사(메리츠·삼성·DB 제외)</td></tr>
+                  <tr><td>13차</td><td><span class="ep-date-badge">6/25(목)</span></td><td>서울·대구·부산</td><td>DB</td></tr>
+                  <tr><td>14차</td><td><span class="ep-date-badge">6/26(금)</span></td><td>서울·수원·대전·광주·부산·제주</td><td>현대 및 전 보험사(제주)</td></tr>
+                  <tr><td>15차</td><td><span class="ep-date-badge">6/28(일)</span></td><td>서울·대구·부산</td><td>삼성</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <p class="ep-table-note">※ 시험장 상황에 따라 일정 변경 가능 | 출처: 손해보험협회(knia.or.kr)</p>
+        </div>
+
+        <div class="ep-schedule-panel" id="ep-life-panel">
+          <div style="background:#f0f7ff;border:1px solid #c8dff7;border-radius:12px;padding:18px 20px;margin-bottom:14px;font-size:13px;color:#35506b;line-height:1.7">
+            ℹ️ 생명보험설계사 시험 일정은 생명보험협회 홈페이지에서 지역별·보험사별로 확인하세요.
+          </div>
+          <a href="https://www.klia.or.kr" target="_blank" style="display:inline-flex;align-items:center;gap:6px;padding:10px 20px;background:#0365db;color:white;border-radius:10px;font-size:13px;font-weight:700;text-decoration:none">생명보험협회 시험 일정 확인 →</a>
+        </div>
+
+        <div class="ep-schedule-panel" id="ep-variable-panel">
+          <div style="background:white;border:1px solid #e5e8eb;border-radius:16px;padding:24px">
+            <div style="display:inline-block;background:#ebf3fe;color:#0365db;font-size:12px;font-weight:700;padding:4px 12px;border-radius:100px;margin-bottom:10px">2026년 4월 IBT</div>
+            <div style="font-size:16px;font-weight:800;margin-bottom:6px">변액보험 판매자격시험 (IBT)</div>
+            <p style="font-size:13px;color:#4e5968;margin-bottom:18px">시험일자: 4월 23일(목) ~ 4월 30일(목) · 시험시간 60분 · 40문항 · 합격기준 70점 이상</p>
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px;margin-bottom:20px">
+              <div style="border:1px solid #e5e8eb;border-radius:12px;padding:14px 16px;background:#f9fafb">
+                <div style="font-weight:700;font-size:13px;margin-bottom:4px">📍 서울</div>
+                <div style="font-size:12px;color:#0365db;font-weight:600;margin-bottom:4px">107명/차수</div>
+                <div style="font-size:11px;color:#8b95a1">4/23~4/30 (6일)</div>
+              </div>
+              <div style="border:1px solid #e5e8eb;border-radius:12px;padding:14px 16px;background:#f9fafb">
+                <div style="font-weight:700;font-size:13px;margin-bottom:4px">📍 부산</div>
+                <div style="font-size:12px;color:#0365db;font-weight:600;margin-bottom:4px">70명/차수</div>
+                <div style="font-size:11px;color:#8b95a1">4/23~4/28 (4일)</div>
+              </div>
+              <div style="border:1px solid #e5e8eb;border-radius:12px;padding:14px 16px;background:#f9fafb">
+                <div style="font-weight:700;font-size:13px;margin-bottom:4px">📍 대구</div>
+                <div style="font-size:12px;color:#0365db;font-weight:600;margin-bottom:4px">67명/차수</div>
+                <div style="font-size:11px;color:#8b95a1">4/23~4/28 (4일)</div>
+              </div>
+              <div style="border:1px solid #e5e8eb;border-radius:12px;padding:14px 16px;background:#f9fafb">
+                <div style="font-weight:700;font-size:13px;margin-bottom:4px">📍 광주</div>
+                <div style="font-size:12px;color:#0365db;font-weight:600;margin-bottom:4px">70명/차수</div>
+                <div style="font-size:11px;color:#8b95a1">4/23~4/28 (4일)</div>
+              </div>
+              <div style="border:1px solid #e5e8eb;border-radius:12px;padding:14px 16px;background:#f9fafb">
+                <div style="font-weight:700;font-size:13px;margin-bottom:4px">📍 대전</div>
+                <div style="font-size:12px;color:#0365db;font-weight:600;margin-bottom:4px">70명/차수</div>
+                <div style="font-size:11px;color:#8b95a1">4/23~4/28 (4일)</div>
+              </div>
+            </div>
+            <div style="background:#f8faff;border:1px solid #e5e8eb;border-radius:12px;padding:16px">
+              <div style="font-size:14px;font-weight:700;margin-bottom:12px">📝 응시신청 일정</div>
+              <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px">
+                <div style="display:flex;flex-direction:column;gap:3px"><span style="font-size:11px;font-weight:700;color:#0365db;background:#ebf3fe;padding:3px 8px;border-radius:6px;width:fit-content">단체신청</span><span style="font-size:12px;color:#4e5968">4/2(목) 09:00 ~ 4/3(금) 16:00</span></div>
+                <div style="display:flex;flex-direction:column;gap:3px"><span style="font-size:11px;font-weight:700;color:#0365db;background:#ebf3fe;padding:3px 8px;border-radius:6px;width:fit-content">개인신청</span><span style="font-size:12px;color:#4e5968">4/7(월) 09:00 ~ 4/8(화) 16:00</span></div>
+                <div style="display:flex;flex-direction:column;gap:3px"><span style="font-size:11px;font-weight:700;color:#0365db;background:#ebf3fe;padding:3px 8px;border-radius:6px;width:fit-content">추가신청</span><span style="font-size:12px;color:#4e5968">4/13(월) 09:00 ~ 4/14(화) 16:00</span></div>
+                <div style="display:flex;flex-direction:column;gap:3px"><span style="font-size:11px;font-weight:700;color:#e85c41;background:#fef3f2;padding:3px 8px;border-radius:6px;width:fit-content">응시수수료</span><span style="font-size:13px;font-weight:700;color:#191f28">40,000원</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="ep-table-note" style="margin-top:12px">※ 일정은 협회 공식 홈페이지에서 반드시 최종 확인하세요</p>
+      </div>
+
+      <!-- 출제 경향 -->
+      <div id="ep-trend-section" style="margin-bottom:32px">
+        <div class="ep-process-title">📈 최근 출제 경향</div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-bottom:16px">
+          <div style="background:white;border-radius:14px;border:1px solid #e5e8eb;padding:18px">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+              <span style="background:#e85c41;color:white;font-size:11px;font-weight:700;padding:3px 10px;border-radius:100px">손해보험</span>
+              <span style="font-size:11px;color:#8b95a1">난이도 ★★★☆☆</span>
+            </div>
+            <ul style="padding-left:16px;font-size:13px;color:#4e5968;line-height:1.9">
+              <li>비례보상 계산</li><li>12대 중과실</li><li>의무보험 대상</li><li>비용손해 한도</li>
+            </ul>
+          </div>
+          <div style="background:white;border-radius:14px;border:1px solid #e5e8eb;padding:18px">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+              <span style="background:#0365db;color:white;font-size:11px;font-weight:700;padding:3px 10px;border-radius:100px">생명보험</span>
+              <span style="font-size:11px;color:#8b95a1">난이도 ★★☆☆☆</span>
+            </div>
+            <ul style="padding-left:16px;font-size:13px;color:#4e5968;line-height:1.9">
+              <li>고지의무 제척기간</li><li>청약철회 기간</li><li>면책사유</li><li>보험수익자</li>
+            </ul>
+          </div>
+          <div style="background:white;border-radius:14px;border:1px solid #e5e8eb;padding:18px">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+              <span style="background:#7c3aed;color:white;font-size:11px;font-weight:700;padding:3px 10px;border-radius:100px">변액보험</span>
+              <span style="font-size:11px;color:#8b95a1">난이도 ★★★★☆</span>
+            </div>
+            <ul style="padding-left:16px;font-size:13px;color:#4e5968;line-height:1.9">
+              <li>특별계정 운용</li><li>투자 위험 고객 부담</li><li>최저보증 구조</li>
+            </ul>
+          </div>
+          <div style="background:white;border-radius:14px;border:1px solid #e5e8eb;padding:18px">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+              <span style="background:#059669;color:white;font-size:11px;font-weight:700;padding:3px 10px;border-radius:100px">제3보험(공통)</span>
+              <span style="font-size:11px;color:#8b95a1">난이도 ★★★☆☆</span>
+            </div>
+            <ul style="padding-left:16px;font-size:13px;color:#4e5968;line-height:1.9">
+              <li>상해 4요건</li><li>실손보험 자기부담률</li><li>암 면책기간 90일</li>
+            </ul>
+          </div>
+        </div>
+        <div class="ep-cbt-tip">
+          <div class="ep-cbt-tip-icon">⚡</div>
+          <p><strong>시험 TIP!</strong> 출제 유형이 <strong>반복되는 경향</strong>이 있어, 기출문제를 3회 이상 반복하면 합격 가능성이 크게 올라갑니다.</p>
+        </div>
+      </div>
+
+      <!-- 에즈금융서비스 안내 -->
+      <div id="ep-after-section">
+        <div style="background:linear-gradient(135deg,#0254b8,#0365db);border-radius:24px;padding:28px 30px;color:white;box-shadow:0 22px 54px rgba(3,101,219,.16)">
+          <div style="font-size:18px;font-weight:800;margin-bottom:8px">💡 에즈금융서비스가 함께라면?</div>
+          <p style="font-size:13.5px;opacity:0.9;margin-bottom:18px;line-height:1.6">합격 후 설계사 등록부터 첫 계약, 정착까지 — 에즈금융서비스가 함께합니다.</p>
+          <ul style="padding-left:18px;font-size:13.5px;line-height:2;opacity:0.92">
+            <li>설계사 등록 절차 전담 지원</li>
+            <li>위촉지원금 및 멘토링 프로그램</li>
+            <li>전 보험사 비교 추천 시스템</li>
+            <li>고객 분석 도구 및 CRM 플랫폼</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- 보험사 전산 페이지 오버레이 -->
+<div class="page-overlay" id="policyPage">
+  <div class="page-header">
+    <div class="page-header-title"><span>🏢</span> 보험사 전산 바로가기</div>
+    <button class="page-back" onclick="closePolicyPage()">← 돌아가기</button>
+  </div>
+  <div class="page-body policy-page-body">
+<div class="container">
+    <h1>보험회사 전산 / 약관확인 / 청구양식</h1>
+
+    <section class="section">
+      <h2>1. 손해보험</h2>
+      <p class="desc">보험사 클릭 시 전산으로 이동합니다.</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>보험회사</th>
+              <th>고객센터</th>
+              <th>인콜 모니터링</th>
+              <th>전산 헬프데스크</th>
+              <th>보험금 청구팩스</th>
+              <th>약관확인</th>
+              <th>청구양식</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="https://sso.aig.co.kr/gaLogin/gaLogin.jsp" target="_blank" rel="noopener">AIG손해보험</a></td>
+              <td>1544-2792</td>
+              <td>1544-2792</td>
+              <td>02-2260-6855</td>
+              <td>02-2011-4607</td>
+              <td><a href="https://www.aig.co.kr/wo/dpwot001.html?menuId=MS702" target="_blank" rel="noopener">약관확인</a></td>
+              <td><a href="https://www.aig.co.kr/wm/content.html?contentId=DPWMS406&menuId=MS406" target="_blank" rel="noopener">청구양식</a></td>
+            </tr>
+            <tr>
+              <td><a href="https://www.mdbins.com/" target="_blank" rel="noopener">DB손해보험</a></td>
+              <td>1588-0100</td>
+              <td>1566-0757</td>
+              <td>02-2262-1241</td>
+              <td>0505-181-4862</td>
+              <td><a href="https://www.idbins.com/FWMAIV1534.do" target="_blank" rel="noopener">약관확인</a></td>
+              <td><a href="https://www.idbins.com/pc/bizxpress/ct/dc/FWCUSV1301.shtm" target="_blank" rel="noopener">청구양식</a></td>
+            </tr>
+            <tr>
+              <td><a href="http://sales.kbinsure.co.kr/" target="_blank" rel="noopener">KB손해보험</a></td>
+              <td>1544-0114</td>
+              <td>1544-0019</td>
+              <td>1544-8119</td>
+              <td>0505-136-6500</td>
+              <td><a href="https://www.kbinsure.co.kr/CG802030001.ec" target="_blank" rel="noopener">약관확인</a></td>
+              <td><a href="https://www.kbinsure.co.kr/CG205020001.ec" target="_blank" rel="noopener">청구양식</a></td>
+            </tr>
+            <tr>
+              <td><a href="https://mganet.mggeneralins.com/" target="_blank" rel="noopener">MG손해보험</a></td>
+              <td>1588-5959</td>
+              <td>1577-3777</td>
+              <td>02-3788-2261</td>
+              <td>0505-088-1646</td>
+              <td><a href="https://www.yebyeol.co.kr/PB031210DM.scp?menuId=MN0803006" target="_blank" rel="noopener">약관확인</a></td>
+              <td><a href="https://www.yebyeol.co.kr/LG011010DM.scp" target="_blank" rel="noopener">청구양식</a></td>
+            </tr>
+            <tr>
+              <td><a href="http://www.nhfire.co.kr/fc/fd.nhfire" target="_blank" rel="noopener">NH농협손해</a></td>
+              <td>1644-9000</td>
+              <td>1644-9600</td>
+              <td>1644-0090</td>
+              <td>0505-060-7000</td>
+              <td><a href="https://www.nhfire.co.kr/announce/productAnnounce/retrieveInsuranceProductsAnnounce.nhfire" target="_blank" rel="noopener">약관확인</a></td>
+              <td><a href="https://www.nhfire.co.kr/customer/bilgdcm/retrieveBilgDcmList.nhfire" target="_blank" rel="noopener">청구양식</a></td>
+            </tr>
+            <tr>
+              <td><a href="http://lottero.lotteins.co.kr/" target="_blank" rel="noopener">롯데손해보험</a></td>
+              <td>1588-3344</td>
+              <td>1600-5182</td>
+              <td>02-3455-3984</td>
+              <td>0507-333-9999</td>
+              <td><a href="https://lotteins.co.kr/web/C/D/H/cdh190.jsp" target="_blank" rel="noopener">약관확인</a></td>
+              <td><a href="https://lotteins.co.kr/web/C/D/C/cdc_claim_0502.jsp" target="_blank" rel="noopener">청구양식</a></td>
+            </tr>
+            <tr>
+              <td><a href="http://sales.meritzfire.com/" target="_blank" rel="noopener">메리츠화재</a></td>
+              <td>1566-7711</td>
+              <td>1577-7711</td>
+              <td>02-3786-2777</td>
+              <td>0505-021-3400</td>
+              <td><a href="https://www.meritzfire.com/disclosure/product-announcement/product-list.do#!/" target="_blank" rel="noopener">약관확인</a></td>
+              <td><a href="https://www.meritzfire.com/compensation/longterm-insurance/request-document.do#!/" target="_blank" rel="noopener">청구양식</a></td>
+            </tr>
+            <tr>
+              <td><a href="https://erp.samsungfire.com/" target="_blank" rel="noopener">삼성화재</a></td>
+              <td>1588-5114</td>
+              <td>1566-0553</td>
+              <td>1899-5005</td>
+              <td>0505-162-0872</td>
+              <td><a href="https://www.samsungfire.com/page/VH.REIF0011.do" target="_blank" rel="noopener">약관확인</a></td>
+              <td><a href="https://www.samsungfire.com/claim/P_P03_01_02_009.html" target="_blank" rel="noopener">청구양식</a></td>
+            </tr>
+            <tr>
+              <td><a href="https://sfa.saleshana.com/" target="_blank" rel="noopener">하나손해보험</a></td>
+              <td>1566-3000</td>
+              <td>1566-3000 (2번)</td>
+              <td>02-6670-8110</td>
+              <td>0504-3764-0765</td>
+              <td><a href="https://www.hanainsure.co.kr/w/disclosure/product/saleProduct" target="_blank" rel="noopener">약관확인</a></td>
+              <td><a href="https://www.hanainsure.co.kr/w/claim/carReward/rewardDocumentGuide" target="_blank" rel="noopener">청구양식</a></td>
+            </tr>
+            <tr>
+              <td><a href="http://portal.hwgeneralins.com/" target="_blank" rel="noopener">한화손해보험</a></td>
+              <td>1566-8000</td>
+              <td>1670-1882</td>
+              <td>02-316-0111</td>
+              <td>0502-779-1004</td>
+              <td><a href="https://www.hwgeneralins.com/notice/ir/product-ing01.do" target="_blank" rel="noopener">약관확인</a></td>
+              <td><a href="https://www.hwgeneralins.com/fplaza/compensation/receipt01.do" target="_blank" rel="noopener">청구양식</a></td>
+            </tr>
+            <tr>
+              <td><a href="https://sp.hi.co.kr/" target="_blank" rel="noopener">현대해상</a></td>
+              <td>1588-5656</td>
+              <td>1577-3223</td>
+              <td>02-2628-4567</td>
+              <td>0507-774-6060</td>
+              <td><a href="https://www.hi.co.kr/serviceAction.do?view=bin/PA/03/HHPA03010M#none" target="_blank" rel="noopener">약관확인</a></td>
+              <td><a href="https://www.hi.co.kr/serviceAction.do?menuId=100631" target="_blank" rel="noopener">청구양식</a></td>
+            </tr>
+            <tr>
+              <td><a href="http://upride.heungkukfire.co.kr/" target="_blank" rel="noopener">흥국화재</a></td>
+              <td>1688-1688</td>
+              <td>1688-6997</td>
+              <td>031-786-8088</td>
+              <td>0504-800-0700</td>
+              <td><a href="https://www.heungkukfire.co.kr/FRW/announce/insGoodsGongsiSale.do" target="_blank" rel="noopener">약관확인</a></td>
+              <td><a href="https://www.heungkukfire.co.kr/FRW/compensation/accidentDocInfo.do" target="_blank" rel="noopener">청구양식</a></td>
+            </tr>
+            <tr>
+              <td><a href="https://www.chubb.com/kr-kr/" target="_blank" rel="noopener">처브 에이스</a></td>
+              <td>1566-5800</td>
+              <td>-</td>
+              <td>-</td>
+              <td>02-2127-2308 (치아 8482)</td>
+              <td><a href="https://www.chubb.com/kr-kr/disclosure/product.html" target="_blank" rel="noopener">약관확인</a></td>
+              <td><a href="https://www.chubb.com/kr-kr/claims/report-a-claim.html" target="_blank" rel="noopener">청구양식</a></td>
+            </tr>
+            <tr>
+              <td><a href="https://www.axa.co.kr/" target="_blank" rel="noopener">AXA 손해보험</a></td>
+              <td>1566-1566</td>
+              <td>-</td>
+              <td>-</td>
+              <td>가상번호 부여</td>
+              <td><a href="https://www.axa.co.kr/AsianPlatformInternet/html/axacms/common/intro/disclosure/insurance/index.html" target="_blank" rel="noopener">약관확인</a></td>
+              <td><a href="https://www.axa.co.kr/AsianPlatformInternet/html/axacms/shcl/pa/process/index.html" target="_blank" rel="noopener">청구양식</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note">
+        ※ 손해보험 치아보험 청구양식:
+        <a href="https://drive.google.com/drive/folders/1bX5P4mX_aeMeeipb9KgKPpfr_2gXJyX5?usp=share_link" target="_blank" rel="noopener">다운로드 바로가기</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>2. 생명보험</h2>
+      <p class="desc">보험사 클릭 시 전산으로 이동합니다.</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>보험회사</th>
+              <th>고객센터</th>
+              <th>인콜 모니터링</th>
+              <th>전산 헬프데스크</th>
+              <th>청구팩스</th>
+              <th>약관확인</th>
+              <th>청구양식</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="https://imap.aia.co.kr/" target="_blank" rel="noopener">AIA 생명</a></td>
+              <td>1588-9898</td>
+              <td>1588-2513</td>
+              <td>1588-2937</td>
+              <td>02-2021-4540</td>
+              <td><a href="https://www.aia.co.kr/ko/our-products.html" target="_blank" rel="noopener">약관확인</a></td>
+              <td><a href="https://www.aia.co.kr/ko/help-support/forms.html" target="_blank" rel="noopener">청구양식</a></td>
+            </tr>
+            <tr>
+              <td><a href="http://ga.abllife.co.kr/" target="_blank" rel="noopener">ABL 생명</a></td>
+              <td>1588-6500</td>
+              <td>1566-1002</td>
+              <td>02-3787-8583</td>
+              <td>가상번호 부여</td>
+              <td><a href="https://www.abllife.co.kr/st/pban/prdtPban/whlPrdt/whlPrdt1/whlPrdt11?page=index" target="_blank" rel="noopener">약관확인</a></td>
+              <td><a href="https://www.abllife.co.kr/st/custDesk/insSrvcGudn/acdtInsmClamGudn/acdtInsmClamGudn3?page=index" target="_blank" rel="noopener">청구양식</a></td>
+            </tr>
+            <tr>
+              <td><a href="http://ga.cardif.co.kr/" target="_blank" rel="noopener">BNP파리카디프</a></td>
+              <td>1688-1118</td>
+              <td>1688-1118</td>
+              <td>1577-3435</td>
+              <td>가상번호 부여</td>
+              <td><a href="https://www.cardif.co.kr/disclosure/papag101.do" target="_blank" rel="noopener">약관확인</a></td>
+              <td><a href="https://www.cardif.co.kr/customer-center/hcwgi001.do" target="_blank" rel="noopener">청구양식</a></td>
+            </tr>
+            <tr>
+              <td><a href="http://etopia.dongbulife.com/" target="_blank" rel="noopener">DB 생명</a></td>
+              <td>1588-3131</td>
+              <td>02-6470-7663</td>
+              <td>02-2119-5151</td>
+              <td>0505-129-3134</td>
+              <td><a href="https://www.idblife.com/notice/product/sale" target="_blank" rel="noopener">약관확인</a></td>
+              <td><a href="https://www.idblife.com/support/guide/acbf_clm" target="_blank" rel="noopener">청구양식</a></td>
+            </tr>
+            <tr>
+              <td><a href="https://fgs.dgbfnlife.com:8443/" target="_blank" rel="noopener">DGB 생명</a></td>
+              <td>1588-4770</td>
+              <td>1588-4770</td>
+              <td>02-2087-9594</td>
+              <td>0505-083-5420 (콜센터 후)</td>
+              <td><a href="https://www.dgbfnlife.com/BA/BA_A020.do" target="_blank" rel="noopener">약관확인</a></td>
+              <td><a href="https://www.dgbfnlife.com/BB/BB_D010.do" target="_blank" rel="noopener">청구양식</a></td>
+            </tr>
+            <tr>
+              <td><a href="https://vpn.ibkinsu.co.kr/" target="_blank" rel="noopener">IBK 연금보험</a></td>
+              <td>1577-4117</td>
+              <td>02-2270-1661</td>
+              <td>-</td>
+              <td>02-2270-1577</td>
+              <td><a href="https://www.ibki.co.kr/process/HP_PBANO_PDT_SP_INDV" target="_blank" rel="noopener">약관확인</a></td>
+              <td><a href="https://www.ibki.co.kr/process/HP_CSCETR_POSN_DOC_INS_LIST" target="_blank" rel="noopener">청구양식</a></td>
+            </tr>
+            <tr>
+              <td><a href="http://esfa.kbli.co.kr/" target="_blank" rel="noopener">KB 라이프생명</a></td>
+              <td>1588-3374</td>
+              <td>1566-2730</td>
+              <td>-</td>
+              <td>라이프파트너 문의</td>
+              <td><a href="https://www.kblife.co.kr/" target="_blank" rel="noopener">약관확인</a></td>
+              <td><a href="https://www.kblife.co.kr/customer-center/informRequiredDocument.do" target="_blank" rel="noopener">청구양식</a></td>
+            </tr>
+            <tr>
+              <td><a href="http://kss.kdblife.co.kr/" target="_blank" rel="noopener">KDB 생명</a></td>
+              <td>1588-4040</td>
+              <td>1588-4040</td>
+              <td>02-6303-2771</td>
+              <td>02-2669-7939 (콜센터 후)</td>
+              <td><a href="https://www.kdblife.co.kr/ajax.do?scrId=HDLMA002M02P" target="_blank" rel="noopener">약관확인</a></td>
+              <td><a href="https://www.kdblife.co.kr/ajax.do?scrId=HCSCT006M01P" target="_blank" rel="noopener">청구양식</a></td>
+            </tr>
+            <tr>
+              <td><a href="http://www.nhlife.co.kr/nhsmart.nhl" target="_blank" rel="noopener">NH 농협생명</a></td>
+              <td>1544-4000</td>
+              <td>1544-4422</td>
+              <td>02-3786-8800</td>
+              <td>02-6971-6040</td>
+              <td><a href="https://www.nhlife.co.kr/ho/on/HOON0004M00.nhl" target="_blank" rel="noopener">약관확인</a></td>
+              <td><a href="https://www.nhlife.co.kr/ho/cc/HOCC0010M00.nhl" target="_blank" rel="noopener">청구양식</a></td>
+            </tr>
+            <tr>
+              <td><a href="https://ga.kyobo.com/" target="_blank" rel="noopener">교보 생명</a></td>
+              <td>1588-1001</td>
+              <td>1588-1636</td>
+              <td>02-721-3130</td>
+              <td>가상번호 부여</td>
+              <td><a href="https://www.kyobo.com/dgt/web/product-official/all-product/search" target="_blank" rel="noopener">약관확인</a></td>
+              <td><a href="https://www.kyobo.com/dgt/web/customer/support/need-papers/list" target="_blank" rel="noopener">청구양식</a></td>
+            </tr>
+            <tr>
+              <td><a href="http://1004.myangel.co.kr/" target="_blank" rel="noopener">동양 생명</a></td>
+              <td>1577-1004</td>
+              <td>080-899-1004</td>
+              <td>02-728-9900</td>
+              <td>02-3289-4517</td>
+              <td><a href="https://www.myangel.co.kr/paging/WE_AC_WEPAAP020100L" target="_blank" rel="noopener">약관확인</a></td>
+              <td><a href="https://www.myangel.co.kr/process/main" target="_blank" rel="noopener">청구양식</a></td>
+            </tr>
+            <tr>
+              <td><a href="https://ga.lina.co.kr/" target="_blank" rel="noopener">라이나 생명</a></td>
+              <td>1588-0058</td>
+              <td>1588-2442</td>
+              <td>1588-2215</td>
+              <td>02-6944-1200</td>
+              <td><a href="https://www.lina.co.kr/disclosure/product_list.htm" target="_blank" rel="noopener">약관확인</a></td>
+              <td><a href="https://www.lina.co.kr/cyber/accident-insurance/document-zero" target="_blank" rel="noopener">청구양식</a></td>
+            </tr>
+            <tr>
+              <td><a href="http://metplus.metlife.co.kr/" target="_blank" rel="noopener">메트라이프</a></td>
+              <td>1588-9600</td>
+              <td>1588-9609</td>
+              <td>1899-0751</td>
+              <td>02-3469-9428</td>
+              <td><a href="https://brand.metlife.co.kr/pn/paReal/insuProductDisclMain.do" target="_blank" rel="noopener">약관확인</a></td>
+              <td><a href="https://cyber.metlife.co.kr/claim/requiredDocumentNotice" target="_blank" rel="noopener">청구양식</a></td>
+            </tr>
+            <tr>
+              <td><a href="http://www.loveageplan.com/" target="_blank" rel="noopener">미래에셋 생명</a></td>
+              <td>1588-0220</td>
+              <td>1588-0220</td>
+              <td>02-3271-5108</td>
+              <td>가상번호 부여</td>
+              <td><a href="https://life.miraeasset.com/micro/disclosure/product/PC-HO-080301-000000.do" target="_blank" rel="noopener">약관확인</a></td>
+              <td><a href="https://life.miraeasset.com/home/index.do#MO-HO-030501-010000" target="_blank" rel="noopener">청구양식</a></td>
+            </tr>
+            <tr>
+              <td><a href="http://u-channel-ga.samsunglife.com/" target="_blank" rel="noopener">삼성 생명</a></td>
+              <td>1588-3114</td>
+              <td>1588-3115</td>
+              <td>02-311-4500</td>
+              <td>가상번호 부여</td>
+              <td><a href="https://www.samsunglife.com/individual/products/disclosure/sales/PDO-PRPRI010110M" target="_blank" rel="noopener">약관확인</a></td>
+              <td><a href="https://www.samsunglife.com/individual/mysamsunglife/insurance/internet/MDP-MYINT020110M" target="_blank" rel="noopener">청구양식</a></td>
+            </tr>
+            <tr>
+              <td><a href="https://ga.shinhanlife.co.kr/" target="_blank" rel="noopener">신한 라이프</a></td>
+              <td>1588-5580</td>
+              <td>1522-2285</td>
+              <td>02-3455-4119</td>
+              <td>가상번호 부여</td>
+              <td><a href="https://www.shinhanlife.co.kr/hp/cdhi0010.do" target="_blank" rel="noopener">약관확인</a></td>
+              <td><a href="https://www.shinhanlife.co.kr/hp/cdhf0020t02.do" target="_blank" rel="noopener">청구양식</a></td>
+            </tr>
+            <tr>
+              <td><a href="http://esmart.chubblife.co.kr/" target="_blank" rel="noopener">처브 라이프</a></td>
+              <td>1599-4600</td>
+              <td>1599-4600</td>
+              <td>1599-4646</td>
+              <td>02-3480-7801</td>
+              <td><a href="https://www.chubblife.co.kr/front/official/sale/list.do" target="_blank" rel="noopener">약관확인</a></td>
+              <td><a href="https://www.chubblife.co.kr/front/ctmcenter/insurance/listDocu.do" target="_blank" rel="noopener">청구양식</a></td>
+            </tr>
+            <tr>
+              <td><a href="http://wsfa.fubonhyundai.com/" target="_blank" rel="noopener">푸본현대생명</a></td>
+              <td>1577-3311</td>
+              <td>-</td>
+              <td>080-860-1212</td>
+              <td>0505-106-0311</td>
+              <td><a href="https://www.fubonhyundai.com/#CUSI150102010101" target="_blank" rel="noopener">약관확인</a></td>
+              <td><a href="https://www.fubonhyundai.com/#CUSI070100000000" target="_blank" rel="noopener">청구양식</a></td>
+            </tr>
+            <tr>
+              <td><a href="https://e-life.heungkuklife.co.kr/" target="_blank" rel="noopener">흥국 생명</a></td>
+              <td>1588-2288</td>
+              <td>1877-7006</td>
+              <td>031-786-8088</td>
+              <td>가상번호 부여</td>
+              <td><a href="https://www.heungkuklife.co.kr/front/public/saleProduct.do" target="_blank" rel="noopener">약관확인</a></td>
+              <td><a href="https://www.heungkuklife.co.kr/jsps/front/help/customer_require_tab.jsp" target="_blank" rel="noopener">청구양식</a></td>
+            </tr>
+            <tr>
+              <td><a href="https://hmp.hanwhalife.com/online/ga" target="_blank" rel="noopener">한화 생명</a></td>
+              <td>1588-6363</td>
+              <td>1800-6633</td>
+              <td>02-1522-6379</td>
+              <td>가상번호 부여</td>
+              <td><a href="https://www.hanwhalife.com/main/disclosure/goods/disclosurenotice/DF_GDDN000_P10000.do" target="_blank" rel="noopener">약관확인</a></td>
+              <td><a href="https://www.hanwhalife.com/static/main/myPage/insurance/accident/document/MY_INAPADC_T10000.jsp" target="_blank" rel="noopener">청구양식</a></td>
+            </tr>
+            <tr>
+              <td><a href="https://www.hanalife.co.kr/" target="_blank" rel="noopener">하나 생명</a></td>
+              <td>1577-1112</td>
+              <td>1577-1112</td>
+              <td>-</td>
+              <td>02-6719-6722</td>
+              <td><a href="https://www.hanalife.co.kr/anm/product/allProduct.do?status=on" target="_blank" rel="noopener">약관확인</a></td>
+              <td><a href="https://www.hanalife.co.kr/csc/accidentGuideRenew/accidentPaymentDocument.do" target="_blank" rel="noopener">청구양식</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note">
+        ※ 생명보험 치아보험 청구양식:
+        <a href="https://drive.google.com/drive/folders/1ykzncdihaEM42L8rGB_ApDvylz_IJtG4?usp=share_link" target="_blank" rel="noopener">다운로드 바로가기</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>3. 공제회사</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>보험회사</th>
+              <th>고객센터</th>
+              <th>인콜 모니터링</th>
+              <th>전산 헬프데스크</th>
+              <th>청구팩스</th>
+              <th>약관확인</th>
+              <th>청구양식</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="https://insu.kfcc.co.kr/main.do" target="_blank" rel="noopener">MG새마을금고</a></td>
+              <td>1599-9010</td>
+              <td>-</td>
+              <td>-</td>
+              <td>가상번호 부여</td>
+              <td><a href="https://insu.kfcc.co.kr/ino/inoGuide.do" target="_blank" rel="noopener">약관확인</a></td>
+              <td><a href="https://insu.kfcc.co.kr/ics/cybIcsChargeProcessinfo.do" target="_blank" rel="noopener">청구양식</a></td>
+            </tr>
+            <tr>
+              <td><a href="https://www.ktcu.or.kr/MH/MH-P010M01.do" target="_blank" rel="noopener">교직원공제 (The-K)</a></td>
+              <td>1577-3993</td>
+              <td>-</td>
+              <td>-</td>
+              <td>02-3278-9696</td>
+              <td><a href="https://www.ktcu.or.kr/IS/IS-P170M01.do" target="_blank" rel="noopener">약관확인</a></td>
+              <td><a href="https://www.ktcu.or.kr/IS/IS-P120T01.do" target="_blank" rel="noopener">청구양식</a></td>
+            </tr>
+            <tr>
+              <td><a href="https://epostlife.go.kr/LNLNDM10DM.do" target="_blank" rel="noopener">우체국 보험</a></td>
+              <td>1599-0100</td>
+              <td>-</td>
+              <td>-</td>
+              <td>지역별 상이</td>
+              <td><a href="https://mall.epostbank.go.kr/IPPSKE0000.do" target="_blank" rel="noopener">약관확인</a></td>
+              <td><a href="https://epostlife.go.kr/IPDSDC0001.do" target="_blank" rel="noopener">청구양식</a></td>
+            </tr>
+            <tr>
+              <td><a href="https://www.suhyup-bank.com/" target="_blank" rel="noopener">수협 공제</a></td>
+              <td>1588-4119</td>
+              <td>-</td>
+              <td>-</td>
+              <td>가상번호 부여</td>
+              <td><a href="https://www.suhyup-bank.com/ib20/mnu/FPD00127#859" target="_blank" rel="noopener">약관확인</a></td>
+              <td><a href="https://www.suhyup-bank.com/" target="_blank" rel="noopener">청구양식</a></td>
+            </tr>
+            <tr>
+              <td><a href="https://openbank.cu.co.kr/?sub=6000" target="_blank" rel="noopener">신협 공제</a></td>
+              <td>1544-3030</td>
+              <td>-</td>
+              <td>-</td>
+              <td>가상번호 부여</td>
+              <td><a href="https://openbank.cu.co.kr/?sub=6000" target="_blank" rel="noopener">약관확인</a></td>
+              <td><a href="https://openbank.cu.co.kr/?sub=6000" target="_blank" rel="noopener">청구양식</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <p class="source">
+      원본 기준: <a href="https://www.udbd.co.kr/list" target="_blank" rel="noopener">https://www.udbd.co.kr/list</a>
+    </p>
+  </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <p>에즈금융서비스 온보딩 허브 · 신입사원 업무 학습 레퍼런스 모음<br>
+    각 링크는 외부 사이트로 연결됩니다. 링크 내용에 대한 책임은 각 운영사에 있습니다.</p>
+  </div>
+</footer>
+
+<script>
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        document.getElementById('mobileMenu').classList.remove('open');
+      }
+    });
+  });
+
+  // 요점정리 페이지 열기/닫기
+  function openSummaryPage(type) {
+    document.getElementById('summaryPage-' + type).classList.add('open');
+    document.body.style.overflow = 'hidden';
+    // 오버레이 내 아코디언 초기화
+    document.querySelectorAll('#summaryPage-' + type + ' .acc-trigger').forEach(btn => {
+      btn.addEventListener('click', () => {
+        btn.parentElement.classList.toggle('open');
+      });
+    });
+  }
+  function closeSummaryPage(type) {
+    document.getElementById('summaryPage-' + type).classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  // 기본 아코디언 (혹시 남은 것 위해)
+  document.querySelectorAll('.acc-trigger').forEach(btn => {
+    btn.addEventListener('click', () => {
+      btn.parentElement.classList.toggle('open');
+    });
+  });
+
+  // FAQ 모달 내 아코디언
+  function toggleFaqItem(trigger) {
+    const item = trigger.parentElement;
+    item.classList.toggle('open');
+    const chevron = trigger.querySelector('.faq-modal-chevron');
+    chevron.textContent = item.classList.contains('open') ? '×' : '+';
+  }
+
+
+
+  function openExamPage() {
+    document.getElementById('examPage').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeExamPage() {
+    document.getElementById('examPage').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function epScrollTo(id) {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+  function epSwitchTab(btn, panelId) {
+    // 상위 탭 버튼 리셋
+    btn.parentElement.querySelectorAll('.ep-stype-tab').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    // 모든 패널 숨기기
+    document.querySelectorAll('#examPage > .page-body .ep-schedule-panel').forEach(p => {
+      if (['ep-loss-panel','ep-life-panel','ep-variable-panel'].includes(p.id)) p.classList.remove('active');
+    });
+    document.getElementById(panelId).classList.add('active');
+  }
+  function epSwitchMonth(btn, panelId) {
+    btn.parentElement.querySelectorAll('.ep-quick-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    ['ep-loss-april','ep-loss-may','ep-loss-june'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.classList.remove('active');
+    });
+    const target = document.getElementById(panelId);
+    if (target) target.classList.add('active');
+  }
+
+  function openPolicyPage() {
+    document.getElementById('policyPage').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closePolicyPage() {
+    document.getElementById('policyPage').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  // ESC 키로 닫기
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      ['fire','life','variable'].forEach(t => closeSummaryPage(t));
+      closeExamPage();
+      document.getElementById('insurerModal').classList.remove('open');
+      document.getElementById('faqModal').classList.remove('open');
+      closePolicyPage();
+    }
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,1740 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>생명보험설계사 핵심 요약집</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --p: #3182f6; --p-lt: #e8f1fd; --p-dk: #1b64da;
+    --green: #0dab5c; --grn-lt: #e6f7ef;
+    --red: #ef4444; --red-lt: #fef2f2;
+    --g50: #f8fafc; --g100: #f1f5f9; --g200: #e2e8f0;
+    --g300: #cbd5e1; --g400: #94a3b8; --g500: #64748b;
+    --g600: #475569; --g700: #334155; --g800: #1e293b; --g900: #0f172a;
+    --white: #ffffff; --r: 12px; --rsm: 8px; --rxs: 6px;
+  }
+  body { font-family: 'Pretendard', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--g50); color: var(--g800); font-size: 15px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+  /* ─── COVER ─── */
+  #cover { min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:2rem 1.5rem; background: linear-gradient(160deg,#fff 0%,#eef5fe 55%,#e8f1fd 100%); text-align:center; }
+  .cover-logo { display:flex; align-items:center; gap:8px; margin-bottom:2.5rem; }
+  .cover-logo-icon { width:36px; height:36px; background:var(--p); border-radius:10px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:18px; font-weight:800; }
+  .cover-logo-text { font-size:16px; font-weight:700; color:var(--g700); }
+  .cover-badge { display:inline-flex; align-items:center; gap:6px; background:var(--p-lt); color:var(--p); border-radius:100px; padding:5px 14px; font-size:13px; font-weight:600; margin-bottom:1.25rem; }
+  .cover-title { font-size:clamp(2rem,5vw,3.25rem); font-weight:800; color:var(--g900); letter-spacing:-1px; line-height:1.15; margin-bottom:.75rem; }
+  .cover-title em { color:var(--p); font-style:normal; }
+  .cover-subtitle { font-size:16px; color:var(--g500); margin-bottom:2.5rem; }
+  .cover-stats { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-bottom:2.5rem; }
+  .cover-stat { background:var(--white); border:1px solid var(--g200); border-radius:var(--r); padding:16px 24px; box-shadow:0 1px 3px rgba(0,0,0,.1); min-width:100px; }
+  .cover-stat-num { display:block; font-size:28px; font-weight:800; color:var(--p); letter-spacing:-.5px; }
+  .cover-stat-label { font-size:13px; color:var(--g400); font-weight:500; }
+  .cover-btn { background:var(--p); color:#fff; border:none; border-radius:100px; padding:15px 44px; font-size:16px; font-weight:700; cursor:pointer; font-family:inherit; transition:all .18s; box-shadow:0 4px 14px rgba(49,130,246,.35); }
+  .cover-btn:hover { background:var(--p-dk); transform:translateY(-1px); box-shadow:0 6px 20px rgba(49,130,246,.4); }
+  .cover-cheers { margin-top:1.5rem; font-size:14px; color:var(--g400); }
+
+  /* ─── APP SHELL ─── */
+  #app { display:none; min-height:100vh; }
+  .topbar { position:sticky; top:0; z-index:100; background:rgba(255,255,255,.95); backdrop-filter:blur(12px); border-bottom:1px solid var(--g200); padding:0 20px; height:56px; display:flex; align-items:center; gap:12px; }
+  .tb-logo { display:flex; align-items:center; gap:7px; flex-shrink:0; }
+  .tb-logo-icon { width:28px; height:28px; background:var(--p); border-radius:8px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:13px; font-weight:800; }
+  .tb-logo-text { font-size:14px; font-weight:700; color:var(--g700); }
+  .tb-divider { width:1px; height:18px; background:var(--g200); flex-shrink:0; }
+  .tb-prog-wrap { flex:1; display:flex; align-items:center; gap:10px; min-width:0; }
+  .tb-page-info { font-size:13px; color:var(--g400); font-weight:500; white-space:nowrap; }
+  .prog-bg { flex:1; height:4px; background:var(--g200); border-radius:2px; overflow:hidden; }
+  .prog-fill { height:100%; background:var(--p); border-radius:2px; transition:width .4s ease; }
+  .tb-pct { font-size:13px; color:var(--p); font-weight:700; white-space:nowrap; }
+  .tb-back { background:var(--g100); border:none; color:var(--g600); border-radius:var(--rxs); padding:6px 12px; font-size:13px; font-weight:600; cursor:pointer; font-family:inherit; transition:all .15s; flex-shrink:0; }
+  .tb-back:hover { background:var(--g200); }
+
+  /* ─── PAGE ─── */
+  .page-wrap { max-width:860px; margin:0 auto; padding:28px 20px 60px; }
+  .page-header { margin-bottom:20px; }
+  .part-chip { display:inline-flex; align-items:center; border-radius:100px; padding:4px 12px; font-size:12px; font-weight:700; margin-bottom:10px; }
+  .page-title-main { font-size:clamp(1.25rem,3vw,1.6rem); font-weight:800; color:var(--g900); letter-spacing:-.5px; margin-bottom:4px; line-height:1.25; }
+  .page-qcount { font-size:13px; color:var(--g400); font-weight:500; }
+
+  /* ─── CARDS ─── */
+  .section { background:var(--white); border:1px solid var(--g200); border-radius:var(--r); padding:20px; margin-bottom:12px; box-shadow:0 1px 2px rgba(0,0,0,.06); }
+  .section-title { font-size:14px; font-weight:700; color:var(--g800); margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+  .section-title::before { content:''; width:3px; height:14px; background:var(--p); border-radius:2px; flex-shrink:0; }
+  .content-text { font-size:14px; line-height:1.85; color:var(--g600); }
+  .hl        { color:#1d4ed8; font-weight:700; }
+  .hl-yellow { color:#b45309; font-weight:700; }
+  .hl-green  { color:#166534; font-weight:700; }
+  .hl-blue   { color:var(--p-dk); font-weight:700; }
+  .hl-red    { color:var(--red); font-weight:700; }
+  .hl-purple { color:#7c3aed; font-weight:700; }
+
+  /* ─── TABLE ─── */
+  .content-table { width:100%; border-collapse:collapse; font-size:13px; margin:10px 0; border-radius:var(--rsm); overflow:hidden; border:1px solid var(--g200); }
+  .content-table th { background:var(--g50); color:var(--g700); font-weight:700; padding:9px 12px; text-align:left; border-bottom:1px solid var(--g200); font-size:12.5px; }
+  .content-table td { padding:8px 12px; border-bottom:1px solid var(--g100); color:var(--g600); vertical-align:top; font-size:13px; }
+  .content-table tr:last-child td { border-bottom:none; }
+  .content-table tr:hover td { background:var(--g50); }
+
+  /* ─── LIST ─── */
+  .content-list { list-style:none; padding:0; margin:6px 0; }
+  .content-list li { padding:4px 0 4px 18px; position:relative; font-size:14px; color:var(--g600); line-height:1.75; }
+  .content-list li::before { content:'•'; position:absolute; left:4px; color:var(--p); font-weight:700; font-size:12px; top:6px; }
+  .content-list.num { counter-reset:lc; }
+  .content-list.num li::before { content:counter(lc)'.'; counter-increment:lc; font-weight:700; color:var(--g400); font-size:12px; top:4px; }
+
+  /* ─── CALLOUT BOXES ─── */
+  .wrong-box { background:var(--red-lt); border:1px solid #fecaca; border-radius:var(--rxs); padding:10px 14px; margin:8px 0; font-size:13px; color:#991b1b; line-height:1.7; }
+  .wrong-box::before { content:'✗ 오답유형  '; font-weight:700; color:var(--red); }
+  .tip-box { background:var(--grn-lt); border:1px solid #a7f3d0; border-radius:var(--rxs); padding:10px 14px; margin:8px 0; font-size:13px; color:#065f46; line-height:1.7; }
+  .tip-box::before { content:'💡 Plus Tip!  '; font-weight:700; color:var(--green); }
+  .exam-box { background:#fffbeb; border:1px solid #fde68a; border-radius:var(--rxs); padding:10px 14px; margin:8px 0; font-size:13px; color:#78350f; line-height:1.7; }
+  .exam-box::before { content:'📝 출제유형  '; font-weight:700; color:#d97706; }
+  .memo-box { background:#eff6ff; border:1px solid #bfdbfe; border-radius:var(--rxs); padding:10px 14px; margin:8px 0; font-size:13px; color:#1e40af; line-height:1.7; }
+
+  /* ─── GRID / MINI-CARD ─── */
+  .grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:8px 0; }
+  @media(max-width:560px){
+    .grid-2 { grid-template-columns:1fr; }
+    .section { overflow-x:auto; -webkit-overflow-scrolling:touch; }
+    .content-table { min-width:480px; font-size:12px; }
+    .content-table th, .content-table td { padding:7px 9px; word-break:keep-all; }
+  }
+  .mini-card { background:var(--g50); border:1px solid var(--g200); border-radius:var(--rsm); padding:12px 14px; }
+  .mini-card-title { font-size:13px; font-weight:700; color:var(--g700); margin-bottom:6px; }
+  .mini-card-body { font-size:13px; color:var(--g600); line-height:1.7; }
+
+  /* ─── HIGHLIGHT SECTION ─── */
+  .highlight-section { background:linear-gradient(135deg,var(--p-lt),#f0f7ff); border:1px solid #bfdbfe; border-radius:var(--r); padding:18px 20px; margin-bottom:12px; }
+
+  /* ─── BOTTOM NAV ─── */
+  .page-nav { display:flex; justify-content:space-between; align-items:center; margin-top:24px; padding-top:20px; border-top:1px solid var(--g200); gap:12px; }
+  .nav-btn { background:var(--white); border:1px solid var(--g200); color:var(--g700); border-radius:var(--rsm); padding:10px 22px; font-size:14px; font-weight:600; cursor:pointer; font-family:inherit; transition:all .15s; box-shadow:0 1px 2px rgba(0,0,0,.06); }
+  .nav-btn:hover { background:var(--g50); border-color:var(--g300); }
+  .nav-btn:disabled { opacity:.35; cursor:not-allowed; box-shadow:none; }
+  .nav-btn.primary { background:var(--p); border-color:var(--p); color:#fff; box-shadow:0 2px 8px rgba(49,130,246,.25); }
+  .nav-btn.primary:hover { background:var(--p-dk); border-color:var(--p-dk); }
+  .page-indicator { font-size:13px; color:var(--g400); font-weight:500; }
+
+  /* ─── TOC ─── */
+  .toc-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(190px,1fr)); gap:8px; margin:12px 0; }
+  .toc-item { background:var(--g50); border:1px solid var(--g200); border-radius:var(--rsm); padding:10px 14px; cursor:pointer; transition:all .15s; }
+  .toc-item:hover { background:var(--p-lt); border-color:#93c5fd; }
+  .toc-num { font-size:11px; color:var(--g400); font-weight:600; margin-bottom:3px; }
+  .toc-name { font-size:13px; color:var(--g700); line-height:1.4; font-weight:500; }
+
+  /* ─── UTILS ─── */
+  .divider { height:1px; background:var(--g200); margin:12px 0; }
+  .mb { margin-bottom:10px; } .mt { margin-top:10px; }
+  p.indent { padding-left:1em; } p.indent2 { padding-left:2em; }
+  .badge { display:inline-block; padding:2px 8px; border-radius:100px; font-size:11.5px; font-weight:700; margin-right:3px; }
+  .badge-orange { background:#fff7ed; color:#ea580c; }
+  .badge-blue   { background:var(--p-lt); color:var(--p); }
+  .badge-green  { background:var(--grn-lt); color:#15803d; }
+  .badge-red    { background:var(--red-lt); color:var(--red); }
+  .badge-purple { background:#f5f3ff; color:#7c3aed; }
+  .badge-teal   { background:#f0fdfa; color:#0d9488; }
+  sub-note { display:block; font-size:12.5px; color:var(--g400); padding-left:1em; margin-top:2px; }
+  .scroll-top { position:fixed; bottom:24px; right:24px; background:var(--p); color:#fff; border:none; border-radius:50%; width:42px; height:42px; font-size:18px; cursor:pointer; opacity:0; transition:opacity .25s; z-index:200; box-shadow:0 4px 6px rgba(0,0,0,.07); }
+  .scroll-top.visible { opacity:1; }
+
+</style>
+</head>
+<body>
+
+<div id="cover">
+  <div class="cover-logo">
+    <div class="cover-logo-icon">L</div>
+    <span class="cover-logo-text">생명보험협회 (KLIA)</span>
+  </div>
+  <div class="cover-badge"><span>📋</span> 생명보험설계사 자격증 시험 준비</div>
+  <h1 class="cover-title">생명보험설계사<br><em>핵심 요약집</em></h1>
+  <p class="cover-subtitle">합격률 100%를 향한 가장 빠른 지름길</p>
+  <div class="cover-stats">
+    <div class="cover-stat"><span class="cover-stat-num">38</span><span class="cover-stat-label">총 페이지</span></div>
+    <div class="cover-stat"><span class="cover-stat-num">4</span><span class="cover-stat-label">파트</span></div>
+    <div class="cover-stat"><span class="cover-stat-num">10</span><span class="cover-stat-label">챕터</span></div>
+    <div class="cover-stat"><span class="cover-stat-num">40</span><span class="cover-stat-label">총 문항</span></div>
+  </div>
+  <button class="cover-btn" onclick="startApp()">학습 시작하기 →</button>
+  <p class="cover-cheers">✨ 넌 분명 해낼 수 있어. 포기하지 말고 끝까지 가자!</p>
+</div>
+
+<div id="app">
+  <nav class="topbar">
+    <div class="tb-logo">
+      <div class="tb-logo-icon">L</div>
+      <span class="tb-logo-text">생명보험 요약집</span>
+    </div>
+    <div class="tb-divider"></div>
+    <div class="tb-prog-wrap">
+      <span class="tb-page-info" id="nav-page-info">1 / 38</span>
+      <div class="prog-bg"><div class="prog-fill" id="progress-fill" style="width:2.6%"></div></div>
+      <span class="tb-pct" id="nav-percent">2.6%</span>
+    </div>
+    <button class="tb-back" onclick="goBack()">← 처음으로</button>
+  </nav>
+  <div class="page-wrap" id="page-container"></div>
+  <button class="scroll-top" id="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+</div>
+
+<script>
+const pages = [
+
+// ─── PAGE 1 ───
+{ title: '제1편 보험이론 및 윤리 — 생명보험의 의의와 기능', part: 'Part 1', partColor: '#ea580c', partBg: '#fff7ed', qCount: '제1장. 생명보험의 의의와 기능',
+  html: `
+<div class="section">
+  <div class="section-title">1. 생명보험의 정의</div>
+  <div class="content-text mb">
+    생명보험은 <span class="hl">상부상조</span> 정신을 바탕으로 사망 등 불의의 사고로 인한 <span class="hl">경제적 손실을 보전</span>하기 위한 제도<br>
+    &nbsp;&nbsp;• 보장기능 + <span class="hl">저축기능</span>을 동시에 갖춤<br>
+    &nbsp;&nbsp;• "일인은 만인을 위하여, 만인은 일인을 위하여" — 알프레드 마네스
+  </div>
+  <div class="content-text">
+    <span class="hl-yellow">3층 보장론</span><br>
+    &nbsp;&nbsp;• 1층: <span class="hl">사회보장</span> — 국가가 최저수준 보장<br>
+    &nbsp;&nbsp;• 2층: <span class="hl">기업보장</span> — 기업이 종업원 복리후생 보장<br>
+    &nbsp;&nbsp;• 3층: <span class="hl-green">개인보장</span> — 개인이 스스로 준비 (생명보험)
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">2. 생명보험의 기능</div>
+  <ul class="content-list">
+    <li><span class="hl-yellow">사회보장제도 보완</span>: 공영보험(사회보험)의 한계를 생명보험으로 보완</li>
+    <li><span class="hl-yellow">국가경제 발전에 기여</span>: 장기안정자금 → 국가기간산업 투자</li>
+    <li><span class="hl-yellow">생명보험자산 운용원칙</span>: <span class="hl">안정성·유동성·수익성·공익성</span> (보험업법 제104조)</li>
+  </ul>
+  <div class="exam-box">사회보험과 민영보험의 차이: 사회보험 = 의무가입·법률급여·정부운영 / 민영보험 = 임의가입·계약결정·민간운영</div>
+</div>
+
+<div class="section">
+  <div class="section-title">3. FY2024 생명보험산업 현황</div>
+  <div class="content-text">
+    총 <span class="hl">20개</span> 생명보험회사 영업 / 설계사 <span class="hl">87,858명</span><br>
+    수입보험료 <span class="hl">113조 4,400억원</span> / 총자산 <span class="hl">905조 5,424억원</span><br>
+    세계 보험시장 수입보험료 기준 <span class="hl">9위</span> (2024년 기준)
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">4. 재무설계의 필요성</div>
+  <div class="content-text">
+    <span class="hl-yellow">재무설계</span>: 재무목표를 세우고 재무상태와 현금흐름을 파악하여 목표에 맞게 자산을 배분·투자하는 과정<br>
+    필요성: 생애 소비만족 극대화 / <span class="hl">미래 리스크 대비</span>(실업·질병·장수) / 사회경제적 환경 변화에 대응
+  </div>
+</div>
+` },
+
+// ─── PAGE 3 ───
+{ title: '생명보험 이론 — 기본원리와 보험료 구성', part: 'Part 1', partColor: '#ea580c', partBg: '#fff7ed', qCount: '제2장. 생명보험 이론 (1)',
+  html: `
+<div class="section">
+  <div class="section-title">1. 생명보험의 기본원리</div>
+  <div class="content-text mb">
+    <span class="hl-yellow">대수의 법칙</span>: 관찰 횟수를 늘릴수록 사고 발생확률이 일정한 수치에 가까워지는 법칙 → 생명보험의 과학적 근거<br>
+    <span class="hl-yellow">사망률</span> = 1년간 사망자수 ÷ 연초의 생존자수<br>
+    <span class="hl-yellow">생명표(사망표)</span>: 연령별 생사통계 → 현재 <span class="hl">제10회 경험생명표</span> 적용 (2024년 4월~)
+  </div>
+  <div class="content-text">
+    <span class="hl-yellow">수지상등의 원칙</span>: 보험계약자가 납입하는 보험료 총액 = 보험회사가 지급하는 보험금 + 지출비용의 총액
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">2. 보험료의 산출</div>
+  <div class="content-text mb">
+    <span class="hl-yellow">3이원방식</span>: <span class="hl">예정위험률 + 예정이율 + 예정사업비율</span> (일본·대만)<br>
+    <span class="hl-yellow">현금흐름방식</span>: 2013년 4월 이후 본격 도입. 계약유지율·판매량 등 다양한 요소 반영 (미국·캐나다·호주·EU)
+  </div>
+  <table class="content-table">
+    <tr><th>3이원방식 요소</th><th>해당 보험료</th><th>차손익</th></tr>
+    <tr><td>예정위험률</td><td>위험보험료</td><td>위험률차손익</td></tr>
+    <tr><td>예정이율</td><td>저축보험료</td><td>이차손익</td></tr>
+    <tr><td>예정사업비율</td><td>부가보험료</td><td>비차손익</td></tr>
+  </table>
+  <div class="exam-box">보험료 산출의 3요소가 아닌 것은? → 예정유지율, 예정해약율</div>
+</div>
+
+<div class="section">
+  <div class="section-title">3. 계약자 배당</div>
+  <div class="content-text mb">
+    <span class="hl-yellow">유배당보험</span>: 이익 발생 시 계약자에게 배당 지급<br>
+    <span class="hl-yellow">무배당보험</span>: 배당 없는 대신 보험료 저렴<br>
+    <span class="hl-yellow">배당금 지급방법</span>: 현금지급 / 보험료 상계 / 보험금에 가산 / 연금보험 배당(평균공시이율 이상으로 부리)
+  </div>
+  <div class="wrong-box">배당이 있는 연금보험의 경우 직전 5개년도 실적을 근거로 장래 계약자배당을 예시할 수 있다. (단, 예상금액임을 명시)</div>
+</div>
+` },
+
+// ─── PAGE 4 ───
+{ title: '생명보험 약관 — 계약 성립과 청약철회', part: 'Part 1', partColor: '#ea580c', partBg: '#fff7ed', qCount: '제2장. 생명보험 이론 (2) — 약관',
+  html: `
+<div class="section">
+  <div class="section-title">1. 보험계약 관계자</div>
+  <div class="content-text mb">
+    <span class="hl-yellow">보험계약자</span>: 계약 당사자, 보험료 납입의무. 만 19세 미만은 법정대리인 동의 필요<br>
+    <span class="hl-yellow">피보험자</span>: 생사 등이 보험사고 대상. 타인의 사망보험은 반드시 <span class="hl">피보험자 서면동의(전자서명 포함)</span> 필요<br>
+    <span class="hl-yellow">보험수익자</span>: 보험금 청구권자. 수·자격 제한 없음<br>
+    <span class="hl-yellow">보험회사</span>: 사업 영위 시 금융위원회 허가 필요
+  </div>
+  <div class="wrong-box">보험수익자는 피보험자의 동의가 있어야만 변경할 수 있다. (✗) → 보험수익자 변경은 보험회사 승낙 불필요, 단 보험금 지급사유 발생 전 피보험자 서면동의 필요</div>
+</div>
+
+<div class="section">
+  <div class="section-title">2. 청약과 청약철회</div>
+  <div class="content-text mb">
+    <span class="hl-yellow">청약철회 가능기간</span>: 보험증권을 받은 날로부터 <span class="hl">15일 이내</span> (단, 청약일로부터 30일 초과 불가)<br>
+    <span class="hl-yellow">철회 시 환급</span>: 철회 접수일로부터 <span class="hl">3영업일 이내</span> 납입보험료 전액 반환 + 보험계약대출이율(연단위 복리) 가산
+  </div>
+  <div class="content-text mb">
+    <span class="hl-red">청약철회 불가</span>: 전문금융소비자의 계약 / 보험기간 90일 이내 / 건강상태 진단 지원 계약 등
+  </div>
+  <div class="exam-box">청약철회 시 청약서 부본을 받은 날로부터 15일 이내인가, 보험증권 받은 날로부터 15일 이내인가? → 보험증권 받은 날부터!</div>
+</div>
+
+<div class="section">
+  <div class="section-title">3. 청약 승낙 및 효력</div>
+  <div class="content-text mb">
+    <span class="hl-yellow">무진단계약</span>: 청약일로부터 <span class="hl">30일 이내</span> 승낙 또는 거절 / 미통지 시 승낙 간주<br>
+    <span class="hl-yellow">진단계약</span>: 진단일로부터 30일 이내 승낙 또는 거절<br>
+    <span class="hl-yellow">보장개시일</span>: 제1회 보험료를 받은 날 (=보험계약일)
+  </div>
+  <div class="content-text">
+    <span class="hl-yellow">승낙 거절 시</span>: 이미 받은 보험료 반환 + <span class="hl">「평균공시이율 + 1%」</span> 연단위 복리 이자 지급 (단, 신용카드 납입 시 매출 취소만, 이자 미지급)
+  </div>
+  <div class="wrong-box">진단계약에서 건강진단 전에 제1회 보험료를 납입하면 납입일이 보장개시일이다. (✗) → 건강진단을 받은 때부터 보장 개시!</div>
+</div>
+` },
+
+// ─── PAGE 5 ───
+{ title: '생명보험 약관 — 계약 무효, 보험금 지급', part: 'Part 1', partColor: '#ea580c', partBg: '#fff7ed', qCount: '제2장. 생명보험 이론 (3)',
+  html: `
+<div class="section">
+  <div class="section-title">1. 보험계약의 무효 사유</div>
+  <ul class="content-list">
+    <li>타인의 사망보험에서 <span class="hl">피보험자 서면동의 미취득</span> (단, 단체보험의 규약에 따른 경우 제외)</li>
+    <li><span class="hl">만 15세 미만자, 심신상실자, 심신박약자</span>를 피보험자로 하는 사망보험 (단, 심신박약자가 의사능력 있는 경우 유효)</li>
+    <li>계약 시 <span class="hl">나이 미달·초과</span>된 경우 (단, 이후 정상 나이 도달 시 유효 — 단, 15세 미만 사망보험은 이후에도 무효)</li>
+  </ul>
+  <div class="wrong-box">심신박약자를 피보험자로 하는 사망보험은 모두 무효다. (✗) → 심신박약자가 계약 시 의사능력이 있는 경우 유효, 단체보험 피보험자가 되는 경우도 유효</div>
+</div>
+
+<div class="section">
+  <div class="section-title">2. 보험금 지급</div>
+  <table class="content-table">
+    <tr><th>보험금 종류</th><th>지급사유</th></tr>
+    <tr><td>중도보험금</td><td>피보험자가 보험기간 중 특정시점에 살아있을 경우</td></tr>
+    <tr><td>만기보험금</td><td>피보험자가 보험기간 끝날 때까지 생존</td></tr>
+    <tr><td>사망보험금</td><td>피보험자가 보험기간 중 사망 (실종선고·인정사망 포함)</td></tr>
+    <tr><td>장해보험금</td><td>보험기간 중 질병·재해로 장해분류표상 장해상태 발생</td></tr>
+  </table>
+  <div class="content-text mt">
+    <span class="hl-yellow">보험금 지급기일</span>: 서류 접수일로부터 <span class="hl">3영업일 이내</span> (조사 필요 시 10영업일, 10일 초과 예상 시 30영업일 이내)
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">3. 보험금 지급 면책사유</div>
+  <ul class="content-list">
+    <li>피보험자의 <span class="hl-red">고의 자해</span> — 단, 심신상실로 자해한 경우 또는 <span class="hl">보장개시일부터 2년 후 자살</span>은 지급</li>
+    <li>보험수익자의 고의로 피보험자를 해친 경우 (일부 수익자인 경우 나머지 수익자에게는 지급)</li>
+    <li>보험계약자의 고의로 피보험자를 해친 경우</li>
+  </ul>
+  <div class="exam-box">보장개시일로부터 1년 10개월 후 자살 → 보험금 미지급 | 보장개시일로부터 2년 1개월 후 자살 → 재해 이외 사망보험금 지급</div>
+</div>
+
+<div class="section">
+  <div class="section-title">4. 소멸시효</div>
+  <div class="content-text">
+    보험금청구권, 보험료반환청구권, 해약환급금청구권, 계약자적립액반환청구권, 배당금청구권: <span class="hl">3년</span>간 행사하지 않으면 소멸
+  </div>
+</div>
+` },
+
+// ─── PAGE 6 ───
+{ title: '계약 전 알릴 의무 / 보험료 납입 / 계약 부활', part: 'Part 1', partColor: '#ea580c', partBg: '#fff7ed', qCount: '제2장. 생명보험 이론 (4)',
+  html: `
+<div class="section">
+  <div class="section-title">1. 계약 전 알릴 의무 (고지의무)</div>
+  <div class="content-text mb">
+    <span class="hl-yellow">위반 효과</span>: 고의 또는 중대한 과실로 중요사항을 부실고지 시 → 보험회사가 계약 해지 또는 보장 제한 가능
+  </div>
+  <div class="content-text mb">
+    <span class="hl-yellow">해지 불가한 경우</span><br>
+    &nbsp;&nbsp;① 회사가 계약 당시 위반사실을 알았거나 과실로 알지 못한 때<br>
+    &nbsp;&nbsp;② 위반사실을 <span class="hl">안 날로부터 1개월 이상</span> 지났거나 보장개시일부터 <span class="hl">2년(질병 1년) 이상</span> 보험사고 없이 경과<br>
+    &nbsp;&nbsp;③ 계약 체결일부터 <span class="hl">3년</span>이 지난 때<br>
+    &nbsp;&nbsp;④ 보험설계사 등이 고지 기회를 부여하지 않은 경우
+  </div>
+  <div class="wrong-box">보험설계사가 고지를 방해한 경우에도 실제로 계약자가 부실고지를 했다면 해지 가능하다. (✓)</div>
+</div>
+
+<div class="section">
+  <div class="section-title">2. 보험료 납입 최고(독촉)</div>
+  <div class="content-text mb">
+    제2회 이후 보험료 연체 시 → 회사는 <span class="hl">14일 이상</span>(보험기간 1년 미만 7일 이상)의 납입최고기간 설정, 서면·전화·전자문서로 통지<br>
+    납입최고기간 내 미납 시 → 납입최고기간 <span class="hl">끝나는 날의 다음 날</span> 계약 해지
+  </div>
+  <div class="content-text">
+    <span class="hl-yellow">보험료 자동대출납입</span>: 해약환급금 범위 내에서 보험료 대출 처리. <span class="hl">1년 한도</span>로 신청 가능 (재신청으로 연장 가능). 대출원리금이 해약환급금 초과 시 불가
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">3. 계약의 부활(효력회복)</div>
+  <div class="content-text mb">
+    보험료 연체로 해지된 계약(해약환급금 미수령)을 <span class="hl">해지된 날부터 3년 이내</span>에 부활 가능<br>
+    부활 시: 연체보험료 + <span class="hl">「평균공시이율 + 1%」</span> 이자 납입 필요 (금리연동형은 별도 이율)
+  </div>
+  <div class="content-text">
+    부활 시 신계약 절차 준용 (책임개시, 계약 전 알릴 의무 등)<br>
+    <span class="hl-yellow">특별부활(강제집행 등)</span>: 해지일로부터 7일 이내 보험수익자에게 통지, 통지받은 날로부터 <span class="hl">15일 이내</span> 절차 이행
+  </div>
+  <div class="wrong-box">부활(효력회복) 가능기간은 해지된 날로부터 5년이다. (✗) → 3년!</div>
+</div>
+` },
+
+// ─── PAGE 7 ───
+{ title: '생명보험 언더라이팅과 클레임', part: 'Part 1', partColor: '#ea580c', partBg: '#fff7ed', qCount: '제2장. 생명보험 이론 (5)',
+  html: `
+<div class="section">
+  <div class="section-title">1. 언더라이팅(계약심사) 개요</div>
+  <div class="content-text mb">
+    <span class="hl-yellow">정의</span>: 피보험자의 위험을 선택·분류하고 보험료·가입조건 등을 결정하는 과정<br>
+    <span class="hl-yellow">필요성</span>: 역선택 방지 / 보험사기 방지 / 위험률차익 확보 / 계약자간 공평성 유지
+  </div>
+  <div class="content-text">
+    <span class="hl-yellow">언더라이팅 4단계</span><br>
+    &nbsp;&nbsp;① 청약서 고지 (1차 — 보험설계사의 역할)<br>
+    &nbsp;&nbsp;② 의적 진단 (2차 — 병원진단·서류진단·방문진단)<br>
+    &nbsp;&nbsp;③ 언더라이터 심사 (3차 — 인수여부 최종 결정)<br>
+    &nbsp;&nbsp;④ 계약적부 확인 (4차 — 현장 직접조사)
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">2. 언더라이팅 고려 4요소</div>
+  <div class="grid-2">
+    <div class="mini-card">
+      <div class="mini-card-title">환경적 언더라이팅</div>
+      <div class="mini-card-body">직업·운전·흡연·음주·취미·거주지<br>직업 위험등급: 비위험직 + 위험직 1~5등급</div>
+    </div>
+    <div class="mini-card">
+      <div class="mini-card-title">신체적 언더라이팅</div>
+      <div class="mini-card-body">연령·성별·체격·현재 건강상태·과거 병력</div>
+    </div>
+    <div class="mini-card">
+      <div class="mini-card-title">도덕적 언더라이팅</div>
+      <div class="mini-card-body">보험 목적·계약자-피보험자 관계·가입 시점 등 도덕적 위험 차단</div>
+    </div>
+    <div class="mini-card">
+      <div class="mini-card-title">재정적 언더라이팅</div>
+      <div class="mini-card-body">연령·직업·소득·기존 가입보험 종류와 가입금액</div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">3. 표준미달체 인수방법</div>
+  <div class="content-text">
+    <span class="hl-yellow">보험료 할증</span>: 위험 크기가 체증성·항상성인 경우<br>
+    <span class="hl-yellow">부담보</span>: 특정 질병·부위를 보장에서 제외<br>
+    <span class="hl-yellow">보험금 삭감</span>: 위험이 체감성인 경우 — 일정 기간 내 사고 발생 시 미리 정한 비율로 감액 지급<br>
+    <span class="hl-yellow">우량체</span>: 건강 우수 시 보험료 할인
+  </div>
+  <div class="exam-box">표준미달체 처리 방법이 아닌 것은? → 계약 취소</div>
+</div>
+` },
+
+// ─── PAGE 8 ───
+{ title: '보험 윤리 — 보험영업 윤리와 보험사기', part: 'Part 1', partColor: '#ea580c', partBg: '#fff7ed', qCount: '제3장. 보험 윤리',
+  html: `
+<div class="section">
+  <div class="section-title">1. 보험설계사의 3대 기본지키기</div>
+  <ul class="content-list">
+    <li><span class="hl">① 보험약관 교부 및 중요한 내용 설명</span></li>
+    <li><span class="hl">② 계약자 보관용 청약서(청약서 부본) 제공</span></li>
+    <li><span class="hl">③ 자필서명 안내 및 확인</span></li>
+  </ul>
+  <div class="content-text mt">
+    위반 시: 계약이 성립한 날부터 <span class="hl">3개월 이내</span> 보험계약자가 계약 취소 가능 (+ 납입보험료 + 보험계약대출이율로 계산한 이자 반환)
+  </div>
+  <div class="wrong-box">3대 기본지키기 위반으로 계약자는 계약성립일로부터 1년 이내에 취소할 수 있다. (✗) → 3개월!</div>
+</div>
+
+<div class="section">
+  <div class="section-title">2. 보험사기 (「보험사기방지특별법」)</div>
+  <div class="content-text mb">
+    <span class="hl-yellow">연성사기(Soft Fraud)</span>: 실제 사고에서 피해를 과장하여 보험금 과다 청구<br>
+    <span class="hl-yellow">경성사기(Hard Fraud)</span>: 계획적·고의적으로 보험사고 조작
+  </div>
+  <table class="content-table">
+    <tr><th>구분</th><th>처벌</th></tr>
+    <tr><td>보험사기죄 (기본)</td><td><span class="hl">10년 이하 징역 또는 5천만원 이하 벌금</span></td></tr>
+    <tr><td>상습범</td><td>그 죄에 정한 형의 <span class="hl">2분의 1까지 가중</span></td></tr>
+    <tr><td>미수범</td><td><span class="hl-green">처벌 대상</span></td></tr>
+    <tr><td>이득액 5억원 이상</td><td>특별 가중처벌 (50억↑: 무기 또는 5년 이상)</td></tr>
+  </table>
+  <div class="content-text mt">2024년 개정: 징역형과 벌금형 <span class="hl">병과 가능</span></div>
+  <div class="wrong-box">보험사기 미수범은 처벌하지 않는다. (✗) → 처벌 대상!</div>
+</div>
+
+<div class="section">
+  <div class="section-title">3. 보험인 윤리강령 (1968년 제정)</div>
+  <div class="content-text">
+    ① 공공성 ② 공신력 제고 ③ 성실·봉사 ④ 기술개발 ⑤ 준법
+  </div>
+</div>
+` },
+
+// ─── PAGE 9 ───
+{ title: '제2편 보험법규 — 보험모집 관련 법규와 설계사 등록', part: 'Part 2', partColor: '#2563eb', partBg: '#eff6ff', qCount: '제4장. 보험모집 준수사항 (1)',
+  html: `
+<div class="section">
+  <div class="section-title">1. 생명보험설계사 등록</div>
+  <div class="content-text mb">
+    <span class="hl-yellow">등록요건</span>: 연수과정(20시간 이상 교육 + 시험 합격) 이수 or 생명보험 관계업무 <span class="hl">1년 이상</span> 종사(등록신청일로부터 3년 이내)<br>
+    &nbsp;&nbsp;• 교육 이수 후 <span class="hl">1년 이내</span> 시험 합격 필요 (또는 합격 후 1년 이내 교육 이수)
+  </div>
+  <div class="content-text">
+    <span class="hl-yellow">등록기관</span>: <span class="hl">생명보험협회</span> (금융위원회 위탁)<br>
+    <span class="hl-yellow">설계사 불가자</span>: 미성년자(만 19세 미만) 단독 / 피성년후견인·피한정후견인 / 파산자(복권 전) / 등록취소 후 2년 미경과 / 벌금 이상 형 집행종료 후 2년 미경과 등
+  </div>
+  <div class="wrong-box">신용불량자는 보험설계사 등록이 제한된다. (✗) → 등록 제한 해당 없음!</div>
+</div>
+
+<div class="section">
+  <div class="section-title">2. 생명보험대리점 등록요건</div>
+  <div class="content-text mb">
+    <span class="hl-yellow">개인보험대리점</span>: 대리점 연수과정 이수 or 관계업무 <span class="hl">2년 이상</span> 종사 (등록신청일로부터 4년 이내)<br>
+    <span class="hl-yellow">법인보험대리점</span>: 개인대리점 등록요건 해당자 <span class="hl">1명 이상</span> 두고 있는 법인 (또는 임직원 100명 이상 법인의 경우 소속 임직원 1/10 이상이 설계사 등록요건 충족)
+  </div>
+  <div class="content-text">
+    <span class="hl-yellow">영업보증금</span>: 보험회사에 예탁. 개인 <span class="hl">1억원</span> / 법인 <span class="hl">3억원</span> 한도<br>
+    <span class="hl-green">금융기관보험대리점(방카슈랑스)은 영업보증금 예탁의무 면제</span>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">3. 보험중개사</div>
+  <div class="content-text">
+    특정 보험회사에 소속되지 않고 <span class="hl">독립적으로 계약 중개</span><br>
+    <span class="hl-yellow">등록기관</span>: <span class="hl">금융감독원</span> (보험대리점은 생명보험협회)<br>
+    <span class="hl-yellow">영업보증금</span>: <span class="hl">금융감독원에 예탁</span> (보험대리점은 보험회사에 예탁)
+  </div>
+  <div class="wrong-box">보험중개사는 생명보험협회에 등록한다. (✗) → 금융감독원!</div>
+</div>
+` },
+
+// ─── PAGE 10 ───
+{ title: '보험모집 금지행위 / 특별이익 / 설명의무', part: 'Part 2', partColor: '#2563eb', partBg: '#eff6ff', qCount: '제4장. 보험모집 준수사항 (2)',
+  html: `
+<div class="section">
+  <div class="section-title">1. 보험계약 체결 금지행위 (보험업법 제97조)</div>
+  <ul class="content-list">
+    <li>기존 보험계약을 부당하게 소멸시키고 새 계약 청약 유도 (<span class="hl-red">승환계약</span>)</li>
+    <li>실제 명의인이 아닌 자의 보험계약 모집 (<span class="hl-red">작성계약</span>)</li>
+    <li>자필서명을 받지 않고 서명 대신 또는 다른 사람이 서명 (<span class="hl-red">자필서명 위반</span>)</li>
+    <li>다른 모집종사자 명의를 이용한 보험계약 모집 (<span class="hl-red">경유계약</span>)</li>
+    <li>장애인의 보험가입 정당한 이유 없이 거부</li>
+    <li>청약철회 또는 계약해지 방해</li>
+  </ul>
+</div>
+
+<div class="section">
+  <div class="section-title">2. 특별이익 제공 금지 (보험업법 제98조)</div>
+  <div class="content-text mb">
+    모집 관련 <span class="hl-red">금지항목</span>: 금품 / 보험료 할인(기초서류 외) / 보험료 대납 / 이자 대납 / 청구권 포기 약속<br>
+    <span class="hl-green">허용 범위</span>: 최초 1년 납입보험료의 <span class="hl">10%와 3만원 중 적은 금액</span> 이하 (위험 감소 물품은 20만원)
+  </div>
+  <div class="exam-box">월납 5만원 보험 계약자에게 5만원 블랙박스 지급 → 연간 60만원 × 10% = 6만원 한도 이내 → 적법<br>월납 2만원 보험 계약자에게 5만원 상품권 → 연간 24만원 × 10% = 2.4만원, 3만원보다 작음 → 위법 (2.4만원 초과)</div>
+</div>
+
+<div class="section">
+  <div class="section-title">3. 설명의무 (금융소비자보호법 제19조)</div>
+  <div class="content-text mb">
+    <span class="hl-yellow">설명 대상</span>: 일반보험계약자에게 계약 체결 권유 시 또는 설명 요청 시<br>
+    주요 설명사항: 보험상품 내용·보험료 / 보험금 지급제한 사유 / 위험보장 범위·기간 / 청약철회·해지 / 해약환급금 등
+  </div>
+  <div class="content-text">
+    <span class="hl-yellow">모집종사자 고지의무</span>: 위탁 보험회사 명칭 / 보험계약 체결 권한 유무 / 보험료 수령 가능 여부 / 이력·처분·불완전판매 비율 등 확인방법 안내
+  </div>
+</div>
+` },
+
+// ─── PAGE 11 ───
+{ title: '방카슈랑스 / 통신판매 / 보험안내자료', part: 'Part 2', partColor: '#2563eb', partBg: '#eff6ff', qCount: '제4장. 보험모집 준수사항 (3)',
+  html: `
+<div class="section">
+  <div class="section-title">1. 금융기관보험대리점 (방카슈랑스)</div>
+  <div class="content-text mb">
+    <span class="hl-yellow">모집방법</span>: 점포 내 지정된 장소에서 직접 대면 모집만 가능 (점포 외 불가)<br>
+    &nbsp;&nbsp;단, 인터넷 홈페이지 불특정다수 안내 가능 / 신용카드업자는 통신수단 모집 가능<br>
+    <span class="hl-yellow">인원 제한</span>: 점포별 <span class="hl">2인</span>까지만 모집 종사 가능
+  </div>
+  <div class="content-text mb">
+    <span class="hl-red">방카슈랑스 금지행위</span>: 대출 강요 보험계약 / 모집과 무관 개인정보 사용 / 점포 외 모집 / 보험회사 임직원 입주 모집 등<br>
+    <span class="hl-yellow">모집 한도</span>: 1개 생보사 또는 손보사 상품 모집액 총액의 <span class="hl">25% 이내</span> (혁신금융 지정으로 일부 완화)
+  </div>
+  <div class="wrong-box">방카슈랑스는 점포에 출장하여 모집할 수 있다. (✗) → 점포 내에서만 가능!</div>
+</div>
+
+<div class="section">
+  <div class="section-title">2. 통신수단 이용 모집</div>
+  <div class="content-text mb">
+    전화 모집 시 <span class="hl">최초 통화부터 청약 완료까지 전 과정 음성녹음</span> 의무<br>
+    보험회사는 매월 체결 계약의 <span class="hl">100분의 20 이상</span> 녹음 내용 점검
+  </div>
+  <div class="content-text">
+    <span class="hl-yellow">전화 자필서명 면제</span>: 사망·장해 미보장 계약 / 계약자·피보험자·수익자 동일 계약 등 일정 요건 충족 시
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">3. 보험안내자료</div>
+  <div class="content-text mb">
+    <span class="hl-yellow">필수기재사항</span>: 보험회사 상호 / 가입에 따른 권리·의무 / 보장내용 / 보험금 지급제한 / 해약환급금 / 예금자보호 / 보험안내자료 제작자·제작일·관리번호 등
+  </div>
+  <div class="content-text">
+    <span class="hl-red">기재금지사항</span>: 금융위 제출 내용과 다른 사항 / 장래 이익배당 예상 기재 (단, 연금보험 직전 5년 실적 근거 예시는 예외) / 계약내용과 다른 사항 / 계약자에게 유리한 내용만 선별 안내 등
+  </div>
+</div>
+` },
+
+// ─── PAGE 12 ───
+{ title: '생명보험 우수인증설계사 / 협정 준수사항', part: 'Part 2', partColor: '#2563eb', partBg: '#eff6ff', qCount: '제4장. 보험모집 준수사항 (4)',
+  html: `
+<div class="section">
+  <div class="section-title">1. 생명보험 우수인증설계사 제도</div>
+  <div class="content-text mb">
+    <span class="hl-yellow">도입</span>: 2008년, 생명보험협회 주관<br>
+    <span class="hl-yellow">적용대상</span>: 생명보험사 <span class="hl">전속 보험설계사 또는 전속 개인대리점</span>, 자회사형 GA 소속 설계사 (비전속·법인 불가)
+  </div>
+  <table class="content-table">
+    <tr><th>인증기준</th><th>내용</th></tr>
+    <tr><td>근속기간</td><td>동일회사에 <span class="hl">3년 이상</span> 재직</td></tr>
+    <tr><td>보험계약 유지율</td><td>13회차 <span class="hl">90%</span>, 25회차 <span class="hl">80%</span> 이상</td></tr>
+    <tr><td>영업실적</td><td>연간소득 <span class="hl">4,000만원</span> 이상</td></tr>
+    <tr><td>정도영업</td><td>직전 1년 품질보증해지·민원해지·무효 <span class="hl">0건</span></td></tr>
+  </table>
+  <div class="content-text mt">
+    인증기간: 해당연도 <span class="hl">6월 1일~다음해 5월 31일</span> (1년)
+  </div>
+  <div class="wrong-box">우수인증설계사 인증기간은 2년이다. (✗) → 1년!</div>
+</div>
+
+<div class="section">
+  <div class="section-title">2. 생명보험 공정경쟁질서 유지 협정 (자율규제)</div>
+  <div class="content-text mb">
+    위반 시 <span class="hl-yellow">제재금</span> 부과 (보험업법 과태료와 별개)
+  </div>
+  <table class="content-table">
+    <tr><th>위반행위</th><th>제재금</th></tr>
+    <tr><td>특별이익 제공 또는 약속</td><td><span class="hl">3,000만원 이하</span></td></tr>
+    <tr><td>작성계약</td><td>기납입보험료 전액 (최소 100만원/건)</td></tr>
+    <tr><td>경유계약</td><td><span class="hl">200만원 이하</span></td></tr>
+    <tr><td>무자격자 모집위탁</td><td>모집위탁금지자 1인당 <span class="hl">1,000만원</span></td></tr>
+    <tr><td>승환계약</td><td>보험계약 1건당 <span class="hl">100만원</span> (최고한도 3,000만원)</td></tr>
+    <tr><td>다른 회사 모함·허위사실 유포</td><td>100만원 이하</td></tr>
+  </table>
+</div>
+` },
+
+// ─── PAGE 13 ───
+{ title: '보험소비자 보호 — 예금자보호 / 분쟁조정 / 공시', part: 'Part 2', partColor: '#2563eb', partBg: '#eff6ff', qCount: '제5장. 보험소비자 보호',
+  html: `
+<div class="section">
+  <div class="section-title">1. 예금자보호법</div>
+  <div class="content-text mb">
+    <span class="hl-yellow">보장금액</span>: 예금자 1인당 최고 <span class="hl">1억원</span> (원금+소정 이자, 동일 금융기관 내)<br>
+    &nbsp;&nbsp;단, <span class="hl-green">연금저축·사고보험금·확정기여형(DC)·IRP 적립금</span>은 각각 1억원 별도 보호
+  </div>
+  <div class="content-text mb">
+    <span class="hl-green">보호대상</span>: 개인 보험계약 / 변액보험의 특약·최저보증금 / DC형·IRP 예금보호상품 운용액<br>
+    <span class="hl-red">보호제외</span>: 법인보험계약 / 보증보험계약 / <span class="hl">변액보험 주계약</span> / 재보험계약 / DB형 퇴직연금 적립금
+  </div>
+  <div class="wrong-box">변액보험은 예금자보호법에 의해 보호된다. (✗) → 변액보험 주계약은 보호 제외! (최저보증보험금은 보호)</div>
+</div>
+
+<div class="section">
+  <div class="section-title">2. 금융분쟁조정위원회</div>
+  <div class="content-text mb">
+    분쟁 신청 접수 후 <span class="hl">30일 이내</span> 합의 미성립 시 → 금융감독원장이 분쟁조정위원회에 회부<br>
+    조정안 작성: <span class="hl">60일 이내</span><br>
+    당사자가 조정안 제시 후 <span class="hl">20일 이내</span> 수락하지 않으면 수락 거부로 간주
+  </div>
+  <div class="content-text">
+    조정안 수락 시: <span class="hl">재판상 화해</span>와 동일한 효력
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">3. 보험금 대리청구인 지정제도</div>
+  <div class="content-text mb">
+    <span class="hl-yellow">적용조건</span>: 보험계약자 = 피보험자 = 보험수익자인 본인을 위한 계약<br>
+    <span class="hl-yellow">대리인 자격</span>: 보험계약자의 주민등록상 <span class="hl">배우자 또는 3촌 이내의 친족</span>
+  </div>
+  <div class="content-text">
+    가입한 계약 중 본인을 위한 계약의 경우 <span class="hl">해당 보험회사에 연락</span>하여 신청
+  </div>
+</div>
+` },
+
+// ─── PAGE 14 ───
+{ title: '생명보험 세제 — 보장성보험료 세액공제', part: 'Part 2', partColor: '#2563eb', partBg: '#eff6ff', qCount: '제6장. 생명보험 세제 (1)',
+  html: `
+<div class="section">
+  <div class="section-title">1. 보장성보험료 세액공제</div>
+  <div class="content-text mb">
+    <span class="hl-yellow">대상자</span>: <span class="hl">근로소득자</span> (자영업자·연금소득자 불가. 일용근로자 제외)<br>
+    <span class="hl-yellow">피보험자</span>: 기본공제대상자 (본인·배우자·부양가족)
+  </div>
+  <table class="content-table">
+    <tr><th>구분</th><th>한도</th><th>세액공제율</th></tr>
+    <tr><td>일반 보장성보험</td><td>연 <span class="hl">100만원</span></td><td><span class="hl">12%</span></td></tr>
+    <tr><td>장애인전용 보장성보험</td><td>연 <span class="hl">100만원</span> (별도)</td><td><span class="hl">15%</span></td></tr>
+  </table>
+  <div class="content-text mt">
+    기본공제대상자 요건: 부모(만 60세 이상, 연 소득 100만원 이하) / 배우자(나이 무관, 연 소득 100만원 이하) / 자녀·형제자매(만 20세 이하 or 만 60세 이상, 연 소득 100만원 이하)
+  </div>
+  <div class="wrong-box">자영업자가 본인을 피보험자로 보장성보험에 가입하면 세액공제를 받을 수 있다. (✗) → 근로소득자에 한함!</div>
+</div>
+
+<div class="section">
+  <div class="section-title">2. 세액공제 사례</div>
+  <div class="content-text mb">
+    ① 장애인인 배우자를 피보험자로 일반 보장성보험 100만원 + 장애인전용 100만원 납입<br>
+    &nbsp;&nbsp;→ 세액공제 <span class="hl">27만원</span> (12만원 + 15만원, 지방소득세 별도)
+  </div>
+  <div class="content-text">
+    ② 연간소득 100만원 초과 부양가족을 피보험자로 가입 → <span class="hl">공제 불가</span><br>
+    ③ 보장성보험 중도해지 시 해지 전 납입 보험료 세액공제 <span class="hl">가능</span> (추징 없음)<br>
+    ④ 태아를 피보험자로 가입 → <span class="hl">공제 불가</span> (출생 전은 기본공제대상자 아님)
+  </div>
+</div>
+` },
+
+// ─── PAGE 15 ───
+{ title: '연금계좌 세액공제 / 저축성보험 비과세', part: 'Part 2', partColor: '#2563eb', partBg: '#eff6ff', qCount: '제6장. 생명보험 세제 (2)',
+  html: `
+<div class="section">
+  <div class="section-title">1. 연금계좌 세액공제</div>
+  <div class="content-text mb">
+    <span class="hl-yellow">대상자</span>: <span class="hl">종합소득이 있는 거주자</span> (근로소득자로 한정하지 않음)<br>
+    <span class="hl-yellow">연금계좌</span>: 연금저축계좌 + 퇴직연금계좌 (DB형 제외)
+  </div>
+  <table class="content-table">
+    <tr><th>종합소득금액(총급여)</th><th>세액공제 한도</th><th>세액공제율</th></tr>
+    <tr><td>4,500만원 이하 (총급여 5,500만원)</td><td>연금저축 600만원 / 퇴직연금 합산 900만원</td><td><span class="hl">15%</span></td></tr>
+    <tr><td>4,500만원 초과</td><td>연금저축 600만원 / 퇴직연금 합산 900만원</td><td><span class="hl">12%</span></td></tr>
+  </table>
+  <div class="content-text mt">
+    <span class="hl-yellow">ISA계좌 만기 전환</span>: 만기일로부터 60일 이내 연금계좌 전환 시 전환금액의 10%(300만원 한도) 추가 세액공제
+  </div>
+  <div class="wrong-box">연금계좌 세액공제는 근로소득자만 받을 수 있다. (✗) → 종합소득이 있는 거주자 모두 가능!</div>
+</div>
+
+<div class="section">
+  <div class="section-title">2. 저축성보험 보험차익 비과세</div>
+  <div class="content-text mb">
+    <span class="hl-yellow">보험차익</span> = 만기보험금(또는 환급금) - 납입보험료
+  </div>
+  <div class="content-text">
+    <span class="hl-yellow">비과세 요건 (택 1)</span><br>
+    &nbsp;&nbsp;① <span class="hl">일시납</span>: 최초 납입일로부터 만기·해지일까지 10년 이상 + 계약자 1인당 납입 보험료 합계 <span class="hl">1억원 이하</span><br>
+    &nbsp;&nbsp;② <span class="hl">월적립식</span>: 10년 이상 + 납입기간 5년 이상 + 매월 균등 납입 + 월 납입 <span class="hl">150만원 이하</span><br>
+    &nbsp;&nbsp;③ <span class="hl">종신형 연금</span>: 55세 이후부터 사망 시까지 연금 수령 + 연금 외 형태 지급 불가 + 계약자=피보험자=수익자
+  </div>
+  <div class="tip-box">연금보험(저축성)≠연금저축: 연금보험은 납입 시 세액공제 없고 수령 시 비과세 / 연금저축은 납입 시 세액공제, 수령 시 연금소득세 과세</div>
+</div>
+` },
+
+// ─── PAGE 16 ───
+{ title: '단체보험 세제 / 상속·증여 보험세제', part: 'Part 2', partColor: '#2563eb', partBg: '#eff6ff', qCount: '제6장. 생명보험 세제 (3)',
+  html: `
+<div class="section">
+  <div class="section-title">1. 단체보장성보험료의 손금 산입</div>
+  <table class="content-table">
+    <tr><th>구분</th><th>회사</th><th>종업원</th></tr>
+    <tr><td>단체순수·환급부 보장성 (회사부담 <span class="hl">연 70만원 이하</span>)</td><td>전액 손금 (복리후생비)</td><td><span class="hl-green">근로소득 과세 없음</span></td></tr>
+    <tr><td>단체순수·환급부 보장성 (연 70만원 초과 부분)</td><td>전액 손금 (급여)</td><td>근로소득 과세</td></tr>
+    <tr><td>일반 단체보장성보험 (회사부담)</td><td>전액 손금 (급여)</td><td>근로소득 과세</td></tr>
+  </table>
+  <div class="content-text mt">
+    <span class="hl-yellow">세제혜택 요건</span>: ① 종업원의 사망·상해·질병 보험금 지급사유 ② 종업원(배우자·가족)이 피보험자·수익자 ③ 단체순수보장성 또는 단체환급부 보장성보험
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">2. 임직원 보험가입 세무처리</div>
+  <table class="content-table">
+    <tr><th>사례</th><th>계약자/피보험자/수익자</th><th>납입보험료 처리</th></tr>
+    <tr><td>사례 1</td><td>법인 / 임직원 / <span class="hl">법인</span></td><td>만기환급금 상당액은 자산처리, 나머지는 손금 산입</td></tr>
+    <tr><td>사례 2</td><td>법인 / <span class="hl">임원</span> / 임원</td><td>급여지급기준 초과액은 손금불산입 → 상여처분</td></tr>
+    <tr><td>사례 3</td><td>법인 / <span class="hl">종업원</span> / 종업원</td><td>종업원 급여로 보아 손금 인정, 근로소득 과세</td></tr>
+  </table>
+</div>
+
+<div class="section">
+  <div class="section-title">3. 상속재산으로 보는 보험금</div>
+  <div class="content-text">
+    피상속인이 계약자이거나 피상속인의 사망으로 인한 보험금은 <span class="hl">상속재산으로 간주</span><br>
+    <span class="hl-yellow">금융재산 상속공제</span>: 금융재산의 20% 공제 (단, 2천만원 이하 전액 공제, 최대 2억원 한도)<br>
+    <span class="hl-yellow">장애인 보험금 비과세</span>: 장애인을 수익자로 하는 보험금 연간 <span class="hl">4천만원 한도</span> 내 증여세 비과세
+  </div>
+</div>
+` },
+
+// ─── PAGE 17 ───
+{ title: '제3편 생명보험 — 생명보험의 개요와 특징', part: 'Part 3', partColor: '#16a34a', partBg: '#f0fdf4', qCount: '제7장. 생명보험의 개요',
+  html: `
+<div class="section">
+  <div class="section-title">1. 생명보험계약의 법적 성질</div>
+  <div class="content-text">
+    <span class="hl-yellow">낙성계약</span>: 합의만으로 성립 (실손 ✗)<br>
+    <span class="hl-yellow">불요식계약</span>: 특정 형식 불필요<br>
+    <span class="hl-yellow">부합계약</span>: 보험사가 미리 작성한 약관에 계약자 동의<br>
+    <span class="hl-yellow">사행계약</span>: 보험사고 발생 여부에 따라 급부 결정 (도박성 계약 아님)
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">2. 생명보험의 특징</div>
+  <ul class="content-list">
+    <li><span class="hl-yellow">장기계약</span>: 대부분 장기계약으로 안정적 자금 운용 가능</li>
+    <li><span class="hl-yellow">인보험</span>: 사람의 생사를 보험사고로 → 피보험이익 개념 없음</li>
+    <li><span class="hl-yellow">정액보상</span>: 약정된 보험금액 지급 (실손보상과 구분)</li>
+    <li><span class="hl-yellow">보험자대위 없음</span>: 생명보험은 원칙적으로 보험자대위 불적용</li>
+  </ul>
+</div>
+
+<div class="section">
+  <div class="section-title">3. 보험나이 계산</div>
+  <div class="content-text mb">
+    계약일 현재 실제 만 나이 기준으로 <span class="hl">6개월 미만은 버리고, 6개월 이상은 1년</span>으로 계산<br>
+    이후 매년 계약 해당일에 1세 증가
+  </div>
+  <div class="exam-box">1988년 10월 2일생, 2025년 4월 13일 계약일 기준 보험나이?<br>→ 2025.4.13 - 1988.10.2 = 36년 6개월 11일 → 보험나이 37세</div>
+</div>
+
+<div class="section">
+  <div class="section-title">4. 보험계약대출</div>
+  <div class="content-text">
+    해약환급금 범위 내에서 대출 가능 (순수보장성보험 등 일부 제한)<br>
+    원리금을 언제든지 상환 가능 / 미상환 시 보험금·해약환급금에서 차감<br>
+    계약 해지 시 즉시 원금+이자 차감
+  </div>
+</div>
+` },
+
+// ─── PAGE 18 ───
+{ title: '생명보험 상품 분류', part: 'Part 3', partColor: '#16a34a', partBg: '#f0fdf4', qCount: '제8장. 생명보험 상품 (1) — 분류',
+  html: `
+<div class="section">
+  <div class="section-title">1. 보험기간에 따른 분류</div>
+  <div class="grid-2">
+    <div class="mini-card">
+      <div class="mini-card-title">정기보험</div>
+      <div class="mini-card-body">일정기간 사망 보장. 보험료 저렴. 만기 시 환급 없음(순수보장형)</div>
+    </div>
+    <div class="mini-card">
+      <div class="mini-card-title">종신보험</div>
+      <div class="mini-card-body">평생(종신) 보장. 언제 사망해도 보험금 지급. 보험료 높음</div>
+    </div>
+    <div class="mini-card">
+      <div class="mini-card-title">생존보험</div>
+      <div class="mini-card-body">일정기간 생존 시 보험금 지급 (예: 교육보험, 연금보험)</div>
+    </div>
+    <div class="mini-card">
+      <div class="mini-card-title">생사혼합(양로)보험</div>
+      <div class="mini-card-body">사망 또는 만기생존 시 동일 금액 지급</div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">2. 보험료 납입방법에 따른 분류</div>
+  <div class="content-text mb">
+    <span class="hl-yellow">납입기간</span>: 전기납(보험기간 전체) / <span class="hl">단기납</span>(보험기간보다 짧음) / <span class="hl">일시납</span>(한번에 전액)<br>
+    &nbsp;&nbsp;일시납 시 → 미경과보험료 이자 발생으로 <span class="hl">연납·월납 합계보다 적음</span>
+  </div>
+  <div class="content-text">
+    <span class="hl-yellow">납입주기</span>: 일시납 / 연납 / 6개월납 / 3개월납 / 2개월납 / <span class="hl">월납</span>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">3. 기타 분류</div>
+  <div class="content-text">
+    <span class="hl-yellow">유배당/무배당</span>: 계약자배당 지급 여부<br>
+    <span class="hl-yellow">갱신형/비갱신형</span>: 일정 기간 경과 후 보험료 재산정 여부 (실손의료보험·일부 질병보험 등)<br>
+    <span class="hl-yellow">표준형/저해지환급형</span>: 해약환급금 수준에 따른 분류. 저해지환급형은 <span class="hl">순수보장성·연금보험</span>에 한해 개발 가능<br>
+    <span class="hl-yellow">진단/무진단보험</span>: 계약 시 의사 진단 필요 여부
+  </div>
+</div>
+` },
+
+// ─── PAGE 19 ───
+{ title: '주요 생명보험 상품 — 종신·유니버설·연금', part: 'Part 3', partColor: '#16a34a', partBg: '#f0fdf4', qCount: '제8장. 생명보험 상품 (2)',
+  html: `
+<div class="section">
+  <div class="section-title">1. 종신보험</div>
+  <div class="content-text mb">
+    피보험자가 <span class="hl">언제 사망해도</span> 약정 보험금 지급 (단, 가입일로부터 2년 내 자살 제외)<br>
+    해약환급금이 만기(종신)까지 지속적으로 증가하는 구조 → 노후 활용 가능<br>
+    <span class="hl-yellow">사망보험금 유동화 제도</span> (2025년 도입): 만 55세 이상, 납입완료, 계약자=피보험자 조건으로 사망보험금 일부(최대 90%)를 생전에 연금 또는 서비스로 수령 가능
+  </div>
+  <div class="wrong-box">종신보험은 만기가 없으므로 해약환급금도 없다. (✗) → 해약환급금은 존재하며 계속 증가!</div>
+</div>
+
+<div class="section">
+  <div class="section-title">2. 유니버설보험</div>
+  <div class="content-text">
+    의무 납입기간 경과 후 보험료 납입금액·납입시기 자유롭게 조절 가능<br>
+    기능: <span class="hl">추가납입 / 중도인출</span><br>
+    <span class="hl-red">주의</span>: 장기간 미납 시 계약자적립금 < 위험보험료 → 계약 해지 가능. '면제'가 아닌 '유예'임을 명확히 설명!
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">3. 연금보험 및 연금저축보험</div>
+  <div class="content-text mb">
+    <span class="hl-yellow">보험기간</span>: 제1보험기간(위험보장기간) + 제2보험기간(연금지급기간)<br>
+    위험보장기간 사망 시: 계약자적립액 또는 사망보험금 지급 후 소멸
+  </div>
+  <div class="content-text mb">
+    <span class="hl-yellow">연금지급방법</span>: 종신연금형 / 확정연금형 / 상속연금형 / 혼합연금형<br>
+    종신연금형 등 개시 이후 <span class="hl">계약 해지 불가</span>
+  </div>
+  <div class="content-text">
+    <span class="hl-yellow">연금저축보험 납입한도</span>: 연간 <span class="hl">1,800만원</span>
+  </div>
+  <div class="tip-box">연금보험(비세제형): 납입 시 세액공제 없음, 비과세 가능 | 연금저축보험(세제형): 납입 시 세액공제, 수령 시 연금소득세</div>
+</div>
+` },
+
+// ─── PAGE 20 ───
+{ title: '퇴직연금 / 변액보험', part: 'Part 3', partColor: '#16a34a', partBg: '#f0fdf4', qCount: '제8장. 생명보험 상품 (3)',
+  html: `
+<div class="section">
+  <div class="section-title">1. 퇴직연금제도</div>
+  <table class="content-table">
+    <tr><th>구분</th><th>확정급여형(DB)</th><th>확정기여형(DC)</th><th>IRP</th></tr>
+    <tr><td>급여수준</td><td><span class="hl">사전 확정</span></td><td>운용실적에 따라 변동</td><td>운용실적에 따라 변동</td></tr>
+    <tr><td>적립금 운용</td><td><span class="hl-green">사용자</span></td><td><span class="hl-blue">근로자</span></td><td><span class="hl-blue">근로자</span></td></tr>
+    <tr><td>부담금</td><td>변동</td><td><span class="hl">연간 임금의 1/12 이상 (사전 확정)</span></td><td>개인 추가 납입 가능</td></tr>
+    <tr><td>중도인출</td><td><span class="hl-red">불가</span></td><td><span class="hl-green">가능 (사유 한정)</span></td><td>가능 (사유 한정)</td></tr>
+  </table>
+  <div class="content-text mt">
+    DC형 중도인출 사유: 무주택자 주택 구입 / 전세금 부담 / <span class="hl">본인 6개월 이상 요양</span> / 역산 5년 이내 파산·개인회생
+  </div>
+  <div class="wrong-box">확정기여형(DC)은 배우자가 6개월 이상 요양하는 경우 중도인출이 가능하다. (✗) → 본인이 6개월 이상!</div>
+</div>
+
+<div class="section">
+  <div class="section-title">2. 변액보험</div>
+  <div class="content-text mb">
+    <span class="hl-yellow">정의</span>: 납입보험료를 <span class="hl">특별계정(펀드)</span>에서 운용하여 실적에 따라 보험금이 변동되는 실적배당형 보험<br>
+    <span class="hl-red">예금자보호법 미적용</span> (단, 최저보증보험금은 예금자보호)<br>
+    <span class="hl-yellow">적용법령</span>: 보험업법 + 자본시장과 금융투자업에 관한 법률
+  </div>
+  <div class="content-text mb">
+    <span class="hl-yellow">종류</span>: 변액종신보험 / 변액연금보험 / 변액유니버설보험<br>
+    <span class="hl-yellow">판매 자격</span>: 생명보험협회 <span class="hl">변액보험 판매자격시험</span> 합격자만 판매 가능<br>
+    가입자: 변액보험 적합성 진단 필수
+  </div>
+  <div class="wrong-box">변액보험은 예금자보호법의 보호를 받는다. (✗) → 주계약은 미적용! (최저보증보험금만 보호)</div>
+</div>
+` },
+
+// ─── PAGE 21 ───
+{ title: '제4편 제3보험 — 제3보험의 개요와 법규', part: 'Part 4', partColor: '#7c3aed', partBg: '#f5f3ff', qCount: '제9장. 제3보험의 개요 (1)',
+  html: `
+<div class="section">
+  <div class="section-title">1. 제3보험의 정의와 구분</div>
+  <div class="content-text mb">
+    <span class="hl-yellow">정의</span>: 위험보장 목적으로 <span class="hl">사람의 질병·상해 또는 이에 따른 간병</span>에 관하여 금전 등을 지급하는 계약<br>
+    <span class="hl-yellow">법적 근거</span>: <span class="hl">보험업법</span> (상법상 제3보험이라는 별도 분류 없음)<br>
+    <span class="hl-green">생명보험사·손해보험사 모두 운영 가능 (겸영 허용)</span>
+  </div>
+  <table class="content-table">
+    <tr><th>종류</th><th>내용</th></tr>
+    <tr><td><span class="hl-blue">상해보험</span></td><td>신체에 입은 상해의 치료비 및 사망 등 위험 보장</td></tr>
+    <tr><td><span class="hl-green">질병보험</span></td><td>질병 또는 질병으로 인한 입원·수술 등 보장 (질병사망 제외)</td></tr>
+    <tr><td><span class="hl-yellow">간병보험</span></td><td>치매·일상생활장해 등 타인 간병 필요 상태 보장</td></tr>
+  </table>
+</div>
+
+<div class="section">
+  <div class="section-title">2. 제3보험 관련 법규</div>
+  <div class="content-text mb">
+    <span class="hl-yellow">상법상 분류</span>: 상해보험(제739조·제737조)·질병보험(제739조의2)은 상법 인보험장에 규정, 간병보험은 별도 분류 없음<br>
+    <span class="hl-yellow">보험업법상</span>: 생보사·손보사 전 종목 허가 시 제3보험업 허가 간주
+  </div>
+  <div class="content-text">
+    <span class="hl-yellow">제3보험 설계사 등록요건</span>: 연수과정(20시간 이상 교육 + 시험 합격) or 관계업무 <span class="hl">1년 이상</span> 종사(등록신청일로부터 3년 이내)
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">3. 제3보험의 특징 (생명보험·손해보험과 비교)</div>
+  <table class="content-table">
+    <tr><th>구분</th><th>생명보험</th><th>손해보험</th><th>제3보험</th></tr>
+    <tr><td>보험사고</td><td>생존 또는 사망</td><td>재산상의 손해</td><td><span class="hl">신체 상해·질병·간병</span></td></tr>
+    <tr><td>피보험이익</td><td>해당없음</td><td>존재</td><td><span class="hl">해당없음</span></td></tr>
+    <tr><td>보상방법</td><td>정액보상</td><td>실손보상</td><td><span class="hl">정액·실손 모두 가능</span></td></tr>
+    <tr><td>보험기간</td><td>장기</td><td>단기</td><td>단기·장기</td></tr>
+  </table>
+</div>
+` },
+
+// ─── PAGE 22 ───
+{ title: '제3보험 설계기준 / 손해보험사 질병사망특약', part: 'Part 4', partColor: '#7c3aed', partBg: '#f5f3ff', qCount: '제9장. 제3보험의 개요 (2)',
+  html: `
+<div class="section">
+  <div class="section-title">1. 제3보험 상품 설계 일반기준</div>
+  <ul class="content-list">
+    <li>제3보험 상품은 <span class="hl">보장성보험</span>이다</li>
+    <li>약관상 보장하지 않는 원인으로 사망 시 → <span class="hl">계약자적립액 지급 후 계약 소멸</span></li>
+    <li>보상방식: <span class="hl">정액보상 및 실손보상 모두 가능</span> (실손보상의 경우 비례보상)</li>
+  </ul>
+</div>
+
+<div class="section">
+  <div class="section-title">2. 손해보험회사 질병사망특약 부가요건</div>
+  <table class="content-table">
+    <tr><th>구분</th><th>생명보험회사</th><th>손해보험회사</th></tr>
+    <tr><td>보험기간</td><td>제한없음</td><td><span class="hl">80세 만기</span></td></tr>
+    <tr><td>보험금액</td><td>제한없음</td><td><span class="hl">개인당 2억원</span></td></tr>
+    <tr><td>만기환급금</td><td>제한없음</td><td><span class="hl">납입보험료 합계액 이내</span></td></tr>
+  </table>
+  <div class="wrong-box">손해보험회사는 질병사망특약을 주계약에서 운영할 수 있다. (✗) → 특약으로만 가능!</div>
+</div>
+
+<div class="section">
+  <div class="section-title">3. 보험의 구분 비교 총정리</div>
+  <div class="content-text">
+    <span class="hl-yellow">보험자대위</span>: 생명보험·제3보험 = 원칙 없음 / 손해보험 = 있음<br>
+    <span class="hl">상해보험</span>: 다른 약정이 있는 경우 피보험자 권리를 해치지 않는 범위에서 제한적으로 보험자대위 행사 가능 (상법 제729조)<br>
+    <span class="hl-yellow">실손보상 중복계약</span>: 비례보상 원칙 적용 (정액보상상품은 비례보상 대상 아님)
+  </div>
+</div>
+` },
+
+// ─── PAGE 23 ───
+{ title: '상해보험 — 보험사고 요건과 종류', part: 'Part 4', partColor: '#7c3aed', partBg: '#f5f3ff', qCount: '제10장. 제3보험 상품 — 상해보험 (1)',
+  html: `
+<div class="section">
+  <div class="section-title">1. 상해사고의 3가지 요건</div>
+  <div class="grid-2">
+    <div class="mini-card">
+      <div class="mini-card-title">① 급격성</div>
+      <div class="mini-card-body">결과 발생을 피할 수 없을 정도로 급박한 상태<br>완만·연속 발생 사고는 제외 (신체허약·질병 제외)</div>
+    </div>
+    <div class="mini-card">
+      <div class="mini-card-title">② 우연성</div>
+      <div class="mini-card-body">원인·결과가 예견되지 않는 상태<br>피보험자의 의사에 기인하지 않음<br>(의도한 행위가 뜻밖의 상해를 발생시켜도 인정)</div>
+    </div>
+    <div class="mini-card">
+      <div class="mini-card-title">③ 외래성</div>
+      <div class="mini-card-body">신체 상해의 원인이 외부적 요인에 기인<br>내재된 원인(질병·체질) 제외<br>음주 만취로 인한 사망 → 외래성 인정(판례)</div>
+    </div>
+    <div class="mini-card">
+      <div class="mini-card-title">인과관계</div>
+      <div class="mini-card-body">사고 발생과 신체 상해 사이에 인과관계 필요<br>상해 결과 발생 질병 → 보장 O<br>질병 원인 발생 상해 → 보장 X</div>
+    </div>
+  </div>
+  <div class="exam-box">술에 취해 자다가 구토물이 기도를 막아 사망 → 외래성 인정 (음주라는 외부 행위), 보험금 지급 (대법원 판례)</div>
+</div>
+
+<div class="section">
+  <div class="section-title">2. 상해보험과 생명보험 비교</div>
+  <div class="content-text mb">
+    <span class="hl-yellow">생명보험의 상해보험</span>: 상해 개념에 <span class="hl">1급 감염병</span> 보장을 더한 '재해'를 보장 → 손해보험 상해보험보다 보장범위 넓음
+  </div>
+  <div class="content-text">
+    <span class="hl-yellow">직업·직무 변경 통지의무</span>: 위험 증가 시 즉시 보험회사에 서면 통지 필요 (보험설계사에게 알린 것만으로는 효력 없음)<br>
+    위반 시 회사는 사실을 안 날로부터 <span class="hl">1개월 이내</span> 보험료 증액 청구 또는 계약 해지 가능
+  </div>
+</div>
+` },
+
+// ─── PAGE 24 ───
+{ title: '상해보험 — 직업등급 / 주요 보장내용', part: 'Part 4', partColor: '#7c3aed', partBg: '#f5f3ff', qCount: '제10장. 제3보험 상품 — 상해보험 (2)',
+  html: `
+<div class="section">
+  <div class="section-title">1. 상해보험 직업 위험등급</div>
+  <div class="content-text mb">
+    직업별로 <span class="hl">총 5등급</span>으로 구분 → 3단계로 위험률 차등 적용<br>
+    (실손상해는 저·중·고위험 3등급으로 구분)
+  </div>
+  <div class="content-text">
+    <span class="hl-yellow">2가지 이상 직업·직무</span>: 그 중 <span class="hl">높은 위험의 직업·직무</span> 적용
+  </div>
+  <div class="exam-box">사무직에서 공장생산직으로 직무 변경 후 사고 발생 → 통지의무 미이행 시 보험금 삭감 지급 가능. 단, 변경된 직업과 관계없는 사고(일상생활 중 사고)는 보험금 전액 지급</div>
+</div>
+
+<div class="section">
+  <div class="section-title">2. 상해보험 주요 보장내용</div>
+  <table class="content-table">
+    <tr><th>보장항목</th><th>내용</th></tr>
+    <tr><td>재해사망보험금</td><td>재해 직접 원인 사망</td></tr>
+    <tr><td>재해장해급여금</td><td>재해 원인 장해상태 발생 (장해분류표 해당 지급률 적용)</td></tr>
+    <tr><td>재해수술급여금</td><td>재해 직접 원인 수술</td></tr>
+    <tr><td>재해입원급여금</td><td>재해로 인한 직접 치료 목적 입원</td></tr>
+  </table>
+  <div class="content-text mt">
+    상해보험 주계약에서 <span class="hl-red">질병사망 보장 불가</span> → 질병사망은 특약으로만 운영<br>
+    상해 이외의 원인으로 사망 시 → <span class="hl">계약자적립액 지급 후 계약 소멸</span>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">3. 보험료 산출 특징</div>
+  <div class="content-text">
+    상해보험은 <span class="hl">연령별 위험률 차이가 미미</span>하여 단일률·군단율로 산출 가능<br>
+    보험기간: 일반적으로 1년 이상 / 가입연령: 일부 위험직 제외 고연령(65~75세)까지 가능
+  </div>
+</div>
+` },
+
+// ─── PAGE 25 ───
+{ title: '질병보험 — 암보험 개요와 보장내용', part: 'Part 4', partColor: '#7c3aed', partBg: '#f5f3ff', qCount: '제10장. 제3보험 상품 — 질병보험 (1)',
+  html: `
+<div class="section">
+  <div class="section-title">1. 질병보험의 의의</div>
+  <div class="content-text mb">
+    질병으로 인한 입원·수술 등 위험 보장 (<span class="hl-red">질병으로 인한 사망은 제외</span> — 특약으로만 가능)<br>
+    <span class="hl-yellow">면책기간</span>: 계약체결일로부터 일정 기간 내 발생 질병은 보상 제외 (암: 통상 <span class="hl">90일</span>)
+  </div>
+  <div class="content-text">
+    <span class="hl-yellow">일반 가입조건</span>: 보험기간 10년 이상 / 가입가능연령 만 15세 이상 (어린이보험 등 예외 있음)
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">2. 암보험</div>
+  <div class="content-text mb">
+    <span class="hl-yellow">면책기간</span>: 계약체결일로부터 <span class="hl">90일(3개월)</span> — 재해로 인한 암 발생 시 면책 없음<br>
+    <span class="hl-yellow">감액지급</span>: 계약체결일로부터 <span class="hl">1년 이내</span> 진단 확정 시 통상 50% 지급
+  </div>
+  <div class="content-text mb">
+    <span class="hl-yellow">소액암</span>: 갑상선암·기저세포피부암·전립선암·방광암 등 → 일반암 진단비의 <span class="hl">20%</span> 지급 (보험사별 상이)<br>
+    <span class="hl-yellow">제자리암(0기암)</span>: 암 관련 보험금의 <span class="hl">10~20%</span> 지급
+  </div>
+  <div class="content-text">
+    <span class="hl-yellow">암 직접치료</span>: 항암방사선치료·항암화학치료·암 제거 수술 등<br>
+    <span class="hl-red">포함 안 됨</span>: 식이요법·명상요법 / 면역력 강화 치료 / 후유증·합병증 치료 (단, 필수불가결한 경우 포함)
+  </div>
+  <div class="wrong-box">암 진단 후 면역력 강화 치료는 암의 직접적인 치료에 해당한다. (✗) → 암 제거·증식 억제를 위해 필수불가결한 경우만 해당!</div>
+</div>
+` },
+
+// ─── PAGE 26 ───
+{ title: '실손의료보험 — 4세대 구조와 비례보상', part: 'Part 4', partColor: '#7c3aed', partBg: '#f5f3ff', qCount: '제10장. 제3보험 상품 — 질병보험 (2)',
+  html: `
+<div class="section">
+  <div class="section-title">1. 실손의료보험 개요</div>
+  <div class="content-text mb">
+    국민건강보험 급여항목 중 본인부담액 + 비급여항목 = <span class="hl">실제 부담 의료비의 일부</span>를 보상<br>
+    <span class="hl-yellow">2018년 4월부터</span>: 단독형 상품으로만 판매<br>
+    <span class="hl-yellow">4세대 실손의료보험</span> (2021년 7월~): 급여(주계약)와 비급여(특약) 분리
+  </div>
+  <table class="content-table">
+    <tr><th>구분</th><th>급여(주계약)</th><th>비급여(특약)</th></tr>
+    <tr><td>자기부담률</td><td><span class="hl">20%</span></td><td><span class="hl">30%</span></td></tr>
+    <tr><td>통원 공제금액</td><td>병·의원 최소 1만원 / 상·종합병원 최소 2만원</td><td>최소 3만원</td></tr>
+    <tr><td>연간 보장한도</td><td>입·통원 합산 5천만원 (통원 회당 20만원)</td><td>입·통원 합산 5천만원 (통원 회당 20만원)</td></tr>
+    <tr><td>재가입 주기</td><td colspan="2"><span class="hl">5년</span></td></tr>
+  </table>
+</div>
+
+<div class="section">
+  <div class="section-title">2. 비급여 보험료 할인·할증 (2024년 7월 이후)</div>
+  <table class="content-table">
+    <tr><th>등급</th><th>직전 1년 비급여 수령액</th><th>할인·할증</th></tr>
+    <tr><td>1등급(할인)</td><td>0원</td><td>-5% (잠정)</td></tr>
+    <tr><td>2등급(유지)</td><td>0원 초과~100만원 미만</td><td>-</td></tr>
+    <tr><td>3등급(할증)</td><td>100만원 이상~150만원 미만</td><td>+100%</td></tr>
+    <tr><td>4등급(할증)</td><td>150만원 이상~300만원 미만</td><td>+200%</td></tr>
+    <tr><td>5등급(할증)</td><td>300만원 이상</td><td>+300%</td></tr>
+  </table>
+  <div class="content-text mt">
+    <span class="hl-green">의료취약계층 제외</span>: 건강보험 산정특례 대상자(암·심장·희귀난치성 질환 등) / 노인장기요양보험 1~2등급 판정자
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">3. 실손의료보험 비례보상</div>
+  <div class="content-text">
+    중복 가입 시 실제 본인부담금 이상 지급 불가 → <span class="hl">보상책임액 비율에 따라 비례보상</span><br>
+    정액보상상품은 비례보상 대상 아님
+  </div>
+  <div class="exam-box">A보험 한도 1,000만원(보상책임액 1,000만원) + B보험 한도 5,000만원(보상책임액 3,000만원), 치료비 3,000만원<br>A: 3,000만원 × 1/4 = 750만원 / B: 3,000만원 × 3/4 = 2,250만원</div>
+</div>
+` },
+
+// ─── PAGE 27 ───
+{ title: '어린이보험 / CI보험 / 치아보험 / 건강보험', part: 'Part 4', partColor: '#7c3aed', partBg: '#f5f3ff', qCount: '제10장. 제3보험 상품 — 질병보험 (3)',
+  html: `
+<div class="section">
+  <div class="section-title">1. 어린이보험</div>
+  <div class="content-text mb">
+    <span class="hl-yellow">가입대상</span>: 어린이·청소년 (만 15세 미만 사망보장 불가 → 만 15세 미만 사망 시 납입보험료 전액과 계약자적립액 중 큰 금액 지급 후 소멸)<br>
+    <span class="hl-yellow">보험기간</span>: 전통적으로 24~30세까지, 최근에는 100세까지 연장<br>
+    <span class="hl-yellow">태아가입형</span>: 선천성 질환·출생 전후기 질환·미숙아 인큐베이터 비용 등 특약으로 추가 가능
+  </div>
+  <div class="wrong-box">어린이보험에서 만 14세 피보험자가 사망하면 약정 사망보험금을 지급한다. (✗) → 납입보험료 전액 또는 계약자적립액 중 큰 금액 지급!</div>
+</div>
+
+<div class="section">
+  <div class="section-title">2. CI보험 (치명적 질병보험)</div>
+  <div class="content-text mb">
+    중대한 암·뇌졸중·급성심근경색 등 <span class="hl">치명적 질병(Critical Illness)</span> 발병 시 사망보험금 일부를 선지급<br>
+    생명보험(사망보험금 선지급) + 질병보험(치료비 보상)의 성격 복합<br>
+    <span class="hl-yellow">선지급</span>: 잔여수명 6개월 이하 시 사망보험금의 50% 선지급<br>
+    CI보험금 지급 사유 발생 시 차회부터 <span class="hl">보험료 납입 면제</span>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">3. 치아보험</div>
+  <div class="content-text">
+    가입연령: 0~75세 (보험회사별 상이)<br>
+    갱신형: 갱신 시 보험료 조정, <span class="hl">면책기간·감액기간 운영</span>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">4. 건강보험 주요 보장내용</div>
+  <div class="content-text">
+    <span class="hl-yellow">3대 질병(뇌혈관·심장·암)</span>: 진단비, 수술비, 입원비, 통원비 등 보장<br>
+    <span class="hl-yellow">갱신형</span>: 실손의료보험처럼 보험료 갱신, 보험기간 만료 후 재가입 방식
+  </div>
+</div>
+` },
+
+// ─── PAGE 28 ───
+{ title: '간병보험 — 장기요양 / 치매 / 보험금 지급', part: 'Part 4', partColor: '#7c3aed', partBg: '#f5f3ff', qCount: '제10장. 제3보험 상품 — 간병보험 (1)',
+  html: `
+<div class="section">
+  <div class="section-title">1. 간병보험 용어 정의</div>
+  <table class="content-table">
+    <tr><th>용어</th><th>내용</th></tr>
+    <tr><td><span class="hl-yellow">장기요양상태</span></td><td>만 65세 이상 노인 또는 노인성질병을 가진 만 65세 미만의 자로서 장기요양이 필요하다고 판정받은 경우</td></tr>
+    <tr><td><span class="hl-yellow">장기요양등급</span></td><td>1~5등급 + 인지지원등급 (총 6등급). <span class="hl">1등급이 가장 중증</span>, 인지지원등급이 가장 경증</td></tr>
+    <tr><td><span class="hl-yellow">일상생활장해상태</span></td><td>이동하기 불능 + 식사·화장실·목욕·옷입기 중 하나 이상 불가 상태가 <span class="hl">90일 이상</span> 지속</td></tr>
+    <tr><td><span class="hl-yellow">중증치매상태</span></td><td>인지기능의 장애 (CDR척도검사 결과 <span class="hl">3점 이상</span>) 발생 상태</td></tr>
+  </table>
+  <div class="wrong-box">장기요양등급 5등급이 가장 중증이다. (✗) → 1등급이 가장 중증!</div>
+</div>
+
+<div class="section">
+  <div class="section-title">2. 간병보험 면책</div>
+  <div class="content-text mb">
+    <span class="hl-yellow">면책기간</span>: 암보험처럼 면책기간 설정 가능 (단, 재해로 인한 경우 면책기간 중에도 보장)
+  </div>
+  <div class="content-text">
+    <span class="hl-yellow">면책사항</span>: <span class="hl-red">알코올중독</span> / 정신분열병·우울증 같은 정신질환으로 인한 인지기능 장애 / 의사 처방 없는 약물 투여로 인한 인지기능 장애
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">3. 노인장기요양보험제도 (공적)</div>
+  <div class="content-text">
+    <span class="hl-yellow">시행</span>: 2008년 7월 (노인장기요양보험법)<br>
+    <span class="hl-yellow">대상</span>: 만 65세 이상 또는 노인성 질환(치매·뇌혈관·파킨슨병 등) 가진 만 65세 미만<br>
+    <span class="hl-yellow">급여</span>: 재가급여(방문요양·목욕·간호 등) / 시설급여(요양시설 입소)<br>
+    <span class="hl-yellow">민영 장기간병보험</span>: 2003년 8월부터 판매, 정액보상형
+  </div>
+</div>
+` },
+
+// ─── PAGE 29 ───
+{ title: '간병보험 가입조건 / 제3보험 전체 정리', part: 'Part 4', partColor: '#7c3aed', partBg: '#f5f3ff', qCount: '제10장. 제3보험 상품 — 간병보험 (2)',
+  html: `
+<div class="section">
+  <div class="section-title">1. 간병보험 일반적 가입조건</div>
+  <div class="content-text mb">
+    <span class="hl-yellow">보험기간</span>: 대부분 종신 (일부 80세 만기형)<br>
+    <span class="hl-yellow">가입가능연령</span>: 일반적으로 <span class="hl">30세 이후</span><br>
+    <span class="hl-yellow">위험률 변동제도</span>: 경험데이터 부족으로 보험기간 중 위험률 변동 시 금융위원회 인가 후 보험료 조정 가능
+  </div>
+  <div class="content-text">
+    <span class="hl-yellow">계약 소멸</span>: 피보험자 사망 또는 간병연금 수령 종료 시
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">2. 간병보험 보험금 지급 유형</div>
+  <table class="content-table">
+    <tr><th>유형</th><th>보험금 지급사유</th></tr>
+    <tr><td>① 회사기준 적용</td><td>일상생활장해상태 또는 중증치매상태 진단 확정</td></tr>
+    <tr><td>② 공적기준 적용</td><td>노인장기요양보험법에 따른 <span class="hl">장기요양등급 판정</span></td></tr>
+  </table>
+  <div class="content-text mt">
+    ② 공적기준: <span class="hl">만 65세 이상</span> 또는 노인성 질환자를 지급대상으로 함 (나이 제한)<br>
+    ① 회사기준: 나이와 상관없이 가입 후 질병·상해로 지급사유 발생 시 지급 가능
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">3. 제3보험 상품 분류 종합</div>
+  <div class="content-text">
+    <span class="hl-yellow">상해보험</span>: 일반 상해보험 / 재해보험 / 교통재해보험<br>
+    <span class="hl-yellow">질병보험</span>: 암보험 / 실손의료보험 / 건강보험 / 어린이보험 / CI보험 / 치아보험<br>
+    <span class="hl-yellow">간병보험</span>: 장기간병보험(LTC) / 치매보험
+  </div>
+  <div class="tip-box">제3보험 상품은 상해와 질병이 함께 보장되는 종합형이 많으며(예: 어린이보험·실손의료보험), 주계약에 다양한 특약이 부가되어 판매됨</div>
+</div>
+` },
+
+// ─── PAGE 30 ───
+{ title: '보험업법 허가 / 보험료 구성 총정리', part: 'Part 4', partColor: '#7c3aed', partBg: '#f5f3ff', qCount: '종합 정리 — 핵심 수치',
+  html: `
+<div class="section">
+  <div class="section-title">1. 보험업 허가 (보험업법 제4조)</div>
+  <div class="content-text mb">
+    <span class="hl-yellow">허가기관</span>: <span class="hl">금융위원회</span><br>
+    <span class="hl-yellow">생명보험업 종목</span>: 생명보험 / 연금보험(퇴직보험 포함) / 기타<br>
+    <span class="hl-yellow">손해보험업 종목</span>: 화재 / 해상(항공·운송 포함) / 자동차 / 보증 / 재보험 / 기타<br>
+    <span class="hl-yellow">제3보험업 종목</span>: 상해 / 질병 / 간병 / 기타<br>
+    생보사 또는 손보사가 전 종목 허가 취득 → <span class="hl">제3보험업 허가 간주</span>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">2. 핵심 기간·수치 총정리</div>
+  <table class="content-table">
+    <tr><th>항목</th><th>수치</th></tr>
+    <tr><td>청약철회 기간</td><td>보험증권 수령일로부터 <span class="hl">15일</span> (청약일로부터 30일 초과 불가)</td></tr>
+    <tr><td>약관 미교부 시 취소</td><td>계약 성립일로부터 <span class="hl">3개월</span></td></tr>
+    <tr><td>승낙 간주 기간</td><td>무진단: 청약일로부터 <span class="hl">30일</span> / 진단: 진단일로부터 30일</td></tr>
+    <tr><td>납입최고기간</td><td><span class="hl">14일 이상</span> (1년 미만: 7일 이상)</td></tr>
+    <tr><td>계약 부활 신청</td><td>해지일로부터 <span class="hl">3년 이내</span></td></tr>
+    <tr><td>보험금 지급기일</td><td>서류 접수 후 <span class="hl">3영업일</span> (조사 시 10영업일, 30영업일)</td></tr>
+    <tr><td>소멸시효</td><td>보험금·보험료반환·해약환급금 청구권: <span class="hl">3년</span></td></tr>
+    <tr><td>보험계약대출 자동납 한도</td><td><span class="hl">1년</span></td></tr>
+    <tr><td>특별부활 통지</td><td>해지일로부터 <span class="hl">7일 이내</span> 보험수익자에게 통지</td></tr>
+    <tr><td>특별부활 신청기한</td><td>통지 받은 날로부터 <span class="hl">15일 이내</span></td></tr>
+    <tr><td>자살 보험금 지급 기준</td><td>보장개시일로부터 <span class="hl">2년 후</span></td></tr>
+  </table>
+</div>
+` },
+
+// ─── PAGE 31 ───
+{ title: '종합 정리 — 모집 규정 핵심 수치', part: 'Part 4', partColor: '#7c3aed', partBg: '#f5f3ff', qCount: '종합 정리 — 모집 관련',
+  html: `
+<div class="section">
+  <div class="section-title">1. 보험모집 핵심 수치</div>
+  <table class="content-table">
+    <tr><th>항목</th><th>수치</th></tr>
+    <tr><td>생명보험설계사 등록 교육시간</td><td><span class="hl">20시간 이상</span></td></tr>
+    <tr><td>대리점 등록 경력요건 (개인)</td><td>관계업무 <span class="hl">2년 이상</span> (등록신청일로부터 4년 이내)</td></tr>
+    <tr><td>영업보증금 (개인대리점)</td><td><span class="hl">1억원</span> 한도</td></tr>
+    <tr><td>영업보증금 (법인대리점)</td><td><span class="hl">3억원</span> 한도</td></tr>
+    <tr><td>방카슈랑스 점포별 모집인원</td><td><span class="hl">2인</span> 이하</td></tr>
+    <tr><td>방카슈랑스 1개 보험사 모집 한도</td><td><span class="hl">25%</span> 이내</td></tr>
+    <tr><td>전화 모집 점검 비율</td><td>체결 계약의 <span class="hl">20%</span> 이상</td></tr>
+    <tr><td>특별이익 허용 범위</td><td>1년 납입 보험료의 <span class="hl">10%</span>와 <span class="hl">3만원</span> 중 적은 금액</td></tr>
+    <tr><td>우수인증설계사 근속</td><td>동일회사 <span class="hl">3년 이상</span></td></tr>
+    <tr><td>우수인증설계사 유지율</td><td>13회차 <span class="hl">90%</span>, 25회차 <span class="hl">80%</span></td></tr>
+    <tr><td>우수인증설계사 소득</td><td>연 <span class="hl">4,000만원</span> 이상</td></tr>
+  </table>
+</div>
+
+<div class="section">
+  <div class="section-title">2. 협정 제재금 핵심</div>
+  <table class="content-table">
+    <tr><th>위반행위</th><th>제재금</th></tr>
+    <tr><td>특별이익 제공</td><td><span class="hl">3,000만원</span> 이하</td></tr>
+    <tr><td>작성계약</td><td>기납입보험료 전액 (최소 <span class="hl">100만원</span>/건)</td></tr>
+    <tr><td>경유계약</td><td><span class="hl">200만원</span> 이하</td></tr>
+    <tr><td>무자격자 위탁 (1인당)</td><td><span class="hl">1,000만원</span></td></tr>
+    <tr><td>승환계약 (1건당)</td><td><span class="hl">100만원</span> (최고 3,000만원)</td></tr>
+  </table>
+</div>
+` },
+
+// ─── PAGE 32 ───
+{ title: '세제 핵심 정리', part: 'Part 4', partColor: '#7c3aed', partBg: '#f5f3ff', qCount: '종합 정리 — 세제',
+  html: `
+<div class="section">
+  <div class="section-title">보장성보험 세액공제 핵심</div>
+  <table class="content-table">
+    <tr><th>구분</th><th>한도</th><th>세액공제율</th><th>대상자</th></tr>
+    <tr><td>일반 보장성보험</td><td>연 100만원</td><td><span class="hl">12%</span></td><td>근로소득자</td></tr>
+    <tr><td>장애인전용 보장성보험</td><td>연 100만원 (별도)</td><td><span class="hl">15%</span></td><td>근로소득자</td></tr>
+    <tr><td>연금계좌 (저소득)</td><td>연금저축 600만원, 퇴직연금 포함 900만원</td><td><span class="hl">15%</span></td><td>종합소득자</td></tr>
+    <tr><td>연금계좌 (고소득)</td><td>동일</td><td><span class="hl">12%</span></td><td>종합소득자</td></tr>
+  </table>
+</div>
+
+<div class="section">
+  <div class="section-title">저축성보험 비과세 요건 핵심</div>
+  <table class="content-table">
+    <tr><th>유형</th><th>핵심 요건</th></tr>
+    <tr><td>일시납</td><td>10년 이상 유지 + 계약자 1인 납입 합계 <span class="hl">1억원 이하</span></td></tr>
+    <tr><td>월적립식</td><td>10년 이상 + 납입기간 5년 이상 + 월 <span class="hl">150만원 이하</span></td></tr>
+    <tr><td>종신형 연금</td><td>55세 이후 사망까지 연금 수령 + 연금 외 지급 불가 + 계약자=피보험자=수익자</td></tr>
+  </table>
+</div>
+
+<div class="section">
+  <div class="section-title">연금보험 vs 연금저축보험 비교</div>
+  <table class="content-table">
+    <tr><th>구분</th><th>연금보험</th><th>연금저축보험</th></tr>
+    <tr><td>취급기관</td><td><span class="hl">생명보험회사</span></td><td>보험사·은행·증권사·공제기관</td></tr>
+    <tr><td>납입 시 세제</td><td><span class="hl-red">없음</span></td><td><span class="hl-green">세액공제</span></td></tr>
+    <tr><td>수령 시 세제</td><td><span class="hl-green">비과세</span> (요건 충족 시)</td><td>연금소득세 과세 (3~5% 분리과세)</td></tr>
+    <tr><td>소득 구분</td><td>이자소득</td><td>연금소득</td></tr>
+  </table>
+</div>
+` },
+
+// ─── PAGE 33 ───
+{ title: '약관 관련 핵심 정리', part: 'Part 4', partColor: '#7c3aed', partBg: '#f5f3ff', qCount: '종합 정리 — 약관',
+  html: `
+<div class="section">
+  <div class="section-title">1. 계약 전 알릴 의무 위반 — 해지 불가 조건 요약</div>
+  <ul class="content-list">
+    <li>회사가 계약 시 알았거나 과실로 알지 못한 경우</li>
+    <li>위반사실을 안 날로부터 <span class="hl">1개월 이상</span> 경과</li>
+    <li>보장개시일로부터 보험사고 없이 <span class="hl">2년(질병 1년) 경과</span></li>
+    <li>계약 체결일로부터 <span class="hl">3년 경과</span></li>
+    <li>건강진단서 사본에 명기된 사항으로 보험사고 발생</li>
+    <li>보험설계사가 고지 기회를 부여하지 않거나 방해한 경우</li>
+  </ul>
+</div>
+
+<div class="section">
+  <div class="section-title">2. 계약 해지·취소·무효 비교</div>
+  <table class="content-table">
+    <tr><th>사유</th><th>처리</th><th>환급</th></tr>
+    <tr><td>고지의무 위반 (계약자 과실)</td><td>계약 해지</td><td>해약환급금 지급</td></tr>
+    <tr><td>약관 미교부·미설명 (3개월 이내)</td><td>계약 취소</td><td>납입보험료 + 이자</td></tr>
+    <tr><td>피보험자 서면동의 미취득</td><td>계약 무효</td><td>납입보험료 반환</td></tr>
+    <tr><td>만 15세 미만 사망보험</td><td>계약 무효</td><td>납입보험료 반환</td></tr>
+    <tr><td>청약철회 (15일 이내)</td><td>청약 철회</td><td>납입보험료 + 이자 (3영업일)</td></tr>
+  </table>
+</div>
+
+<div class="section">
+  <div class="section-title">3. 약관 해석 원칙</div>
+  <div class="content-text">
+    <span class="hl-yellow">신의성실 원칙</span>: 공정하게 해석, 계약자마다 다르게 해석 불가<br>
+    <span class="hl-yellow">작성자 불이익 원칙</span>: 약관 뜻이 불명확 시 <span class="hl">계약자에게 유리하게</span> 해석<br>
+    보험안내자료 내용이 약관과 다를 경우: <span class="hl">계약자에게 유리한 내용</span>으로 계약 성립
+  </div>
+</div>
+` },
+
+// ─── PAGE 34 ───
+{ title: '실손의료보험 추가 정리 / 5세대 실손', part: 'Part 4', partColor: '#7c3aed', partBg: '#f5f3ff', qCount: '종합 정리 — 실손의료보험',
+  html: `
+<div class="section">
+  <div class="section-title">실손의료보험 세대별 변화</div>
+  <table class="content-table">
+    <tr><th>세대</th><th>기간</th><th>주요 특징</th></tr>
+    <tr><td>3세대</td><td>2017.4~2021.6</td><td>주계약(급여+비급여) + 3대 비급여 특약 (도수치료·주사·MRI)</td></tr>
+    <tr><td><span class="hl">4세대</span></td><td>2021.7~</td><td>급여(주계약)+비급여(특약) 분리. 비급여 할인·할증 적용 (2024.7~). 재가입 주기 5년</td></tr>
+    <tr><td>5세대(예정)</td><td>2025년말 출시 예정</td><td>중증 비급여(특약1)+비중증 비급여(특약2) 분리. 임신·출산 급여 신규 보장</td></tr>
+  </table>
+</div>
+
+<div class="section">
+  <div class="section-title">실손보험 청구 전산화</div>
+  <div class="content-text mb">
+    <span class="hl-yellow">2024년 10월 25일</span>: 병원급 이상 요양기관 시행<br>
+    <span class="hl-yellow">2025년 10월 25일</span>: 의원급 요양기관 및 약국 시행<br>
+    <span class="hl-yellow">전송대행기관</span>: 보험개발원 '실손24' 앱
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">실손의료보험 중복가입 확인 의무</div>
+  <div class="content-text">
+    실손의료보험 계약 모집 전 → <span class="hl">보험계약자 동의 얻어</span> 피보험자의 중복계약 여부 확인<br>
+    중복 가입 확인 시 비례보상 등 세부사항 안내 의무<br>
+    <span class="hl-yellow">확인 방법</span>: 종합신용정보집중기관 보유 계약정보 조회
+  </div>
+</div>
+` },
+
+// ─── PAGE 35 ───
+{ title: '생명보험 역사 / 기초 이론 추가 정리', part: 'Part 1', partColor: '#ea580c', partBg: '#fff7ed', qCount: '제1편 보충 — 역사와 이론',
+  html: `
+<div class="section">
+  <div class="section-title">1. 세계 생명보험 역사 주요 사항</div>
+  <div class="content-text mb">
+    <span class="hl-yellow">1762년</span>: 영국 <span class="hl">에퀴타블(Equitable)</span> 생명보험회사 설립 — 세계 최초 근대 생명보험회사<br>
+    에퀴타블사: 신체검사·가입금액 제한·해약환급금·계약자 배당 등 근대적 제도 최초 도입<br>
+    <span class="hl-yellow">핼리(Halley)</span>: 최초의 사망표 작성 → 생명보험의 과학적 기초 제공
+  </div>
+  <div class="content-text">
+    <span class="hl-yellow">한국 생명보험 역사</span><br>
+    &nbsp;&nbsp;• 1891년: 일본 테이코쿠생명이 부산에 최초 대리점<br>
+    &nbsp;&nbsp;• 1921년: <span class="hl">조선생명보험주식회사</span> — 우리나라 최초 생명보험회사<br>
+    &nbsp;&nbsp;• 2003년: 방카슈랑스 도입
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">2. 고령화 관련 핵심 수치</div>
+  <div class="content-text mb">
+    <span class="hl-yellow">고령사회 구분</span><br>
+    &nbsp;&nbsp;• 고령화사회: 65세 이상 인구 7% 이상 (우리나라 2000년 진입)<br>
+    &nbsp;&nbsp;• 고령사회: 65세 이상 인구 14% 이상 (우리나라 2017년 진입)<br>
+    &nbsp;&nbsp;• <span class="hl">초고령사회</span>: 65세 이상 인구 20% 이상 (우리나라 <span class="hl">2024년 12월 진입, 20.2%</span>)
+  </div>
+  <div class="content-text">
+    합계출산율: <span class="hl">0.75명</span> (2024년, OECD 최저) / 평균 기대수명: 83.5세 (2023년)
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">3. 언더라이터 전문자격 제도</div>
+  <div class="content-text">
+    생명보험협회 주관 (2002년 도입)<br>
+    <span class="hl-yellow">CKLU</span> → <span class="hl-yellow">AKLU</span> → <span class="hl-yellow">FKLU</span> 3단계<br>
+    CKLU: 연 2회 / AKLU·FKLU: 연 1회, CKLU·AKLU 취득 후 응시 가능
+  </div>
+</div>
+` },
+
+// ─── PAGE 36 ───
+{ title: '보험소비자 보호 추가 / 광고심의', part: 'Part 2', partColor: '#2563eb', partBg: '#eff6ff', qCount: '제5장 보충 — 광고·공시',
+  html: `
+<div class="section">
+  <div class="section-title">1. 생명보험 광고심의제도</div>
+  <div class="content-text mb">
+    <span class="hl-yellow">근거</span>: 금융소비자보호법 + 생명보험협회 「생명보험 광고에 관한 규정」<br>
+    <span class="hl-yellow">심의기관</span>: 생명보험협회 광고심의위원회<br>
+    보험회사는 광고 시 <span class="hl">준법감시인 확인 + 협회 심의</span> 원칙 (상품광고·업무광고는 사전심의)
+  </div>
+  <div class="content-text">
+    <span class="hl-yellow">광고 종류</span>: 보험상품광고 / 판매방송(사후심의) / 대출광고(준법감시인 확인) / 업무광고 / 브랜드광고(심의 제외)
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">2. 보험정보 공시 체계</div>
+  <table class="content-table">
+    <tr><th>주체</th><th>공시 유형</th><th>주요 내용</th></tr>
+    <tr><td>생명보험회사</td><td>경영공시·상품공시</td><td>정기공시(결산 3개월 이내), 수시공시, 상품 정보</td></tr>
+    <tr><td>생명보험협회</td><td>비교공시·기타공시</td><td>보험료 비교·민원건수·불완전판매비율·유지율 등</td></tr>
+    <tr><td>금융감독원</td><td>종합공시</td><td>재무현황·보험계약관리·금융사고 현황 등</td></tr>
+  </table>
+  <div class="content-text mt">
+    <span class="hl-yellow">온라인 보험슈퍼마켓 '보험다모아'</span>: 생보협회·손보협회 공동 운영 (www.e-insmarket.or.kr)<br>
+    <span class="hl-yellow">'내보험찾아줌'</span>: 생명보험·손해보험 가입내역 조회 (공제보험 제외)
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">3. 장애인 보험가입 차별금지</div>
+  <div class="content-text">
+    보험회사는 정당한 이유 없이 장애인 보험가입 거부 불가 (보험업법 제97조 제1항 제10호)<br>
+    위반 시: <span class="hl">3년 이하 징역 또는 3천만원 이하 벌금</span><br>
+    <span class="hl-yellow">시정권고</span>: 국가인권위원회 / <span class="hl-yellow">시정명령</span>: 법무부장관<br>
+    <span class="hl-yellow">차별 신고센터</span>: 생명보험협회 운영
+  </div>
+</div>
+` },
+
+// ─── PAGE 37 ───
+{ title: '변액보험 공시 / 퇴직연금 추가 정리', part: 'Part 3', partColor: '#16a34a', partBg: '#f0fdf4', qCount: '제3편 보충 — 변액·퇴직연금',
+  html: `
+<div class="section">
+  <div class="section-title">1. 변액보험 주요 특징 정리</div>
+  <div class="content-text mb">
+    <span class="hl-yellow">일반보험 vs 변액보험 핵심 차이</span><br>
+    &nbsp;&nbsp;• 보험금: 일반 = 확정 / 변액 = 투자실적에 따라 변동<br>
+    &nbsp;&nbsp;• 예금자보호: 일반 = 적용 / 변액 = <span class="hl-red">미적용</span> (최저보증보험금은 적용)<br>
+    &nbsp;&nbsp;• 투자위험: 일반 = 회사 부담 / 변액 = <span class="hl">계약자 부담</span><br>
+    &nbsp;&nbsp;• 자산운용: 일반 = 일반계정 / 변액 = <span class="hl">특별계정</span>
+  </div>
+  <div class="content-text">
+    <span class="hl-yellow">변액보험 공시</span>: 분기별 1회 이상 계약정보 통보<br>
+    <span class="hl-yellow">변액보험 판매 제한</span>: 생명보험협회 변액보험 판매자격시험 합격자만 판매 가능<br>
+    &nbsp;&nbsp; 가입자: <span class="hl">변액보험 적합성 진단</span> 필수
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">2. 퇴직연금 핵심 수치</div>
+  <table class="content-table">
+    <tr><th>항목</th><th>내용</th></tr>
+    <tr><td>DB형 부담금</td><td>매년 평균임금의 <span class="hl">1/12 이상</span></td></tr>
+    <tr><td>DC형 부담금</td><td>연간 임금총액의 <span class="hl">1/12 이상</span></td></tr>
+    <tr><td>IRP 가입대상</td><td>2017년 이후 소득 있는 자 누구나 (자영업자·단시간근로자 포함)</td></tr>
+    <tr><td>위험자산 투자한도</td><td>적립금의 <span class="hl">70%</span> 이하</td></tr>
+    <tr><td>DC형 중도인출 — 요양 기간</td><td>본인이 <span class="hl">6개월 이상</span> 요양</td></tr>
+    <tr><td>근로자 교육</td><td>사용자가 매년 <span class="hl">1회 이상</span> 실시</td></tr>
+  </table>
+</div>
+` },
+
+// ─── PAGE 38 ───
+{ title: '생명보험 핵심 요약 — 마무리 정리', part: '안내', partColor: '#64748b', partBg: '#f1f5f9', qCount: '',
+  html: `
+<div class="section">
+  <div class="section-title">생명보험 시험 핵심 포인트</div>
+  <div class="content-text mb">
+    <span class="hl-yellow">Part 1 — 보험이론·윤리</span><br>
+    &nbsp;&nbsp;• 수지상등의 원칙 / 3이원방식·현금흐름방식<br>
+    &nbsp;&nbsp;• 보험계약의 무효·취소·해지 구분<br>
+    &nbsp;&nbsp;• 계약 전 알릴 의무 위반 해지 불가 조건<br>
+    &nbsp;&nbsp;• 보험사기 처벌: 10년 이하 징역, 5천만원 이하 벌금 / 미수범 처벌
+  </div>
+  <div class="content-text mb">
+    <span class="hl-yellow">Part 2 — 보험법규</span><br>
+    &nbsp;&nbsp;• 설계사·대리점 등록 요건과 등록기관<br>
+    &nbsp;&nbsp;• 특별이익 허용 범위: 10%와 3만원 중 적은 금액<br>
+    &nbsp;&nbsp;• 우수인증: 3년 근속, 13회차 90%, 25회차 80%, 4,000만원 이상<br>
+    &nbsp;&nbsp;• 예금자보호: 1억원 (연금저축·DC·IRP는 별도 1억원)
+  </div>
+  <div class="content-text mb">
+    <span class="hl-yellow">Part 3 — 생명보험</span><br>
+    &nbsp;&nbsp;• 변액보험: 예금자보호 미적용, 계약자가 투자위험 부담<br>
+    &nbsp;&nbsp;• 연금보험 vs 연금저축: 취급기관·세제 차이 명확히 구분<br>
+    &nbsp;&nbsp;• DC형 중도인출: 본인 6개월 이상 요양 (배우자 아님!)
+  </div>
+  <div class="content-text">
+    <span class="hl-yellow">Part 4 — 제3보험</span><br>
+    &nbsp;&nbsp;• 상해사고 3요건: 급격성·우연성·외래성<br>
+    &nbsp;&nbsp;• 질병사망: 주계약 불가, 특약으로만 운영<br>
+    &nbsp;&nbsp;• 4세대 실손: 급여 20%·비급여 30% 자기부담, 5년 재가입<br>
+    &nbsp;&nbsp;• 장기요양 1등급이 가장 중증
+  </div>
+</div>
+
+<div class="highlight-section" style="text-align:center; padding:28px 20px;">
+  <div style="font-size:1.75rem; margin-bottom:8px;">🎉</div>
+  <div style="font-size:1.2rem; font-weight:800; color:var(--g900); margin-bottom:8px;">38페이지 완주!</div>
+  <div style="font-size:14px; color:var(--g500); line-height:1.8;">
+    4파트 10챕터, 생명보험·제3보험 전 범위를 모두 돌았습니다.<br>
+    한 번 더 읽을 때마다 합격에 가까워지고 있어요.
+  </div>
+  <div style="margin-top:12px; font-size:15px; font-weight:700; color:var(--p)">당신은 반드시 합격할 수 있습니다! 💪</div>
+</div>
+` },
+
+];
+
+const tocData = [
+  {p:1,n:'목차'},
+  {p:2,n:'생명보험의 의의와 기능'},
+  {p:3,n:'기본원리·보험료 구성'},
+  {p:4,n:'약관 — 계약 성립·청약철회'},
+  {p:5,n:'계약 무효·보험금 지급'},
+  {p:6,n:'알릴 의무·납입·부활'},
+  {p:7,n:'언더라이팅과 클레임'},
+  {p:8,n:'보험영업 윤리·보험사기'},
+  {p:9,n:'설계사·대리점 등록'},
+  {p:10,n:'모집 금지행위·설명의무'},
+  {p:11,n:'방카슈랑스·통신판매·안내자료'},
+  {p:12,n:'우수인증설계사·협정 준수'},
+  {p:13,n:'소비자보호·예금자보호'},
+  {p:14,n:'보장성보험 세액공제'},
+  {p:15,n:'연금계좌·저축성보험 비과세'},
+  {p:16,n:'단체보험·상속·증여 세제'},
+  {p:17,n:'생명보험의 개요와 특징'},
+  {p:18,n:'생명보험 상품 분류'},
+  {p:19,n:'종신·유니버설·연금보험'},
+  {p:20,n:'퇴직연금·변액보험'},
+  {p:21,n:'제3보험 개요·법규'},
+  {p:22,n:'제3보험 설계기준'},
+  {p:23,n:'상해보험 — 사고 요건'},
+  {p:24,n:'상해보험 — 직업등급·보장'},
+  {p:25,n:'질병보험 — 암보험'},
+  {p:26,n:'실손의료보험 — 4세대'},
+  {p:27,n:'어린이·CI·치아보험'},
+  {p:28,n:'간병보험 — 장기요양·치매'},
+  {p:29,n:'간병보험 가입조건·종합'},
+  {p:30,n:'핵심 수치 종합 정리'},
+  {p:31,n:'모집 규정 핵심 수치'},
+  {p:32,n:'세제 핵심 정리'},
+  {p:33,n:'약관 관련 핵심 정리'},
+  {p:34,n:'실손의료보험 추가 정리'},
+  {p:35,n:'생명보험 역사·기초 이론'},
+  {p:36,n:'광고심의·공시·장애인보험'},
+  {p:37,n:'변액보험·퇴직연금 추가'},
+  {p:38,n:'마무리 핵심 요약'},
+];
+
+let currentPage = 0;
+
+function startApp() {
+  document.getElementById('cover').style.display = 'none';
+  document.getElementById('app').style.display = 'block';
+  renderPage(0);
+}
+
+function goBack() {
+  document.getElementById('app').style.display = 'none';
+  document.getElementById('cover').style.display = 'flex';
+}
+
+function renderPage(idx) {
+  currentPage = idx;
+  const page = pages[idx];
+  const total = pages.length;
+  const pct = Math.round(((idx + 1) / total) * 100 * 10) / 10;
+
+  document.getElementById('nav-page-info').textContent = (idx + 1) + ' / ' + total;
+  document.getElementById('progress-fill').style.width = pct + '%';
+  document.getElementById('nav-percent').textContent = pct + '%';
+
+  const container = document.getElementById('page-container');
+  container.innerHTML = `
+    <div class="page-header">
+      <span class="part-chip" style="background:${page.partBg};color:${page.partColor}">${page.part}</span>
+      <h1 class="page-title-main">${page.title}</h1>
+      ${page.qCount ? `<p class="page-qcount">📋 ${page.qCount}</p>` : ''}
+    </div>
+    ${page.html}
+    <div class="page-nav">
+      <button class="nav-btn" onclick="goToPage(${idx - 1})" ${idx === 0 ? 'disabled' : ''}>← 이전</button>
+      <span class="page-indicator">${idx + 1} / ${total}</span>
+      <button class="nav-btn primary" onclick="goToPage(${idx + 1})" ${idx === total - 1 ? 'disabled' : ''}>다음 →</button>
+    </div>
+  `;
+
+  if (idx === 0) {
+    const toc = document.getElementById('toc');
+    if (toc) {
+      toc.innerHTML = tocData.map(t => `
+        <div class="toc-item" onclick="goToPage(${t.p - 1})">
+          <div class="toc-num">PAGE ${t.p}</div>
+          <div class="toc-name">${t.n}</div>
+        </div>
+      `).join('');
+    }
+  }
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function goToPage(idx) {
+  if (idx < 0 || idx >= pages.length) return;
+  renderPage(idx);
+}
+
+window.addEventListener('scroll', () => {
+  const btn = document.getElementById('scroll-top');
+  if (window.scrollY > 300) btn.classList.add('visible');
+  else btn.classList.remove('visible');
+});
+
+document.addEventListener('keydown', (e) => {
+  if (document.getElementById('app').style.display === 'none') return;
+  if (e.key === 'ArrowRight' || e.key === 'ArrowDown') goToPage(currentPage + 1);
+  if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') goToPage(currentPage - 1);
+});
+</script>
+</body>
+</html>

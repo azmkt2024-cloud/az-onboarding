@@ -1,0 +1,1489 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>변액보험판매자격 핵심 요약집 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --p: #3182f6; --p-lt: #e8f1fd; --p-dk: #1b64da;
+    --green: #0dab5c; --grn-lt: #e6f7ef;
+    --red: #ef4444; --red-lt: #fef2f2;
+    --g50: #f8fafc; --g100: #f1f5f9; --g200: #e2e8f0;
+    --g300: #cbd5e1; --g400: #94a3b8; --g500: #64748b;
+    --g600: #475569; --g700: #334155; --g800: #1e293b; --g900: #0f172a;
+    --white: #ffffff; --r: 12px; --rsm: 8px; --rxs: 6px;
+  }
+  body { font-family: 'Pretendard', 'Noto Sans KR', -apple-system, sans-serif; background: var(--g50); color: var(--g800); font-size: 15px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+  /* ─── COVER ─── */
+  #cover { min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:2rem 1.5rem; background: linear-gradient(160deg,#fff 0%,#eef5fe 55%,#e8f1fd 100%); text-align:center; }
+  .cover-logo { display:flex; align-items:center; gap:8px; margin-bottom:2.5rem; }
+  .cover-logo-icon { width:36px; height:36px; background:var(--p); border-radius:10px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:18px; font-weight:800; }
+  .cover-logo-text { font-size:16px; font-weight:700; color:var(--g700); }
+  .cover-badge { display:inline-flex; align-items:center; gap:6px; background:var(--p-lt); color:var(--p); border-radius:100px; padding:5px 14px; font-size:13px; font-weight:600; margin-bottom:1.25rem; }
+  .cover-title { font-size:clamp(2rem,5vw,3.25rem); font-weight:800; color:var(--g900); letter-spacing:-1px; line-height:1.15; margin-bottom:.75rem; }
+  .cover-title em { color:var(--p); font-style:normal; }
+  .cover-subtitle { font-size:16px; color:var(--g500); margin-bottom:2.5rem; }
+  .cover-stats { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-bottom:2.5rem; }
+  .cover-stat { background:var(--white); border:1px solid var(--g200); border-radius:var(--r); padding:16px 24px; box-shadow:0 1px 3px rgba(0,0,0,.1); min-width:100px; }
+  .cover-stat-num { display:block; font-size:28px; font-weight:800; color:var(--p); letter-spacing:-.5px; }
+  .cover-stat-label { font-size:13px; color:var(--g400); font-weight:500; }
+  .cover-btn { background:var(--p); color:#fff; border:none; border-radius:100px; padding:15px 44px; font-size:16px; font-weight:700; cursor:pointer; font-family:inherit; transition:all .18s; box-shadow:0 4px 14px rgba(49,130,246,.35); }
+  .cover-btn:hover { background:var(--p-dk); transform:translateY(-1px); }
+  .cover-cheers { margin-top:1.5rem; font-size:14px; color:var(--g400); }
+
+  /* ─── APP SHELL ─── */
+  #app { display:none; min-height:100vh; }
+  .topbar { position:sticky; top:0; z-index:100; background:rgba(255,255,255,.95); backdrop-filter:blur(12px); border-bottom:1px solid var(--g200); padding:0 20px; height:56px; display:flex; align-items:center; gap:12px; }
+  .tb-logo { display:flex; align-items:center; gap:7px; flex-shrink:0; }
+  .tb-logo-icon { width:28px; height:28px; background:var(--p); border-radius:8px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:13px; font-weight:800; }
+  .tb-logo-text { font-size:14px; font-weight:700; color:var(--g700); }
+  .tb-divider { width:1px; height:18px; background:var(--g200); flex-shrink:0; }
+  .tb-prog-wrap { flex:1; display:flex; align-items:center; gap:10px; min-width:0; }
+  .tb-page-info { font-size:13px; color:var(--g400); font-weight:500; white-space:nowrap; }
+  .prog-bg { flex:1; height:4px; background:var(--g200); border-radius:2px; overflow:hidden; }
+  .prog-fill { height:100%; background:var(--p); border-radius:2px; transition:width .4s ease; }
+  .tb-pct { font-size:13px; color:var(--p); font-weight:700; white-space:nowrap; }
+  .tb-back { background:var(--g100); border:none; color:var(--g600); border-radius:var(--rxs); padding:6px 12px; font-size:13px; font-weight:600; cursor:pointer; font-family:inherit; transition:all .15s; flex-shrink:0; }
+  .tb-back:hover { background:var(--g200); }
+
+  /* ─── PAGE ─── */
+  .page-wrap { max-width:860px; margin:0 auto; padding:28px 20px 60px; }
+  .page-header { margin-bottom:20px; }
+  .part-chip { display:inline-flex; align-items:center; border-radius:100px; padding:4px 12px; font-size:12px; font-weight:700; margin-bottom:10px; }
+  .page-title-main { font-size:clamp(1.25rem,3vw,1.6rem); font-weight:800; color:var(--g900); letter-spacing:-.5px; margin-bottom:4px; line-height:1.25; }
+  .page-qcount { font-size:13px; color:var(--g400); font-weight:500; }
+
+  /* ─── CARDS ─── */
+  .section { background:var(--white); border:1px solid var(--g200); border-radius:var(--r); padding:20px; margin-bottom:12px; box-shadow:0 1px 2px rgba(0,0,0,.06); }
+  .section-title { font-size:14px; font-weight:700; color:var(--g800); margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+  .section-title::before { content:''; width:3px; height:14px; background:var(--p); border-radius:2px; flex-shrink:0; }
+  .content-text { font-size:14px; line-height:1.85; color:var(--g600); }
+  .hl        { color:#1d4ed8; font-weight:700; }
+  .hl-yellow { color:#b45309; font-weight:700; }
+  .hl-green  { color:#166534; font-weight:700; }
+  .hl-blue   { color:var(--p-dk); font-weight:700; }
+  .hl-red    { color:var(--red); font-weight:700; }
+  .hl-purple { color:#7c3aed; font-weight:700; }
+
+  /* ─── TABLE ─── */
+  .content-table { width:100%; border-collapse:collapse; font-size:13px; margin:10px 0; border-radius:var(--rsm); overflow:hidden; border:1px solid var(--g200); }
+  .content-table th { background:var(--g50); color:var(--g700); font-weight:700; padding:9px 12px; text-align:left; border-bottom:1px solid var(--g200); font-size:12.5px; }
+  .content-table td { padding:8px 12px; border-bottom:1px solid var(--g100); color:var(--g600); vertical-align:top; font-size:13px; }
+  .content-table tr:last-child td { border-bottom:none; }
+  .content-table tr:hover td { background:var(--g50); }
+
+  /* ─── LIST ─── */
+  .content-list { list-style:none; padding:0; margin:6px 0; }
+  .content-list li { padding:4px 0 4px 18px; position:relative; font-size:14px; color:var(--g600); line-height:1.75; }
+  .content-list li::before { content:'•'; position:absolute; left:4px; color:var(--p); font-weight:700; font-size:12px; top:6px; }
+  .content-list.num { counter-reset:lc; }
+  .content-list.num li::before { content:counter(lc)'.'; counter-increment:lc; font-weight:700; color:var(--g400); font-size:12px; top:4px; }
+
+  /* ─── CALLOUT BOXES ─── */
+  .wrong-box { background:var(--red-lt); border:1px solid #fecaca; border-radius:var(--rxs); padding:10px 14px; margin:8px 0; font-size:13px; color:#991b1b; line-height:1.7; }
+  .wrong-box::before { content:'✗ 오답유형  '; font-weight:700; color:var(--red); }
+  .tip-box { background:var(--grn-lt); border:1px solid #a7f3d0; border-radius:var(--rxs); padding:10px 14px; margin:8px 0; font-size:13px; color:#065f46; line-height:1.7; }
+  .tip-box::before { content:'💡 Plus Tip!  '; font-weight:700; color:var(--green); }
+  .exam-box { background:#fffbeb; border:1px solid #fde68a; border-radius:var(--rxs); padding:10px 14px; margin:8px 0; font-size:13px; color:#78350f; line-height:1.7; }
+  .exam-box::before { content:'📝 출제포인트  '; font-weight:700; color:#d97706; }
+  .memo-box { background:#eff6ff; border:1px solid #bfdbfe; border-radius:var(--rxs); padding:10px 14px; margin:8px 0; font-size:13px; color:#1e40af; line-height:1.7; }
+
+  /* ─── GRID / MINI-CARD ─── */
+  .grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:8px 0; }
+  @media(max-width:560px){
+    .grid-2 { grid-template-columns:1fr; }
+    .section { overflow-x:auto; -webkit-overflow-scrolling:touch; }
+    .content-table { min-width:480px; font-size:12px; }
+    .content-table th, .content-table td { padding:7px 9px; word-break:keep-all; }
+  }
+  .mini-card { background:var(--g50); border:1px solid var(--g200); border-radius:var(--rsm); padding:12px 14px; }
+  .mini-card-title { font-size:13px; font-weight:700; color:var(--g700); margin-bottom:6px; }
+  .mini-card-body { font-size:13px; color:var(--g600); line-height:1.7; }
+
+  /* ─── HIGHLIGHT SECTION ─── */
+  .highlight-section { background:linear-gradient(135deg,var(--p-lt),#f0f7ff); border:1px solid #bfdbfe; border-radius:var(--r); padding:18px 20px; margin-bottom:12px; }
+
+  /* ─── BOTTOM NAV ─── */
+  .page-nav { display:flex; justify-content:space-between; align-items:center; margin-top:24px; padding-top:20px; border-top:1px solid var(--g200); gap:12px; }
+  .nav-btn { background:var(--white); border:1px solid var(--g200); color:var(--g700); border-radius:var(--rsm); padding:10px 22px; font-size:14px; font-weight:600; cursor:pointer; font-family:inherit; transition:all .15s; box-shadow:0 1px 2px rgba(0,0,0,.06); }
+  .nav-btn:hover { background:var(--g50); border-color:var(--g300); }
+  .nav-btn:disabled { opacity:.35; cursor:not-allowed; box-shadow:none; }
+  .nav-btn.primary { background:var(--p); border-color:var(--p); color:#fff; box-shadow:0 2px 8px rgba(49,130,246,.25); }
+  .nav-btn.primary:hover { background:var(--p-dk); border-color:var(--p-dk); }
+  .page-indicator { font-size:13px; color:var(--g400); font-weight:500; }
+
+  /* ─── TOC ─── */
+  .toc-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(190px,1fr)); gap:8px; margin:12px 0; }
+  .toc-item { background:var(--g50); border:1px solid var(--g200); border-radius:var(--rsm); padding:10px 14px; cursor:pointer; transition:all .15s; }
+  .toc-item:hover { background:var(--p-lt); border-color:#93c5fd; }
+  .toc-num { font-size:11px; color:var(--g400); font-weight:600; margin-bottom:3px; }
+  .toc-name { font-size:13px; color:var(--g700); line-height:1.4; font-weight:500; }
+
+  /* ─── UTILS ─── */
+  .divider { height:1px; background:var(--g200); margin:12px 0; }
+  .mb { margin-bottom:10px; } .mt { margin-top:10px; }
+  .badge { display:inline-block; padding:2px 8px; border-radius:100px; font-size:11.5px; font-weight:700; margin-right:3px; }
+  .badge-orange { background:#fff7ed; color:#ea580c; }
+  .badge-blue   { background:var(--p-lt); color:var(--p); }
+  .badge-green  { background:var(--grn-lt); color:#15803d; }
+  .badge-red    { background:var(--red-lt); color:var(--red); }
+  .badge-purple { background:#f5f3ff; color:#7c3aed; }
+  .badge-teal   { background:#f0fdfa; color:#0d9488; }
+  .scroll-top { position:fixed; bottom:24px; right:24px; background:var(--p); color:#fff; border:none; border-radius:50%; width:42px; height:42px; font-size:18px; cursor:pointer; opacity:0; transition:opacity .25s; z-index:200; box-shadow:0 4px 6px rgba(0,0,0,.07); }
+  .scroll-top.visible { opacity:1; }
+</style>
+</head>
+<body>
+
+<div id="cover">
+  <div class="cover-logo">
+    <div class="cover-logo-icon">변</div>
+    <span class="cover-logo-text">생명보험협회 (KLIA)</span>
+  </div>
+  <div class="cover-badge"><span>📋</span> 변액보험판매자격시험 준비 2026</div>
+  <h1 class="cover-title">변액보험의 이해와 판매<br><em>핵심 요약집</em></h1>
+  <p class="cover-subtitle">4개 장 완전 정리 — 최단 시간 합격 전략</p>
+  <div class="cover-stats">
+    <div class="cover-stat"><span class="cover-stat-num">30</span><span class="cover-stat-label">총 페이지</span></div>
+    <div class="cover-stat"><span class="cover-stat-num">4</span><span class="cover-stat-label">장(Chapter)</span></div>
+    <div class="cover-stat"><span class="cover-stat-num">285</span><span class="cover-stat-label">교재 페이지</span></div>
+    <div class="cover-stat"><span class="cover-stat-num">2026</span><span class="cover-stat-label">최신판</span></div>
+  </div>
+  <button class="cover-btn" onclick="startApp()">학습 시작하기 →</button>
+  <p class="cover-cheers">✨ 차근차근 읽으면 반드시 합격! 포기하지 말자!</p>
+</div>
+
+<div id="app">
+  <nav class="topbar">
+    <div class="tb-logo">
+      <div class="tb-logo-icon">변</div>
+      <span class="tb-logo-text">변액보험 요약집</span>
+    </div>
+    <div class="tb-divider"></div>
+    <div class="tb-prog-wrap">
+      <span class="tb-page-info" id="nav-page-info">1 / 30</span>
+      <div class="prog-bg"><div class="prog-fill" id="progress-fill" style="width:3.3%"></div></div>
+      <span class="tb-pct" id="nav-percent">3.3%</span>
+    </div>
+    <button class="tb-back" onclick="goBack()">← 처음으로</button>
+  </nav>
+  <div class="page-wrap" id="page-container"></div>
+  <button class="scroll-top" id="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+</div>
+
+<script>
+const pages = [
+
+// ─── PAGE 1 ───
+{ title: '제1장 — 금융시장의 구조와 기능', part: 'Part 1', partColor: '#ea580c', partBg: '#fff7ed', qCount: '제1장 1절. 금융시장과 금융상품',
+  html: `
+<div class="section">
+  <div class="section-title">1. 금융과 금융시장 기본 개념</div>
+  <div class="content-text mb">
+    <span class="hl">금융</span> = 자금이 필요한 곳에 원활히 유통되도록 하는 행위<br>
+    <span class="hl">금융시장</span> = 자금 공급자와 수요자가 금융상품을 거래하는 장소(비조직화된 장소 포함)<br><br>
+    <span class="hl-yellow">직접금융</span> : 자금 공급자↔수요자가 직접 거래 → 증권회사가 대표<br>
+    <span class="hl-yellow">간접금융</span> : 금융기관(은행)이 중개, 손실·이익 책임을 금융기관이 부담
+  </div>
+  <div class="content-text">2024년 말 금융자산 규모: <span class="hl">2경 4,394조원</span> (전년 대비 6.2% 증가)</div>
+</div>
+<div class="section">
+  <div class="section-title">2. 금융시장의 5대 기능</div>
+  <table class="content-table">
+    <tr><th>기능</th><th>핵심 내용</th></tr>
+    <tr><td><span class="hl">자금 중개</span></td><td>여유자금→필요한 곳으로 이전, 경제성장 기여</td></tr>
+    <tr><td><span class="hl">가격 결정</span></td><td>금리·주가 등 금융상품 가격 결정 (가격 탐색과정)</td></tr>
+    <tr><td><span class="hl">유동성 제공</span></td><td>금융자산 즉시 현금화 가능 → 유동성 프리미엄 낮춤</td></tr>
+    <tr><td><span class="hl">거래비용 절감</span></td><td>탐색비용·정보비용 감소</td></tr>
+    <tr><td><span class="hl">위험관리</span></td><td>파생상품, 보험 등을 통한 위험 분산</td></tr>
+  </table>
+</div>
+<div class="section">
+  <div class="section-title">3. 금융시장 분류</div>
+  <div class="grid-2">
+    <div class="mini-card">
+      <div class="mini-card-title">단기금융시장 (자금시장)</div>
+      <div class="mini-card-body">만기 <span class="hl">1년 미만</span><br>콜, CP, CD, RP, 단기사채, 표지어음, 통화안정증권(MSB)</div>
+    </div>
+    <div class="mini-card">
+      <div class="mini-card-title">장기금융시장 (자본시장)</div>
+      <div class="mini-card-body">만기 <span class="hl">1년 이상</span><br>주식시장, 채권시장(국채·지방채·회사채·금융채)</div>
+    </div>
+  </div>
+</div>
+<div class="exam-box">콜시장: 금융기관 간 초단기 자금 거래 / 최저 1억원, 0.01% 단위 / 무담보 중개거래 대부분<br>CD: 30일 이상 만기, 중도환매 불가 / RP: 일정기간 후 재매수 조건 채권거래</div>
+` },
+
+// ─── PAGE 3 ───
+{ title: '제1장 — 주식시장의 이해', part: 'Part 1', partColor: '#ea580c', partBg: '#fff7ed', qCount: '제1장 2절. 주식시장',
+  html: `
+<div class="section">
+  <div class="section-title">1. 주식의 개념과 발행</div>
+  <div class="content-text mb">
+    <span class="hl">주식</span>: 주식회사가 발행하는 출자증권. 주주는 유한책임 부담<br>
+    <span class="hl">보통주</span>: 의결권·배당권 있음 / <span class="hl">우선주</span>: 배당·잔여재산 분배 우선, 의결권 없음<br><br>
+    <span class="hl-yellow">액면가</span> vs <span class="hl-yellow">시장가</span>: 주가는 시장에서 수요·공급에 의해 결정<br>
+    <span class="hl">주가수익비율(PER)</span> = 주가 ÷ 주당순이익(EPS) → 낮을수록 저평가<br>
+    <span class="hl">주가순자산비율(PBR)</span> = 주가 ÷ 주당순자산(BPS) → 1 미만이면 자산가치 이하
+  </div>
+</div>
+<div class="section">
+  <div class="section-title">2. 주요 주가지수</div>
+  <table class="content-table">
+    <tr><th>지수</th><th>설명</th></tr>
+    <tr><td><span class="hl">코스피(KOSPI)</span></td><td>유가증권시장 상장 전체 주식 시가총액 기준</td></tr>
+    <tr><td><span class="hl">코스닥(KOSDAQ)</span></td><td>중소·벤처기업 중심의 별도 시장</td></tr>
+    <tr><td>다우존스(미국)</td><td>30개 우량 블루칩 기업으로 구성된 가격평균방식</td></tr>
+    <tr><td>S&P 500(미국)</td><td>500개 기업 시가총액가중방식 — 변액보험 펀드 벤치마크로 많이 사용</td></tr>
+  </table>
+</div>
+<div class="section">
+  <div class="section-title">3. 주식투자 위험과 수익</div>
+  <div class="content-text">
+    <span class="hl">체계적 위험(시장 위험)</span>: 분산투자로 제거 불가(금리·경기·환율 등)<br>
+    <span class="hl">비체계적 위험(개별 위험)</span>: 분산투자로 제거 가능(개별 기업 위험)<br><br>
+    <span class="hl-yellow">배당수익률</span> = 주당배당금 ÷ 주가 × 100<br>
+    <span class="hl-yellow">총수익률</span> = (매도가 - 매수가 + 배당금) ÷ 매수가 × 100
+  </div>
+</div>
+<div class="wrong-box">PER이 높으면 저평가 — ✗ / PER이 낮을수록 저평가, 높을수록 고평가(또는 성장 기대)</div>
+` },
+
+// ─── PAGE 4 ───
+{ title: '제1장 — 채권·세금·금융상품 선택', part: 'Part 1', partColor: '#ea580c', partBg: '#fff7ed', qCount: '제1장 3~5절',
+  html: `
+<div class="section">
+  <div class="section-title">1. 채권의 기본 개념</div>
+  <div class="content-text mb">
+    <span class="hl">채권</span>: 확정이자를 받는 장기 채무증권. 발행주체에 따라 국채·지방채·특수채·금융채·회사채로 분류<br><br>
+    <span class="hl-red">핵심 공식</span>: <span class="hl">채권 가격 ↑ ↔ 수익률(금리) ↓</span> (역의 관계)<br>
+    금리가 오르면 기존 채권 가격이 하락함 → 변액보험 채권형 펀드에 중요한 개념
+  </div>
+</div>
+<div class="section">
+  <div class="section-title">2. 채권 용어 정리</div>
+  <table class="content-table">
+    <tr><th>용어</th><th>의미</th></tr>
+    <tr><td><span class="hl">이표채</span></td><td>정기적으로 이자를 지급하는 채권</td></tr>
+    <tr><td><span class="hl">할인채</span></td><td>액면가보다 낮은 가격에 발행, 만기에 액면가 지급</td></tr>
+    <tr><td><span class="hl">복리채</span></td><td>이자를 복리로 재투자하여 만기에 원리금 일괄 지급</td></tr>
+    <tr><td><span class="hl">듀레이션</span></td><td>채권 현금흐름의 평균 회수기간 → 금리 위험 척도</td></tr>
+    <tr><td><span class="hl">신용등급</span></td><td>AAA~D까지. BBB 이상은 투자적격등급</td></tr>
+  </table>
+</div>
+<div class="section">
+  <div class="section-title">3. 금융투자상품과 세금</div>
+  <div class="content-text mb">
+    <span class="hl">이자소득세</span>: 14% (지방소득세 포함 15.4%)<br>
+    <span class="hl">배당소득세</span>: 14% (지방소득세 포함 15.4%)<br>
+    <span class="hl">금융소득종합과세</span>: 이자+배당 합산 연 <span class="hl-yellow">2,000만원 초과</span> 시 종합과세<br>
+    국내 주식 매매차익: 원칙적으로 <span class="hl">비과세</span> (대주주 제외)
+  </div>
+  <div class="content-text">
+    <span class="hl">ISA(개인종합자산관리계좌)</span>: 비과세 한도 내 절세 / 만기 후 연금계좌로 이전 가능<br>
+    <span class="hl">연금저축계좌</span>: 납입한도 연 600만원, 세액공제 대상
+  </div>
+</div>
+<div class="exam-box">금융소득종합과세 기준금액 2,000만원은 자주 출제됨. "초과"임을 주의 (2,000만원 이하는 분리과세)</div>
+<div class="section">
+  <div class="section-title">4. 금융상품 선택 기준</div>
+  <ul class="content-list">
+    <li><span class="hl">수익성</span>: 기대수익률 (위험과 비례)</li>
+    <li><span class="hl">안전성</span>: 원금 보전 가능성</li>
+    <li><span class="hl">유동성</span>: 현금화 용이성</li>
+    <li><span class="hl">세제혜택</span>: 비과세·세액공제 여부</li>
+  </ul>
+</div>
+` },
+
+// ─── PAGE 5 ───
+{ title: '제2장 — 생명보험산업 현황', part: 'Part 2', partColor: '#0d9488', partBg: '#f0fdfa', qCount: '제2장 1절. 생명보험산업 현황',
+  html: `
+<div class="section">
+  <div class="section-title">1. 생명보험업계 주요 통계 (FY2024 기준)</div>
+  <table class="content-table">
+    <tr><th>구분</th><th>수치</th></tr>
+    <tr><td>당기순이익</td><td><span class="hl">5조 6,374억원</span></td></tr>
+    <tr><td>수입보험료</td><td><span class="hl">113조 4,400억원</span></td></tr>
+    <tr><td>총자산</td><td><span class="hl">약 905.5조원</span></td></tr>
+    <tr><td>전체 보험산업 내 비중</td><td><span class="hl">47.1%</span> (손해보험 52.9%)</td></tr>
+    <tr><td>세계 순위</td><td>수입보험료 기준 <span class="hl">세계 9위</span></td></tr>
+  </table>
+</div>
+<div class="section">
+  <div class="section-title">2. 변액보험 판매현황 (FY2024)</div>
+  <table class="content-table">
+    <tr><th>구분</th><th>수치</th></tr>
+    <tr><td>초회보험료</td><td><span class="hl">19,728억원</span> (전체 초회의 8.5%)</td></tr>
+    <tr><td>수입보험료</td><td><span class="hl">12조 2,742억원</span> (전체의 10.8%)</td></tr>
+    <tr><td>총자산</td><td><span class="hl">101조 6,222억원</span> (전체의 11.2%)</td></tr>
+    <tr><td>상품별</td><td>변액종신 10,641억 / 변액연금 46,310억 / 변액저축 등 65,791억</td></tr>
+  </table>
+</div>
+<div class="exam-box">변액보험 수입보험료가 전체에서 차지하는 비중(10.8%), 총자산 비중(11.2%) — 수치 암기</div>
+` },
+
+// ─── PAGE 6 ───
+{ title: '제2장 — 생명보험 상품의 구성 ①', part: 'Part 2', partColor: '#0d9488', partBg: '#f0fdfa', qCount: '제2장 2절. 생명보험 상품 및 보험약관',
+  html: `
+<div class="section">
+  <div class="section-title">1. 생명보험 운영 원리</div>
+  <div class="content-text mb">
+    <span class="hl">대수의 법칙</span>: 관찰 횟수를 늘릴수록 사고 발생 비율이 일정한 형태로 수렴 → 보험료 산출의 근거<br>
+    <span class="hl">수지상등의 원칙</span>: 보험료 총액 = 보험금 총액 + 사업비 → 보험 경영 지속의 필수 조건
+  </div>
+</div>
+<div class="section">
+  <div class="section-title">2. 경험생명표</div>
+  <div class="content-text mb">연령별 생존·사망 통계. 생명보험 보험료 산출의 기초통계</div>
+  <table class="content-table">
+    <tr><th>회차</th><th>시행</th><th>남자 평균수명</th><th>여자 평균수명</th></tr>
+    <tr><td>9회</td><td>2019년 4월</td><td>83.5세</td><td>88.5세</td></tr>
+    <tr><td><span class="hl">10회</span></td><td><span class="hl">2024년 4월</span></td><td><span class="hl">86.3세</span></td><td><span class="hl">90.7세</span></td></tr>
+  </table>
+</div>
+<div class="section">
+  <div class="section-title">3. 보험료 산출 방식</div>
+  <div class="grid-2">
+    <div class="mini-card">
+      <div class="mini-card-title">3이원방식 (전통)</div>
+      <div class="mini-card-body">예정위험률 + 예정이율 + 예정사업비율<br>보수적(안정적) 기초율 적용</div>
+    </div>
+    <div class="mini-card">
+      <div class="mini-card-title">현금흐름방식 (2013.4~)</div>
+      <div class="mini-card-body">3이원 + 해지율·옵션 등 추가<br>회사별 최적가정 적용, 수익성 분석 필수</div>
+    </div>
+  </div>
+  <div class="content-text mt">
+    <span class="hl-yellow">예정이율 ↑</span> → 보험료 ↓ / <span class="hl-yellow">예정위험률(사망) ↑</span> → 사망보험료 ↑<br>
+    <span class="hl-yellow">예정사업비율 ↑</span> → 보험료 ↑
+  </div>
+</div>
+<div class="section">
+  <div class="section-title">4. 보험료 구조</div>
+  <div class="content-text">
+    <span class="hl">위험보험료</span>: 사망보험금 재원 (예정위험률 기초)<br>
+    <span class="hl">저축보험료</span>: 만기·중도 생존보험금 재원<br>
+    <span class="hl">순보험료</span> = 위험보험료 + 저축보험료<br>
+    <span class="hl">부가보험료</span>: 사업비 재원 (예정사업비율 기초)<br>
+    <span class="hl">영업보험료(총보험료)</span> = 순보험료 + 부가보험료
+  </div>
+</div>
+<div class="wrong-box">현금흐름방식 도입 이후에도 3이원방식 선택 가능 — ✗ / 2013년 4월부터 현금흐름방식으로 의무 전환됨</div>
+` },
+
+// ─── PAGE 7 ───
+{ title: '제2장 — 생명보험 상품의 구성 ②', part: 'Part 2', partColor: '#0d9488', partBg: '#f0fdfa', qCount: '제2장 2절. 보험상품 종류·구조',
+  html: `
+<div class="section">
+  <div class="section-title">1. 보험사고 형태별 분류</div>
+  <table class="content-table">
+    <tr><th>종류</th><th>지급 조건</th><th>대표 상품</th></tr>
+    <tr><td><span class="hl">생존보험</span></td><td>만기까지 생존 시</td><td>연금보험, 교육보험</td></tr>
+    <tr><td><span class="hl">사망보험</span></td><td>보험기간 중 사망 시</td><td>정기보험, 종신보험</td></tr>
+    <tr><td><span class="hl">생사혼합보험</span></td><td>사망 또는 만기 생존 시</td><td>양로보험</td></tr>
+  </table>
+</div>
+<div class="section">
+  <div class="section-title">2. 정기보험 vs 종신보험</div>
+  <div class="grid-2">
+    <div class="mini-card">
+      <div class="mini-card-title">정기보험</div>
+      <div class="mini-card-body">일정 기간만 보장 (10년·20년 등)<br>만기 후 계약 종료<br>종신보험보다 보험료 <span class="hl">저렴</span></div>
+    </div>
+    <div class="mini-card">
+      <div class="mini-card-title">종신보험</div>
+      <div class="mini-card-body">평생 보장<br>언제 사망해도 보험금 지급<br>다양한 특약 결합 가능</div>
+    </div>
+  </div>
+</div>
+<div class="section">
+  <div class="section-title">3. 보장성 vs 저축성 보험</div>
+  <div class="content-text">
+    <span class="hl">보장성 보험</span>: 생존시 지급 보험금 합계 ≤ 납입 보험료 (순수보장형은 만기 보험금 없음)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;기준: 40세 남자, 전기납으로 가입 기준<br>
+    <span class="hl">저축성 보험</span>: 생존시 지급 보험금 합계 > 납입 보험료
+  </div>
+</div>
+<div class="section">
+  <div class="section-title">4. 주계약과 특약</div>
+  <div class="content-text">
+    <span class="hl">주계약</span>: 보험계약의 기본·중심 계약<br>
+    <span class="hl">특약</span>: 주계약에 추가 부가 → 의무부가특약 / 선택특약 / 제도성 특약<br>
+    주계약 해약 시 특약도 자동 해약됨 ← 시험 출제 포인트
+  </div>
+</div>
+<div class="section">
+  <div class="section-title">5. 해약환급금</div>
+  <div class="content-text">
+    <span class="hl">해약환급금</span> = 계약자적립금 − 해약공제액<br>
+    <span class="hl-yellow">자연보험료</span>: 연령에 따라 매년 상승하는 보험료<br>
+    <span class="hl-yellow">평준보험료</span>: 전 보험기간 자연보험료를 납입기간에 걸쳐 평준화한 보험료
+  </div>
+</div>
+<div class="exam-box">해약환급금: 납입기간(최대 7년) 이내 해지 시 해약공제액 차감 → 초기 해지 시 원금 손실 발생</div>
+` },
+
+// ─── PAGE 8 ───
+{ title: '제2장 — 보험약관의 이해', part: 'Part 2', partColor: '#0d9488', partBg: '#f0fdfa', qCount: '제2장 2절. 보험약관 주요내용',
+  html: `
+<div class="section">
+  <div class="section-title">1. 보험계약의 기본 요소</div>
+  <table class="content-table">
+    <tr><th>당사자</th><th>역할</th></tr>
+    <tr><td><span class="hl">보험계약자</span></td><td>보험료 납입 의무자, 계약의 권리·의무 주체</td></tr>
+    <tr><td><span class="hl">피보험자</span></td><td>보험사고의 대상이 되는 사람</td></tr>
+    <tr><td><span class="hl">보험수익자</span></td><td>보험금을 수령하는 사람</td></tr>
+    <tr><td><span class="hl">보험자(보험회사)</span></td><td>보험금 지급 의무자</td></tr>
+  </table>
+</div>
+<div class="section">
+  <div class="section-title">2. 보험계약의 성립</div>
+  <div class="content-text mb">
+    청약 + 승낙 → 계약 성립<br>
+    <span class="hl">청약철회</span>: 청약일로부터 <span class="hl-yellow">15일</span> 이내 (보험증권 수령 후 15일) 가능<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;단, TM을 통한 65세 이상 고령자는 <span class="hl-yellow">45일</span>까지 가능<br>
+    <span class="hl">품질보증해지</span>: 청약 철회 불가 시에도 계약일로부터 3개월 이내 해지 가능
+  </div>
+</div>
+<div class="section">
+  <div class="section-title">3. 보험계약의 효력 관련 주요 개념</div>
+  <ul class="content-list">
+    <li><span class="hl">보험료 납입 유예기간</span>: 2회차 이후 보험료 납입기한 다음 달 말일까지</li>
+    <li><span class="hl">효력상실(실효)</span>: 유예기간 경과 후 미납 시</li>
+    <li><span class="hl">부활(효력회복)</span>: 실효 후 2년 이내 미납 보험료 납입 시 부활 가능</li>
+    <li><span class="hl">고지의무</span>: 계약 시 중요사항을 사실대로 알릴 의무</li>
+    <li><span class="hl">불고지·고지의무 위반</span>: 계약 후 3개월 이내 → 보험회사 계약 해지 가능</li>
+  </ul>
+</div>
+<div class="section">
+  <div class="section-title">4. 보험계약 대출(약관 대출)</div>
+  <div class="content-text">
+    해약환급금의 일정 범위 내에서 대출 가능<br>
+    이자 미납 시 적립금에서 자동 공제 가능<br>
+    대출 중 보험사고 발생 시 보험금에서 대출금 차감
+  </div>
+</div>
+<div class="wrong-box">청약철회는 청약일로부터 15일이 아니라, 보험증권 수령일과 청약일 중 늦은 날부터 15일임에 주의</div>
+` },
+
+// ─── PAGE 9 ───
+{ title: '제2장 — 생명보험과 세금', part: 'Part 2', partColor: '#0d9488', partBg: '#f0fdfa', qCount: '제2장 3절. 생명보험과 세금',
+  html: `
+<div class="section">
+  <div class="section-title">1. 보험료 세제혜택</div>
+  <table class="content-table">
+    <tr><th>구분</th><th>세액공제 내용</th></tr>
+    <tr><td><span class="hl">보장성 보험료</span></td><td>연 100만원 한도, 12% 세액공제 (장애인 15%)</td></tr>
+    <tr><td><span class="hl">연금저축보험료</span></td><td>연 600만원 한도, 12~15% 세액공제 (퇴직연금 포함 900만원)</td></tr>
+  </table>
+</div>
+<div class="section">
+  <div class="section-title">2. 보험금 세금</div>
+  <div class="content-text mb">
+    <span class="hl">사망보험금</span>: 원칙적으로 상속세 과세 대상<br>
+    &nbsp;&nbsp;단, 피보험자=계약자인 경우 상속재산에 포함<br><br>
+    <span class="hl">만기보험금·해약환급금</span>: 보험차익(= 수령액 − 납입보험료) → 이자소득으로 과세<br>
+    &nbsp;&nbsp;단, <span class="hl-green">10년 이상 유지</span>되고 요건 충족 시 → <span class="hl-green">비과세</span>
+  </div>
+</div>
+<div class="section">
+  <div class="section-title">3. 변액보험의 비과세 요건</div>
+  <ul class="content-list">
+    <li>보험 계약기간 <span class="hl">10년 이상</span> 유지</li>
+    <li>월납 기준 기본보험료 <span class="hl">150만원 이하</span> (저축성 변액보험 기준)</li>
+    <li>최초 납입일로부터 10년 내 중도인출 금지</li>
+  </ul>
+  <div class="content-text mt">→ 요건 미충족 시 <span class="hl">이자소득세</span> 과세 (15.4%)</div>
+</div>
+<div class="section">
+  <div class="section-title">4. 연금 수령 시 세금</div>
+  <div class="content-text">
+    <span class="hl">연금저축(세제적격)</span> 수령 시: <span class="hl-yellow">연금소득세</span> 부과 (5.5% 분리과세 가능)<br>
+    일시금 수령 시: 기타소득으로 과세 (20%)<br>
+    <span class="hl">연금보험(세제비적격)</span>: 10년 이상 유지 시 비과세, 연금 수령 시 비과세
+  </div>
+</div>
+<div class="exam-box">세제적격(연금저축)과 세제비적격(연금보험) 구분이 핵심 — 납입 시 세액공제는 세제적격만 가능</div>
+` },
+
+// ─── PAGE 10 ───
+{ title: '제3장 — 변액보험의 역사', part: 'Part 3', partColor: '#7c3aed', partBg: '#f5f3ff', qCount: '제3장 1절. 변액보험의 역사',
+  html: `
+<div class="section">
+  <div class="section-title">1. 변액보험의 발전사</div>
+  <table class="content-table">
+    <tr><th>연도</th><th>국가</th><th>내용</th></tr>
+    <tr><td><span class="hl">1952년</span></td><td>네덜란드</td><td>바르다유 회사 최초 판매 — <span class="hl">프랙션(Fraction)보험</span></td></tr>
+    <tr><td>1957년</td><td>영국</td><td>변액보험 판매 시작</td></tr>
+    <tr><td>1967년</td><td>캐나다</td><td>변액보험 판매 시작</td></tr>
+    <tr><td>1976년</td><td>미국</td><td>변액보험 판매 시작</td></tr>
+    <tr><td>1986년</td><td>일본</td><td>변액보험 판매 시작</td></tr>
+    <tr><td><span class="hl">2001년</span></td><td>한국</td><td>변액종신 최초 판매 (7월)</td></tr>
+  </table>
+</div>
+<div class="section">
+  <div class="section-title">2. 미국 변액보험 성공 요인</div>
+  <ul class="content-list">
+    <li>1970년대 유가파동 → 고물가·고금리 → 정액보험 실질가치 하락</li>
+    <li>1990년대 <span class="hl">저금리 + 주가 지속 상승</span> (S&P 16% 수익) → 투자형 상품 붐</li>
+    <li>뮤추얼펀드 대중화 → 실적배당형 친숙도 상승</li>
+    <li>변액유니버설: 보험료 자유납입·중도인출·펀드변경 가능한 <span class="hl">유연성</span></li>
+    <li><span class="hl">세금이연(Tax Deferred) 효과</span>: 유지 중 과세 없이, 인출 시 저세율 부과</li>
+  </ul>
+</div>
+<div class="section">
+  <div class="section-title">3. 일본 변액보험 실패 교훈</div>
+  <ul class="content-list">
+    <li>1990년대 버블경제 붕괴 → 주가 폭락 → 수익률 마이너스</li>
+    <li>펀드 1개만 운용 (통합형), 분산투자 불가</li>
+    <li><span class="hl-red">부실판매(소송 빈발)</span>: 토지담보 대출 연계 판매 → 이미지 추락</li>
+    <li>상품 구조 난해, 중도인출·펀드변경 기능 없음</li>
+  </ul>
+</div>
+<div class="section">
+  <div class="section-title">4. 한국 변액보험 도입 배경</div>
+  <div class="content-text">
+    <span class="hl">2001년 4월 27일</span>: 금융감독위원회 보험업감독규정 개정(법적 근거 마련)<br>
+    2001년 7월: 변액종신보험 최초 판매<br>
+    2002년: 변액연금 / 2003년: 변액유니버설 순차 도입<br>
+    2009년 2월: 자본시장법 시행 → 변액보험 펀드는 자본시장법 규제 적용
+  </div>
+</div>
+<div class="exam-box">변액보험 최초 판매 국가 = 네덜란드(1952) / 한국 최초 판매 = 2001년 7월 (변액종신)</div>
+` },
+
+// ─── PAGE 11 ───
+{ title: '제3장 — 변액보험 판매자격 및 법적 규제', part: 'Part 3', partColor: '#7c3aed', partBg: '#f5f3ff', qCount: '제3장 1절. 변액보험 판매자격제도',
+  html: `
+<div class="section">
+  <div class="section-title">1. 법적 정의와 규제 근거</div>
+  <div class="content-text mb">
+    <span class="hl">변액보험 법률상 정의</span>: "보험금이 자산운용의 성과에 따라 변동하는 보험계약" (「보험업법」 제108조 제1항 제3호)<br><br>
+    <span class="hl">「보험업법」</span> + <span class="hl">「자본시장법」</span> 일부 규정이 동시 적용<br>
+    손해보험회사에서는 취급 불가 (생명보험 전용)
+  </div>
+</div>
+<div class="section">
+  <div class="section-title">2. 특별계정(Special Account)</div>
+  <div class="content-text mb">
+    <span class="hl">특별계정</span>: 변액보험 자금을 일반계정과 완전히 분리하여 관리·운용하는 별도 계정<br>
+    → 계약자 보호 목적. 「보험업법」에 따라 의무 설정
+  </div>
+  <table class="content-table">
+    <tr><th>구분</th><th>일반계정</th><th>특별계정(변액보험)</th></tr>
+    <tr><td>리스크 부담</td><td>회사 부담</td><td><span class="hl">계약자 부담</span></td></tr>
+    <tr><td>최저보증이율</td><td>있음</td><td><span class="hl">없음</span></td></tr>
+    <tr><td>자산운용목적</td><td>안정성 위주</td><td><span class="hl">수익성 위주</span></td></tr>
+    <tr><td>자산평가 시기</td><td>매월</td><td><span class="hl">매일</span></td></tr>
+    <tr><td>결산 시기</td><td>매년</td><td><span class="hl">매일</span></td></tr>
+  </table>
+</div>
+<div class="section">
+  <div class="section-title">3. 변액보험 판매자격제도</div>
+  <div class="content-text mb">
+    <span class="hl">법적 근거</span>: 「보험업법 시행령」 제56조, 「보험업감독규정」 제5-4조<br>
+    모집종사자(설계사·대리점·중개사·임원 등) 모두 생명보험협회 주관 <span class="hl">자격시험 합격</span> 필수<br><br>
+    <span class="hl">판매 전 교육</span>: 합격 후 4시간 이상<br>
+    <span class="hl">보수교육</span>: 매년 1회 4시간 이상<br>
+    미자격자 모집 시 → 모집자격 박탈 + 영업정지 가능, 보험회사도 제재
+  </div>
+</div>
+<div class="wrong-box">변액보험 판매자격 없는 설계사가 판매해도 무방 — ✗ / 반드시 자격시험 합격 후 4시간 이상 판매 전 교육 이수해야 함</div>
+` },
+
+// ─── PAGE 12 ───
+{ title: '제3장 — 변액보험의 상품특징 ①', part: 'Part 3', partColor: '#7c3aed', partBg: '#f5f3ff', qCount: '제3장 2절. 변액보험 상품내용',
+  html: `
+<div class="section">
+  <div class="section-title">1. 변액보험의 정의와 종류</div>
+  <div class="content-text mb">
+    <span class="hl">변액보험</span>: 보험료의 일부를 주식·채권 등 펀드에 투자, 투자실적에 따라 보험금이 변동하는 <span class="hl">실적배당형</span> 보험
+  </div>
+  <table class="content-table">
+    <tr><th>종류</th><th>주목적</th><th>특징</th></tr>
+    <tr><td><span class="hl">변액연금보험</span></td><td>노후 연금</td><td>연금개시 시점까지 적립 후 연금 지급</td></tr>
+    <tr><td><span class="hl">변액종신보험</span></td><td>사망 보장</td><td>사망 시 기본보험금+변동보험금</td></tr>
+    <tr><td><span class="hl">변액유니버설(보장형)</span></td><td>사망 보장</td><td>수시입출금 기능 + 사망보장</td></tr>
+    <tr><td><span class="hl">변액유니버설(적립형)</span></td><td>장기투자</td><td>수시입출금 + 투자기능 결합</td></tr>
+  </table>
+</div>
+<div class="section">
+  <div class="section-title">2. 변액보험의 핵심 특징</div>
+  <ul class="content-list">
+    <li><span class="hl">투자실적 연동</span>: 보험금·해약환급금이 펀드 운용실적에 따라 변동</li>
+    <li><span class="hl">자기책임 원칙</span>: 투자 결과(손실 포함)를 계약자가 전적으로 부담</li>
+    <li><span class="hl">특별계정 운용</span>: 일반계정과 분리하여 별도 운용, 매일 결산</li>
+    <li><span class="hl">최저보증</span>: 사망보험금 등 일정 보험금은 최저 보장 설정 가능</li>
+    <li><span class="hl">세제혜택</span>: 10년 이상 유지·요건 충족 시 보험차익 비과세</li>
+    <li><span class="hl">펀드 선택</span>: 주식형·채권형·혼합형 등 다양한 펀드 중 선택 가능</li>
+  </ul>
+</div>
+<div class="section">
+  <div class="section-title">3. 변액보험 vs 투자신탁(펀드) 비교</div>
+  <table class="content-table">
+    <tr><th>구분</th><th>변액보험</th><th>투자신탁(펀드)</th></tr>
+    <tr><td>가입목적</td><td>인플레이션 헤지 + 보장</td><td>간접투자 수익 추구</td></tr>
+    <tr><td>투자 지위</td><td><span class="hl">계약자</span></td><td>수익자 또는 주주</td></tr>
+    <tr><td>주요 비용</td><td>사업비+운용보수+보증비용</td><td>판매보수+운용보수+수탁보수</td></tr>
+    <tr><td>세제혜택</td><td><span class="hl">10년+ 유지 시 비과세</span></td><td>국내주식 매매차익 비과세</td></tr>
+  </table>
+</div>
+<div class="exam-box">변액보험에서 투자 손실 발생 시 보험회사가 보전 — ✗ / 계약자가 전적으로 책임 (자기책임 원칙)</div>
+` },
+
+// ─── PAGE 13 ───
+{ title: '제3장 — 변액보험의 상품구조 ②', part: 'Part 3', partColor: '#7c3aed', partBg: '#f5f3ff', qCount: '제3장 2절. 상품구조·최저보증',
+  html: `
+<div class="section">
+  <div class="section-title">1. 변액종신보험 / 변액유니버설(보장형) 구조</div>
+  <div class="content-text mb">
+    사망보험금 = <span class="hl">기본보험금</span>(최저사망보험금) + <span class="hl">변동보험금</span>(투자실적 반영)<br>
+    <span class="hl">최저사망보험금</span>: 가입 시 기본보험금이 항상 최저로 보장됨
+  </div>
+  <div class="memo-box">변동보험금 = 실제적립금이 예정적립금(산출이율 적립금)보다 클 때 그 차액의 일정비율만큼 증액</div>
+</div>
+<div class="section">
+  <div class="section-title">2. 변액연금보험 구조</div>
+  <div class="content-text mb">
+    <span class="hl">연금개시 전 사망 시</span>: 기본사망보험금 + 사망 당시 계약자적립금 지급<br>
+    단, 실제 사망보험금 < 납입보험료 → <span class="hl">납입보험료를 최저사망보험금으로 보장(GMDB)</span><br><br>
+    <span class="hl">연금개시 후</span>: 적립된 계약자적립금 기준으로 연금 지급<br>
+    연금 수령 형태: <span class="hl">종신연금</span>형·확정연금형·상속연금형 등
+  </div>
+</div>
+<div class="section">
+  <div class="section-title">3. 최저보증옵션(Guarantee) 종류</div>
+  <table class="content-table">
+    <tr><th>약칭</th><th>전체 명칭</th><th>보증 내용</th></tr>
+    <tr><td><span class="hl">GMDB</span></td><td>최저사망보험금 보증</td><td>사망 시 납입보험료 이상 보장</td></tr>
+    <tr><td><span class="hl">GMAB</span></td><td>최저연금적립금 보증</td><td>연금개시 시점 적립금 보장</td></tr>
+    <tr><td><span class="hl">GMIB</span></td><td>최저연금이익 보증</td><td>연금개시 후 최저 연금이익 보장</td></tr>
+    <tr><td><span class="hl">GLWB</span></td><td>종신중도인출 보증</td><td>연금개시 전 일정 금액 종신 인출 보장</td></tr>
+    <tr><td><span class="hl">GMWB</span></td><td>최저중도인출 보증</td><td>일정 기간 내 인출 금액 보장</td></tr>
+  </table>
+  <div class="content-text mt">보증기능은 반드시 <span class="hl-red">보증비용</span>이 추가로 부과됨 (계약자 부담)</div>
+</div>
+<div class="section">
+  <div class="section-title">4. 변액연금 수익률 예시 기준 (2025년 적용)</div>
+  <div class="content-text">
+    세 가지 투자수익률 가정하여 예시 의무: <span class="hl">-1%</span> / <span class="hl">평균공시이율(2.5%)</span> / <span class="hl">평균공시이율×1.5배(3.75%)</span>
+  </div>
+</div>
+<div class="exam-box">2016년 4월부터 GMAB(최저연금적립금 보증) 비용 계약자 선택제 도입 — 미보증형 선택 가능</div>
+` },
+
+// ─── PAGE 14 ───
+{ title: '제3장 — 변액보험의 자산운용 ①', part: 'Part 3', partColor: '#7c3aed', partBg: '#f5f3ff', qCount: '제3장 3절. 변액보험의 자산운용',
+  html: `
+<div class="section">
+  <div class="section-title">1. 특별계정 펀드 운용</div>
+  <div class="content-text mb">
+    <span class="hl">기준가격(NAV)</span>: 특별계정 1좌당 순자산가치. 매일 산출·공시<br>
+    <span class="hl">좌수</span>: 계약자가 보유한 특별계정의 단위<br>
+    계약자적립금 = 보유 좌수 × 기준가격
+  </div>
+</div>
+<div class="section">
+  <div class="section-title">2. 주요 펀드 유형</div>
+  <table class="content-table">
+    <tr><th>펀드 유형</th><th>투자 대상</th><th>위험도</th></tr>
+    <tr><td><span class="hl">주식형</span></td><td>주식 60% 이상 편입</td><td>높음</td></tr>
+    <tr><td><span class="hl">채권형</span></td><td>채권 60% 이상 편입</td><td>낮음</td></tr>
+    <tr><td><span class="hl">혼합형</span></td><td>주식+채권 혼합</td><td>중간</td></tr>
+    <tr><td><span class="hl">MMF형</span></td><td>단기금융상품</td><td>매우 낮음</td></tr>
+  </table>
+</div>
+<div class="section">
+  <div class="section-title">3. 자산운용 옵션</div>
+  <ul class="content-list">
+    <li><span class="hl">펀드변경(펀드이동)</span>: 운용 중인 펀드를 다른 펀드로 변경. 연간 일정 횟수 무료</li>
+    <li><span class="hl">자동재배분(Rebalancing)</span>: 설정 비율에 맞게 자동으로 펀드 비율 조정</li>
+    <li><span class="hl">라이프사이클 서비스</span>: 나이에 따라 자동으로 안정형 비율 증가</li>
+    <li><span class="hl">자동이전서비스(DCA)</span>: 정기적으로 일정 금액씩 분산 투자</li>
+  </ul>
+</div>
+<div class="section">
+  <div class="section-title">4. 변액보험 특별계정 비용 구조</div>
+  <table class="content-table">
+    <tr><th>비용 종류</th><th>설명</th></tr>
+    <tr><td><span class="hl">사업비(보험관계비용)</span></td><td>계약체결비용 + 계약관리비용 + 위험보험료</td></tr>
+    <tr><td><span class="hl">특별계정 운용보수</span></td><td>운용보수+투자일임보수+수탁보수+사무관리보수</td></tr>
+    <tr><td><span class="hl">보증비용</span></td><td>최저사망/연금 보증 비용 (보증 선택 시)</td></tr>
+    <tr><td><span class="hl">해약공제비용</span></td><td>조기 해지 시 차감 비용</td></tr>
+  </table>
+</div>
+<div class="tip-box">펀드수익률 ≠ 납입보험료 대비 실제 수익률. 사업비·위험보험료 등 공제 후 특별계정 투입금액 기준 수익률임</div>
+` },
+
+// ─── PAGE 15 ───
+{ title: '제3장 — 변액보험의 자산운용 ②', part: 'Part 3', partColor: '#7c3aed', partBg: '#f5f3ff', qCount: '제3장 3절. 자산운용·청약절차',
+  html: `
+<div class="section">
+  <div class="section-title">1. 변액유니버설보험의 특징</div>
+  <ul class="content-list">
+    <li><span class="hl">추가납입</span>: 기본보험료 외 추가 납입 가능 (계약 체결 비용 없음)</li>
+    <li><span class="hl">중도인출</span>: 계약자적립금의 일정 범위 내에서 인출 가능</li>
+    <li><span class="hl">납입 일시중지</span>: 일정 기간 보험료 납입 정지 가능 (적립금에서 보험료 차감)</li>
+    <li><span class="hl">납입 재개</span>: 정지 후 다시 납입 재개 가능</li>
+  </ul>
+  <div class="content-text mt">보험료 미납 시 <span class="hl">계약자적립금에서 위험보험료 등 자동 차감</span> → 적립금 소진 시 계약 소멸</div>
+</div>
+<div class="section">
+  <div class="section-title">2. 변액보험 청약 절차 (가입 흐름)</div>
+  <ol class="content-list num">
+    <li>적합성 진단 실시 (일반금융소비자 대상 의무)</li>
+    <li>변액보험 운용설명서 교부 및 중요 내용 설명</li>
+    <li>주요내용 확인서 수령</li>
+    <li>청약서 작성 (설계사 대신 작성 불가)</li>
+    <li>제1회 보험료 납입 → 계약 성립</li>
+    <li>보험증권 교부</li>
+    <li>완전판매 모니터링(해피콜)</li>
+  </ol>
+</div>
+<div class="section">
+  <div class="section-title">3. 변액보험 청약 특례 — 보험료 투입 시기</div>
+  <div class="content-text mb">
+    변액보험은 청약 후 바로 투자하지 않고 <span class="hl">청약철회 종료일 다음 날부터 펀드에 투자</span><br>
+    → 청약철회 기간(30일) 동안은 <span class="hl">평균공시이율로 적립</span> (투자 위험 방어)
+  </div>
+  <div class="memo-box">청약일 → 청약철회 종료일(30일) → +1일부터 특별계정 투입 및 기준가격 적용 시작</div>
+</div>
+<div class="section">
+  <div class="section-title">4. 변액보험 청약 철회</div>
+  <div class="content-text">
+    청약일 또는 보험증권 수령일로부터 <span class="hl">30일 이내</span> 청약 철회 가능<br>
+    (일반 생명보험은 15일이지만 변액보험은 <span class="hl">30일</span>)<br>
+    철회 시 이미 납입한 보험료 + 이자(평균공시이율) 반환
+  </div>
+</div>
+<div class="wrong-box">변액보험 청약철회 기간 = 15일 — ✗ / 변액보험은 30일 (일반 보험의 15일과 다름)</div>
+` },
+
+// ─── PAGE 16 ───
+{ title: '제3장 — 변액보험약관 주요내용 ①', part: 'Part 3', partColor: '#7c3aed', partBg: '#f5f3ff', qCount: '제3장 4절. 변액보험약관',
+  html: `
+<div class="section">
+  <div class="section-title">1. 변액보험약관의 구성</div>
+  <div class="content-text mb">
+    <span class="hl">기본보험계약</span>: 보험료 산출·최저보증금액 산정의 기초<br>
+    <span class="hl">변동보험계약</span>: 특별계정 운용실적에 따라 추가 계산, 추가 보험료 없음<br>
+    <span class="hl">선택특약</span>: 일반계정에서 운용, 현금흐름방식으로 보험료 산출
+  </div>
+</div>
+<div class="section">
+  <div class="section-title">2. 변액보험 보험료의 흐름</div>
+  <div class="content-text">
+    납입 보험료 → <span class="hl">계약체결비용 차감</span> → 계약관리비용 차감 → 위험보험료 차감 → <span class="hl">특별계정 투입</span><br>
+    특별계정 투입금액이 펀드에서 운용됨 → 운용보수·보증비용 차감 → 계약자적립금
+  </div>
+</div>
+<div class="section">
+  <div class="section-title">3. 보험금 지급 관련 약관 사항</div>
+  <table class="content-table">
+    <tr><th>항목</th><th>내용</th></tr>
+    <tr><td><span class="hl">사망·고도장해 분리</span></td><td>2011년 4월부터 고도장해(80% 이상)로 사망보험금 지급 및 계약 소멸 불가</td></tr>
+    <tr><td><span class="hl">면책기간</span></td><td>자살: 계약일로부터 2년 이내는 보험금 미지급</td></tr>
+    <tr><td><span class="hl">보험금 청구</span></td><td>보험사고 발생 후 3년 이내 미청구 시 소멸시효</td></tr>
+    <tr><td><span class="hl">납입면제</span></td><td>장해 50% 이상 또는 특정 질병 진단 시 이후 보험료 납입 면제 (보장형)</td></tr>
+  </table>
+</div>
+<div class="section">
+  <div class="section-title">4. 변액보험 특별계정 관련 약관 주요사항</div>
+  <ul class="content-list">
+    <li>펀드 변경: 약관에 정한 횟수만큼 무료, 초과 시 수수료 부과</li>
+    <li>보험료 납입 중지: 일정 조건 충족 시 가능 (적립금에서 자동 차감)</li>
+    <li>계약자적립금 < 0 → 계약 실효, 추가 납입으로 부활 가능</li>
+    <li>보험회사의 특별계정 운용 결과 → 전액 계약자에게 귀속</li>
+  </ul>
+</div>
+<div class="exam-box">2011년 4월부터 사망보험금 지급사유 = 사망에 한정 (고도장해 발생 시 사망보험금 지급 금지)</div>
+` },
+
+// ─── PAGE 17 ───
+{ title: '제3장 — 변액보험약관 주요내용 ②', part: 'Part 3', partColor: '#7c3aed', partBg: '#f5f3ff', qCount: '제3장 4절. 약관·분쟁·민원',
+  html: `
+<div class="section">
+  <div class="section-title">1. 변액보험 불완전판매 예방</div>
+  <ul class="content-list">
+    <li><span class="hl">변액보험 운용설명서</span> 교부 의무: 청약 권유 시 교부·설명</li>
+    <li><span class="hl">주요내용 확인서</span> 수령 의무: 손실 가능성 등 주요 내용 설명 확인</li>
+    <li><span class="hl">완전판매 모니터링(해피콜)</span>: 계약 체결 후 실시 (보험회사 의무)</li>
+    <li>보험계약관리내용: <span class="hl">분기별 1회 이상</span> 제공</li>
+  </ul>
+</div>
+<div class="section">
+  <div class="section-title">2. 금지 행위 (불건전 영업)</div>
+  <ul class="content-list">
+    <li>고수익을 <span class="hl-red">확정적으로 표현</span>하거나 수익률 과장</li>
+    <li>다른 금융상품과 <span class="hl-red">허위 비교</span></li>
+    <li>원금 보장 <span class="hl-red">확약</span> (원금 손실 가능성 명시 의무)</li>
+    <li>부적합한 계약자에게 <span class="hl-red">강권</span> (적합성 진단 무시)</li>
+    <li>청약서 대필, 설계사가 답변 대신 기재</li>
+  </ul>
+</div>
+<div class="section">
+  <div class="section-title">3. 사망·고도장해 보험금의 변동</div>
+  <div class="content-text mb">
+    변액종신/변액유니버설(보장형):<br>
+    &nbsp;&nbsp;사망보험금 ≥ 최저사망보험금(기본보험금)<br><br>
+    변액연금:<br>
+    &nbsp;&nbsp;연금개시 전 사망 시 → 기본사망보험금 + 계약자적립금<br>
+    &nbsp;&nbsp;계약자적립금 < 납입보험료 → <span class="hl">납입보험료로 최저 보장</span>
+  </div>
+</div>
+<div class="section">
+  <div class="section-title">4. 분쟁 해결</div>
+  <div class="content-text">
+    <span class="hl">금융분쟁조정위원회</span>: 금융감독원 내 설치, 조정 신청 가능<br>
+    조정 결정 수락 → 재판상 화해 효력<br>
+    <span class="hl">소송</span>: 분쟁조정과 별개로 법원 소송 가능
+  </div>
+</div>
+` },
+
+// ─── PAGE 18 ───
+{ title: '제4장 — 보험정보 공시 ①', part: 'Part 4', partColor: '#1b64da', partBg: '#e8f1fd', qCount: '제4장 1절. 보험정보 공시',
+  html: `
+<div class="section">
+  <div class="section-title">1. 보험정보 공시의 종류 (3가지)</div>
+  <table class="content-table">
+    <tr><th>종류</th><th>내용</th><th>공시 주체</th></tr>
+    <tr><td><span class="hl">경영공시</span></td><td>회사의 재무상태·경영실적 등</td><td>보험회사·생명보험협회</td></tr>
+    <tr><td><span class="hl">상품공시</span></td><td>상품요약서·약관·사업방법서 등</td><td>보험회사</td></tr>
+    <tr><td><span class="hl">보험상품 비교·공시</span></td><td>생보협회 공시실에서 타사 상품 비교</td><td>생명보험협회</td></tr>
+  </table>
+</div>
+<div class="section">
+  <div class="section-title">2. 경영공시 — 정기공시</div>
+  <ul class="content-list">
+    <li><span class="hl">결산공시</span>: 사업연도 말 결산일로부터 <span class="hl-yellow">3개월</span> 이내 공시, <span class="hl-yellow">3년간</span> 유지</li>
+    <li><span class="hl">분기공시</span>: 분기결산일로부터 <span class="hl-yellow">2개월</span> 이내 주요 경영지표·재무제표 공시</li>
+  </ul>
+</div>
+<div class="section">
+  <div class="section-title">3. 보험안내자료 필수기재사항 (「보험업법」 제95조)</div>
+  <ul class="content-list">
+    <li>보험회사·설계사·대리점·중개사의 상호·이름</li>
+    <li>보험가입에 따른 권리·의무에 관한 주요사항</li>
+    <li>해약환급금에 관한 사항</li>
+    <li>예금자보호 관련 사항</li>
+    <li><span class="hl">변액보험의 경우</span>: 투자 손실 발생 가능성 및 손실의 계약자 귀속 사실, 최저보증 보험금 내용</li>
+    <li>보험안내자료 제작자·제작일, 관리번호</li>
+  </ul>
+</div>
+<div class="section">
+  <div class="section-title">4. 보험안내자료 기재금지사항</div>
+  <ul class="content-list">
+    <li>재무제표와 다른 내용의 자산·부채 기재</li>
+    <li>장래 이익 배당 예상 기재 (단, 직전 5개년 실적 기반 연금 예시는 허용)</li>
+    <li>불공정거래행위에 해당하는 사항</li>
+    <li>계약 내용과 다른 사항, 유리한 내용만 골라 안내</li>
+    <li>사실에 근거하지 않은 타사 상품 비교</li>
+  </ul>
+</div>
+<div class="exam-box">경영공시: 결산 후 3개월 이내 / 3년간 유지 | 분기공시: 2개월 이내 — 수치 정확히 암기</div>
+` },
+
+// ─── PAGE 19 ───
+{ title: '제4장 — 변액보험 공시', part: 'Part 4', partColor: '#1b64da', partBg: '#e8f1fd', qCount: '제4장 2절. 변액보험 공시',
+  html: `
+<div class="section">
+  <div class="section-title">1. 회사별 변액보험공시실 의무 공시 내용</div>
+  <ul class="content-list">
+    <li>특별계정 운용현황: <span class="hl">기준가격</span>, 기간별 수익률·연환산수익률</li>
+    <li>매월 말 <span class="hl">자산구성내역</span></li>
+    <li>특별계정 <span class="hl">보수 및 수수료</span></li>
+    <li><span class="hl">변액보험 운용설명서</span> 게시</li>
+    <li>로그인 시: 개인별 적립금·해약환급금·보유좌수·펀드변경 내역</li>
+  </ul>
+</div>
+<div class="section">
+  <div class="section-title">2. 변액보험 운용설명서 기재 의무 내용</div>
+  <ul class="content-list">
+    <li>표지: 변액보험의 <span class="hl">위험성 경고문구</span> 기재 의무</li>
+    <li>본문: 상품 개요, 운용흐름(도표), 특별계정 운용현황, 자산운용 옵션</li>
+    <li>보험회사는 인터넷으로도 조회 가능하도록 해야 함</li>
+  </ul>
+</div>
+<div class="section">
+  <div class="section-title">3. 보험계약관리내용 제공 의무</div>
+  <table class="content-table">
+    <tr><th>구분</th><th>제공 주기</th></tr>
+    <tr><td>일반 생명보험</td><td>연 1회 이상</td></tr>
+    <tr><td><span class="hl">변액보험</span></td><td><span class="hl">분기별 1회 이상</span></td></tr>
+  </table>
+  <div class="content-text mt">저축성 변액보험: 납입보험료, 특별계정 투입금액, 계약자적립금을 명시해야 함</div>
+</div>
+<div class="section">
+  <div class="section-title">4. 생명보험협회 변액보험 비교·공시 내용</div>
+  <ul class="content-list">
+    <li>매일 펀드별 <span class="hl">기준가격 및 수익률</span> 공시</li>
+    <li>자산구성내역, 보수·비용, 운용회사 공시</li>
+    <li>수익률 기간: 1년·3년·5년·7년·10년·15년 또는 전체 운용기간</li>
+    <li>저축성 변액: 사업비율·위험보장비율·최저보증비용비율·예상수익률 비교 가능</li>
+  </ul>
+  <div class="tip-box">협회 공시 수익률 ≠ 개별 계약자 실적수익률. 가입 시기·금액이 달라 개인별 실제 수익률은 다름</div>
+</div>
+<div class="section">
+  <div class="section-title">5. 저축성 변액보험 수수료 안내표 제공</div>
+  <div class="content-text">
+    계약 전: 상품설명서에 수수료 안내표 포함<br>
+    계약 후: 보험사 홈페이지 로그인 시 조회<br>
+    공통: 협회 공시실 공제금액구분공시 또는 상품요약서로 확인<br>
+    포함 항목: 보험관계비용 + 특별계정 운용비용 + 보증비용 + 해약공제비용 등
+  </div>
+</div>
+<div class="exam-box">변액보험 보험계약관리내용 제공 주기: 분기 1회 (일반 생명보험은 연 1회)</div>
+` },
+
+// ─── PAGE 20 ───
+{ title: '제4장 — 변액보험 판매시 준수사항 ①', part: 'Part 4', partColor: '#1b64da', partBg: '#e8f1fd', qCount: '제4장 3절. 변액보험 판매 준수사항',
+  html: `
+<div class="section">
+  <div class="section-title">1. 변액보험 판매 관련 규준</div>
+  <ul class="content-list">
+    <li><span class="hl">변액보험 표준계약 권유준칙</span>: 보험회사·모집종사자의 계약 권유 절차·기준</li>
+    <li><span class="hl">변액보험 모범판매규준</span>: 준수·금지사항 규정 (금융감독당국·생명보험협회 제정)</li>
+  </ul>
+</div>
+<div class="section">
+  <div class="section-title">2. 적합성 원칙 (Suitability Rule)</div>
+  <div class="content-text mb">
+    <span class="hl">대상</span>: 보험회사·모집종사자가 <span class="hl">일반금융소비자</span>에게 변액보험 계약 체결 권유 시 의무<br>
+    <span class="hl">근거</span>: 「금융소비자 보호에 관한 법률」 제17조<br><br>
+    파악 항목: 연령, 재산상황, 보험계약 목적, 금융상품 취득·처분 경험, 이해도
+  </div>
+  <div class="content-text">
+    <span class="hl-yellow">전문금융소비자</span>: 적합성 진단 원칙적으로 불필요 (단, 서면 요청 시 일반 소비자로 전환 가능)<br>
+    <span class="hl-yellow">일반금융소비자</span>: 적합성 진단 필수
+  </div>
+</div>
+<div class="section">
+  <div class="section-title">3. 적합성 진단 절차</div>
+  <ol class="content-list num">
+    <li>보험계약자 정보 파악 (확인서 작성·서명)</li>
+    <li>보험계약 성향 분석 (적합성 진단 실시)</li>
+    <li>적합성 진단 결과 제공 (적합 상품 목록 포함)</li>
+    <li>부적합 시 → 가입 권유 불가</li>
+    <li>적합 시 → 가입설계 → 상품설명 → 청약</li>
+  </ol>
+</div>
+<div class="section">
+  <div class="section-title">4. 적합성 진단 내용 보관 의무</div>
+  <div class="content-text">
+    확인받은 내용을 <span class="hl">10년</span> (보장기간이 10년 초과 시 보장기간) 동안 유지·관리 의무
+  </div>
+</div>
+<div class="section">
+  <div class="section-title">5. 취약금융소비자 특별 관리</div>
+  <div class="content-text">
+    <span class="hl">취약금융소비자</span>: 만 65세 이상 고령자, 미성년자, 정신적 장애로 생활 제약을 받는 자<br>
+    → 별도 기준으로 부적합자 판단 가능<br>
+    단, 65세 이상이라도 변액보험 계약 경험이 있거나 금융투자상품 가입 경험 있으면 취약소비자로 보지 않음
+  </div>
+</div>
+<div class="exam-box">적합성 진단 보관 기간: 10년 (보장기간이 10년 초과면 보장기간) — 자주 출제</div>
+` },
+
+// ─── PAGE 21 ───
+{ title: '제4장 — 변액보험 판매시 준수사항 ②', part: 'Part 4', partColor: '#1b64da', partBg: '#e8f1fd', qCount: '제4장 3절. 적정성·설명의무·모니터링',
+  html: `
+<div class="section">
+  <div class="section-title">1. 적정성 원칙 (Appropriateness Rule)</div>
+  <div class="content-text mb">
+    <span class="hl">적용 상황</span>: 보험계약자가 스스로 상품을 선택해 청약(권유 없이 판매 시)<br>
+    예: 사이버몰에서 상품명 직접 입력·검색 후 가입<br>
+    근거: 「금융소비자 보호에 관한 법률」 제18조
+  </div>
+  <div class="content-text">
+    부적정 판단 시 → 서면 등으로 계약자에게 알리고 서명 등으로 확인<br>
+    계약자가 그래도 가입 희망 시 → 진행 가능 (계약자 자기책임)
+  </div>
+</div>
+<div class="section">
+  <div class="section-title">2. 설명의무</div>
+  <div class="content-text mb">
+    <span class="hl">반드시 설명해야 할 항목</span>:
+  </div>
+  <ul class="content-list">
+    <li>변액보험 특별계정 투자에 따른 <span class="hl">원금 손실 가능성</span></li>
+    <li>조기 해지 시 <span class="hl">상당한 손실</span> 발생 가능</li>
+    <li>펀드수익률이 납입보험료 대비 수익률이 아님 (사업비 등 차감 후 기준)</li>
+    <li>최저보증금액과 보증비용</li>
+  </ul>
+  <div class="content-text mt">→ <span class="hl">변액보험 주요내용 확인서</span> 교부 및 수령</div>
+</div>
+<div class="section">
+  <div class="section-title">3. 특별계정(펀드) 위험등급</div>
+  <div class="content-text mb">
+    최소 <span class="hl">6단계</span> 이상으로 분류<br>
+    <span class="hl">1등급 = 매우 높은 위험</span>, 등급 수가 커질수록 위험도 낮음
+  </div>
+  <table class="content-table">
+    <tr><th>1등급</th><th>2등급</th><th>3등급</th><th>4등급</th><th>5등급</th><th>6등급</th></tr>
+    <tr><td>매우 높은</td><td>높은</td><td>다소 높은</td><td>보통</td><td>낮은</td><td>매우 낮은</td></tr>
+  </table>
+</div>
+<div class="section">
+  <div class="section-title">4. 완전판매 모니터링</div>
+  <div class="content-text">
+    <span class="hl">해피콜</span>: 계약 체결 후 보험회사가 계약자에게 연락해 완전판매 확인<br>
+    모니터링에서 불완전판매 확인 시 → 보험가입 거절 가능<br>
+    보험회사의 별도 모니터링 의무 (「보험업감독규정」 규정)
+  </div>
+</div>
+<div class="wrong-box">적합성 원칙 위반 시 → 단순 주의 — ✗ / 금융소비자보호법에 따라 제재·과태료 부과 가능</div>
+` },
+
+// ─── PAGE 22 ───
+{ title: '제4장 — 변액보험 모집 금지사항·법령 위반', part: 'Part 4', partColor: '#1b64da', partBg: '#e8f1fd', qCount: '제4장 3절. 금지행위·위반',
+  html: `
+<div class="section">
+  <div class="section-title">1. 모집 관련 금지행위</div>
+  <table class="content-table">
+    <tr><th>금지 유형</th><th>세부 내용</th></tr>
+    <tr><td><span class="hl-red">허위 과장 표현</span></td><td>수익률 확정 표현, "원금 보장" 단언</td></tr>
+    <tr><td><span class="hl-red">부당 비교</span></td><td>사실과 다른 타 상품 비교, 유리한 내용만 선별 안내</td></tr>
+    <tr><td><span class="hl-red">청약서 대필</span></td><td>설계사가 계약자 대신 청약서 작성</td></tr>
+    <tr><td><span class="hl-red">보험료 대납</span></td><td>계약자 보험료를 설계사 등이 대신 납부</td></tr>
+    <tr><td><span class="hl-red">특별이익 제공</span></td><td>계약 체결 조건으로 금품·향응 제공</td></tr>
+  </table>
+</div>
+<div class="section">
+  <div class="section-title">2. 법령 위반 시 제재</div>
+  <ul class="content-list">
+    <li><span class="hl">설계사</span>: 모집자격 박탈, 등록 취소</li>
+    <li><span class="hl">보험대리점</span>: 영업정지 또는 허가 취소</li>
+    <li><span class="hl">보험회사</span>: 금융감독당국 행정처벌, 과태료 부과</li>
+    <li><span class="hl">임원·직원</span>: 직무정지, 문책</li>
+  </ul>
+</div>
+<div class="section">
+  <div class="section-title">3. 금융소비자보호법 주요 내용</div>
+  <div class="content-text mb">
+    <span class="hl">6대 판매원칙</span>:
+  </div>
+  <ul class="content-list">
+    <li>적합성 원칙 (제17조)</li>
+    <li>적정성 원칙 (제18조)</li>
+    <li>설명의무 (제19조)</li>
+    <li>불공정영업행위 금지 (제20조)</li>
+    <li>부당권유행위 금지 (제21조)</li>
+    <li>허위·과장광고 금지 (제22조)</li>
+  </ul>
+  <div class="content-text mt"><span class="hl">위반 시 과태료</span> 및 <span class="hl">징벌적 손해배상</span>: 금융소비자에게 손해 3배까지 배상 가능</div>
+</div>
+<div class="exam-box">금융소비자보호법 6대 판매원칙 — 적합성·적정성·설명의무·불공정영업·부당권유·허위광고 금지 암기</div>
+` },
+
+// ─── PAGE 23 ───
+{ title: '제4장 — 예금자보호제도 ①', part: 'Part 4', partColor: '#1b64da', partBg: '#e8f1fd', qCount: '제4장 4절. 예금자보호제도',
+  html: `
+<div class="section">
+  <div class="section-title">1. 예금자보호제도 개요</div>
+  <div class="content-text mb">
+    예금자보호법에 의해 금융회사가 파산 등으로 예금 지급 불가 시 <span class="hl">예금보험공사</span>가 일정 한도 내에서 대신 지급하는 제도
+  </div>
+  <div class="content-text">
+    <span class="hl-yellow">보호한도 변천</span>:<br>
+    도입 초기: 은행 2,000만원 / 보험회사 5,000만원<br>
+    2001년~: 1인당 최고 <span class="hl">5,000만원</span><br>
+    <span class="hl">2025년 9월~: 1인당 최고 1억원</span> (은행·저축은행·보험·금융투자·상호금융 통일)
+  </div>
+</div>
+<div class="section">
+  <div class="section-title">2. 예금보험의 종류</div>
+  <table class="content-table">
+    <tr><th>종류</th><th>내용</th></tr>
+    <tr><td><span class="hl">보험금</span></td><td>금융회사 파산 시 예금보험공사가 대신 지급</td></tr>
+    <tr><td><span class="hl">가지급금</span></td><td>보험금 지급 전 경제적 불편 최소화를 위해 미리 지급 (보험금 한도 내)</td></tr>
+    <tr><td><span class="hl">개산지급금</span></td><td>파산절차 장기화 시 예상 배당률 고려, 1억원 초과 채권 예금자에게 지급</td></tr>
+  </table>
+</div>
+<div class="section">
+  <div class="section-title">3. 보험사고 종류</div>
+  <div class="grid-2">
+    <div class="mini-card">
+      <div class="mini-card-title">1종 보험사고 (지급정지)</div>
+      <div class="mini-card-body">금융감독당국이 예금 지급정지 명령<br>→ 경영정상화 불가 시 계약이전·파산<br>계약이전 시 5천만원 이하는 기존 조건 유지</div>
+    </div>
+    <div class="mini-card">
+      <div class="mini-card-title">2종 보험사고</div>
+      <div class="mini-card-body">인허가 취소 / 해산 / 파산<br>→ 예금자 청구에 의해 보험금 지급</div>
+    </div>
+  </div>
+</div>
+<div class="exam-box">2025년 9월부터 예금보호한도 5천만원 → 1억원으로 인상 — 최신 개정사항 암기</div>
+` },
+
+// ─── PAGE 24 ───
+{ title: '제4장 — 예금자보호제도 ②', part: 'Part 4', partColor: '#1b64da', partBg: '#e8f1fd', qCount: '제4장 4절. 보호대상 상품·변액보험',
+  html: `
+<div class="section">
+  <div class="section-title">1. 보험회사 예금보호 대상 상품</div>
+  <ul class="content-list">
+    <li>개인이 가입한 생명보험·손해보험 (보험계약자·보험료납부자가 법인이면 보호 제외)</li>
+    <li>연금저축(신탁·보험): 다른 보호상품과 <span class="hl">별도로</span> 1인당 1억원 보호</li>
+    <li>DC형·IRP 퇴직연금: 예금보호 대상 금융상품으로 운용 시, 판매회사별 합산 1억원</li>
+  </ul>
+</div>
+<div class="section">
+  <div class="section-title">2. 변액보험의 예금자보호</div>
+  <div class="content-text mb">
+    <span class="hl-red">원칙</span>: 변액보험의 특별계정 운용 부분은 <span class="hl-red">예금자보호 제외</span><br>
+    (투자 손실은 계약자 책임 → 보호 불가)<br><br>
+    <span class="hl-green">예외 — 보호 대상</span>: 약관에서 보험회사가 <span class="hl-green">최저보증하는 보험금 및 특약</span>에 한하여 보호
+  </div>
+  <div class="memo-box">보호 한도: 해약환급금+기타지급금 합산 1인당 1억원 (여타 보호상품 합산) + 사고보험금 별도 1억원</div>
+</div>
+<div class="section">
+  <div class="section-title">3. 예금자보호 제외 상품 (주요 예시)</div>
+  <ul class="content-list">
+    <li>변액보험 특별계정 운용 부분 (최저보증 제외)</li>
+    <li>금융투자상품 (수익증권·뮤추얼펀드·MMF 등)</li>
+    <li>RP(환매조건부채권), CD(양도성예금증서), CP(기업어음)</li>
+    <li>저축은행 발행채권 (후순위채권 등)</li>
+    <li>보험계약자·보험료납부자가 법인인 보험계약</li>
+  </ul>
+</div>
+<div class="section">
+  <div class="section-title">4. 예금보험관계 표시·설명·확인 제도</div>
+  <ul class="content-list">
+    <li><span class="hl">표시</span>: 홍보물·통장 등에 보호 여부 로고 표시</li>
+    <li><span class="hl">설명</span>: 계약 체결 시 보호 여부·한도 설명 (대면: 구두)</li>
+    <li><span class="hl">확인</span>: 상대방 서명·날인·녹취 등으로 확인</li>
+    <li>미이행 시: <span class="hl">과태료</span> 부과 가능</li>
+  </ul>
+</div>
+<div class="exam-box">변액보험: 최저보증 부분만 보호 / 특별계정 운용 부분은 비보호 → 보험안내자료에 명시 의무</div>
+` },
+
+// ─── PAGE 25 ───
+{ title: '핵심 숫자·수치 총정리', part: '암기', partColor: '#059669', partBg: '#ecfdf5', qCount: '시험 직전 최종 점검',
+  html: `
+<div class="highlight-section">
+  <div class="section-title">🔢 반드시 외워야 할 숫자들</div>
+  <div class="content-text">시험에 자주 나오는 수치를 한 번에 정리합니다!</div>
+</div>
+<div class="section">
+  <div class="section-title">변액보험 관련 주요 수치</div>
+  <table class="content-table">
+    <tr><th>항목</th><th>수치</th><th>비고</th></tr>
+    <tr><td>변액보험 최초 판매 연도</td><td><span class="hl">2001년 7월</span></td><td>변액종신보험</td></tr>
+    <tr><td>변액연금 최초 판매</td><td><span class="hl">2002년</span></td><td></td></tr>
+    <tr><td>변액유니버설 최초 판매</td><td><span class="hl">2003년</span></td><td></td></tr>
+    <tr><td>청약철회 기간(변액보험)</td><td><span class="hl">30일</span></td><td>일반보험 15일</td></tr>
+    <tr><td>TM 통한 65세+ 청약철회</td><td><span class="hl">45일</span></td><td></td></tr>
+    <tr><td>판매 전 교육</td><td><span class="hl">4시간 이상</span></td><td>자격증 합격 후</td></tr>
+    <tr><td>보수교육</td><td><span class="hl">매년 1회 4시간 이상</span></td><td></td></tr>
+    <tr><td>적합성 진단 보관 기간</td><td><span class="hl">10년</span></td><td>보장기간 초과 시 보장기간</td></tr>
+    <tr><td>펀드 위험등급</td><td><span class="hl">6단계 이상</span></td><td>1등급=가장 위험</td></tr>
+    <tr><td>변액보험 비과세 최소 유지기간</td><td><span class="hl">10년</span></td><td></td></tr>
+    <tr><td>변액보험 비과세 월납 한도</td><td><span class="hl">150만원 이하</span></td><td>저축성 기준</td></tr>
+  </table>
+</div>
+<div class="section">
+  <div class="section-title">생명보험 관련 주요 수치</div>
+  <table class="content-table">
+    <tr><th>항목</th><th>수치</th></tr>
+    <tr><td>10회 경험생명표 시행</td><td><span class="hl">2024년 4월</span> (남 86.3세, 여 90.7세)</td></tr>
+    <tr><td>현금흐름방식 의무 도입</td><td><span class="hl">2013년 4월</span></td></tr>
+    <tr><td>보장성 보험료 세액공제 한도</td><td><span class="hl">100만원</span> / 공제율 12% (장애인 15%)</td></tr>
+    <tr><td>연금저축 세액공제 한도</td><td><span class="hl">600만원</span> (퇴직연금 포함 900만원)</td></tr>
+    <tr><td>금융소득종합과세 기준</td><td>이자+배당 <span class="hl">2,000만원 초과</span></td></tr>
+    <tr><td>보험계약 부활 가능 기간</td><td>효력상실 후 <span class="hl">2년 이내</span></td></tr>
+  </table>
+</div>
+<div class="section">
+  <div class="section-title">공시 및 예금자보호 수치</div>
+  <table class="content-table">
+    <tr><th>항목</th><th>수치</th></tr>
+    <tr><td>경영공시 제출 기한</td><td>결산일로부터 <span class="hl">3개월</span> 이내</td></tr>
+    <tr><td>경영공시 유지 기간</td><td><span class="hl">3년</span></td></tr>
+    <tr><td>분기공시 제출 기한</td><td>분기결산일로부터 <span class="hl">2개월</span> 이내</td></tr>
+    <tr><td>변액보험 계약관리 제공 주기</td><td><span class="hl">분기별 1회 이상</span></td></tr>
+    <tr><td>예금보호한도 (2025.9~)</td><td><span class="hl">1억원</span></td></tr>
+    <tr><td>변액보험 특별계정 결산</td><td><span class="hl">매일</span></td></tr>
+  </table>
+</div>
+` },
+
+// ─── PAGE 26 ───
+{ title: '핵심 비교 총정리', part: '암기', partColor: '#059669', partBg: '#ecfdf5', qCount: '헷갈리는 개념 비교',
+  html: `
+<div class="section">
+  <div class="section-title">1. 일반계정 vs 특별계정 비교</div>
+  <table class="content-table">
+    <tr><th>구분</th><th>일반계정</th><th>특별계정</th></tr>
+    <tr><td>적용 상품</td><td>일반 생명보험</td><td>변액보험</td></tr>
+    <tr><td>투자 위험 부담</td><td><span class="hl">보험회사</span></td><td><span class="hl">계약자</span></td></tr>
+    <tr><td>최저보증이율</td><td>있음</td><td>없음</td></tr>
+    <tr><td>자산 평가</td><td>매월</td><td><span class="hl">매일</span></td></tr>
+    <tr><td>결산</td><td>매년</td><td><span class="hl">매일</span></td></tr>
+    <tr><td>운용 목적</td><td>안정성</td><td><span class="hl">수익성</span></td></tr>
+  </table>
+</div>
+<div class="section">
+  <div class="section-title">2. 적합성 vs 적정성 원칙 비교</div>
+  <table class="content-table">
+    <tr><th>구분</th><th>적합성 원칙</th><th>적정성 원칙</th></tr>
+    <tr><td>적용 상황</td><td>모집종사자가 <span class="hl">권유</span>하여 판매</td><td>소비자가 <span class="hl">스스로 선택</span>하여 청약</td></tr>
+    <tr><td>법적 근거</td><td>금소법 제17조</td><td>금소법 제18조</td></tr>
+    <tr><td>부적합 시</td><td>가입 권유 불가</td><td>불이익 고지 후 가입 가능</td></tr>
+  </table>
+</div>
+<div class="section">
+  <div class="section-title">3. 변액보험 종류별 최저보증 비교</div>
+  <table class="content-table">
+    <tr><th>종류</th><th>GMDB (최저사망)</th><th>GMAB (최저연금적립금)</th></tr>
+    <tr><td>변액종신보험</td><td><span class="hl">있음</span> (기본보험금)</td><td>없음</td></tr>
+    <tr><td>변액유니버설(보장형)</td><td><span class="hl">있음</span></td><td>없음</td></tr>
+    <tr><td>변액연금보험</td><td><span class="hl">있음</span> (납입보험료)</td><td>선택 가능 (<span class="hl">GMAB</span>)</td></tr>
+    <tr><td>변액유니버설(적립형)</td><td><span class="hl">있음</span> (납입보험료)</td><td>없음 (일반적으로)</td></tr>
+  </table>
+</div>
+<div class="section">
+  <div class="section-title">4. 세제적격 vs 세제비적격 연금 비교</div>
+  <table class="content-table">
+    <tr><th>구분</th><th>세제적격 (연금저축계좌)</th><th>세제비적격 (연금보험)</th></tr>
+    <tr><td>납입 시 혜택</td><td><span class="hl">세액공제</span> (12~15%)</td><td>없음</td></tr>
+    <tr><td>수령 시 세금</td><td><span class="hl">연금소득세</span> (5.5%)</td><td>10년+ 유지 시 <span class="hl">비과세</span></td></tr>
+    <tr><td>일시금 수령</td><td>기타소득세 20%</td><td>이자소득세 (비과세 요건 미충족)</td></tr>
+  </table>
+</div>
+` },
+
+// ─── PAGE 27 ───
+{ title: '자주 틀리는 오답 포인트 총정리', part: '암기', partColor: '#059669', partBg: '#ecfdf5', qCount: '오답 유형 정리',
+  html: `
+<div class="wrong-box">네덜란드가 최초 판매한 변액보험 이름은 "프락션" — ✗ / 정확히는 "프랙션(Fraction)" 보험</div>
+<div class="wrong-box">변액보험은 손해보험회사에서도 판매 가능 — ✗ / 생명보험회사 전용 상품</div>
+<div class="wrong-box">특별계정에서 손실 발생 시 보험회사가 손실 보전 — ✗ / 자기책임 원칙 (계약자 전부 부담)</div>
+<div class="wrong-box">변액보험 청약철회 기간은 15일 — ✗ / 변액보험은 30일 (일반보험 15일과 다름)</div>
+<div class="wrong-box">변액보험 펀드 공시 수익률이 내 수익률 — ✗ / 사업비 등 차감 전 기준이므로 실제 수익률과 다름</div>
+<div class="wrong-box">변액보험 전부 예금자보호 대상 — ✗ / 약관에서 최저보증하는 부분만 보호</div>
+<div class="wrong-box">경영공시는 결산 후 1개월 이내 — ✗ / 3개월 이내</div>
+<div class="wrong-box">분기공시 기한은 3개월 — ✗ / 분기결산일로부터 2개월 이내</div>
+<div class="wrong-box">적합성 진단은 전문금융소비자에게도 반드시 해야 — ✗ / 일반금융소비자에게만 의무</div>
+<div class="wrong-box">보험료 납입 중지 시 계약이 자동 해지됨 — ✗ / 계약자적립금에서 보험료 자동 차감, 적립금 소진 시 실효</div>
+<div class="wrong-box">GMAB는 모든 변액보험에 의무 적용 — ✗ / 2016년 4월부터 계약자가 선택 (미보증형 선택 가능)</div>
+<div class="wrong-box">변액보험 비과세는 5년 이상 유지 시 — ✗ / 10년 이상, 월납 150만원 이하 등 요건 모두 충족 시</div>
+<div class="wrong-box">금융소득종합과세 기준금액은 1,000만원 초과 — ✗ / 2,000만원 초과</div>
+<div class="wrong-box">2024년 예금보호한도가 1억원으로 인상됨 — ✗ / 2025년 9월부터 1억원 (이전은 5,000만원)</div>
+<div class="wrong-box">사망과 고도장해는 같은 사유로 보험금 지급 — ✗ / 2011년 4월부터 분리. 사망 시에만 사망보험금 지급</div>
+` },
+
+// ─── PAGE 28 ───
+{ title: '변액보험 성공 3대 핵심요인과 도입 배경', part: '암기', partColor: '#059669', partBg: '#ecfdf5', qCount: '종합 정리',
+  html: `
+<div class="section">
+  <div class="section-title">1. 변액보험 성공의 3대 핵심요인</div>
+  <div class="grid-2">
+    <div class="mini-card">
+      <div class="mini-card-title">① 저금리·주가 상승 금융환경</div>
+      <div class="mini-card-body">낮은 금리 + 주식시장 활황 → 실적배당형 매력 상승</div>
+    </div>
+    <div class="mini-card">
+      <div class="mini-card-title">② 고객 요구에 부합하는 상품</div>
+      <div class="mini-card-body">다양한 펀드 선택권, 유연한 납입·인출, 보장+투자 결합</div>
+    </div>
+  </div>
+  <div class="mini-card mt" style="max-width:100%">
+    <div class="mini-card-title">③ 건전한 모집질서 확립</div>
+    <div class="mini-card-body">판매자 전문성·도덕성, 불완전판매 철저 배제 → 고객 신뢰 구축</div>
+  </div>
+</div>
+<div class="section">
+  <div class="section-title">2. 한국 변액보험 도입 배경 (4가지)</div>
+  <table class="content-table">
+    <tr><th>측면</th><th>내용</th></tr>
+    <tr><td>보험소비자</td><td>물가 상승 대응, 보험금 실질가치 보장 및 상품 선택권 확대</td></tr>
+    <tr><td>보험회사</td><td>역마진 등 <span class="hl">금리 리스크 관리</span>로 보험경영 안정성 증가</td></tr>
+    <tr><td>모집종사자</td><td>수입 증대 및 자격제도에 따른 <span class="hl">전문성 제고</span></td></tr>
+    <tr><td>국가경제</td><td>보험시장 건전성 + 자본시장 발전에 기여</td></tr>
+  </table>
+</div>
+<div class="section">
+  <div class="section-title">3. 변액보험 판매 윤리</div>
+  <ul class="content-list">
+    <li>장기투자 목적에 맞게 충분한 기간 유지 권유</li>
+    <li>투자 위험과 수익의 불확실성 반드시 설명</li>
+    <li>고객 성향에 맞는 펀드 권유 (적합성 진단 결과 기반)</li>
+    <li>수익률 예시 시 3가지 시나리오(-1%, 공시이율, 공시이율×1.5) 반드시 설명</li>
+    <li>보험설계사의 변액보험 판매 전 교육 이수 의무 강조</li>
+  </ul>
+</div>
+<div class="tip-box">변액보험은 "투자형 보험" — 판매 시 가장 중요한 것은 원금 손실 가능성과 장기투자 성격을 명확히 전달하는 것!</div>
+` },
+
+// ─── PAGE 29 ───
+{ title: '최종 핵심 키워드 암기노트', part: '암기', partColor: '#059669', partBg: '#ecfdf5', qCount: '시험 직전 키워드 총정리',
+  html: `
+<div class="section">
+  <div class="section-title">제1장 금융시장 핵심 키워드</div>
+  <div class="content-text">
+    <span class="hl">직접금융</span> = 증권회사 | <span class="hl">간접금융</span> = 은행<br>
+    <span class="hl">단기금융시장</span>: 콜·CP·CD·RP·MSB·단기사채 (만기 1년 미만)<br>
+    <span class="hl">채권가격 ↑ ↔ 금리(수익률) ↓</span><br>
+    <span class="hl">PER 낮을수록</span> 저평가 / <span class="hl">PBR 1 미만</span> = 주가 < 순자산<br>
+    금융소득종합과세 = <span class="hl">2,000만원 초과</span>
+  </div>
+</div>
+<div class="section">
+  <div class="section-title">제2장 생명보험 핵심 키워드</div>
+  <div class="content-text">
+    <span class="hl">대수의 법칙</span> + <span class="hl">수지상등의 원칙</span> = 보험 운영 기본 원리<br>
+    <span class="hl">10회 경험생명표</span> = 2024.4 시행 (남 86.3·여 90.7세)<br>
+    <span class="hl">영업보험료</span> = 순보험료(위험+저축) + 부가보험료<br>
+    <span class="hl">보장성</span> = 생존 수령 ≤ 납입 | <span class="hl">저축성</span> = 생존 수령 > 납입<br>
+    <span class="hl">해약환급금</span> = 계약자적립금 − 해약공제액<br>
+    <span class="hl">10년+ 유지·요건 충족</span> → 보험차익 비과세
+  </div>
+</div>
+<div class="section">
+  <div class="section-title">제3장 변액보험 핵심 키워드</div>
+  <div class="content-text">
+    <span class="hl">최초 판매</span>: 네덜란드 1952년 (프랙션 보험)<br>
+    <span class="hl">한국 최초</span>: 2001년 7월 변액종신보험<br>
+    <span class="hl">자기책임 원칙</span>: 투자 손실 = 계약자 부담<br>
+    <span class="hl">특별계정</span>: 일반계정과 분리, 매일 결산·평가<br>
+    <span class="hl">청약철회</span>: 30일 (일반보험 15일)<br>
+    <span class="hl">GMDB</span>=최저사망 | <span class="hl">GMAB</span>=최저연금적립금 | <span class="hl">GLWB</span>=종신중도인출<br>
+    <span class="hl">수익률 예시</span>: -1%, 평균공시이율, 평균공시이율×1.5배
+  </div>
+</div>
+<div class="section">
+  <div class="section-title">제4장 공시·판매준수·예금자보호 핵심 키워드</div>
+  <div class="content-text">
+    <span class="hl">경영공시</span>: 결산 후 3개월, 3년 유지 | 분기: 2개월<br>
+    <span class="hl">변액보험 계약관리</span>: 분기 1회 이상 제공<br>
+    <span class="hl">적합성</span>(권유 시) vs <span class="hl">적정성</span>(자기 선택 시)<br>
+    적합성 진단 보관: <span class="hl">10년</span><br>
+    <span class="hl">예금보호한도</span>: 2025.9~ <span class="hl">1억원</span><br>
+    변액보험 보호: <span class="hl">최저보증 부분만</span> (특별계정 운용분 제외)<br>
+    금소법 6대 원칙: 적합성·적정성·설명의무·불공정영업금지·부당권유금지·허위광고금지
+  </div>
+</div>
+` },
+
+// ─── PAGE 30 ───
+{ title: '마무리 — 합격을 위한 조언', part: '마무리', partColor: '#64748b', partBg: '#f1f5f9', qCount: '',
+  html: `
+<div class="highlight-section">
+  <div class="section-title">🎯 합격 전략</div>
+  <div class="content-text">변액보험판매자격시험은 암기보다 <span class="hl">개념 이해</span>가 중요합니다. 특히 자주 출제되는 영역을 집중 공략하세요.</div>
+</div>
+<div class="section">
+  <div class="section-title">출제 비중 높은 영역</div>
+  <table class="content-table">
+    <tr><th>영역</th><th>출제 비중</th><th>집중 포인트</th></tr>
+    <tr><td><span class="hl">제3장 변액보험의 이해</span></td><td>★★★★★</td><td>특별계정, 최저보증, 상품구조, 자산운용 옵션</td></tr>
+    <tr><td><span class="hl">제4장 판매준수·예금보호</span></td><td>★★★★★</td><td>적합성·적정성 원칙, 금지행위, 예금보호한도</td></tr>
+    <tr><td>제2장 생명보험의 이해</td><td>★★★★</td><td>보험료 구조, 세금혜택, 보험약관</td></tr>
+    <tr><td>제1장 금융시장의 이해</td><td>★★★</td><td>금융상품 분류, 채권·주식 기본개념, 세금</td></tr>
+  </table>
+</div>
+<div class="section">
+  <div class="section-title">마지막 점검 리스트</div>
+  <ul class="content-list">
+    <li>변액보험 청약철회 기간: <span class="hl">30일</span> (일반보험 15일과 구분)</li>
+    <li>특별계정 결산·평가: <span class="hl">매일</span> (일반계정은 매월/매년)</li>
+    <li>예금보호한도: <span class="hl">2025년 9월부터 1억원</span></li>
+    <li>변액보험 비과세: <span class="hl">10년+, 월 150만원 이하</span></li>
+    <li>적합성 진단 보관: <span class="hl">10년</span></li>
+    <li>최저연금 보증(GMAB): <span class="hl">2016.4~</span> 계약자 선택제</li>
+    <li>판매 전 교육: <span class="hl">4시간 이상</span> / 보수교육: 매년 4시간 이상</li>
+    <li>자기책임 원칙: 투자 손실은 <span class="hl">계약자 전부 부담</span></li>
+    <li>금소법 6대 판매원칙 — 적합성·적정성·설명·불공정금지·부당권유금지·허위광고금지</li>
+    <li>수익률 예시: <span class="hl">-1% / 평균공시이율 / 평균공시이율×1.5배</span> 3가지</li>
+  </ul>
+</div>
+<div class="tip-box">이 요약집을 3번 반복해서 읽고, 오답 포인트(27페이지)를 특히 집중 점검하세요. 반드시 합격할 수 있습니다! 💪</div>
+<div class="section">
+  <div class="section-title">시험 당일 팁</div>
+  <ul class="content-list">
+    <li>헷갈리는 문제는 체크 후 넘어가고 확실한 것부터 해결</li>
+    <li>"항상/반드시/모두"가 들어간 선지는 대부분 오답</li>
+    <li>수치(기간·비율·금액)는 가장 자주 바뀌는 출제 포인트 — 최신 교재 기준 확인</li>
+    <li>변액보험 vs 일반보험 차이점 문제 집중 체크</li>
+  </ul>
+</div>
+` },
+
+];
+
+// ─── APP LOGIC ───
+let currentPage = 0;
+const TOTAL = pages.length;
+
+function startApp() {
+  document.getElementById('cover').style.display = 'none';
+  document.getElementById('app').style.display = 'block';
+  renderPage(0);
+  window.scrollTo(0,0);
+}
+
+function goBack() {
+  document.getElementById('app').style.display = 'none';
+  document.getElementById('cover').style.display = 'flex';
+  window.scrollTo(0,0);
+}
+
+function renderPage(idx) {
+  currentPage = idx;
+  const p = pages[idx];
+  const pct = Math.round(((idx+1)/TOTAL)*100);
+  document.getElementById('nav-page-info').textContent = `${idx+1} / ${TOTAL}`;
+  document.getElementById('progress-fill').style.width = pct+'%';
+  document.getElementById('nav-percent').textContent = pct+'%';
+
+  let html = `
+  <div class="page-header">
+    <div class="part-chip" style="color:${p.partColor};background:${p.partBg}">${p.part}</div>
+    <h1 class="page-title-main">${p.title}</h1>
+    ${p.qCount ? `<div class="page-qcount">${p.qCount}</div>` : ''}
+  </div>
+  ${p.html}
+  <div class="page-nav">
+    <button class="nav-btn" onclick="changePage(${idx-1})" ${idx===0?'disabled':''}>← 이전</button>
+    <span class="page-indicator">${idx+1} / ${TOTAL}</span>
+    <button class="nav-btn primary" onclick="changePage(${idx+1})" ${idx===TOTAL-1?'disabled':''}>다음 →</button>
+  </div>`;
+
+  document.getElementById('page-container').innerHTML = html;
+
+  if(idx===0) {
+    const toc = document.getElementById('toc');
+    if(toc) {
+      pages.forEach((pg,i)=>{
+        if(i===0) return;
+        const d = document.createElement('div');
+        d.className='toc-item';
+        d.innerHTML=`<div class="toc-num">PAGE ${i+1}</div><div class="toc-name">${pg.title}</div>`;
+        d.onclick=()=>changePage(i);
+        toc.appendChild(d);
+      });
+    }
+  }
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function changePage(idx) {
+  if(idx<0||idx>=TOTAL) return;
+  renderPage(idx);
+}
+
+// scroll-to-top
+window.addEventListener('scroll', ()=>{
+  const btn = document.getElementById('scroll-top');
+  if(btn) btn.classList.toggle('visible', window.scrollY > 300);
+});
+</script>
+</body>
+</html>
